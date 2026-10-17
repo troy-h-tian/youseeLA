@@ -1,0 +1,231 @@
+# youseeLA implementation plan
+
+> Execution: use the executing-plans skill to implement task by task after team review. This document plans the work; it does not authorize spending or claim that data access is available.
+
+**Intent:** Deliver two equally complete Inglewood experiences: customers discover businesses in areas facing assessed pressure, and organizations investigate housing support needs, with numerical and visual evidence influencing both assessments.
+
+**Goal:** A runnable, demonstrable prototype with at least two adequately sampled areas (three if coverage permits), five to ten verified businesses, two explained vulnerability assessments, and useful action links.
+
+**Architecture:** Python collects and validates evidence, extracts observations using an existing vision model, computes transparent experimental scores, and exports one versioned JSON bundle. A React/TypeScript app consumes that bundle through a shared explorer with Business and Housing modes. Precomputed results keep model credentials and paid calls out of the browser and allow the full demo to work without a running backend.
+
+**Tech stack:** Python 3.11+, Pydantic, httpx, pytest; React, TypeScript, Vite, lightweight SVG geography, Vitest, and Playwright. Use current compatible versions when scaffolding and commit lockfiles. No database, Docker, Kubernetes, or mandatory cloud backend for the prototype.
+
+**Baseline:** Repository main at e2826a3 contains README.md, LICENSE, and the product plan; no application code. The user's last commit removed the draft label and machine-specific workspace line from the shared product plan. Preserve those edits. Existing local .gitignore is untracked and excludes .Codex/. Keep planning files there; do not commit them automatically.
+
+## Decisions and unresolved dependencies
+
+Settled: Inglewood, equal audiences, vulnerability ratings rather than customer stars, imagery influences both outputs, current experimental assessment rather than a closure/eviction forecast. Sponsor context also requires a small scalability evaluation.
+
+Proposed defaults: one app with two modes; Caden plus assistant own pipeline and models, teammate owns frontend; two required pilot areas, with a third only if coverage permits, aligned to Census tracts; 12–18 usable images across commercial and residential sites; five to ten business profiles. The original five-hour budget is a scheduling envelope, not a statement of remaining time.
+
+Required before real inference: Census access or downloaded CSV; usable dated imagery with permission and suitable coverage; selected vision provider, locally configured API key, and user-approved spend cap. No provider has been selected. Never invent a working token, assume paid access, or put keys into chat or browser code. Numeric preparation and frontend fixtures can proceed without vision access; a finished multimodal claim cannot.
+
+Important limitation: available housing indicators and selected visual observations are proxies, not validated measures of gentrification. Scores identify places to investigate under stated assumptions. No business distress or household vulnerability is inferred from an area's appearance.
+
+## Architecture
+
+```mermaid
+flowchart TD
+  A[ACS and tract boundaries] --> D[Validated evidence records]
+  B[Permitted dated commercial and residential images] --> C[Vision extraction and human review]
+  C --> D
+  D --> E[Housing assessment configuration]
+  D --> F[Commercial assessment configuration]
+  G[Verified businesses and tenant resources] --> H[Versioned public JSON bundle]
+  E --> H
+  F --> H
+  H --> I[Shared React area explorer]
+  I --> J[Business mode and support actions]
+  I --> K[Housing mode and organization resources]
+```
+
+## File ownership and structure
+
+Person A owns:
+- `pyproject.toml`, `src/youseela/__init__.py`, `src/youseela/cli.py`: package and explicit pipeline commands.
+- `src/youseela/contracts.py`: typed evidence and export models.
+- `src/youseela/sources/census.py`, `sources/geography.py`, `sources/imagery.py`: collection and source-specific validation.
+- `src/youseela/vision/provider.py`, `vision/extract.py`, `vision/prompts.py`: provider adapter, structured extraction, observation instructions.
+- `src/youseela/features.py`, `scoring.py`, `export.py`: feature derivation, transparent contributions, public bundle validation.
+- `config/assessment.json`, `data/curated/areas.geojson`, `images.json`, `businesses.json`, `resources.json`: reviewable configuration and provenance.
+- `src/youseela/benchmark.py`, `artifacts/scalability.json`, `docs/scalability.md`: reproducible performance harness, measurements, and concise results/limitations.
+- `tests/test_contracts.py`, `test_features.py`, `test_scoring.py`, `test_export.py`: high-impact correctness tests.
+
+Person B owns `web/`:
+- `package.json`, Vite/TypeScript configuration, `src/main.tsx`, `src/App.tsx`.
+- `src/data/types.ts`, `src/data/load.ts`: bundle contract and loading/error handling.
+- `src/components/ModeSwitch.tsx`, `AreaMap.tsx`, `AreaList.tsx`, `AssessmentPanel.tsx`, `EvidenceDrawer.tsx`.
+- `src/features/business/BusinessPanel.tsx`, `src/features/housing/HousingPanel.tsx`.
+- `src/styles.css`, `src/test/assessment.test.tsx`, `tests/journeys.spec.ts`.
+- `tests/scalability.spec.ts`: browser timings for labeled performance fixtures.
+- `public/data/demo.json`: generated production-shaped data; never hand-edit it after pipeline integration.
+
+Shared by explicit coordination: README.md, .gitignore, .env.example, data contract, and generated bundle. Keep `data/raw/`, private keys, temporary image caches, and .Codex/ out of Git. Publish only evidence/assets with confirmed distribution rights and proper attribution. Generated fixtures and real outputs must have distinct filenames and visible provenance flags.
+
+## Data contract before parallel work
+
+Bundle: `schema_version`, `generated_at`, `data_kind` (real or fixture), `methodology`, `areas`, `businesses`, `resources`, `evidence`.
+
+Area: stable tract GEOID, display label, boundary, indicator values with units and source periods, and separate `housing` and `commercial` assessments. Business: stable id, verified name/location, area id, source URL, verification date, supported local description, website and directions action. Do not include a synthetic customer rating.
+
+Assessment: `status` (rated or insufficient_evidence), `score` (0–100 or null), `tier` (lower/moderate/higher within this exploratory rubric, or null), feature contributions, warnings, evidence ids, configuration version, and observation coverage. Score is never called a percentage probability. A housing score may be unrated while the same area's commercial score is rated.
+
+Evidence: stable id, source URL, attribution/license, source or capture date, location, evidence type, reviewed flag, and bounded observations. Image observation is structured with `present`, `absent`, or `unclear`, visibility counts, and a short evidence-grounded description. Do not treat model-reported certainty as calibrated statistical confidence.
+
+Acceptance fixture: one fully rated area, one area with housing imagery missing but commercial evidence present, and one wholly unrated area. The UI must handle all three without assigning zeros to missing values.
+
+## Task 1 — Access and geography checkpoint (both, first 30 minutes)
+
+Files: `.env.example`, `.gitignore`, `data/curated/areas.geojson`, `images.json`; temporary investigation notes stay under `.Codex/`.
+
+- [ ] Confirm actual remaining time, person ownership, provider and approved API spend cap.
+- [ ] Confirm .Codex/, .env, data/raw/, image cache, node_modules/, Python environments, and build outputs are ignored. The already-tracked product plan remains tracked.
+- [ ] Obtain one real Census response or official CSV and inspect its variable labels and sentinel values.
+- [ ] Inspect official Census tract/place boundaries and select three tract-aligned pilot areas that intersect Inglewood. Label entire tracts, including any portion beyond the city; do not imply a tract value describes only a clipped city portion. Use matching boundary vintage/GEOIDs. Do not guess tract ids from neighborhood names.
+- [ ] Verify a licensed imagery source with commercial and residential coverage, capture dates and location metadata. Prefer recent imagery, provisionally within 36 months, and flag its gap from ACS periods. Source choice and date cutoff are documented before choosing favorable-looking images.
+- [ ] Inventory usable images for EVERY candidate area and both modes before locking the pilot: at least three spatially distinct reviewed locations and five assessable unique relevant frontages per area/mode, with dates and permissions. Also inventory supporting temporal/project evidence where redevelopment is proposed as a score feature. Select at least two adequately covered areas for the housing comparison; a third is optional. A single example image is not sufficient to pass this gate.
+- [ ] Demonstrate one permitted residential image and one commercial image can be analyzed through the chosen provider. Before this first paid call, start a local structured JSONL log recording request duration, model/provider, image count/resolution, usage if available, estimated or billed cost, retry outcome, and cache status; omit secrets and private payloads. Record response shape. This lightweight log is mandatory even during the feasibility spike so scalability measurements do not require repeated paid calls. Numerical trend access and scoring-context rules below must also be feasible before promising a rated demo.
+- [ ] Freeze one shared output contract and fixture. If this gate fails, continue independent UI/numerical work but do not label the full application complete. Revisit scope with the user instead of silently substituting Google screenshots or synthetic real-world evidence.
+
+Why: data access and relevant imagery are the critical path, not model complexity. Housing imagery must actually depict residential locations.
+
+## Task 2 — Skeleton and contract (both, next 20 minutes)
+
+Files: package manifests, `contracts.py`, `cli.py`, `web/src/data/types.ts`, `web/public/data/fixture.json`, `.env.example`.
+
+- [ ] Scaffold the small Python package and React/TypeScript app with lockfiles. Keep Python functions type hinted and modules focused.
+- [ ] Define Pydantic types using the fields above. Validate score bounds, required evidence ids, and the rule that insufficient evidence has a null score/tier.
+- [ ] Add `python -m youseela.cli validate <bundle>` and a fixture matching the three acceptance states. Agree on schema version 1; no independent frontend/backend renaming.
+- [ ] Build the mode switch and a plain loading/error/empty shell against the fixture with a persistent Demo fixture label.
+- [ ] Verify `python -m pytest tests/test_contracts.py -q` rejects an unrated area with a numeric score and dangling evidence references; `npm --prefix web run build` succeeds.
+
+Why: both people can build independently against the same contract rather than discovering integration differences at the deadline.
+
+## Task 3 — Numerical and curated evidence (Person A, 30–40 minutes)
+
+Files: `sources/census.py`, `sources/geography.py`, `features.py`, curated businesses/resources, `tests/test_features.py`.
+
+- [ ] Fetch the chosen ACS five-year vintage for Los Angeles County tracts (state 06, county 037), then select verified pilot GEOIDs. Start with 2024 if accessible; record actual vintage and exact source queries.
+- [ ] Inspect table definitions: B25070 rent as share of income, B25003 tenure, B25064 median gross rent, and B19013 median household income. Retain margins of error where available.
+- [ ] Compute rent-burden share from households paying at least 30% using B25070_007E through _010E over B25070_001E minus _011E, after verifying labels. Do not divide median rent by median income and call that household rent burden.
+- [ ] Compute renter share as B25003_003E / B25003_001E. Treat zero denominators, suppressed values, negative sentinels, inconsistent counts and missing values as unavailable, not zero. Retain raw counts for audit.
+- [ ] Obtain a second compatible vintage for rent and income context, provisionally ACS 2021 versus 2024 after verifying matching tract definitions. These five-year windows overlap: label the comparison as a descriptive change in pooled estimates, not independent annual observations or a forecast. Do not silently substitute geographically incompatible vintages.
+- [ ] Calculate the difference between proportional median-rent change and proportional household-income change. It is an area affordability-change proxy, not a change in the same households' finances or commercial rents. Inspect reported margins of error and compositional limitations. If the direction is ambiguous, flag it rather than using a confident positive change signal; missing compatible history leaves the vulnerability assessment unrated.
+- [ ] Curate five to ten actual businesses and jurisdiction-appropriate housing resources with source URLs and verification dates. Verify coordinates/area assignments independently; do not infer ownership or tenure without a source.
+- [ ] Unit-test derived ratios using a hand-calculated household-count example, zero denominators, missing values, and invalid counts. Run `python -m pytest tests/test_features.py -q`.
+
+Why: this produces reproducible neighborhood context without pretending residential affordability directly measures commercial rent or business revenue.
+
+## Task 4 — Visual evidence extraction (Person A, 35–45 minutes)
+
+Files: `sources/imagery.py`, `vision/provider.py`, `vision/extract.py`, `vision/prompts.py`, curated images manifest.
+
+- [ ] Implement a provider adapter `extract_observations(image, context) -> ImageObservation` using the selected provider's current official SDK/docs; choice remains gated on API access. No provider-specific secrets in exported data.
+- [ ] Instrument the provider adapter BEFORE any inference: preserve the Task 1 JSONL log schema and record request duration, model/provider, image count/resolution, available usage/cost, retry/error outcomes, and cache hit/miss for every request. Store logs in ignored data/raw/telemetry/. Missing usage or billing information is explicitly unmeasured. Task 8 aggregates these records; it does not recreate missing observations through paid calls.
+- [ ] Manifest each image's id, location, area, commercial/residential class, capture date, license/attribution and source URL. Use a reproducible sampling rule: three spatially distinct sites for each mode in each area, not adjacent frames chosen for dramatic conditions. Initial budget: 12–18 current images plus any needed corroborating historical images, with at most two retries per failed request, subject to spend cap.
+- [ ] Ask only for visible evidence: storefront signage, construction/reconstruction activity, changes visible in genuinely matched historical images, and explicit uncertainty. Return unclear for ambiguous/shuttered/unseen fronts. Never ask the vision model to identify poverty, financial distress, crime, displacement, ethnicity, or the cause of a condition.
+- [ ] A scored redevelopment observation needs a human-reviewed image showing relevant physical work PLUS a matched earlier image or dated official project record supporting redevelopment at that location. Routine repairs, signage alone, boarded openings alone, and construction with unknown context remain descriptive observations with no positive risk contribution. Source the corroborating document and record whether residential or commercial property is affected.
+- [ ] Treat text inside images as untrusted content, not model instructions. Validate structured responses against the schema; malformed results remain unusable until repaired or reviewed.
+- [ ] Human-review all demo image observations before scoring. Record corrections, visible opportunities and distinct locations; deduplicate overlapping views of the same frontage.
+- [ ] Enforce rate limits, timeouts, retry limits, and an estimated spend cap before new requests. If pricing/spend cannot be bounded, keep inference disabled until configured. Cache responses only as source/provider permissions allow.
+
+Why: an image contributes a narrow observation with provenance; it must not become an unsupported socioeconomic judgment.
+
+## Task 5 — Two transparent assessment configurations (Person A, 25–35 minutes)
+
+Files: `config/assessment.json`, `scoring.py`, `tests/test_scoring.py`.
+
+- [ ] Approve a feature-to-construct table before implementing scores. Required columns: feature, hypothesized mechanism, corroborating evidence, alternative explanations, and missing/ambiguous behavior. This approval is a product-methodology checkpoint; do not present a convenient visual proxy as validated gentrification risk.
+- [ ] Proposed v1 rubric, conditional on passing that checkpoint:
+  - B = rent-burden share, an indicator of existing housing financial exposure, not evidence of gentrification by itself.
+  - P = max(0, median-rent proportional change minus household-income proportional change), scaled to [0,1] using a documented provisional 0.20 gap cap. This measures a descriptive affordability-change proxy; the cap is a subjective scaling choice. Compatible periods/geography and a positive direction interpretable given source uncertainty are required for a positive P. Ambiguous direction makes P unavailable rather than falsely precise.
+  - Vh and Vc = proportions of sampled relevant residential/commercial frontages with human-reviewed, independently corroborated redevelopment observations. Eligible observations require both visible physical work and a matched past image or official project record. They capture concurrent physical change, not whether the change harms residents or businesses. A clearly assessable site with no observed eligible activity is 0; ambiguous activity/context is unavailable.
+  - Proposed housing score = 100 * (0.60*B + 0.25*P + 0.15*Vh*P).
+  - Proposed commercial-area score = 100 * (0.30*B + 0.50*P + 0.20*Vc*P).
+  - Imagery modifies the result only in conjunction with affordability-change evidence; construction by itself adds no risk. B alone cannot produce a gentrification rating: all required P and visual-coverage fields must be available. Housing context in the commercial score is explicitly a neighborhood proxy, not commercial-rent or business-financial evidence.
+  - Alternative interpretations remain visible: new supply may improve affordability, redevelopment may be beneficial, and household composition may change median income. The weights and direction are unvalidated assumptions for prioritizing investigation, not causal or predictive findings. If the team cannot defend this interpretation or source its corroboration, leave areas unrated and revisit the claim with the user. Do not quietly replace it with vacancy or boarded-window scoring.
+- [ ] Require three distinct reviewed locations and at least five assessable unique relevant frontages per area/mode, with dated permitted images and available numerical inputs. These thresholds are operational safeguards, not statistical representativeness. If evidence is inadequate return null/insufficient_evidence; never reweight missing features silently.
+- [ ] Use provisional fixed bands: below 33 lower, 33 to below 67 moderate, 67+ higher under this rubric. Do not force one area into each band. Display score, contributions, small-sample warning and capture dates, and avoid implying citywide calibration.
+- [ ] Show each contribution as the exact weighted term above (including the P interaction for visual evidence), with raw numerator/denominator and evidence ids. Deterministic explanation templates are enough; no additional paid LLM is needed.
+- [ ] Test hand-calculated scores; missing image/numeric gates; duplicate views; image-only change without affordability corroboration yielding no positive risk increment; ambiguous redevelopment remaining unrated; separate housing/commercial statuses; boundary bands; and changes to a relevant visual feature altering only intended contributions.
+- [ ] Run a weight-sensitivity check (+/-20% relative per weight then renormalize), record whether area ordering changes, and mark unstable comparisons. Compare numerical-only/image-only/full outputs for sensitivity, not accuracy or validated benefit.
+
+Why: the combination is inspectable and imagery really influences both outputs. The rubric is an experimental vulnerability proxy and must be described that way in the pitch. If the team rejects these proxies, revise the rubric before implementing; do not quietly claim a gentrification predictor.
+
+## Task 6 — Shared explorer and both workflows (Person B, about 90 minutes)
+
+Files: shared components, `BusinessPanel.tsx`, `HousingPanel.tsx`, `styles.css`, UI tests.
+
+- [ ] Build a mobile-friendly layout: mode switch, area list/map, assessment summary, factors, evidence drawer, and mode-specific actions. Use local SVG tract geometry with a simple geographic projection; a tile basemap is optional and must not block the app.
+- [ ] Keep selection by stable area id. Switching modes preserves the selected area but changes score, evidence filtering and action panel. Area list sorts rated areas by mode score and puts unrated entries separately; identical scores get a stable name/id tie-break.
+- [ ] Business mode shows area commercial vulnerability, five to ten sourced business cards, why each appears, and website/directions actions. Label the rating as area context, never individual business failure risk. No review stars.
+- [ ] Housing mode supports side-by-side comparison of two areas' housing factors, sources, coverage, and locally applicable tenant resources. Provide a copyable evidence summary for follow-up; it is not an aid-eligibility decision.
+- [ ] Evidence drawer exposes source/capture dates, attribution, image observations and corrections. Images failing to load do not hide textual evidence or imply current verification.
+- [ ] Implement keyboard-operable controls, non-color-only rating labels, readable mobile layout, loading/error/empty states, and an unrated state with a specific reason. Both modes get equal navigation prominence.
+- [ ] Run `npm --prefix web run test -- --run` for mode switching, null score display, area-context labels, and evidence filtering. Avoid tests that merely mirror markup.
+
+Why: one reusable interface keeps two audiences achievable while making the distinction between area context and individual business claims visible.
+
+## Task 7 — Export, integrate and verify evidence (both, 35–45 minutes)
+
+Files: `export.py`, `web/public/data/demo.json`, `src/data/load.ts`, `test_export.py`.
+
+- [ ] Export only reviewed evidence and validated scores with `data_kind=real`; unresolved data remains explicitly absent. Use source-backed citations and licensed image references/assets. Keep raw API responses, secrets and private identifiers out of the public bundle.
+- [ ] Validate every business area reference, every assessment evidence id, both mode objects, bounded scores, missing-data reasons and source dates. Fail export on schema/provenance errors rather than silently deleting evidence.
+- [ ] Connect frontend to the real bundle and keep a separate explicitly labeled fixture option for development. Do not display fixture metrics as real during the demo.
+- [ ] Proposed CLI: `python -m youseela.cli build --config config/assessment.json --output web/public/data/demo.json`; `python -m youseela.cli validate web/public/data/demo.json`. These commands are to be implemented, not existing tools.
+- [ ] Test export strips credentials and rejects dangling evidence or wrong area ids. Review final JSON and browser-visible labels manually.
+
+Why: this is the handoff where provenance, missing data, and score interpretation must survive into the actual UI.
+
+## Task 8 — Small scalability evaluation (split ownership, 15–20 minutes alongside final checks)
+
+Files: `src/youseela/benchmark.py`, `web/tests/scalability.spec.ts`, `artifacts/scalability.json`, `docs/scalability.md`; synthetic fixtures stay under ignored `data/raw/benchmark/`.
+
+- [ ] Person A builds a deterministic seeded generator producing 10, 100 and 1,000 valid synthetic area records with BOTH assessments and representative evidence counts. Include rated and missing-evidence cases. Label every record/output as a performance fixture; never mix it into the public real-data demo.
+- [ ] Implement `python -m youseela.benchmark --sizes 10,100,1000 --runs 10 --output artifacts/scalability.json`. After a warm-up, time scoring and JSON export separately using a monotonic high-resolution timer. Record median/max wall time, records/second, output bytes, errors, Python version, configuration, and machine details. Ensure all results are consumed and validated so the benchmark cannot accidentally time a no-op.
+- [ ] Person B measures initial render, mode switching and area selection on the real pilot bundle plus 100- and 1,000-area synthetic bundles. Use the same browser/viewport and three repetitions, reporting median/max and dataset/business/image-reference counts. Use lazy image loading with controlled local images for structural UI tests; report that this excludes provider/network image-delivery performance. Add performance marks from action start until updated content is rendered. Measure in a production build, not the development server.
+- [ ] Implement a Playwright command `npm --prefix web run test:scalability` that starts a local production preview and loads labeled benchmark fixtures through a test-only fixture route/config. Do not ship the benchmark route as the normal app path. Record browser version, hardware, measurement definitions and bundle bytes.
+- [ ] Reuse logs from the real permitted pilot image calls: record uncached request duration, model/provider, image count/resolution, token usage where supplied, pricing date, estimated versus billed cost, retries/errors, and cached rerun duration/hit count. Never log API keys or full private payloads. Do not repeat paid calls merely to fill a benchmark table. If usage/pricing is unavailable, report cost as unmeasured.
+- [ ] Project cost for 10, 100 and 1,000 areas using the observed mean cost per image times the configured images per area (initial assumption six current images, plus any corroborating historical images). State image mix, failure/retry assumptions, and unchanged-provider/pricing assumptions. Any runtime extrapolation must specify concurrency/quota assumptions; do not present it as measured throughput.
+- [ ] Report observed bottlenecks and one targeted improvement. Candidate fixes only if measurements justify them: cache allowed extracted observations, use bounded background workers for inference, paginate business/area lists, or simplify geometry. Do not introduce distributed infrastructure for the evaluation itself.
+- [ ] Publish a small table in `docs/scalability.md` with dataset size, scoring/export median/max, bytes, UI timings, and measured pilot image cost; keep projected API costs in a separate table. Note that fixtures test throughput, not model validity, imagery availability, human review capacity, or citywide readiness. Record commit/config and commands for reproduction.
+
+Why: precomputed demo results make the UI fast but hide ingestion/model cost. Separate measurements reveal what grows with areas and images without spending the hackathon budget on artificial API load. There is no invented scalability SLA: report what was measured, including failures and unmeasured items.
+
+## Task 9 — End-to-end validation and delivery (both, final 45–60 minutes)
+
+Files: `web/tests/journeys.spec.ts`, README.md, deployment configuration only if needed. Run the small Task 8 benchmark in parallel with the first portion of these final checks.
+
+- [ ] Run `python -m pytest -q`, frontend tests, and `npm --prefix web run build` once after integration. Fix substantive failures; do not add broad unrelated test suites.
+- [ ] Start the app and exercise Business: select area -> inspect commercial score -> open evidence -> inspect business -> follow verified support action.
+- [ ] Exercise Housing: select same area -> view different housing assessment -> compare another area -> inspect residential evidence -> open appropriate tenant resource.
+- [ ] Exercise partial evidence and failed images; confirm neither mode turns missing data into low vulnerability. Test mobile layout and keyboard navigation. Playwright uses local fixtures for deterministic regressions; manually verify the real-data flow too.
+- [ ] Demonstrate image influence by changing one reviewed test observation in an isolated fixture, rebuilding, and observing the predicted score contribution change. Restore production bundle; never falsify real observations to make this demo.
+- [ ] Check each external business/resource link; inspect the deployed or local build for secrets, raw prompts, fixture labels masquerading as facts, and accidental individual-risk claims.
+- [ ] Deploy the static build through an available team account if authorized, otherwise deliver a reliable local preview with `npm --prefix web run preview -- --host 127.0.0.1`. Hosting remains a choice, not a reason to introduce GCP/Kubernetes under this deadline.
+- [ ] README explains setup, required environment-variable names, data-generation commands, both workflows, methodology, image licensing, scalability reproduction/results, and limitations. Rehearse a two-minute story giving both audiences time.
+
+Why: completion means real users can follow both journeys with traceable evidence, not just that the model script executes.
+
+## Integration and schedule
+
+First 30 minutes: jointly prove full pilot coverage, compatible numerical history and corroborating evidence, approve the feature-to-construct rubric, and agree on the contract. Next roughly 2 hours: A handles data/vision/scoring; B builds both modes. Next 45–60 minutes: real integration and evidence review. Reserve the remaining 45–60 minutes for end-to-end checks and presentation, including 15–20 minutes of scalability work split between the two people. If time has shrunk, reduce from three areas to two and reduce business count while preserving adequate coverage and both modes; never silently drop imagery or housing.
+
+Use separate Git branches and explicit file ownership. Person A exports the real bundle; Person B does not edit it manually. Commit small coherent product changes with normal human messages, no AI attribution. Fetch before integration and preserve teammate changes. Do not push .Codex/ plans or secrets. The user-requested tracked product plan is an explicit exception to scratch-file exclusion.
+
+## Definition of Done
+
+Both audiences can complete their intended journey with actual, reviewable evidence. Each assessment consumes relevant images and numerical inputs, exposes contributions and limitations, and handles insufficient coverage honestly. Every business recommendation distinguishes area context from business-specific knowledge. Real outputs, source dates, resource jurisdictions, image permissions, and the experimental nature of the rubric are visible. No fabricated reviews, predictions, accuracy claims, or hidden model credentials. The app is reliably runnable and the data generation process is documented. A reproducible small scalability evaluation reports measured scoring/UI behavior and available pilot API timing/cost, separates projections from observations, and identifies bottlenecks and unmeasured limits.
+
+## Sources to consult during implementation
+
+- Product specification: `Rooted-LA-Project-Plan.txt` at synced commit e2826a3.
+- ACS datasets: https://www.census.gov/data/developers/data-sets/acs-5year.html
+- ACS variable groups: https://api.census.gov/data/2024/acs/acs5/groups/.html
+- Census developer/API access: https://www.census.gov/data/developers.html
+- Mapillary developer resources: https://help.mapillary.com/hc/en-us/categories/17361771500956-Mapillary-for-Developers
+- Mapillary licensing: https://help.mapillary.com/hc/en-us/articles/115001770409-CC-BY-SA-license-for-open-data
+- Google Maps restrictions: https://cloud.google.com/maps-platform/terms
+
+No code, paid resources, credentials, or image access have been provisioned by writing this plan.

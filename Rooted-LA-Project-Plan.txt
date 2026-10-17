@@ -13,6 +13,8 @@ explainable assessments that combine numerical data with visual evidence.
 Businesses and housing tenants are equal product priorities.
 
 CONFIRMED DECISIONS
+- Sponsor context: include a small scalability evaluation covering runtime,
+  responsiveness, and model/API cost as the number of areas and images grows.
 - Businesses and housing tenants are equal focuses, although different aspects of the data will
 contribute more or less to each type of prediction. housing- or neighbourhood-level predictions
 will be targeted to nonprofits and grassroots orgs in the eventual UI, while businesses
@@ -97,6 +99,32 @@ A future validated prediction project would require labeled outcomes, suitable
 held-out evaluation, and evidence that imagery improves performance. That is
 outside this prototype's agreed target.
 
+SCALABILITY EVALUATION — REQUIRED HACKATHON DELIVERABLE
+Run a small reproducible evaluation, not just a claim that the architecture
+can scale. Include scoring throughput, frontend responsiveness, and image-
+analysis latency/cost. Save results and assumptions for the presentation.
+
+- Measure scoring/export at 10, 100, and 1,000 synthetic area records with both
+  assessments, using a fixed seed and repeated runs. Label these as performance
+  fixtures, not real locations or evidence of model validity.
+- Measure frontend load, mode switch, and area selection on a small demo bundle
+  and larger synthetic bundles. Record record counts, bundle size, browser,
+  machine, and measurement method. Report medians and maxima for small samples.
+- Reuse real pilot image-analysis requests to record uncached latency, usage,
+  billed or estimated cost, failures, and cached rerun behavior. Do not generate
+  extra paid requests just to simulate scale without budget authorization.
+- Project image/API cost for 10, 100, and 1,000 areas from measured usage and
+  the explicit assumed images per area. Separate measurements from projections,
+  state provider/pricing date, and note quotas and concurrency assumptions.
+- Identify the first observed bottleneck and one concrete next improvement,
+  such as caching permitted results, bounded background jobs, or paginating
+  large lists. Precomputed browser results do not prove ingestion scales.
+- State that large-scale imagery coverage, licensing, human review effort, and
+  the accuracy/validity of assessments are not established by this benchmark.
+
+Deliver a concise table of results plus a reproducible command and limitations.
+Do not invent numbers; an unavailable measurement is explicitly unmeasured.
+
 DATA STRATEGY
 - Census ACS for tract-level housing/economic context. Check periods, margins
   of error, missing values, and geographic boundaries. Do not treat overlapping
@@ -140,7 +168,10 @@ Use explicitly labeled fixtures while real outputs are being prepared.
 uses relevant imagery, dates and locations match, commercial and housing rating labels are distinct,
 and incomplete evidence is visible. Cut decoration before cutting either mode.
 
-3:45–5:00 / Both: exercise both complete user journeys, prepare deployment or a
+3:45–4:05 / Split: run the compact scalability benchmark and record pilot API
+usage/cost while the other teammate starts end-to-end checks.
+
+4:05–5:00 / Both: finish both complete user journeys, prepare deployment or a
 reliable local demonstration, and rehearse. Give each mode meaningful demo time.
 Freeze new features. Avoid further scope expansion if the budget has shrunk.
 
@@ -167,6 +198,8 @@ DEFINITION OF DONE
 - No invented reviews, business distress, tenant vulnerability, causal claims,
   future outcomes, or performance. Assessments are labeled experimental.
 - Both end-to-end journeys run reliably in the demo.
+- A reproducible scalability evaluation reports measured scoring/UI behavior,
+  available image/API timing and cost, clearly labeled projections, and limits.
 
 OPEN DECISIONS AND DEPENDENCIES
 1. Define the specific vulnerability indicators, provisional weighting,
