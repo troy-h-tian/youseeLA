@@ -157,7 +157,7 @@ function EvidenceItem({ item }: { item: Evidence }) {
           {item.observations.map((o) => (
             <li key={o.feature}>
               <span className={`obs obs--${o.status}`}>{STATUS_LABEL[o.status]}</span> <strong>{o.label}</strong>
-              {o.visible_count > 0 && <span className="muted"> · {o.visible_count} visible</span>}
+              {o.visible_count !== null && o.visible_count > 0 && <span className="muted"> · {o.visible_count} visible</span>}
               <span className="obs__desc">{o.description}</span>
             </li>
           ))}

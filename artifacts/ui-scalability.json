@@ -1,0 +1,146 @@
+{
+  "label": "UI performance measurements on labeled fixtures; not evidence of model validity.",
+  "measured_at": "2026-10-17T19:17:55.246Z",
+  "commit": "33e07bd",
+  "command": "npm --prefix web run test:scalability",
+  "repetitions": 3,
+  "definitions": {
+    "initial_render": "Navigation start until the first paint after the loaded bundle is committed (includes fetch, JSON parse, validation and render).",
+    "mode_switch": "Business → Housing tab click handler until the first macrotask after the next animation frame following the React commit.",
+    "area_select": "Area list click handler until the first macrotask after the next animation frame following the React commit.",
+    "exclusions": "Images load lazily from a controlled local route and only inside the evidence drawer; provider/network image delivery is not measured."
+  },
+  "environment": {
+    "browser": "chromium 156.0.8078.4",
+    "viewport": "1280x800",
+    "build": "vite production build served by vite preview",
+    "os": "darwin 25.6.0 arm64",
+    "cpu": "Apple M4 Max",
+    "cpu_count": 14,
+    "memory_gb": 36,
+    "node": "v22.20.0"
+  },
+  "app_asset_bytes": {
+    "index-BkWjwxHL.css": 10524,
+    "index-lAn8JP7Q.js": 251403
+  },
+  "results": [
+    {
+      "dataset": "pilot (real)",
+      "source": "public/data/demo.json",
+      "data_kind": "real",
+      "counts": {
+        "areas": 30,
+        "businesses": 5,
+        "evidence": 60,
+        "image_references": 0
+      },
+      "bundle_bytes": 428810,
+      "initial_render": {
+        "median_ms": 61.5,
+        "max_ms": 64.2,
+        "runs_ms": [
+          64.2,
+          61.5,
+          61.1
+        ]
+      },
+      "mode_switch": {
+        "median_ms": 22.6,
+        "max_ms": 23.2,
+        "runs_ms": [
+          20.3,
+          23.2,
+          22.6
+        ]
+      },
+      "area_select": {
+        "median_ms": 15.2,
+        "max_ms": 15.5,
+        "runs_ms": [
+          14.8,
+          15.2,
+          15.5
+        ]
+      }
+    },
+    {
+      "dataset": "synthetic-100",
+      "source": "tests/support/synthetic.ts (seed 20261017)",
+      "data_kind": "fixture",
+      "counts": {
+        "areas": 100,
+        "businesses": 100,
+        "evidence": 700,
+        "image_references": 600
+      },
+      "bundle_bytes": 698714,
+      "initial_render": {
+        "median_ms": 78.7,
+        "max_ms": 80,
+        "runs_ms": [
+          78.7,
+          80,
+          76
+        ]
+      },
+      "mode_switch": {
+        "median_ms": 22.4,
+        "max_ms": 23,
+        "runs_ms": [
+          23,
+          22.4,
+          22.3
+        ]
+      },
+      "area_select": {
+        "median_ms": 15.1,
+        "max_ms": 15.9,
+        "runs_ms": [
+          15.1,
+          15,
+          15.9
+        ]
+      }
+    },
+    {
+      "dataset": "synthetic-1000",
+      "source": "tests/support/synthetic.ts (seed 20261017)",
+      "data_kind": "fixture",
+      "counts": {
+        "areas": 1000,
+        "businesses": 1000,
+        "evidence": 7000,
+        "image_references": 6000
+      },
+      "bundle_bytes": 6996529,
+      "initial_render": {
+        "median_ms": 328.8,
+        "max_ms": 339.6,
+        "runs_ms": [
+          327.6,
+          328.8,
+          339.6
+        ]
+      },
+      "mode_switch": {
+        "median_ms": 51.8,
+        "max_ms": 55.2,
+        "runs_ms": [
+          55.2,
+          50.9,
+          51.8
+        ]
+      },
+      "area_select": {
+        "median_ms": 14.5,
+        "max_ms": 14.5,
+        "runs_ms": [
+          14.5,
+          14.4,
+          14.5
+        ]
+      }
+    }
+  ]
+}

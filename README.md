@@ -30,4 +30,16 @@ python -m pytest -q
 
 Configuration lives in `config/assessment.json`. Images affect scores through a corroborated physical-change feature combined with numerical affordability pressure. Missing or ambiguous evidence produces an unrated result. Housing context does not establish an individual business's financial condition.
 
-Credentials belong in an ignored `.env` file copied from `.env.example`. Live image analysis also requires an explicitly selected model, source permissions, and a positive budget reservation. Raw images, API responses, and credentials stay outside version control. The frontend is a separate teammate-owned integration.
+Credentials belong in an ignored `.env` file copied from `.env.example`. Live image analysis also requires an explicitly selected model, source permissions, and a positive budget reservation. Raw images, API responses, and credentials stay outside version control. The integrated React explorer lives in `web/`.
+
+## Run the explorer
+
+```sh
+python -m youseela.cli web-export
+npm ci --prefix web
+npm --prefix web run dev -- --host 127.0.0.1
+```
+
+Open the printed local URL for real data. Append `?data=fixture` only for the visibly labeled synthetic score demonstration. The real data supports business discovery and housing context; it does not yet support vulnerability rankings.
+
+For production verification, run `npm --prefix web run build`. Browser tests require `cd web && npx playwright install chromium` once; then run `npm --prefix web run test:e2e` from the repository root.

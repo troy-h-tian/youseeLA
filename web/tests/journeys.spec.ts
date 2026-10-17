@@ -105,3 +105,19 @@ test('missing real bundle shows an error that points to the labeled fixture', as
   await expect(page.getByRole('alert')).toContainText('data/demo.json returned HTTP 404');
   await expect(page.getByRole('link', { name: /labeled demo fixture/ })).toHaveAttribute('href', '?data=fixture');
 });
+
+test('real pipeline: business actions, missing ratings, Census evidence and housing resources', async ({ page }) => {
+  await page.goto('?data=demo');
+  await page.getByRole('navigation').getByRole('button', { name: /Tract 06037601001/ }).click();
+  const assessment = page.locator('section.assessment');
+  await expect(assessment).toContainText('Unrated: insufficient evidence');
+  const business = page.getByRole('listitem', { name: "Dulan's Soul Food Kitchen" });
+  await expect(business.getByRole('link', { name: /Visit website/ })).toHaveAttribute('href', 'https://www.dulans-sfk.com/');
+  await assessment.getByRole('button', { name: /View commercial evidence/ }).click();
+  const drawer = page.getByRole('dialog', { name: 'Commercial evidence' });
+  await expect(drawer).toContainText('U.S. Census Bureau');
+  await drawer.getByRole('button', { name: 'Close' }).click();
+  await page.getByRole('tab', { name: /Housing support/ }).click();
+  await expect(page.getByRole('heading', { name: 'Housing area vulnerability' })).toBeVisible();
+  await expect(page.getByRole('link', { name: /Housing Protection/ })).toBeVisible();
+});

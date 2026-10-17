@@ -36,6 +36,9 @@ def parser() -> argparse.ArgumentParser:
     validate.add_argument("bundle", type=Path)
     schema = sub.add_parser("schema", help="Export the shared public JSON Schema")
     schema.add_argument("--output", type=Path, default=Path("contracts/bundle.schema.json"))
+    web = sub.add_parser("web-export", help="Adapt a validated pipeline bundle for the React explorer")
+    web.add_argument("--input", type=Path, default=Path("data/exports/demo.json"))
+    web.add_argument("--output", type=Path, default=Path("web/public/data/demo.json"))
     build = sub.add_parser("build", help="Score a curated input dataset and export a public bundle")
     build.add_argument("--input", type=Path, default=Path("data/curated/dataset.json"))
     build.add_argument("--config", type=Path, default=Path("config/assessment.json"))
@@ -82,6 +85,11 @@ def run(args: argparse.Namespace) -> None:
     elif args.command == "schema":
         write_json(Bundle.model_json_schema(), args.output)
         print(f"Wrote schema to {args.output}")
+    elif args.command == "web-export":
+        from youseela.web_export import to_web_bundle
+        bundle = Bundle.model_validate_json(args.input.read_text())
+        write_json(to_web_bundle(bundle), args.output)
+        print(f"Exported {bundle.data_kind} explorer data -> {args.output}")
     elif args.command == "build":
         dataset = Dataset.model_validate_json(args.input.read_text())
         bundle = build_bundle(dataset, load_config(args.config), args.as_of)

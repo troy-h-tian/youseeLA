@@ -196,6 +196,7 @@ export interface ImageObservation {
   feature: string;
   label: string;
   status: ObservationStatus;
-  visible_count: number;
+  /** Null when the source records status but no measured object count. */
+  visible_count: number | null;
   description: string;
 }

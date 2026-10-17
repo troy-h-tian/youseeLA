@@ -45,6 +45,7 @@ Collect at least three sites separated by 25 meters and five assessable unique f
 ```sh
 python -m youseela.cli build
 python -m youseela.cli validate data/exports/demo.json
+python -m youseela.cli web-export
 python -m pytest -q
 python -m youseela.benchmark --sizes 10,100,1000 --runs 10 --output artifacts/scalability.json
 ```
