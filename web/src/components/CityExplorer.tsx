@@ -14,6 +14,7 @@ import { rampColor, UNRATED_COLOR, type Lens } from '../lib/outlook';
 import { NumericalContext } from './NumericalContext';
 import { EvidenceDrawer } from './EvidenceDrawer';
 import { HistoricalComparison } from './HistoricalComparison';
+import { ScalePanel } from './ScalePanel';
 import { BusinessPanel } from '../features/business/BusinessPanel';
 import { HousingPanel } from '../features/housing/HousingPanel';
 import { shortArea } from '../lib/city';
@@ -33,7 +34,9 @@ export function CityExplorer({ bundle }: { bundle: Bundle }) {
   const [compareId, setCompareId] = useState<string | null>(null);
   const [evidenceOpen, setEvidenceOpen] = useState(false);
   const [photosOpen, setPhotosOpen] = useState(false);
+  const [scaleOpen, setScaleOpen] = useState(false);
   const photoDialog = useRef<HTMLDialogElement>(null);
+  const scaleDialog = useRef<HTMLDialogElement>(null);
   const searchRef = useRef<HTMLInputElement>(null);
   const panelRef = useRef<HTMLElement>(null);
   const area = bundle.areas.find(a => a.id === selectedId);
@@ -64,6 +67,10 @@ export function CityExplorer({ bundle }: { bundle: Bundle }) {
     if (photosOpen) photoDialog.current?.showModal();
     else photoDialog.current?.close();
   }, [photosOpen]);
+  useEffect(() => {
+    if (scaleOpen) scaleDialog.current?.showModal();
+    else scaleDialog.current?.close();
+  }, [scaleOpen]);
   const showResults = browsing || query.length > 0;
 
   return <main className="city-explorer">
@@ -71,7 +78,10 @@ export function CityExplorer({ bundle }: { bundle: Bundle }) {
     <header className="city-header">
       <a className="city-brand" href="?data=demo" aria-label="youseeLA home"><span className="brand-symbol" aria-hidden="true">y.</span><span>yousee<span className="brand-la">LA</span><small>A closer look at your city.</small></span></a>
       <div className="city-location"><span className="location-dot" /> INGLEWOOD, CA</div>
-      <button className="photo-button" onClick={() => setPhotosOpen(true)}>Street stories <span aria-hidden="true">↗</span></button>
+      <div className="header-actions">
+        <button className="photo-button" onClick={() => setScaleOpen(true)}>Scale <span aria-hidden="true">↗</span></button>
+        <button className="photo-button" onClick={() => setPhotosOpen(true)}>Street stories <span aria-hidden="true">↗</span></button>
+      </div>
     </header>
 
     <section className="explore-tools" aria-label="Find a place">
@@ -161,5 +171,6 @@ export function CityExplorer({ bundle }: { bundle: Bundle }) {
     </div></footer>
     {area && <EvidenceDrawer open={evidenceOpen} onClose={() => setEvidenceOpen(false)} area={area} kind={kind} evidence={bundle.evidence} />}
     <dialog ref={photoDialog} className="street-dialog" onCancel={() => setPhotosOpen(false)} onClose={() => setPhotosOpen(false)} aria-label="Historical street stories"><button className="street-close" onClick={() => setPhotosOpen(false)}>Close stories ×</button>{photosOpen && <HistoricalComparison />}</dialog>
+    <dialog ref={scaleDialog} className="street-dialog scale-dialog" onCancel={() => setScaleOpen(false)} onClose={() => setScaleOpen(false)} aria-label="Scalability measurements"><button className="street-close" onClick={() => setScaleOpen(false)}>Close ×</button>{scaleOpen && <ScalePanel />}</dialog>
   </main>;
 }
