@@ -1,0 +1,34 @@
+[
+  {
+    "id": "temporal-1608297156034468",
+    "area_id": "06037600911",
+    "mode": "housing",
+    "site_id": "temporal-1608297156034468",
+    "earlier_image_id": "mapillary-1608297156034468",
+    "later_image_id": "mapillary-3357423691026871",
+    "cosine_similarity": 0.9473502621237289,
+    "visual_difference": 0.02632486893813557,
+    "model": "ViT-B/32",
+    "model_revision": "d05afc436d78f1c48dc0dbf8e5980a9d471f35f6",
+    "image_sha256": [
+      "55dcb71aa342bbdc1e2a700725123bacfc545ed39207815e6d336d0b201252f9",
+      "2adffcf71af1c7d505faa028007d833b734913e7cd0cfdc1854f9065b7fd410e"
+    ]
+  },
+  {
+    "id": "temporal-3672049312922199",
+    "area_id": "06037601401",
+    "mode": "commercial",
+    "site_id": "temporal-3672049312922199",
+    "earlier_image_id": "mapillary-3672049312922199",
+    "later_image_id": "mapillary-795759134379829",
+    "cosine_similarity": 0.8765310656330019,
+    "visual_difference": 0.061734467183499064,
+    "model": "ViT-B/32",
+    "model_revision": "d05afc436d78f1c48dc0dbf8e5980a9d471f35f6",
+    "image_sha256": [
+      "99d029a726baafc9cdb713b1e3c2c2e2084d3ca8000310aa309f73f4542b607d",
+      "f69d5d46571eeda80c135fbc212dde369f251f1eb959c890b62292bbfbe97be5"
+    ]
+  }
+]

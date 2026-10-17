@@ -279,68 +279,81 @@
       "title": "Business",
       "type": "object"
     },
-    "ContextIndicator": {
+    "ClipPairFeature": {
       "additionalProperties": false,
-      "description": "Descriptive neighborhood-change context. Never an input to the score.",
       "properties": {
-        "key": {
-          "minLength": 1,
-          "title": "Key",
+        "id": {
+          "title": "Id",
           "type": "string"
         },
-        "label": {
-          "minLength": 1,
-          "title": "Label",
+        "area_id": {
+          "title": "Area Id",
           "type": "string"
         },
-        "value": {
-          "anyOf": [
-            {
-              "minimum": 0,
-              "type": "number"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Value"
-        },
-        "unit": {
+        "mode": {
           "enum": [
-            "share",
-            "count"
+            "housing",
+            "commercial"
           ],
-          "title": "Unit",
+          "title": "Mode",
           "type": "string"
         },
-        "period": {
-          "minLength": 1,
-          "title": "Period",
+        "site_id": {
+          "title": "Site Id",
           "type": "string"
         },
-        "evidence_ids": {
+        "earlier_image_id": {
+          "title": "Earlier Image Id",
+          "type": "string"
+        },
+        "later_image_id": {
+          "title": "Later Image Id",
+          "type": "string"
+        },
+        "cosine_similarity": {
+          "maximum": 1,
+          "minimum": -1,
+          "title": "Cosine Similarity",
+          "type": "number"
+        },
+        "visual_difference": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Visual Difference",
+          "type": "number"
+        },
+        "model": {
+          "title": "Model",
+          "type": "string"
+        },
+        "model_revision": {
+          "title": "Model Revision",
+          "type": "string"
+        },
+        "image_sha256": {
           "items": {
             "type": "string"
           },
-          "minItems": 1,
-          "title": "Evidence Ids",
+          "maxItems": 2,
+          "minItems": 2,
+          "title": "Image Sha256",
           "type": "array"
-        },
-        "note": {
-          "default": "",
-          "title": "Note",
-          "type": "string"
         }
       },
       "required": [
-        "key",
-        "label",
-        "unit",
-        "period",
-        "evidence_ids"
+        "id",
+        "area_id",
+        "mode",
+        "site_id",
+        "earlier_image_id",
+        "later_image_id",
+        "cosine_similarity",
+        "visual_difference",
+        "model",
+        "model_revision",
+        "image_sha256"
       ],
-      "title": "ContextIndicator",
+      "title": "ClipPairFeature",
       "type": "object"
     },
     "Contribution": {
@@ -898,6 +911,13 @@
         "$ref": "#/$defs/Evidence"
       },
       "title": "Evidence",
+      "type": "array"
+    },
+    "clip_pairs": {
+      "items": {
+        "$ref": "#/$defs/ClipPairFeature"
+      },
+      "title": "Clip Pairs",
       "type": "array"
     },
     "businesses": {

@@ -4,6 +4,7 @@ import { AreaList } from './components/AreaList';
 import { AreaMap } from './components/AreaMap';
 import { AssessmentPanel } from './components/AssessmentPanel';
 import { EvidenceDrawer } from './components/EvidenceDrawer';
+import { HistoricalComparison } from './components/HistoricalComparison';
 import { ModeSwitch } from './components/ModeSwitch';
 import { BundleError, loadBundle } from './data/load';
 import type { DataSource } from './data/load';
@@ -13,6 +14,7 @@ import { BusinessPanel } from './features/business/BusinessPanel';
 import { HousingPanel } from './features/housing/HousingPanel';
 import { formatDate } from './lib/format';
 import { finishPendingActions, markInitialRender, startAction } from './lib/perf';
+import { useContextView } from './lib/context';
 import { rankAreas } from './lib/ranking';
 
 type LoadState =
@@ -96,6 +98,9 @@ function Shell({ children, banner }: { children: ReactNode; banner?: ReactNode }
 }
 
 function DataBanner({ bundle }: { bundle: Bundle }) {
+  if (bundle.methodology.visual_method === 'clip_pairs') return <p className="data-banner" role="note">
+    <strong>Historical multimodal prototype · as of {bundle.methodology.assessed_as_of}.</strong> ACS 2010–2014 versus 2015–2019; photos from 2019–2020. Experimental CLIP score, not a current risk prediction.
+  </p>;
   if (bundle.data_kind === 'fixture') {
     return (
       <p className="data-banner data-banner--fixture" role="note">
@@ -115,7 +120,7 @@ function DataBanner({ bundle }: { bundle: Bundle }) {
 export function Explorer({ bundle }: { bundle: Bundle }) {
   const [mode, setMode] = useState<Mode>('business');
   const [selectedId, setSelectedId] = useState<string | null>(
-    () => rankAreas(bundle.areas, 'commercial').rated[0]?.id ?? bundle.areas[0]?.id ?? null,
+    () => rankAreas(bundle.areas, 'commercial').rated[0]?.id ?? bundle.areas.find(a => a.id === bundle.businesses[0]?.area_id)?.id ?? bundle.areas[0]?.id ?? null,
   );
   const [compareId, setCompareId] = useState<string | null>(null);
   const [evidenceOpen, setEvidenceOpen] = useState(false);
@@ -143,8 +148,15 @@ export function Explorer({ bundle }: { bundle: Bundle }) {
   return (
     <Shell banner={<DataBanner bundle={bundle} />}>
       <div className="mode-bar">
+        <div className="dataset-links"><a href="?data=demo">Current Census explorer</a><a href="?data=clip">Historical CLIP assessment</a></div>
         <ModeSwitch mode={mode} onChange={changeMode} panelId="mode-panel" />
+        {bundle.data_kind === 'real' && <a className="historical-jump" href="#historical-comparison">Explore a historical photo comparison →</a>}
       </div>
+      {useContextView(bundle.areas, kind) && <section className="evidence-intro">
+        <h2>Available neighborhood data</h2>
+        <p>Explore Census housing conditions, verified local businesses and a dated photo comparison.
+          Combined assessments are pending; the percentages below are direct measurements, not risk predictions.</p>
+      </section>}
       {bundle.areas.length === 0 ? (
         <main className="state">
           <p>This bundle contains no areas yet.</p>
@@ -182,6 +194,7 @@ export function Explorer({ bundle }: { bundle: Bundle }) {
           </div>
         </main>
       )}
+      {bundle.data_kind === 'real' && <HistoricalComparison />}
       <footer className="footer">
         <h2>About these assessments</h2>
         <p>{bundle.methodology.summary}</p>

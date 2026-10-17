@@ -1,0 +1,24 @@
+[
+  {
+    "id": "temporal-1608297156034468",
+    "area_id": "06037600911",
+    "mode": "housing",
+    "site_id": "temporal-1608297156034468",
+    "earlier_image_id": "mapillary-1608297156034468",
+    "later_image_id": "mapillary-3357423691026871",
+    "earlier_path": "web/public/data/historical-images/1608297156034468.jpg",
+    "later_path": "web/public/data/historical-images/3357423691026871.jpg",
+    "analysis_permitted": true
+  },
+  {
+    "id": "temporal-3672049312922199",
+    "area_id": "06037601401",
+    "mode": "commercial",
+    "site_id": "temporal-3672049312922199",
+    "earlier_image_id": "mapillary-3672049312922199",
+    "later_image_id": "mapillary-795759134379829",
+    "earlier_path": "web/public/data/historical-images/3672049312922199.jpg",
+    "later_path": "web/public/data/historical-images/795759134379829.jpg",
+    "analysis_permitted": true
+  }
+]

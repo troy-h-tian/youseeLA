@@ -1,0 +1,102 @@
+{
+  "searched_at": "2026-10-17T19:42:35.162378+00:00",
+  "source": "Mapillary",
+  "scope": "Inglewood; existing city searches plus 17 targeted searches, 14 successful and 3 HTTP 500. Not exhaustive.",
+  "current_pair_definition": "Older capture <=2020; newer capture >=2023; discovery camera separation <60m, followed by scene inspection.",
+  "current_pairs_found": 0,
+  "historical_candidate_combinations_under_30m": 797,
+  "warning": "797 combinations are not 797 independent sites or validated matches. Shortlist is historical 2019/2020 only, not current evidence.",
+  "shortlist": [
+    {
+      "status": "candidate",
+      "distance_m": 0.75,
+      "inspection_note": "Residential street: matching houses, utility pole and street alignment. Lighting and cars differ; no displacement inference.",
+      "human_approved": false,
+      "old": {
+        "id": "1608297156034468",
+        "date": "2019-12-18",
+        "coordinates": [
+          -118.348294,
+          33.98075
+        ],
+        "source_url": "https://www.mapillary.com/app/?pKey=1608297156034468",
+        "attribution": "Mapillary contributor cfwarren3",
+        "license": "CC-BY-SA 4.0",
+        "local_image": "data/raw/images/1608297156034468.jpg"
+      },
+      "new": {
+        "id": "3357423691026871",
+        "date": "2020-02-10",
+        "coordinates": [
+          -118.34829314623,
+          33.980756686101
+        ],
+        "source_url": "https://www.mapillary.com/app/?pKey=3357423691026871",
+        "attribution": "Mapillary contributor cfwarren3",
+        "license": "CC-BY-SA 4.0",
+        "local_image": "data/raw/images/3357423691026871.jpg"
+      }
+    },
+    {
+      "status": "partial_overlap",
+      "distance_m": 1.22,
+      "inspection_note": "Same corner but different viewing direction; limited overlap. Not a full-scene change pair.",
+      "human_approved": false,
+      "old": {
+        "id": "138899648222807",
+        "date": "2019-12-18",
+        "coordinates": [
+          -118.353796,
+          33.980615
+        ],
+        "source_url": "https://www.mapillary.com/app/?pKey=138899648222807",
+        "attribution": "Mapillary contributor cfwarren3",
+        "license": "CC-BY-SA 4.0",
+        "local_image": "data/raw/images/138899648222807.jpg"
+      },
+      "new": {
+        "id": "967595277324151",
+        "date": "2020-02-10",
+        "coordinates": [
+          -118.35378455009,
+          33.980620480174
+        ],
+        "source_url": "https://www.mapillary.com/app/?pKey=967595277324151",
+        "attribution": "Mapillary contributor cfwarren3",
+        "license": "CC-BY-SA 4.0",
+        "local_image": "data/raw/images/967595277324151.jpg"
+      }
+    },
+    {
+      "status": "candidate",
+      "distance_m": 1.52,
+      "inspection_note": "Commercial street: matching parking structure and warehouse facade. Viewpoint/framing differ; needs frontage-level alignment.",
+      "human_approved": false,
+      "old": {
+        "id": "3672049312922199",
+        "date": "2019-05-20",
+        "coordinates": [
+          -118.36365799825,
+          33.965701665437
+        ],
+        "source_url": "https://www.mapillary.com/app/?pKey=3672049312922199",
+        "attribution": "Mapillary contributor victuallers",
+        "license": "CC-BY-SA 4.0",
+        "local_image": "data/raw/images/3672049312922199.jpg"
+      },
+      "new": {
+        "id": "795759134379829",
+        "date": "2020-01-09",
+        "coordinates": [
+          -118.363651,
+          33.965714
+        ],
+        "source_url": "https://www.mapillary.com/app/?pKey=795759134379829",
+        "attribution": "Mapillary contributor cfwarren3",
+        "license": "CC-BY-SA 4.0",
+        "local_image": "data/raw/images/795759134379829.jpg"
+      }
+    }
+  ],
+  "paid_vision_requests": 0
+}

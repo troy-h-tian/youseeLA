@@ -60,6 +60,28 @@ class Evidence(Record):
         return self
 
 
+class ClipPairFeature(Record):
+    id: str
+    area_id: str
+    mode: Mode
+    site_id: str
+    earlier_image_id: str
+    later_image_id: str
+    cosine_similarity: float = Field(ge=-1, le=1)
+    visual_difference: UnitValue
+    model: str
+    model_revision: str
+    image_sha256: list[str] = Field(min_length=2, max_length=2)
+
+    @model_validator(mode="after")
+    def valid_difference(self) -> "ClipPairFeature":
+        if self.earlier_image_id == self.later_image_id:
+            raise ValueError("A temporal pair requires distinct source records")
+        if abs(self.visual_difference - (1-self.cosine_similarity)/2) > 1e-6:
+            raise ValueError("CLIP difference must equal (1-cosine similarity)/2")
+        return self
+
+
 class PressureRange(Record):
     lower: UnitValue
     upper: UnitValue
@@ -230,6 +252,7 @@ class Dataset(Record):
     data_kind: Literal["real", "fixture"]
     areas: list[AreaInput]
     evidence: list[Evidence]
+    clip_pairs: list[ClipPairFeature] = Field(default_factory=list)
     businesses: list[Business] = Field(default_factory=list)
     resources: list[Resource] = Field(default_factory=list)
 
@@ -242,6 +265,7 @@ class Bundle(Record):
     methodology: dict[str, Any]
     areas: list[Area]
     evidence: list[Evidence]
+    clip_pairs: list[ClipPairFeature] = Field(default_factory=list)
     businesses: list[Business]
     resources: list[Resource]
 
@@ -267,9 +291,22 @@ class Bundle(Record):
                     refs.update(contribution.evidence_ids)
             if any(ref not in evidence or evidence[ref].area_id != area.id for ref in refs):
                 raise ValueError("Assessment has dangling or wrong-area evidence references")
+        clip_ids: set[str] = set()
+        if self.clip_pairs and self.methodology.get('configuration', {}).get('visual_method') != 'clip_pairs':
+            raise ValueError("CLIP pairs require the explicit CLIP scoring mode")
+        if len({pair.id for pair in self.clip_pairs}) != len(self.clip_pairs):
+            raise ValueError("Duplicate CLIP pair ids")
+        for pair in self.clip_pairs:
+            for ref in [pair.earlier_image_id, pair.later_image_id]:
+                item = evidence.get(ref)
+                if item is None or item.area_id != pair.area_id or item.kind != 'image' or item.mode != pair.mode or item.site_id != pair.site_id:
+                    raise ValueError("CLIP pair has invalid image references")
+                clip_ids.add(ref)
+            if evidence[pair.earlier_image_id].source_date >= evidence[pair.later_image_id].source_date:
+                raise ValueError("CLIP pair dates must be chronological")
         for item in self.evidence:
-            if not item.reviewed:
-                raise ValueError("Public evidence must be human-reviewed")
+            if not item.reviewed and item.id not in clip_ids:
+                raise ValueError("Public evidence must be human-reviewed or explicitly identified as CLIP image input")
             for obs in item.observations:
                 if any(ref not in evidence or evidence[ref].area_id != item.area_id for ref in obs.corroboration_ids):
                     raise ValueError("Observation has dangling corroboration")

@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import type { Area, AssessmentKind } from '../data/types';
 import { fitProjection, labelPoint, pathData } from '../lib/geo';
+import { contextIndicator, useContextView } from '../lib/context';
 import { TIER_LABEL } from '../lib/format';
 
 const WIDTH = 480;
@@ -20,6 +21,7 @@ interface Props {
  * the area list is the keyboard and screen-reader route to the same selection.
  */
 export function AreaMap({ areas, kind, selectedId, compareId, onSelect }: Props) {
+  const contextView = useContextView(areas, kind);
   const shapes = useMemo(() => {
     const projection = fitProjection(
       areas.map((a) => a.boundary),
@@ -47,13 +49,15 @@ export function AreaMap({ areas, kind, selectedId, compareId, onSelect }: Props)
           </pattern>
         </defs>
         {shapes.items.map((shape) => {
-          const assessment = byId.get(shape.id)?.[kind];
+          const area = byId.get(shape.id)!;
+          const burden = contextIndicator(area, 'rent_burden_share')?.value;
+          const assessment = area[kind];
           const tier = assessment?.status === 'rated' && !assessment.score_range ? assessment.tier : null;
           const classes = ['map-area', `map-area--${tier ?? 'unrated'}`];
           if (shape.id === selectedId) classes.push('is-selected');
           if (shape.id === compareId) classes.push('is-compared');
           return (
-            <path key={shape.id} d={shape.d} className={classes.join(' ')} onClick={() => onSelect(shape.id)}>
+            <path key={shape.id} d={shape.d} className={classes.join(' ')} style={contextView && burden != null ? { fill: `hsl(205 45% ${94 - burden * 30}%)` } : undefined} onClick={() => onSelect(shape.id)}>
               <title>{shape.label}</title>
             </path>
           );
@@ -61,7 +65,8 @@ export function AreaMap({ areas, kind, selectedId, compareId, onSelect }: Props)
         {shapes.items.length <= MAX_LABELS &&
           shapes.items.map((shape) => {
             const assessment = byId.get(shape.id)?.[kind];
-            const text = assessment?.score_range ? 'Provisional' : assessment?.status === 'rated' && assessment.tier ? TIER_LABEL[assessment.tier] : 'Unrated';
+            const burden = contextIndicator(byId.get(shape.id)!, 'rent_burden_share')?.value;
+            const text = contextView ? (burden == null ? '—' : `${Math.round(burden * 100)}%`) : assessment?.score_range ? 'Provisional' : assessment?.status === 'rated' && assessment.tier ? TIER_LABEL[assessment.tier] : 'Unrated';
             return (
               <text key={shape.id} x={shape.at[0]} y={shape.at[1]} className="map-label" textAnchor="middle">
                 {text}
@@ -70,10 +75,15 @@ export function AreaMap({ areas, kind, selectedId, compareId, onSelect }: Props)
           })}
       </svg>
       <figcaption className="map-legend">
+        {contextView ? <>
+          <strong>Map shows rent burden, not a risk score.</strong>
+          <span className="burden-scale" aria-hidden="true" /><span>0% → 100% · darker means a larger share</span>
+        </> : <>
         <span><i className="swatch swatch--lower" /> Lower</span>
         <span><i className="swatch swatch--moderate" /> Moderate</span>
         <span><i className="swatch swatch--higher" /> Higher</span>
         <span><i className="swatch swatch--unrated" /> Unrated / provisional</span>
+        </>}
         <span className="muted">Census tract boundaries. Tracts may extend beyond Inglewood city limits.</span>
       </figcaption>
     </figure>

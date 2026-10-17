@@ -1,10 +1,11 @@
 import { SCHEMA_VERSION } from './types';
 import type { Assessment, Bundle } from './types';
 
-export type DataSource = 'demo' | 'fixture';
+export type DataSource = 'demo' | 'fixture' | 'clip';
 
 export const DATA_PATHS: Record<DataSource, string> = {
   demo: 'data/demo.json',
+  clip: 'data/clip-historical.json',
   fixture: 'data/fixture.json',
 };
 
@@ -25,7 +26,7 @@ export class BundleError extends Error {
  */
 export function resolveDataSource(search: string, envDefault?: string): DataSource {
   const requested = new URLSearchParams(search).get('data');
-  if (requested === 'fixture' || requested === 'demo') return requested;
+  if (requested === 'fixture' || requested === 'demo' || requested === 'clip') return requested;
   return envDefault === 'fixture' ? 'fixture' : 'demo';
 }
 

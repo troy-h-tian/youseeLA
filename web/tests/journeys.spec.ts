@@ -59,9 +59,9 @@ test('organization journey: same area → housing score → compare → resident
 test('missing evidence stays unrated in both modes and a failed image keeps its text', async ({ page }) => {
   await areaButton(page, 'Fixture Area C').click();
   const assessment = page.locator('section.assessment');
-  await expect(assessment.getByRole('status')).toContainText('Unrated: insufficient evidence');
+  await expect(assessment.getByText('Combined assessment pending — view missing inputs')).toBeVisible();
   await page.getByRole('tab', { name: /Housing support/ }).click();
-  await expect(assessment.getByRole('status')).toContainText('Unrated: insufficient evidence');
+  await expect(assessment.getByText('Combined assessment pending — view missing inputs')).toBeVisible();
   await expect(assessment).not.toContainText('Exploratory score');
 
   await areaButton(page, 'Fixture Area A').click();
@@ -110,7 +110,14 @@ test('real pipeline: business actions, missing ratings, Census evidence and hous
   await page.goto('?data=demo');
   await page.getByRole('navigation').getByRole('button', { name: /Tract 06037601001/ }).click();
   const assessment = page.locator('section.assessment');
-  await expect(assessment).toContainText('Unrated: insufficient evidence');
+  const census = assessment.getByRole('region', { name: 'Census housing context' });
+  await expect(census.getByText('58.7%')).toBeVisible();
+  await expect(census.getByText('70.6%')).toBeVisible();
+  await expect(census.getByText('2020–2024')).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Explore areas (30)' })).toBeVisible();
+  await assessment.getByText('Combined assessment pending — view missing inputs').click();
+  await expect(assessment.getByText(/Need 3 distinct reviewed commercial image sites/)).toBeVisible();
+  await page.screenshot({ path: test.info().outputPath('available-evidence.png') });
   const business = page.getByRole('listitem', { name: "Dulan's Soul Food Kitchen" });
   await expect(business.getByRole('link', { name: /Visit website/ })).toHaveAttribute('href', 'https://www.dulans-sfk.com/');
   await assessment.getByRole('button', { name: /View commercial evidence/ }).click();
@@ -120,4 +127,44 @@ test('real pipeline: business actions, missing ratings, Census evidence and hous
   await page.getByRole('tab', { name: /Housing support/ }).click();
   await expect(page.getByRole('heading', { name: 'Housing area vulnerability' })).toBeVisible();
   await expect(page.getByRole('link', { name: /Housing Protection/ })).toBeVisible();
+});
+
+test('historical comparison: real photos, dates, sources and uncertainty remain inspectable', async ({ page }) => {
+  await page.goto('?data=demo');
+  await page.getByRole('link', { name: /Explore a historical photo comparison/ }).click();
+  const comparison = page.getByRole('region', { name: 'One commercial street, two dates' });
+  await expect(comparison).toBeVisible();
+  await expect(comparison.getByText('May 20, 2019')).toBeVisible();
+  await expect(comparison.getByText('January 9, 2020')).toBeVisible();
+  await expect(comparison).toContainText('does not affect current area scores');
+  for (const image of await comparison.getByRole('img').all()) {
+    await image.scrollIntoViewIfNeeded();
+    await expect.poll(() => image.evaluate((el) => (el as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+  }
+  await expect(comparison.getByRole('link', { name: 'Earlier Mapillary source' })).toHaveAttribute('href', 'https://www.mapillary.com/app/?pKey=3672049312922199');
+  await comparison.getByText('Matching landmarks and model limitations').click();
+  await expect(comparison.getByText('large multi-story parking structure on left side')).toBeVisible();
+  await comparison.screenshot({ path: test.info().outputPath('historical-comparison.png') });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBeLessThanOrEqual(0);
+});
+
+test('historical CLIP score includes real image input and preserves missing evidence', async ({ page }) => {
+  await page.goto('?data=clip');
+  await expect(page.getByRole('note').first()).toContainText('Historical multimodal prototype');
+  const assessment = page.locator('section.assessment');
+  await expect(assessment).toContainText('CLIP contributes');
+  await expect(assessment).toContainText('1.23');
+  await expect(assessment).toContainText('16.1');
+  await assessment.getByRole('button', { name: /View commercial evidence/ }).click();
+  const drawer = page.getByRole('dialog', { name: 'Commercial evidence' });
+  await expect(drawer.getByRole('img')).toHaveCount(2);
+  for (const image of await drawer.getByRole('img').all()) {
+    await image.scrollIntoViewIfNeeded();
+    await expect.poll(() => image.evaluate(el => (el as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+  }
+  await page.keyboard.press('Escape');
+  await page.screenshot({ path: test.info().outputPath('clip-assessment.png'), fullPage: true });
+  await page.getByRole('tab', { name: /Housing support/ }).click();
+  await expect(assessment).toContainText('Combined assessment pending');
+  await expect(assessment).not.toContainText('CLIP contributes');
 });

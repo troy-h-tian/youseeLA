@@ -1,0 +1,82 @@
+{
+  "generated_at": "2026-10-17T20:00:20.817157+00:00",
+  "environment": {
+    "python": "3.11.13",
+    "machine": "arm64",
+    "platform": "macOS-26.6.2-arm64-arm-64bit"
+  },
+  "accuracy_measured": false,
+  "real_pair_count": 2,
+  "ablations": [
+    {
+      "area_id": "06037601401",
+      "mode": "commercial",
+      "combined_score": 16.062558,
+      "zero_visual_score": 14.827869,
+      "visual_points": 1.2346893436699813,
+      "numerical_only_renormalized": 18.53483606557377,
+      "weight_sensitivity": [
+        {
+          "visual_weight": 0,
+          "score": 18.53483606557377
+        },
+        {
+          "visual_weight": 0.1,
+          "score": 17.298697130851387
+        },
+        {
+          "visual_weight": 0.2,
+          "score": 16.062558196129
+        },
+        {
+          "visual_weight": 0.3,
+          "score": 14.82641926140661
+        }
+      ],
+      "ablation_passed": true
+    }
+  ],
+  "scaling": {
+    "data_kind": "synthetic_replicated_workload",
+    "measurements": [
+      {
+        "areas": 10,
+        "image_pairs": 10,
+        "runs": 10,
+        "errors": 0,
+        "build_median_ms": 0.8383959939237684,
+        "build_max_ms": 4.056916979607195,
+        "export_validate_median_ms": 0.6615835009142756,
+        "export_validate_max_ms": 0.8305829833261669,
+        "output_bytes": 122350
+      },
+      {
+        "areas": 100,
+        "image_pairs": 100,
+        "runs": 10,
+        "errors": 0,
+        "build_median_ms": 8.662187508889474,
+        "build_max_ms": 14.793792011914775,
+        "export_validate_median_ms": 7.207375005236827,
+        "export_validate_max_ms": 12.804250000044703,
+        "output_bytes": 1216840
+      },
+      {
+        "areas": 1000,
+        "image_pairs": 1000,
+        "runs": 10,
+        "errors": 0,
+        "build_median_ms": 154.95614599785767,
+        "build_max_ms": 161.9617090036627,
+        "export_validate_median_ms": 148.73833350429777,
+        "export_validate_max_ms": 209.69745898037218,
+        "output_bytes": 12187840
+      }
+    ],
+    "limitations": [
+      "Precomputed CLIP features; no image encoding, downloading, or networking in these timings.",
+      "Repeated geographic template is a load test, not evidence about additional real areas.",
+      "Fixture creation and one warm-up excluded. Single local process, not a production capacity guarantee."
+    ]
+  }
+}

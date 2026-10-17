@@ -4,10 +4,11 @@ import json
 import math
 from datetime import date
 from pathlib import Path
+from typing import Literal
 
 from pydantic import Field, model_validator
 
-from youseela.contracts import Assessment, Contribution, Coverage, Evidence, Mode, NumericalIndicators, Record, ScoreRange, UnitValue
+from youseela.contracts import ClipPairFeature, Assessment, Contribution, Coverage, Evidence, Mode, NumericalIndicators, Record, ScoreRange, UnitValue
 
 
 class Weights(Record):
@@ -24,6 +25,9 @@ class Weights(Record):
 
 class AssessmentConfig(Record):
     version: str = "experimental-v2-sensitivity"
+    visual_method: Literal["reviewed_frontages", "clip_pairs"] = "reviewed_frontages"
+    minimum_pairs: int = Field(default=1, ge=1)
+    maximum_pair_distance_m: float = Field(default=25, gt=0)
     minimum_sites: int = Field(default=3, ge=1)
     minimum_frontages: int = Field(default=5, ge=1)
     maximum_image_age_days: int = Field(default=1095, ge=1)
@@ -46,7 +50,11 @@ def distance_m(a: Evidence, b: Evidence) -> float:
 
 
 def assess(area_id: str, mode: Mode, indicators: NumericalIndicators,
-           evidence: list[Evidence], config: AssessmentConfig, as_of: date) -> Assessment:
+           evidence: list[Evidence], config: AssessmentConfig, as_of: date,
+           clip_pairs: list[ClipPairFeature] | None = None) -> Assessment:
+    if config.visual_method == "clip_pairs":
+        from youseela.clip_scoring import assess_clip
+        return assess_clip(area_id, mode, indicators, evidence, config, as_of, clip_pairs or [])
     reasons: list[str] = []
     lookup = {e.id: e for e in evidence if e.reviewed and e.area_id == area_id and e.source_date <= as_of}
     if indicators.rent_burden_share is None:

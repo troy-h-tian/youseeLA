@@ -1,0 +1,1243 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-17T20:00:54.607234Z",
+  "assessed_as_of": "2020-12-31",
+  "data_kind": "real",
+  "methodology": {
+    "name": "Experimental area vulnerability proxy",
+    "validated_prediction": false,
+    "score_is_probability": false,
+    "configuration": {
+      "version": "experimental-clip-v1",
+      "visual_method": "clip_pairs",
+      "minimum_pairs": 1,
+      "maximum_pair_distance_m": 25.0,
+      "minimum_sites": 3,
+      "minimum_frontages": 5,
+      "maximum_image_age_days": 1095,
+      "minimum_site_distance_m": 25.0,
+      "housing": {
+        "burden": 0.6,
+        "pressure": 0.25,
+        "visual_interaction": 0.15
+      },
+      "commercial": {
+        "burden": 0.3,
+        "pressure": 0.5,
+        "visual_interaction": 0.2
+      }
+    },
+    "formula": "100 * (burden_weight * B + pressure_weight * P + visual_weight * V)",
+    "limitations": [
+      "Selected imagery is not a representative survey.",
+      "Descriptive pooled ACS changes do not track the same households.",
+      "Area scores do not establish individual business or tenant distress.",
+      "Weights and thresholds are provisional; no accuracy claim is made."
+    ]
+  },
+  "areas": [
+    {
+      "id": "06037600911",
+      "name": "Census Tract 6009.11, Los Angeles County, California",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -118.35854399988085,
+              33.98166699990474
+            ],
+            [
+              -118.35852299996444,
+              33.98156900034664
+            ],
+            [
+              -118.35842699970497,
+              33.981247999809725
+            ],
+            [
+              -118.35837300017663,
+              33.98106400000428
+            ],
+            [
+              -118.35830200003151,
+              33.98082600015095
+            ],
+            [
+              -118.3582450001301,
+              33.980633000212556
+            ],
+            [
+              -118.35813799999998,
+              33.980198000300035
+            ],
+            [
+              -118.35808600012142,
+              33.97999000012369
+            ],
+            [
+              -118.35791200004418,
+              33.97930699976161
+            ],
+            [
+              -118.35787500023424,
+              33.97916199976276
+            ],
+            [
+              -118.35769199993615,
+              33.978484999829305
+            ],
+            [
+              -118.35765699977603,
+              33.97833799978931
+            ],
+            [
+              -118.35755899986675,
+              33.977917000280264
+            ],
+            [
+              -118.35752799990462,
+              33.97780100034116
+            ],
+            [
+              -118.35749799976738,
+              33.9776839997991
+            ],
+            [
+              -118.35750799981312,
+              33.97748800032575
+            ],
+            [
+              -118.35751000036127,
+              33.977436000161546
+            ],
+            [
+              -118.35754100032341,
+              33.97720799986856
+            ],
+            [
+              -118.35755800004186,
+              33.97698999976804
+            ],
+            [
+              -118.35757800013333,
+              33.97669699993474
+            ],
+            [
+              -118.35759400002684,
+              33.97645399971383
+            ],
+            [
+              -118.35759800022481,
+              33.9762380000932
+            ],
+            [
+              -118.35655799995912,
+              33.97614899993122
+            ],
+            [
+              -118.35571799971001,
+              33.97607700010866
+            ],
+            [
+              -118.35561499977784,
+              33.976066999942255
+            ],
+            [
+              -118.35488800040493,
+              33.975992999866136
+            ],
+            [
+              -118.35474899958942,
+              33.975979000065976
+            ],
+            [
+              -118.35340899974811,
+              33.97584300007802
+            ],
+            [
+              -118.3530709996393,
+              33.97580800013902
+            ],
+            [
+              -118.35296299968427,
+              33.97579500003032
+            ],
+            [
+              -118.35289900011016,
+              33.97583200016262
+            ],
+            [
+              -118.35286800014802,
+              33.97583799998121
+            ],
+            [
+              -118.35279000033022,
+              33.9758249998771
+            ],
+            [
+              -118.35266599958335,
+              33.97577399990783
+            ],
+            [
+              -118.35253099986413,
+              33.97567799970747
+            ],
+            [
+              -118.35229499986258,
+              33.97550000035277
+            ],
+            [
+              -118.35132200044235,
+              33.97467599989929
+            ],
+            [
+              -118.35115000001491,
+              33.97453600037022
+            ],
+            [
+              -118.35055099979022,
+              33.974782000059804
+            ],
+            [
+              -118.35037900026107,
+              33.974852000023155
+            ],
+            [
+              -118.3500429998021,
+              33.97500599973951
+            ],
+            [
+              -118.34980299960256,
+              33.97511500016839
+            ],
+            [
+              -118.34827100014063,
+              33.97579099965264
+            ],
+            [
+              -118.34811200013196,
+              33.975859999809046
+            ],
+            [
+              -118.34751200008236,
+              33.9761179997357
+            ],
+            [
+              -118.34623699964003,
+              33.97666699965075
+            ],
+            [
+              -118.3462490002339,
+              33.977514999725116
+            ],
+            [
+              -118.34625199970864,
+              33.97789699963417
+            ],
+            [
+              -118.34625699973151,
+              33.978702000133175
+            ],
+            [
+              -118.34624599986086,
+              33.979207000354
+            ],
+            [
+              -118.34727699990569,
+              33.979196999810824
+            ],
+            [
+              -118.34728199992858,
+              33.9792430000649
+            ],
+            [
+              -118.34730200002006,
+              33.98003500027662
+            ],
+            [
+              -118.34730799986782,
+              33.980912000156074
+            ],
+            [
+              -118.34731100024091,
+              33.98132599989851
+            ],
+            [
+              -118.34733399980712,
+              33.98170000036134
+            ],
+            [
+              -118.34999199974847,
+              33.98169200016152
+            ],
+            [
+              -118.35325200028757,
+              33.98168399996094
+            ],
+            [
+              -118.3547820000997,
+              33.98167999986038
+            ],
+            [
+              -118.3552950001107,
+              33.98167799981008
+            ],
+            [
+              -118.35541700030944,
+              33.98167799981008
+            ],
+            [
+              -118.35604900014611,
+              33.98167399970924
+            ],
+            [
+              -118.35611100007038,
+              33.98167399970924
+            ],
+            [
+              -118.35632699998045,
+              33.98167700015728
+            ],
+            [
+              -118.35675100030298,
+              33.98167500010686
+            ],
+            [
+              -118.35700400002298,
+              33.98167399970924
+            ],
+            [
+              -118.35753799995035,
+              33.98167000035305
+            ],
+            [
+              -118.35772799992117,
+              33.98167000035305
+            ],
+            [
+              -118.35792499956462,
+              33.98166899995535
+            ],
+            [
+              -118.35854399988085,
+              33.98166699990474
+            ]
+          ]
+        ]
+      },
+      "indicators": {
+        "rent_burden_share": 0.63668430335097,
+        "renter_share": 0.5044483985765125,
+        "affordability_pressure": null,
+        "affordability_pressure_range": null,
+        "evidence_ids": [
+          "acs-2019-06037600911",
+          "acs-2014-06037600911"
+        ],
+        "periods": [
+          "2010–2014",
+          "2015–2019"
+        ],
+        "warnings": [
+          "Affordability-change direction is uncertain; use the sensitivity range, not the point estimate alone",
+          "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
+          "2014 and 2019 boundary equality check failed; change score withheld."
+        ]
+      },
+      "boundary_source_url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_ACS2019/MapServer/8",
+      "boundary_vintage": "2019 ACS / 2010 Census geography; per-tract comparison recorded",
+      "housing": {
+        "mode": "housing",
+        "status": "insufficient_evidence",
+        "score": null,
+        "score_range": null,
+        "tier": null,
+        "reasons": [
+          "Compatible Census affordability-change estimates are unavailable"
+        ],
+        "warnings": [
+          "Affordability-change direction is uncertain; use the sensitivity range, not the point estimate alone",
+          "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
+          "2014 and 2019 boundary equality check failed; change score withheld.",
+          "Experimental CLIP + Census index; untrained fusion weights, not a validated prediction or probability.",
+          "Visual difference can reflect viewpoint, lighting, vegetation or vehicles; it does not establish redevelopment or its direction.",
+          "1 sampled image pair(s); not a representative survey. No human change labels were used.",
+          "Zero-visual ablation holds numerical weights fixed; the separate numerical-only baseline renormalizes them."
+        ],
+        "contributions": [],
+        "evidence_ids": [],
+        "configuration_version": "experimental-clip-v1",
+        "coverage": {
+          "images": 2,
+          "sites": 1,
+          "frontages": 0,
+          "redevelopment_frontages": 0,
+          "earliest_capture": "2019-12-18",
+          "latest_capture": "2020-02-10"
+        }
+      },
+      "commercial": {
+        "mode": "commercial",
+        "status": "insufficient_evidence",
+        "score": null,
+        "score_range": null,
+        "tier": null,
+        "reasons": [
+          "Compatible Census affordability-change estimates are unavailable",
+          "Need 1 distinct dated commercial CLIP image pair(s)"
+        ],
+        "warnings": [
+          "Affordability-change direction is uncertain; use the sensitivity range, not the point estimate alone",
+          "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
+          "2014 and 2019 boundary equality check failed; change score withheld.",
+          "Experimental CLIP + Census index; untrained fusion weights, not a validated prediction or probability.",
+          "Visual difference can reflect viewpoint, lighting, vegetation or vehicles; it does not establish redevelopment or its direction.",
+          "0 sampled image pair(s); not a representative survey. No human change labels were used.",
+          "Zero-visual ablation holds numerical weights fixed; the separate numerical-only baseline renormalizes them."
+        ],
+        "contributions": [],
+        "evidence_ids": [],
+        "configuration_version": "experimental-clip-v1",
+        "coverage": {
+          "images": 0,
+          "sites": 0,
+          "frontages": 0,
+          "redevelopment_frontages": 0,
+          "earliest_capture": null,
+          "latest_capture": null
+        }
+      }
+    },
+    {
+      "id": "06037601401",
+      "name": "Census Tract 6014.01, Los Angeles County, California",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -118.37885000006007,
+              33.954370000217196
+            ],
+            [
+              -118.37884300038736,
+              33.95264699964626
+            ],
+            [
+              -118.3787680000443,
+              33.95264599965224
+            ],
+            [
+              -118.37869900044733,
+              33.95264599965224
+            ],
+            [
+              -118.37861499988342,
+              33.95264599965224
+            ],
+            [
+              -118.37839099957746,
+              33.95264399966411
+            ],
+            [
+              -118.3783250003535,
+              33.95264399966411
+            ],
+            [
+              -118.37796399978016,
+              33.9526409996819
+            ],
+            [
+              -118.37767800044824,
+              33.952641999675976
+            ],
+            [
+              -118.37706300033,
+              33.95264299967005
+            ],
+            [
+              -118.37701899994907,
+              33.95264299967005
+            ],
+            [
+              -118.37651199978588,
+              33.95264499965815
+            ],
+            [
+              -118.37543600043351,
+              33.95264799964027
+            ],
+            [
+              -118.37530599983882,
+              33.95264799964027
+            ],
+            [
+              -118.37485800012517,
+              33.95264999962826
+            ],
+            [
+              -118.37467200035232,
+              33.95265100036739
+            ],
+            [
+              -118.37350099966707,
+              33.952657000331
+            ],
+            [
+              -118.37254099976735,
+              33.9526620003004
+            ],
+            [
+              -118.37177500003637,
+              33.95266500028187
+            ],
+            [
+              -118.37107999955221,
+              33.95266700026946
+            ],
+            [
+              -118.3709399998101,
+              33.95266800026327
+            ],
+            [
+              -118.37057999995999,
+              33.952670000250805
+            ],
+            [
+              -118.37005699990327,
+              33.952672000238266
+            ],
+            [
+              -118.37005100005548,
+              33.95300699971311
+            ],
+            [
+              -118.37005600007835,
+              33.95351099978155
+            ],
+            [
+              -118.37006600012411,
+              33.954137000047865
+            ],
+            [
+              -118.37005699990327,
+              33.954841999941635
+            ],
+            [
+              -118.37006500029919,
+              33.95530900021485
+            ],
+            [
+              -118.37006100010122,
+              33.95548900002348
+            ],
+            [
+              -118.370066999949,
+              33.955914000109864
+            ],
+            [
+              -118.37007699999477,
+              33.956305999696106
+            ],
+            [
+              -118.37001800044354,
+              33.95630399979405
+            ],
+            [
+              -118.36982199972662,
+              33.95633800035816
+            ],
+            [
+              -118.369734999688,
+              33.956357000163386
+            ],
+            [
+              -118.36969000038046,
+              33.95636699966701
+            ],
+            [
+              -118.3694960002117,
+              33.956405000005454
+            ],
+            [
+              -118.3692989996699,
+              33.95644199963238
+            ],
+            [
+              -118.36925099998932,
+              33.95645099992185
+            ],
+            [
+              -118.36905099997277,
+              33.95649599986459
+            ],
+            [
+              -118.3689959997212,
+              33.95650700004568
+            ],
+            [
+              -118.36889500033719,
+              33.9565310003003
+            ],
+            [
+              -118.36881499997124,
+              33.956546000269796
+            ],
+            [
+              -118.36863400022128,
+              33.95654900011433
+            ],
+            [
+              -118.36813200008092,
+              33.95655000006248
+            ],
+            [
+              -118.36706400022618,
+              33.95656000028856
+            ],
+            [
+              -118.36613100009062,
+              33.95656799987249
+            ],
+            [
+              -118.36602300013558,
+              33.95656799987249
+            ],
+            [
+              -118.36431599987314,
+              33.95657099971624
+            ],
+            [
+              -118.36377000025018,
+              33.9565640000806
+            ],
+            [
+              -118.36352000000493,
+              33.95656699992455
+            ],
+            [
+              -118.36203100020066,
+              33.95656000028856
+            ],
+            [
+              -118.36176500006191,
+              33.9565630001326
+            ],
+            [
+              -118.36162899961944,
+              33.956624999866534
+            ],
+            [
+              -118.36164500041131,
+              33.95778500009054
+            ],
+            [
+              -118.36164700006111,
+              33.95792800016713
+            ],
+            [
+              -118.36165200008399,
+              33.958231999802365
+            ],
+            [
+              -118.36165399973382,
+              33.958375999799465
+            ],
+            [
+              -118.36165999958158,
+              33.95877700000747
+            ],
+            [
+              -118.36167899984817,
+              33.95977200001009
+            ],
+            [
+              -118.3616939999168,
+              33.96062100007566
+            ],
+            [
+              -118.36171200035845,
+              33.96166900015887
+            ],
+            [
+              -118.36171800020624,
+              33.96198599982406
+            ],
+            [
+              -118.36171999985604,
+              33.96227400027729
+            ],
+            [
+              -118.36172400005401,
+              33.96286699984208
+            ],
+            [
+              -118.36172800025197,
+              33.96360800003765
+            ],
+            [
+              -118.36173099972669,
+              33.96401599993861
+            ],
+            [
+              -118.36173599974958,
+              33.96435100019652
+            ],
+            [
+              -118.36173900012261,
+              33.96439399997393
+            ],
+            [
+              -118.36176300041205,
+              33.965565999658175
+            ],
+            [
+              -118.36176300041205,
+              33.96561299967804
+            ],
+            [
+              -118.36177000008477,
+              33.96611499990306
+            ],
+            [
+              -118.36176800043495,
+              33.966187999800304
+            ],
+            [
+              -118.36176500006191,
+              33.966268999796704
+            ],
+            [
+              -118.36181600011551,
+              33.9662729998773
+            ],
+            [
+              -118.3624620001959,
+              33.9662930002775
+            ],
+            [
+              -118.36291999995528,
+              33.96628500011795
+            ],
+            [
+              -118.3632870003764,
+              33.96625999980088
+            ],
+            [
+              -118.36363899983061,
+              33.96619400029937
+            ],
+            [
+              -118.36397399956638,
+              33.96610500005511
+            ],
+            [
+              -118.36399700003088,
+              33.96609900029482
+            ],
+            [
+              -118.36425300012392,
+              33.96603100024987
+            ],
+            [
+              -118.36466300020277,
+              33.9658769999253
+            ],
+            [
+              -118.36549900025393,
+              33.965544999989646
+            ],
+            [
+              -118.36629099992417,
+              33.96522099976346
+            ],
+            [
+              -118.36824599988374,
+              33.96445000008466
+            ],
+            [
+              -118.36869399959741,
+              33.96427400003829
+            ],
+            [
+              -118.36910399967623,
+              33.96411500021665
+            ],
+            [
+              -118.36951700012813,
+              33.963953999630554
+            ],
+            [
+              -118.36953499967147,
+              33.96394699985728
+            ],
+            [
+              -118.36968500035759,
+              33.96388600010592
+            ],
+            [
+              -118.3697070000989,
+              33.963877999719976
+            ],
+            [
+              -118.36989399969666,
+              33.9638040002124
+            ],
+            [
+              -118.36993700025266,
+              33.96378700030637
+            ],
+            [
+              -118.3699759997124,
+              33.963769999651866
+            ],
+            [
+              -118.370102999934,
+              33.96371700017537
+            ],
+            [
+              -118.3701299996982,
+              33.96371299997457
+            ],
+            [
+              -118.37052899990638,
+              33.96355600032604
+            ],
+            [
+              -118.37065899960271,
+              33.963502999971126
+            ],
+            [
+              -118.37125199997965,
+              33.96327100009545
+            ],
+            [
+              -118.37129499963736,
+              33.9633450000667
+            ],
+            [
+              -118.37356500013951,
+              33.96243500031793
+            ],
+            [
+              -118.37530099981596,
+              33.961737999852794
+            ],
+            [
+              -118.3756060003128,
+              33.96159999966389
+            ],
+            [
+              -118.37589199964475,
+              33.961454000127304
+            ],
+            [
+              -118.3760780003159,
+              33.961350000273974
+            ],
+            [
+              -118.37634799975433,
+              33.96118300030798
+            ],
+            [
+              -118.3766070002204,
+              33.961004999671005
+            ],
+            [
+              -118.37685499991753,
+              33.96081599978409
+            ],
+            [
+              -118.37709000009419,
+              33.96061599982892
+            ],
+            [
+              -118.37731299967693,
+              33.9604059996307
+            ],
+            [
+              -118.37752199991431,
+              33.9601869997659
+            ],
+            [
+              -118.37772199993083,
+              33.95995299997119
+            ],
+            [
+              -118.37775899974078,
+              33.95990399998678
+            ],
+            [
+              -118.37793199999314,
+              33.959674999716015
+            ],
+            [
+              -118.37809400037483,
+              33.959430000201486
+            ],
+            [
+              -118.37824099978963,
+              33.95917799981568
+            ],
+            [
+              -118.37837100038428,
+              33.95891999990694
+            ],
+            [
+              -118.37838200025493,
+              33.958896000326156
+            ],
+            [
+              -118.37841099966893,
+              33.95883200016919
+            ],
+            [
+              -118.37844900020207,
+              33.95874500026282
+            ],
+            [
+              -118.3784850001871,
+              33.958655999675614
+            ],
+            [
+              -118.37851199995126,
+              33.95858599979292
+            ],
+            [
+              -118.3785830000964,
+              33.958389000335636
+            ],
+            [
+              -118.37866400028724,
+              33.958116999764165
+            ],
+            [
+              -118.37867799963261,
+              33.95806099995495
+            ],
+            [
+              -118.37883400016655,
+              33.95747999966607
+            ],
+            [
+              -118.37883300034161,
+              33.95556899981622
+            ],
+            [
+              -118.37885000006007,
+              33.954370000217196
+            ]
+          ]
+        ]
+      },
+      "indicators": {
+        "rent_burden_share": 0.49426229508196723,
+        "renter_share": 0.7320601851851852,
+        "affordability_pressure": 0.0,
+        "affordability_pressure_range": {
+          "lower": 0.0,
+          "upper": 1.0
+        },
+        "evidence_ids": [
+          "acs-2019-06037601401",
+          "acs-2014-06037601401"
+        ],
+        "periods": [
+          "2010–2014",
+          "2015–2019"
+        ],
+        "warnings": [
+          "Affordability-change direction is uncertain; use the sensitivity range, not the point estimate alone",
+          "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test."
+        ]
+      },
+      "boundary_source_url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_ACS2019/MapServer/8",
+      "boundary_vintage": "2019 ACS / 2010 Census geography; per-tract comparison recorded",
+      "housing": {
+        "mode": "housing",
+        "status": "insufficient_evidence",
+        "score": null,
+        "score_range": null,
+        "tier": null,
+        "reasons": [
+          "Need 1 distinct dated housing CLIP image pair(s)"
+        ],
+        "warnings": [
+          "Affordability-change direction is uncertain; use the sensitivity range, not the point estimate alone",
+          "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
+          "Experimental CLIP + Census index; untrained fusion weights, not a validated prediction or probability.",
+          "Visual difference can reflect viewpoint, lighting, vegetation or vehicles; it does not establish redevelopment or its direction.",
+          "0 sampled image pair(s); not a representative survey. No human change labels were used.",
+          "Zero-visual ablation holds numerical weights fixed; the separate numerical-only baseline renormalizes them."
+        ],
+        "contributions": [],
+        "evidence_ids": [],
+        "configuration_version": "experimental-clip-v1",
+        "coverage": {
+          "images": 0,
+          "sites": 0,
+          "frontages": 0,
+          "redevelopment_frontages": 0,
+          "earliest_capture": null,
+          "latest_capture": null
+        }
+      },
+      "commercial": {
+        "mode": "commercial",
+        "status": "rated",
+        "score": 16.062558,
+        "score_range": {
+          "lower": 16.062558,
+          "upper": 66.062558,
+          "explanation": "Sensitivity to rent/income estimates within reported margins of error; not a confidence interval. Rent burden, imagery, and weights are held fixed."
+        },
+        "tier": "lower",
+        "reasons": [],
+        "warnings": [
+          "Affordability-change direction is uncertain; use the sensitivity range, not the point estimate alone",
+          "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
+          "Experimental CLIP + Census index; untrained fusion weights, not a validated prediction or probability.",
+          "Visual difference can reflect viewpoint, lighting, vegetation or vehicles; it does not establish redevelopment or its direction.",
+          "1 sampled image pair(s); not a representative survey. No human change labels were used.",
+          "Zero-visual ablation holds numerical weights fixed; the separate numerical-only baseline renormalizes them."
+        ],
+        "contributions": [
+          {
+            "feature": "rent_burden",
+            "label": "Housing affordability exposure",
+            "value": 0.49426229508196723,
+            "weight": 0.3,
+            "points": 14.827868852459018,
+            "evidence_ids": [
+              "acs-2019-06037601401",
+              "acs-2014-06037601401"
+            ],
+            "explanation": "Share of renter households with computable ratios spending at least 30% of income on rent."
+          },
+          {
+            "feature": "affordability_change",
+            "label": "Affordability-change proxy",
+            "value": 0.0,
+            "weight": 0.5,
+            "points": 0.0,
+            "evidence_ids": [
+              "acs-2019-06037601401",
+              "acs-2014-06037601401"
+            ],
+            "explanation": "Rent growth relative to income growth across compatible ACS periods."
+          },
+          {
+            "feature": "clip_visual_difference",
+            "label": "CLIP visual difference",
+            "value": 0.061734467183499064,
+            "weight": 0.2,
+            "points": 1.2346893436699813,
+            "evidence_ids": [
+              "mapillary-3672049312922199",
+              "mapillary-795759134379829"
+            ],
+            "explanation": "Mean (1 − cosine similarity)/2 across distinct dated image pairs. An appearance difference, not proof of gentrification."
+          }
+        ],
+        "evidence_ids": [
+          "acs-2014-06037601401",
+          "acs-2019-06037601401",
+          "mapillary-3672049312922199",
+          "mapillary-795759134379829"
+        ],
+        "configuration_version": "experimental-clip-v1",
+        "coverage": {
+          "images": 2,
+          "sites": 1,
+          "frontages": 0,
+          "redevelopment_frontages": 0,
+          "earliest_capture": "2019-05-20",
+          "latest_capture": "2020-01-09"
+        }
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "id": "acs-2019-06037600911",
+      "area_id": "06037600911",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2019/acs/acs5.html",
+      "source_date": "2019-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2015–2019 estimates; source_date is period end. GEOID 06037600911. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2014-06037600911",
+      "area_id": "06037600911",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2014/acs/acs5.html",
+      "source_date": "2014-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2010–2014 estimates; source_date is period end. GEOID 06037600911. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2019-06037601401",
+      "area_id": "06037601401",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2019/acs/acs5.html",
+      "source_date": "2019-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2015–2019 estimates; source_date is period end. GEOID 06037601401. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2014-06037601401",
+      "area_id": "06037601401",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2014/acs/acs5.html",
+      "source_date": "2014-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2010–2014 estimates; source_date is period end. GEOID 06037601401. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "mapillary-1608297156034468",
+      "area_id": "06037600911",
+      "kind": "image",
+      "mode": "housing",
+      "source_url": "https://www.mapillary.com/app/?pKey=1608297156034468",
+      "source_date": "2019-12-18",
+      "attribution": "Mapillary contributor cfwarren3",
+      "license": "CC-BY-SA 4.0",
+      "reviewed": false,
+      "data_kind": "real",
+      "site_id": "temporal-1608297156034468",
+      "applies_to_site_ids": [],
+      "latitude": 33.98075,
+      "longitude": -118.348294,
+      "observations": [],
+      "note": "Original dated image used for frozen CLIP feature extraction. No human change label; not proof of redevelopment."
+    },
+    {
+      "id": "mapillary-3357423691026871",
+      "area_id": "06037600911",
+      "kind": "image",
+      "mode": "housing",
+      "source_url": "https://www.mapillary.com/app/?pKey=3357423691026871",
+      "source_date": "2020-02-10",
+      "attribution": "Mapillary contributor cfwarren3",
+      "license": "CC-BY-SA 4.0",
+      "reviewed": false,
+      "data_kind": "real",
+      "site_id": "temporal-1608297156034468",
+      "applies_to_site_ids": [],
+      "latitude": 33.980756686101,
+      "longitude": -118.34829314623,
+      "observations": [],
+      "note": "Original dated image used for frozen CLIP feature extraction. No human change label; not proof of redevelopment."
+    },
+    {
+      "id": "mapillary-3672049312922199",
+      "area_id": "06037601401",
+      "kind": "image",
+      "mode": "commercial",
+      "source_url": "https://www.mapillary.com/app/?pKey=3672049312922199",
+      "source_date": "2019-05-20",
+      "attribution": "Mapillary contributor victuallers",
+      "license": "CC-BY-SA 4.0",
+      "reviewed": false,
+      "data_kind": "real",
+      "site_id": "temporal-3672049312922199",
+      "applies_to_site_ids": [],
+      "latitude": 33.965701665437,
+      "longitude": -118.36365799825,
+      "observations": [],
+      "note": "Original dated image used for frozen CLIP feature extraction. No human change label; not proof of redevelopment."
+    },
+    {
+      "id": "mapillary-795759134379829",
+      "area_id": "06037601401",
+      "kind": "image",
+      "mode": "commercial",
+      "source_url": "https://www.mapillary.com/app/?pKey=795759134379829",
+      "source_date": "2020-01-09",
+      "attribution": "Mapillary contributor cfwarren3",
+      "license": "CC-BY-SA 4.0",
+      "reviewed": false,
+      "data_kind": "real",
+      "site_id": "temporal-3672049312922199",
+      "applies_to_site_ids": [],
+      "latitude": 33.965714,
+      "longitude": -118.363651,
+      "observations": [],
+      "note": "Original dated image used for frozen CLIP feature extraction. No human change label; not proof of redevelopment."
+    }
+  ],
+  "clip_pairs": [
+    {
+      "id": "temporal-1608297156034468",
+      "area_id": "06037600911",
+      "mode": "housing",
+      "site_id": "temporal-1608297156034468",
+      "earlier_image_id": "mapillary-1608297156034468",
+      "later_image_id": "mapillary-3357423691026871",
+      "cosine_similarity": 0.9473502621237289,
+      "visual_difference": 0.02632486893813557,
+      "model": "ViT-B/32",
+      "model_revision": "d05afc436d78f1c48dc0dbf8e5980a9d471f35f6",
+      "image_sha256": [
+        "55dcb71aa342bbdc1e2a700725123bacfc545ed39207815e6d336d0b201252f9",
+        "2adffcf71af1c7d505faa028007d833b734913e7cd0cfdc1854f9065b7fd410e"
+      ]
+    },
+    {
+      "id": "temporal-3672049312922199",
+      "area_id": "06037601401",
+      "mode": "commercial",
+      "site_id": "temporal-3672049312922199",
+      "earlier_image_id": "mapillary-3672049312922199",
+      "later_image_id": "mapillary-795759134379829",
+      "cosine_similarity": 0.8765310656330019,
+      "visual_difference": 0.061734467183499064,
+      "model": "ViT-B/32",
+      "model_revision": "d05afc436d78f1c48dc0dbf8e5980a9d471f35f6",
+      "image_sha256": [
+        "99d029a726baafc9cdb713b1e3c2c2e2084d3ca8000310aa309f73f4542b607d",
+        "f69d5d46571eeda80c135fbc212dde369f251f1eb959c890b62292bbfbe97be5"
+      ]
+    }
+  ],
+  "businesses": [],
+  "resources": []
+}
