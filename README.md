@@ -21,6 +21,8 @@ python -m pytest -q
 
 `data/fixtures/bundle.json` contains clearly labeled synthetic examples for UI development. `data/exports/demo.json` contains real geography and verified business locations; its assessments are currently unrated because change estimates are uncertain, tract comparability needs verification, and reviewed image coverage is incomplete. Do not present fixture ratings as real findings.
 
+**Pitch reference:** [docs/pitch-summary.md](docs/pitch-summary.md)
+
 ## Data and integration
 
 - [Person A setup and evidence workflow](docs/person-a.md)
