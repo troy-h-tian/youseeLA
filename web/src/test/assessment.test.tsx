@@ -142,6 +142,7 @@ describe('explorer', () => {
   it('labels business cards with area context rather than a business rating', async () => {
     const user = renderExplorer();
     await user.click(areaButton('Fixture Area A'));
+    await user.click(screen.getByRole('tab', { name: 'Local support' }));
     const card = screen.getByRole('listitem', { name: 'Fixture Bakery' });
     expect(card).toHaveTextContent(/Area context, not a business rating/);
     expect(card).toHaveTextContent(/Fixture Area A commercial vulnerability Higher · 68\.4\/100/);

@@ -5,13 +5,14 @@ import { CityMap } from './CityMap';
 import { BusinessPhoto } from './BusinessPhoto';
 import { ModeSwitch } from './ModeSwitch';
 import { AssessmentPanel } from './AssessmentPanel';
+import { AreaStory } from './AreaStory';
+import { NextSteps } from './NextSteps';
 import { NeighborhoodSummary } from './NeighborhoodSummary';
 import { NumericalContext } from './NumericalContext';
 import { EvidenceDrawer } from './EvidenceDrawer';
 import { HistoricalComparison } from './HistoricalComparison';
 import { BusinessPanel } from '../features/business/BusinessPanel';
 import { HousingPanel } from '../features/housing/HousingPanel';
-import { directionsUrl } from '../lib/format';
 import { shortArea } from '../lib/city';
 import { finishPendingActions, markInitialRender, startAction } from '../lib/perf';
 import '../city.css';
@@ -117,8 +118,10 @@ export function CityExplorer({ bundle }: { bundle: Bundle }) {
         }}>{(['overview', 'assessment', 'support'] as const).map(t => <button key={t} id={`detail-tab-${t}`} role="tab" tabIndex={tab === t ? 0 : -1} aria-selected={tab === t} aria-controls="location-content" onClick={() => setTab(t)}>{t === 'assessment' ? 'Evidence' : t === 'support' ? 'Local support' : 'Overview'}</button>)}</div>
         <div key={`${selectedId}-${businessId}-${tab}`} className="location-content" id="location-content" role="tabpanel" aria-labelledby={`detail-tab-${tab}`}>
           {tab === 'overview' && <>
-            {business && <><BusinessPhoto businessId={business.id} name={business.name} /><p className="place-description">{business.description}</p><div className="place-actions">{business.website_url && <a href={business.website_url} target="_blank" rel="noopener noreferrer">Visit website <span aria-hidden="true">↗</span></a>}<a href={directionsUrl(business)} target="_blank" rel="noopener noreferrer">Directions <span aria-hidden="true">↗</span></a></div><a className="listing-source" href={business.source_url} target="_blank" rel="noopener noreferrer">Listing source · verified {business.verified_at}</a></>}
+            {business && <><BusinessPhoto businessId={business.id} name={business.name} /><p className="place-description">{business.description}</p><a className="listing-source" href={business.source_url} target="_blank" rel="noopener noreferrer">Listing source · verified {business.verified_at}</a></>}
             <div className="tract-label"><span>◇</span><div><strong>{shortArea(area)}</strong><small>Outlined on the map · area context, not a business rating</small></div></div>
+            <AreaStory area={area} kind={kind} onEvidence={() => setEvidenceOpen(true)} />
+            <NextSteps area={area} bundle={bundle} mode={mode} business={business} onBusiness={item => selectArea(item.area_id, item.id)} onSupport={() => setTab('support')} />
             <NumericalContext area={area} />
             <p className="assessment-status"><span className="location-dot" />{area[kind].status === 'rated' ? `Experimental area score: ${area[kind].score?.toFixed(1)} / 100${area[kind].score_range ? ' · provisional' : ''}` : 'Combined assessment pending'}<small>{area[kind].status === 'rated' ? 'An exploratory index, not a probability. See Evidence for limitations.' : 'Available housing facts are shown above. Missing evidence is not low risk.'}</small></p>
             {area[kind].status !== 'rated' && <div className="missing-summary">
@@ -127,7 +130,6 @@ export function CityExplorer({ bundle }: { bundle: Bundle }) {
             </div>}
             <button className="panel-link" onClick={() => setTab('assessment')}>Explore the evidence <span>→</span></button>
             <NeighborhoodSummary area={area} kind={kind} onSources={() => setEvidenceOpen(true)} />
-            {!business && mode === 'business' && <BusinessPanel bundle={bundle} area={area} />}
           </>}
           {tab === 'assessment' && <><AssessmentPanel area={area} kind={kind} methodology={bundle.methodology} onOpenEvidence={() => setEvidenceOpen(true)} /><details className="model-status"><summary>About this dataset</summary><p>{bundle.methodology.summary}</p><ul>{bundle.methodology.limitations.map(item => <li key={item}>{item}</li>)}</ul></details></>}
           {tab === 'support' && (mode === 'housing' ? <HousingPanel bundle={bundle} area={area} compareId={compareId} onCompareChange={setCompareId} /> : <BusinessPanel bundle={bundle} area={area} />)}

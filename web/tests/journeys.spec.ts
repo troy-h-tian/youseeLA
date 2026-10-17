@@ -202,3 +202,38 @@ test('visible dataset switch leads to historical examples and dated neighborhood
   await page.getByText('Opening Inglewood…', { exact: true }).waitFor({ state: 'hidden', timeout: 25000 });
   await page.screenshot({ animations: 'disabled', path: `../.Codex/plans/explore-home-${test.info().project.name}.png` });
 });
+
+test('area explanation connects dated changes to local business and housing actions', async ({ page }) => {
+  await page.goto('/');
+  await selectArea(page, '6010.01');
+  const story = page.getByRole('region', { name: 'What changed here' });
+  await expect(story).toContainText('rose from');
+  await expect(story).toContainText('2016–2020');
+  await expect(story).toContainText('2021–2025');
+  await expect(story).toContainText('not proof of displacement');
+  await story.getByRole('button', { name: 'Check the evidence' }).click();
+  await expect(page.getByRole('dialog', { name: 'Commercial evidence' })).toContainText('Assessor roll');
+  await page.keyboard.press('Escape');
+  await page.getByRole('tab', { name: 'Housing support' }).click();
+  const actions = page.getByRole('region', { name: 'What you can do' });
+  await expect(actions.getByRole('link', { name: /Housing Protection/ })).toHaveAttribute('href', /^https:\/\//);
+  await expect(actions).toContainText('Serves: City of Inglewood');
+  await actions.getByRole('button', { name: 'View resources and compare areas' }).click();
+  await expect(page.getByRole('combobox')).toBeVisible();
+  await page.getByRole('tab', { name: 'Overview', exact: true }).click();
+  await story.scrollIntoViewIfNeeded();
+  await page.getByText('Opening Inglewood…', { exact: true }).waitFor({ state: 'hidden', timeout: 25000 });
+  await page.screenshot({ animations: 'disabled', path: `../.Codex/plans/area-story-${test.info().project.name}.png` });
+  await actions.scrollIntoViewIfNeeded();
+  await page.screenshot({ animations: 'disabled', path: `../.Codex/plans/area-actions-${test.info().project.name}.png` });
+  await page.getByRole('tab', { name: 'Support businesses' }).click();
+  await actions.getByRole('button', { name: /Dulan.*Manchester/ }).click();
+  await expect(actions.getByRole('link', { name: 'Visit website', exact: true })).toHaveAttribute('href', 'https://www.dulans-sfk.com/');
+  await expect(actions.getByRole('link', { name: 'Directions', exact: true })).toHaveAttribute('href', 'https://www.google.com/maps/dir/?api=1&destination=202+E+Manchester+Blvd%2C+Inglewood%2C+CA+90301');
+  await page.getByRole('navigation', { name: 'Explore views' }).getByRole('link', { name: 'Historical analysis' }).click();
+  await page.getByRole('button', { name: /Housing example/ }).click();
+  await expect(story).toContainText('aren’t two comparable periods');
+  await expect(actions).toContainText('This view describes the past');
+  await actions.getByRole('link', { name: 'Explore today' }).click();
+  await expect(page).toHaveURL(/data=demo/);
+});

@@ -28,6 +28,8 @@ Search or browse to select a business or Census tract. The detail panel has Over
 
 Business markers indicate listed locations, not business risk. Housing markers represent Census tracts; selecting one outlines its boundary. Gray indicates unavailable or provisional assessments. Experimental tiers use green, amber, and red. The historical CLIP dataset remains separate at `?data=clip`.
 
+The overview starts with a short explanation of recorded changes and relevant next actions. Explanations compare non-overlapping, dated observations with matching units and labels; missing periods stay explicitly unavailable. They are deterministic descriptions of the exported data, not generated predictions. Business actions use listings in the selected tract; housing actions use resource service-area filtering. Historical views link back to today’s explorer instead of suggesting current services from old records.
+
 The overview explains missing assessments and summarizes dated Assessor, ZIP business, and historical Urban Displacement Project context. These additional indicators do not affect scores; the source button opens the existing evidence drawer. Housing summaries omit commercial ZIP business counts.
 
 Business overview photos are linked from official business websites via `src/data/businessPhotos.ts`, with captions and source links. They are display-only and do not enter the predictive pipeline. Images remain on their source hosts; unavailable images show a fallback. The interface uses native system sans-serif typography without an external font download.
