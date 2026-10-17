@@ -1,0 +1,731 @@
+{
+  "$defs": {
+    "Area": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "geometry": {
+          "additionalProperties": true,
+          "title": "Geometry",
+          "type": "object"
+        },
+        "indicators": {
+          "$ref": "#/$defs/NumericalIndicators"
+        },
+        "boundary_source_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Boundary Source Url"
+        },
+        "boundary_vintage": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Boundary Vintage"
+        },
+        "housing": {
+          "$ref": "#/$defs/Assessment"
+        },
+        "commercial": {
+          "$ref": "#/$defs/Assessment"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "geometry",
+        "indicators",
+        "housing",
+        "commercial"
+      ],
+      "title": "Area",
+      "type": "object"
+    },
+    "Assessment": {
+      "additionalProperties": false,
+      "properties": {
+        "mode": {
+          "enum": [
+            "housing",
+            "commercial"
+          ],
+          "title": "Mode",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "rated",
+            "insufficient_evidence"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "score": {
+          "anyOf": [
+            {
+              "maximum": 100,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Score"
+        },
+        "tier": {
+          "anyOf": [
+            {
+              "enum": [
+                "lower",
+                "moderate",
+                "higher"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Tier"
+        },
+        "reasons": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Reasons",
+          "type": "array"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Warnings",
+          "type": "array"
+        },
+        "contributions": {
+          "items": {
+            "$ref": "#/$defs/Contribution"
+          },
+          "title": "Contributions",
+          "type": "array"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "configuration_version": {
+          "default": "experimental-v1",
+          "title": "Configuration Version",
+          "type": "string"
+        },
+        "coverage": {
+          "$ref": "#/$defs/Coverage"
+        }
+      },
+      "required": [
+        "mode",
+        "status"
+      ],
+      "title": "Assessment",
+      "type": "object"
+    },
+    "Business": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "area_id": {
+          "title": "Area Id",
+          "type": "string"
+        },
+        "address": {
+          "default": "",
+          "title": "Address",
+          "type": "string"
+        },
+        "location_source_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Location Source Url"
+        },
+        "latitude": {
+          "maximum": 90,
+          "minimum": -90,
+          "title": "Latitude",
+          "type": "number"
+        },
+        "longitude": {
+          "maximum": 180,
+          "minimum": -180,
+          "title": "Longitude",
+          "type": "number"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "recommendation_reason": {
+          "title": "Recommendation Reason",
+          "type": "string"
+        },
+        "source_url": {
+          "title": "Source Url",
+          "type": "string"
+        },
+        "verified_at": {
+          "format": "date",
+          "title": "Verified At",
+          "type": "string"
+        },
+        "website_url": {
+          "title": "Website Url",
+          "type": "string"
+        },
+        "directions_url": {
+          "title": "Directions Url",
+          "type": "string"
+        },
+        "data_kind": {
+          "default": "real",
+          "enum": [
+            "real",
+            "fixture"
+          ],
+          "title": "Data Kind",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "area_id",
+        "latitude",
+        "longitude",
+        "description",
+        "recommendation_reason",
+        "source_url",
+        "verified_at",
+        "website_url",
+        "directions_url"
+      ],
+      "title": "Business",
+      "type": "object"
+    },
+    "Contribution": {
+      "additionalProperties": false,
+      "properties": {
+        "feature": {
+          "title": "Feature",
+          "type": "string"
+        },
+        "label": {
+          "title": "Label",
+          "type": "string"
+        },
+        "value": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Value",
+          "type": "number"
+        },
+        "weight": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Weight",
+          "type": "number"
+        },
+        "points": {
+          "maximum": 100,
+          "minimum": 0,
+          "title": "Points",
+          "type": "number"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "explanation": {
+          "title": "Explanation",
+          "type": "string"
+        }
+      },
+      "required": [
+        "feature",
+        "label",
+        "value",
+        "weight",
+        "points",
+        "evidence_ids",
+        "explanation"
+      ],
+      "title": "Contribution",
+      "type": "object"
+    },
+    "Coverage": {
+      "additionalProperties": false,
+      "properties": {
+        "images": {
+          "default": 0,
+          "title": "Images",
+          "type": "integer"
+        },
+        "sites": {
+          "default": 0,
+          "title": "Sites",
+          "type": "integer"
+        },
+        "frontages": {
+          "default": 0,
+          "title": "Frontages",
+          "type": "integer"
+        },
+        "redevelopment_frontages": {
+          "default": 0,
+          "title": "Redevelopment Frontages",
+          "type": "integer"
+        },
+        "earliest_capture": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Earliest Capture"
+        },
+        "latest_capture": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Latest Capture"
+        }
+      },
+      "title": "Coverage",
+      "type": "object"
+    },
+    "Evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "area_id": {
+          "minLength": 1,
+          "title": "Area Id",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "census",
+            "image",
+            "project"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "mode": {
+          "enum": [
+            "housing",
+            "commercial",
+            "both"
+          ],
+          "title": "Mode",
+          "type": "string"
+        },
+        "source_url": {
+          "title": "Source Url",
+          "type": "string"
+        },
+        "source_date": {
+          "format": "date",
+          "title": "Source Date",
+          "type": "string"
+        },
+        "attribution": {
+          "minLength": 1,
+          "title": "Attribution",
+          "type": "string"
+        },
+        "license": {
+          "minLength": 1,
+          "title": "License",
+          "type": "string"
+        },
+        "reviewed": {
+          "default": false,
+          "title": "Reviewed",
+          "type": "boolean"
+        },
+        "data_kind": {
+          "default": "real",
+          "enum": [
+            "real",
+            "fixture"
+          ],
+          "title": "Data Kind",
+          "type": "string"
+        },
+        "site_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Site Id"
+        },
+        "applies_to_site_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Applies To Site Ids",
+          "type": "array"
+        },
+        "latitude": {
+          "anyOf": [
+            {
+              "maximum": 90,
+              "minimum": -90,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Latitude"
+        },
+        "longitude": {
+          "anyOf": [
+            {
+              "maximum": 180,
+              "minimum": -180,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Longitude"
+        },
+        "observations": {
+          "items": {
+            "$ref": "#/$defs/FrontageObservation"
+          },
+          "title": "Observations",
+          "type": "array"
+        },
+        "note": {
+          "default": "",
+          "title": "Note",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "area_id",
+        "kind",
+        "mode",
+        "source_url",
+        "source_date",
+        "attribution",
+        "license"
+      ],
+      "title": "Evidence",
+      "type": "object"
+    },
+    "FrontageObservation": {
+      "additionalProperties": false,
+      "properties": {
+        "frontage_id": {
+          "minLength": 1,
+          "title": "Frontage Id",
+          "type": "string"
+        },
+        "redevelopment": {
+          "enum": [
+            "present",
+            "absent",
+            "unclear"
+          ],
+          "title": "Redevelopment",
+          "type": "string"
+        },
+        "corroboration_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Corroboration Ids",
+          "type": "array"
+        },
+        "description": {
+          "minLength": 1,
+          "title": "Description",
+          "type": "string"
+        }
+      },
+      "required": [
+        "frontage_id",
+        "redevelopment",
+        "description"
+      ],
+      "title": "FrontageObservation",
+      "type": "object"
+    },
+    "NumericalIndicators": {
+      "additionalProperties": false,
+      "properties": {
+        "rent_burden_share": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Rent Burden Share"
+        },
+        "renter_share": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Renter Share"
+        },
+        "affordability_pressure": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Affordability Pressure"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "periods": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Periods",
+          "type": "array"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Warnings",
+          "type": "array"
+        }
+      },
+      "title": "NumericalIndicators",
+      "type": "object"
+    },
+    "Resource": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "concern": {
+          "title": "Concern",
+          "type": "string"
+        },
+        "jurisdiction": {
+          "title": "Jurisdiction",
+          "type": "string"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "source_url": {
+          "title": "Source Url",
+          "type": "string"
+        },
+        "verified_at": {
+          "format": "date",
+          "title": "Verified At",
+          "type": "string"
+        },
+        "data_kind": {
+          "default": "real",
+          "enum": [
+            "real",
+            "fixture"
+          ],
+          "title": "Data Kind",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "concern",
+        "jurisdiction",
+        "description",
+        "source_url",
+        "verified_at"
+      ],
+      "title": "Resource",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "generated_at": {
+      "format": "date-time",
+      "title": "Generated At",
+      "type": "string"
+    },
+    "assessed_as_of": {
+      "format": "date",
+      "title": "Assessed As Of",
+      "type": "string"
+    },
+    "data_kind": {
+      "enum": [
+        "real",
+        "fixture"
+      ],
+      "title": "Data Kind",
+      "type": "string"
+    },
+    "methodology": {
+      "additionalProperties": true,
+      "title": "Methodology",
+      "type": "object"
+    },
+    "areas": {
+      "items": {
+        "$ref": "#/$defs/Area"
+      },
+      "title": "Areas",
+      "type": "array"
+    },
+    "evidence": {
+      "items": {
+        "$ref": "#/$defs/Evidence"
+      },
+      "title": "Evidence",
+      "type": "array"
+    },
+    "businesses": {
+      "items": {
+        "$ref": "#/$defs/Business"
+      },
+      "title": "Businesses",
+      "type": "array"
+    },
+    "resources": {
+      "items": {
+        "$ref": "#/$defs/Resource"
+      },
+      "title": "Resources",
+      "type": "array"
+    }
+  },
+  "required": [
+    "generated_at",
+    "assessed_as_of",
+    "data_kind",
+    "methodology",
+    "areas",
+    "evidence",
+    "businesses",
+    "resources"
+  ],
+  "title": "Bundle",
+  "type": "object"
+}
