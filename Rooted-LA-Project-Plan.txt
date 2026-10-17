@@ -1,0 +1,138 @@
+ROOTED LA — INGLEWOOD BUSINESS PROTOTYPE
+Updated team-alignment draft
+Repository supplied: https://github.com/troy-h-tian/youseeLA
+Time remaining at this revision: approximately five hours
+Team: two people
+
+INTENT
+Help people discover and support Inglewood businesses through an explainable
+assessment that combines neighborhood numerical data with imagery that
+directly influences model output.
+
+CONFIRMED DECISIONS
+- Businesses are the main audience focus; tenant resources are secondary.
+- Inglewood is the preferred pilot area.
+- Imagery must affect the combined support-priority assessment, not merely
+  appear beside it.
+- Target agreed: which areas may warrant support, not future business closure.
+- Team has no local photos and proposed Google Street View as the source.
+  That source is not yet cleared for analytical use.
+- Languages and frameworks are flexible. No sponsor-required technology.
+- Housing data and imagery must be sourced from scratch.
+- All project work belongs in this workspace. Planning files stay under
+  .Codex/ and are excluded by .gitignore.
+
+IMPORTANT CHANGE FROM THE PREVIOUS PLAN
+The earlier housing-only forecast plus separate visual assessment does not
+meet the clarified requirement. The new model must consume visual features
+alongside numerical features. The agreed target is an experimental area support-priority assessment.
+A business's appearance is not evidence of its revenue or financial distress.
+
+PRODUCT EXPERIENCE
+1. Open an Inglewood business explorer with a small curated set of businesses.
+2. Select a business or commercial area and view the combined assessment.
+3. Inspect why it was highlighted: numerical inputs, image-derived inputs,
+   image dates, and source evidence. Clearly distinguish business observations
+   from neighborhood-level context.
+4. Open the business website or directions to support it.
+5. Optionally access tenant resources that actually serve Inglewood.
+
+MODEL DESIGN — PROPOSED, SUBJECT TO DATA FEASIBILITY
+Use an existing vision model to extract observable features from permitted,
+dated images: visible for-lease signs, boarded storefronts, construction,
+and explicitly uncertain observations. Associate each feature with its
+business/location, date, and evidence image. Human-check demo observations.
+
+Join visual features to housing and commercial indicators at a clearly
+specified geographic scale. A combined model consumes both input types.
+Do not assign one storefront's observed condition to an entire neighborhood.
+
+Agreed target: Current area support-priority assessment. Combine neighborhood
+housing/economic pressure with image-derived observable commercial conditions.
+Show component scores and transparent provisional weights rather than a
+probability of closure. Without independently labeled outcomes, this is an
+experimental heuristic assessment, not a validated predictive model.
+Businesses are recommended within assessed areas using verified context;
+area-level scores must not be presented as individual business distress.
+
+Use a consistent photo-sampling rule across compared areas, show coverage and
+capture dates, and return insufficient evidence when coverage is inadequate.
+Missing photos must not count as evidence that an area needs less support.
+
+Do not train on invented labels or claim that a manually weighted formula is
+an empirically validated prediction. Do not force every image to alter every
+result; test whether relevant image changes can affect the combined output.
+
+EXPLANATIONS AND EVALUATION
+Show observed visual features and the numerical factors that influence the
+combined result. An LLM may verbalize supplied evidence but must not invent
+reasons or measurements. Feature influence does not establish causation.
+
+For a trained forecast, hold out appropriate outcomes and compare numerical-
+only, image-only, and combined models on the same held-out data. This tests
+whether imagery actually adds predictive value. Report failures honestly.
+For an unvalidated assessment, report sensitivity to inputs and human checks,
+not accuracy percentages or probabilities of failure.
+
+DATA STRATEGY
+- Census ACS for tract-level housing/economic context. Verify historical
+  periods, margins of error, missing values, and geographic boundaries.
+- Dated team-owned or appropriately licensed photos. Image access is unresolved.
+  Do not assume Google Street View allows the intended analytical/model use.
+- Inglewood-specific business listings or verified business websites.
+  Inglewood is a separate city: the City of Los Angeles business registry and
+  City of LA tenant programs are not automatically applicable.
+- Yelp remains optional. API credentials and review access are unconfirmed.
+- Synthetic images are not real neighborhood evidence.
+
+PROPOSED IMPLEMENTATION
+Python data/model scripts plus a React interface. Prefer precomputed real
+model outputs for demo reliability, with source and generation dates shown.
+Use a server endpoint only if live inference is necessary. Keep credentials
+out of frontend bundles and version control. No paid services provisioned yet.
+
+FIVE-HOUR ALLOCATION — PROPOSED
+0:00–0:30 / Both: settle target, prove image/data access, select demo businesses,
+choose credentials/provider, and agree on the shared output format. If a
+historical forecast is infeasible, explicitly agree on the revised claim.
+
+0:30–2:30 / Person A: numerical data, vision extraction, combined model and
+explanation export. Person B: business explorer, sourced profiles and actions,
+working initially against clearly labeled fixture outputs.
+
+2:30–3:45 / Both: integrate real outputs; check image contribution, matching
+locations/dates, missing-data behavior, and all business explanations.
+
+3:45–5:00 / Both: test the complete business-to-action flow, deploy or prepare
+local demo, inspect all displayed evidence, and rehearse. Freeze new features.
+
+SCOPE CUTS
+No satellite ingestion pipeline, citywide photo collection, accounts, payments,
+custom vision training, or legal chatbot. Tenant resources are a small secondary
+section. Five to ten verified business profiles are sufficient for the demo.
+
+DEFINITION OF DONE
+A visitor can inspect an Inglewood business, understand the combined result,
+trace both visual and numerical inputs, and take a useful support action.
+Imagery truly enters the model calculation. Claims match available evaluation.
+Missing imagery is visible rather than silently imputed as reassuring evidence.
+No invented business distress, causal claims, future outcomes, or performance.
+
+NEXT CLARIFICATIONS
+1. Image-source feasibility: Google Maps Platform terms section 3.2.3 restrict
+   creating derived content and model training/testing/validation. Do not
+   assume screenshots or manually transcribed features avoid those terms.
+   Proposed alternative: investigate Mapillary street-level imagery, its
+   access conditions, attribution/share-alike requirements, Inglewood coverage,
+   and image dates. Availability has not been verified.
+2. Confirmed: the team needs to set up vision-model API access. Provider,
+   account setup, and spending limit remain unresolved; no API key is available.
+
+REFERENCE STARTING POINTS
+https://www.census.gov/data/developers/data-sets/acs-5year.html
+https://www.census.gov/data/developers.html
+https://cloud.google.com/maps-platform/terms
+https://docs.developer.yelp.com/reference/v3_business_reviews
+
+Alternative imagery license reference:
+https://help.mapillary.com/hc/en-us/articles/115001770409-CC-BY-SA-license-for-open-data
