@@ -1,6 +1,6 @@
 ROOTED LA — INGLEWOOD BUSINESS PROTOTYPE
 Updated team-alignment draft
-Repository supplied: https://github.com/troy-h-tian/youseeLA
+Repository supplied: https://github.com/CadenMinami/Gentrification-
 Time remaining at this revision: approximately five hours
 Team: two people
 
@@ -10,7 +10,10 @@ assessment that combines neighborhood numerical data with imagery that
 directly influences model output.
 
 CONFIRMED DECISIONS
-- Businesses are the main audience focus; tenant resources are secondary.
+- Businesses and housing tenants are equal focuses, although different aspects of the data will
+contribute more or less to each type of prediction. housing- or neighbourhood-level predictions
+will be targeted to nonprofits and grassroots orgs in the eventual UI, while businesses
+will be targeted to customers and feature a rating system in a different UI mode.
 - Inglewood is the preferred pilot area.
 - Imagery must affect the combined support-priority assessment, not merely
   appear beside it.
@@ -19,8 +22,7 @@ CONFIRMED DECISIONS
   That source is not yet cleared for analytical use.
 - Languages and frameworks are flexible. No sponsor-required technology.
 - Housing data and imagery must be sourced from scratch.
-- All project work belongs in this workspace. Planning files stay under
-  .Codex/ and are excluded by .gitignore.
+- All project work belongs in this workspace. Planning files are excluded by .gitignore.
 
 IMPORTANT CHANGE FROM THE PREVIOUS PLAN
 The earlier housing-only forecast plus separate visual assessment does not
