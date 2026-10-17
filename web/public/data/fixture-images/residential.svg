@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" role="img" aria-label="Demo fixture placeholder: residential frontage">
+  <rect width="640" height="360" fill="#cfe0ea"/>
+  <rect x="80" y="110" width="480" height="200" fill="none" stroke="#7d9aab" stroke-width="6"/>
+  <text x="320" y="70" font-family="system-ui, sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="#333">DEMO FIXTURE IMAGE</text>
+  <text x="320" y="220" font-family="system-ui, sans-serif" font-size="24" text-anchor="middle" fill="#333">placeholder — residential frontage</text>
+  <text x="320" y="340" font-family="system-ui, sans-serif" font-size="16" text-anchor="middle" fill="#555">Not a real photograph or location</text>
+</svg>
