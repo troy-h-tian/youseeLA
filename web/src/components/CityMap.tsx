@@ -59,6 +59,8 @@ export function CityMap(props: Props) {
           map.addLayer({ id: 'area-lens-fill', type: 'fill', source: 'area-lens', paint: { 'fill-color': ['get', 'color'], 'fill-opacity': 0.42 } }, 'city-buildings');
           map.addLayer({ id: 'area-lens-line', type: 'line', source: 'area-lens', paint: { 'line-color': '#ffffff', 'line-width': 1, 'line-opacity': 0.8 } });
           map.on('click', 'area-lens-fill', (event) => {
+            // Marker clicks bubble through the map; let the marker's own selection win.
+            if ((event.originalEvent.target as HTMLElement | null)?.closest?.('.city-marker')) return;
             const id = event.features?.[0]?.properties?.id;
             if (typeof id === 'string') latest.current.onSelect(id);
           });
