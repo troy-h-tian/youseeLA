@@ -1,5 +1,7 @@
 # Scalability evaluation
 
+The latest CLIP-specific scaling evaluation is in [CLIP presentation evidence](clip-evaluation.md), including a slide-ready chart and a measured indexing improvement. The measurements below describe the earlier reviewed-frontage pipeline, not CLIP inference.
+
 Measured locally using synthetic inputs, ten runs per size after a warm-up. Environment and exact timings are recorded in [the report](../artifacts/scalability.json). Every output was parsed and validated; all measured runs completed without errors.
 
 | Areas | Median score/build | Median export/validate | JSON size |

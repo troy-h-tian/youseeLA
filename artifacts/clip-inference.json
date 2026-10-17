@@ -1,0 +1,13 @@
+{
+  "model": "ViT-B/32",
+  "revision": "d05afc436d78f1c48dc0dbf8e5980a9d471f35f6",
+  "device": "cpu",
+  "torch_version": "2.14.1",
+  "pairs": 2,
+  "images_encoded": 4,
+  "image_cache_hits": 0,
+  "elapsed_seconds": 10.258266832999652,
+  "api_cost_usd": 0,
+  "accuracy_measured": false,
+  "identical_image_difference": 0.0
+}

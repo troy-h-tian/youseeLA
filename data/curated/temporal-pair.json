@@ -1,0 +1,30 @@
+{
+  "status": "candidate",
+  "distance_m": 1.52,
+  "inspection_note": "Commercial street: matching parking structure and warehouse facade. Viewpoint/framing differ; needs frontage-level alignment.",
+  "human_approved": false,
+  "old": {
+    "id": "3672049312922199",
+    "date": "2019-05-20",
+    "coordinates": [
+      -118.36365799825,
+      33.965701665437
+    ],
+    "source_url": "https://www.mapillary.com/app/?pKey=3672049312922199",
+    "attribution": "Mapillary contributor victuallers",
+    "license": "CC-BY-SA 4.0",
+    "local_image": "data/raw/images/3672049312922199.jpg"
+  },
+  "new": {
+    "id": "795759134379829",
+    "date": "2020-01-09",
+    "coordinates": [
+      -118.363651,
+      33.965714
+    ],
+    "source_url": "https://www.mapillary.com/app/?pKey=795759134379829",
+    "attribution": "Mapillary contributor cfwarren3",
+    "license": "CC-BY-SA 4.0",
+    "local_image": "data/raw/images/795759134379829.jpg"
+  }
+}

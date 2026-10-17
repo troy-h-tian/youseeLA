@@ -1,0 +1,92 @@
+{
+  "title": "One commercial street, two dates",
+  "location_label": "Inglewood commercial street near 33.96570, -118.36366",
+  "historical_only": true,
+  "pair": {
+    "status": "candidate",
+    "distance_m": 1.52,
+    "inspection_note": "Commercial street: matching parking structure and warehouse facade. Viewpoint/framing differ; needs frontage-level alignment.",
+    "human_approved": false,
+    "old": {
+      "id": "3672049312922199",
+      "date": "2019-05-20",
+      "coordinates": [
+        -118.36365799825,
+        33.965701665437
+      ],
+      "source_url": "https://www.mapillary.com/app/?pKey=3672049312922199",
+      "attribution": "Mapillary contributor victuallers",
+      "license": "CC-BY-SA 4.0",
+      "local_image": "data/raw/images/3672049312922199.jpg",
+      "image_url": "data/historical-images/3672049312922199.jpg"
+    },
+    "new": {
+      "id": "795759134379829",
+      "date": "2020-01-09",
+      "coordinates": [
+        -118.363651,
+        33.965714
+      ],
+      "source_url": "https://www.mapillary.com/app/?pKey=795759134379829",
+      "attribution": "Mapillary contributor cfwarren3",
+      "license": "CC-BY-SA 4.0",
+      "local_image": "data/raw/images/795759134379829.jpg",
+      "image_url": "data/historical-images/795759134379829.jpg"
+    }
+  },
+  "result": {
+    "pair_id": "inglewood-commercial-2019-2020",
+    "model": "gpt-4.1-mini",
+    "generated_at": "2026-10-17T19:44:03.619127Z",
+    "earlier_date": "2019-05-20",
+    "later_date": "2020-01-09",
+    "prompt_sha256": "4155993cefe26f500a55b27ca2a156a148df862288a597e52dbfa3bb7301e69e",
+    "image_sha256": [
+      "99d029a726baafc9cdb713b1e3c2c2e2084d3ca8000310aa309f73f4542b607d",
+      "f69d5d46571eeda80c135fbc212dde369f251f1eb959c890b62292bbfbe97be5"
+    ],
+    "human_reviewed": false,
+    "findings": {
+      "comparability": "comparable",
+      "matching_landmarks": [
+        "large multi-story parking structure on left side",
+        "power poles along street",
+        "white building on right side with partial 'ANDERSON HOLLYWOOD' lettering"
+      ],
+      "observations": [
+        {
+          "location": "left side of street",
+          "category": "no_clear_change",
+          "earlier_evidence": "large multi-story parking structure with open sides and some signage visible on adjacent building",
+          "later_evidence": "same multi-story parking structure visible with same open side design and adjacent building with similar size",
+          "interpretation": "No significant structural changes visible to the large parking structure and adjacent buildings on the left side."
+        },
+        {
+          "location": "right side of street near foreground",
+          "category": "uncertain",
+          "earlier_evidence": "white building with 'ANDERSON HOLLYWOOD' partially visible, some trees and a metal fence enclosing area",
+          "later_evidence": "same white building with partial 'ANDERSON HOLLYWOOD' lettering, more dense tree foliage obscuring signage and fence",
+          "interpretation": "The building is the same, but dense tree growth partially obscures the signage and fence, causing uncertainty in detailed comparisons here."
+        },
+        {
+          "location": "center of street",
+          "category": "no_clear_change",
+          "earlier_evidence": "median with yellow curb and some low bushes or plants, and road surface with lane markings and cracked pavement",
+          "later_evidence": "road with similar lane markings and cracks visible, no median plants on this portion though median is visible far ahead",
+          "interpretation": "Street median and road condition appear consistent with no clear change visible in the central part of the street."
+        }
+      ],
+      "limitations": [
+        "Tree growth obscures some signage and fences on the right side in the later photo.",
+        "Different lighting and shadows in the two images obscure some finer details.",
+        "Camera angles and slight framing shifts limit visibility of some parts of buildings and street."
+      ]
+    }
+  },
+  "review_notes": [
+    "Model observations have not been independently human-reviewed.",
+    "Different foliage visibility does not establish tree growth; viewpoint and seasonal effects remain possible.",
+    "Camera positions are close, but framing differs. Compare only overlapping buildings, not whole-image pixels.",
+    "This pair does not establish business turnover, displacement, or current neighborhood conditions."
+  ]
+}

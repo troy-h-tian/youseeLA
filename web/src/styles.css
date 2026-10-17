@@ -824,3 +824,57 @@ details > summary {
   font-size: 0.8rem;
   color: var(--muted);
 }
+
+/* Keep original photographs uncropped so the comparison retains its evidence. */
+.historical { max-width: 1440px; margin: 2rem auto; padding: 2rem; border-top: 3px solid var(--accent); scroll-margin-top: 9rem; }
+.historical-jump { display: inline-block; margin: .65rem 1rem; font-size: .9rem; }
+.historical-heading { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+.historical-heading h2 { font-size: clamp(1.5rem, 3vw, 2.3rem); letter-spacing: -.035em; }
+.historical-heading p { margin: .4rem 0; }
+.historical-eyebrow { color: var(--accent); font-size: .8rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; }
+.historical-tag { background: var(--surface-2); border: 1px solid var(--border); padding: .4rem .75rem; white-space: nowrap; font-size: .8rem; }
+.historical-context { max-width: 80ch; color: var(--muted); }
+.historical-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin: 1.5rem 0; }
+.historical-photo { margin: 0; min-width: 0; background: var(--surface); border: 1px solid var(--border); }
+.historical-photo figcaption { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem; padding: .75rem 1rem; font-weight: 600; }
+.historical-photo figcaption span { color: var(--muted); font-weight: 400; }
+.historical-photo img { display: block; width: 100%; height: auto; }
+.historical-credit { color: var(--muted); font-size: .78rem; line-height: 1.6; }
+.historical-photo .historical-credit { padding: 0 1rem; }
+.historical-findings { display: grid; grid-template-columns: 1.7fr 1fr; gap: 2rem; }
+.historical-observations { padding-left: 1.25rem; }
+.historical-observations > li { padding: 1rem 0; border-top: 1px solid var(--border); }
+.historical-observation-title { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem; }
+.historical-observation-title h4 { margin: 0; text-transform: capitalize; }
+.historical-observation-title span { color: var(--muted); font-size: .8rem; }
+.historical-observations dl { display: grid; grid-template-columns: 4rem 1fr; gap: .45rem; font-size: .9rem; }
+.historical-observations dt { font-weight: 600; }
+.historical-observations dd { margin: 0; }
+.historical-limits { padding: 1.25rem; background: var(--surface-2); align-self: start; }
+.historical-limits li { margin-bottom: .7rem; }
+.historical-limits ul { padding-left: 1.2rem; }
+.historical-limits summary { cursor: pointer; }
+@media (max-width: 700px) {
+  .historical { padding: 1rem; }
+  .historical-heading { flex-direction: column; }
+  .historical-photos, .historical-findings { grid-template-columns: 1fr; }
+}
+
+.evidence-intro { max-width: 1440px; margin: 0 auto; padding: 1rem 1.5rem 0; }
+.evidence-intro p { max-width: 85ch; color: var(--muted); }
+.numerical-context { padding: 1.25rem 0; border-top: 1px solid var(--border); }
+.context-metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.context-metrics > div { padding: 1rem; background: var(--surface-2); border-left: 3px solid var(--accent); }
+.context-metrics span { display: block; font-weight: 600; }
+.context-metrics strong { display: block; font-size: clamp(2rem, 5vw, 3rem); letter-spacing: -.04em; }
+.context-metrics p, .context-note { font-size: .85rem; color: var(--muted); margin-bottom: 0; }
+.context-badge { display: inline-block; font-size: .8rem; padding: .3rem .6rem; background: var(--surface-2); white-space: nowrap; }
+.model-status { border-top: 1px solid var(--border); padding: .75rem 0; }
+.model-status summary { cursor: pointer; font-weight: 600; }
+.area-context-value { display: block; color: var(--accent); font-size: .95rem; font-weight: 700; }
+.burden-scale { display: inline-block; width: 80px; height: 12px; background: linear-gradient(to right, hsl(205 45% 94%), hsl(205 45% 64%)); }
+@media (max-width: 500px) { .context-metrics { grid-template-columns: 1fr; } }
+
+.dataset-links { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; padding-bottom: 0.75rem; }
+.area-item { grid-template-columns: minmax(0, 1fr); }
+.area-item .rating { grid-row: 3; grid-column: 1; justify-self: start; white-space: normal; }

@@ -6,12 +6,13 @@ from pathlib import Path
 
 from shapely.geometry import Point, shape
 
-from youseela.contracts import Area, Bundle, Dataset, Evidence
+from youseela.contracts import Area, Bundle, ClipPairFeature, Dataset, Evidence
 from youseela.scoring import AssessmentConfig, assess
 
 
 def build_bundle(dataset: Dataset, config: AssessmentConfig, as_of: date) -> Bundle:
-    if any(not e.reviewed for e in dataset.evidence):
+    clip_ids = {ref for pair in dataset.clip_pairs for ref in [pair.earlier_image_id, pair.later_image_id]} if config.visual_method == 'clip_pairs' else set()
+    if any(not e.reviewed and e.id not in clip_ids for e in dataset.evidence):
         raise ValueError("All evidence must be reviewed before public export; keep draft model results separate")
     if dataset.data_kind == "real" and any(x.data_kind != "real" for x in [*dataset.evidence, *dataset.businesses, *dataset.resources]):
         raise ValueError("Fixture records cannot be relabeled as real")
@@ -31,16 +32,19 @@ def build_bundle(dataset: Dataset, config: AssessmentConfig, as_of: date) -> Bun
     for business in dataset.businesses:
         if business.area_id not in geometry or not geometry[business.area_id].covers(Point(business.longitude, business.latitude)):
             raise ValueError("Business is outside its assigned area")
+    pairs_by_area: dict[str, list[ClipPairFeature]] = defaultdict(list)
+    for pair in dataset.clip_pairs:
+        pairs_by_area[pair.area_id].append(pair)
     areas = [Area(**area.model_dump(),
-                  housing=assess(area.id, "housing", area.indicators, by_area[area.id], config, as_of),
-                  commercial=assess(area.id, "commercial", area.indicators, by_area[area.id], config, as_of))
+                  housing=assess(area.id, "housing", area.indicators, by_area[area.id], config, as_of, pairs_by_area[area.id]),
+                  commercial=assess(area.id, "commercial", area.indicators, by_area[area.id], config, as_of, pairs_by_area[area.id]))
              for area in dataset.areas]
     return Bundle(generated_at=datetime.now(timezone.utc), assessed_as_of=as_of,
-                  data_kind=dataset.data_kind, areas=areas, evidence=dataset.evidence,
+                  data_kind=dataset.data_kind, areas=areas, evidence=dataset.evidence, clip_pairs=dataset.clip_pairs if config.visual_method == "clip_pairs" else [],
                   businesses=dataset.businesses, resources=dataset.resources,
                   methodology={"name": "Experimental area vulnerability proxy", "validated_prediction": False,
                                "score_is_probability": False, "configuration": config.model_dump(),
-                               "formula": "100 * (burden_weight * B + pressure_weight * P + visual_weight * V * P)",
+                               "formula": "100 * (burden_weight * B + pressure_weight * P + visual_weight * V)" if config.visual_method == "clip_pairs" else "100 * (burden_weight * B + pressure_weight * P + visual_weight * V * P)",
                                "limitations": ["Selected imagery is not a representative survey.",
                                                "Descriptive pooled ACS changes do not track the same households.",
                                                "Area scores do not establish individual business or tenant distress.",

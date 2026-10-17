@@ -39,6 +39,8 @@ export interface Bundle {
 }
 
 export interface Methodology {
+  visual_method?: 'reviewed_frontages' | 'clip_pairs';
+  assessed_as_of?: string;
   config_version: string;
   /** Plain-language description of what the scores mean and do not mean. */
   summary: string;

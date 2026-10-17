@@ -95,7 +95,8 @@ describe('explorer', () => {
     expect(screen.getByRole('heading', { name: 'Housing area vulnerability' })).toBeInTheDocument();
     expect(screen.getByText('Fixture Area B · Tract fixture-b')).toBeInTheDocument();
     // Area B has commercial evidence but too little residential imagery.
-    expect(screen.getByText(/Residential imagery covers 1 of 3 required locations/, { selector: '.unrated p' })).toBeInTheDocument();
+    await user.click(screen.getByText('Combined assessment pending — view missing inputs'));
+    expect(screen.getByText(/Residential imagery covers 1 of 3 required locations/, { selector: '.model-status p' })).toBeVisible();
     expect(screen.queryByRole('heading', { name: /Local businesses/ })).not.toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /Tenant resources for Fixture Area B/ })).toBeInTheDocument();
   });
@@ -112,8 +113,9 @@ describe('explorer', () => {
     const user = renderExplorer();
     await user.click(areaButton('Fixture Area C'));
     const panel = screen.getByRole('heading', { name: 'Commercial area vulnerability' }).closest('section')!;
-    expect(within(panel).getByRole('status')).toHaveTextContent(/Unrated: insufficient evidence/);
-    expect(within(panel).getByRole('status')).toHaveTextContent(/P is unavailable/);
+    await user.click(within(panel).getByText('Combined assessment pending — view missing inputs'));
+    expect(within(panel).getByText(/P is unavailable/, { selector: '.model-status p' })).toBeVisible();
+    expect(within(panel).getByRole('region', { name: 'Census housing context' })).toBeVisible();
     expect(within(panel).queryByText(/Exploratory score/)).not.toBeInTheDocument();
     expect(within(panel).queryByText(/0\.0 pts/)).not.toBeInTheDocument();
     expect(within(panel).getAllByText('Unavailable').length).toBeGreaterThan(0);

@@ -1,5 +1,7 @@
 import type { Area, AssessmentKind, Methodology } from '../data/types';
 import { formatDate, formatIndicator, formatMoe, formatPoints, formatScore, formatTermValue, TIER_LABEL } from '../lib/format';
+import { NumericalContext } from './NumericalContext';
+import { contextIndicator } from '../lib/context';
 import { RatingBadge } from './RatingBadge';
 
 const HEADINGS: Record<AssessmentKind, { title: string; context: string; frontage: string }> = {
@@ -28,6 +30,7 @@ export function AssessmentPanel({ area, kind, methodology, onOpenEvidence }: Pro
   const a = area[kind];
   const text = HEADINGS[kind];
   const rated = a.status === 'rated' && a.score !== null;
+  const hasContext = !!contextIndicator(area, 'rent_burden_share') || !!contextIndicator(area, 'renter_share');
 
   return (
     <section className="card assessment" aria-labelledby={`assessment-${kind}-title`}>
@@ -36,11 +39,13 @@ export function AssessmentPanel({ area, kind, methodology, onOpenEvidence }: Pro
           <p className="eyebrow">{area.label} · Tract {area.id}</p>
           <h2 id={`assessment-${kind}-title`}>{text.title}</h2>
         </div>
-        <RatingBadge assessment={a} />
+        {!rated && hasContext ? <span className="context-badge">Census data available</span> : <RatingBadge assessment={a} />}
       </header>
       <p className="context-label">
         <strong>Experimental area context.</strong> {text.context}
       </p>
+
+      <NumericalContext area={area} />
 
       {rated && a.score_range ? (
         <div className="context-label">
@@ -54,23 +59,35 @@ export function AssessmentPanel({ area, kind, methodology, onOpenEvidence }: Pro
           <strong>{TIER_LABEL[a.tier!]}</strong> tier under this rubric (below {methodology.tier_bands.lower_below} lower,
           below {methodology.tier_bands.moderate_below} moderate). Not a probability.
         </p>
+      ) : hasContext ? (
+        <details className="model-status">
+          <summary>Combined assessment pending — view missing inputs</summary>
+          <p>{a.unrated_reason}</p>
+          <p>Available Census measurements are shown above. The missing inputs listed here prevent a combined score.</p>
+        </details>
       ) : (
         <div className="unrated" role="status">
-          <p>
-            <strong>Unrated: insufficient evidence.</strong> {a.unrated_reason}
-          </p>
+          <p><strong>Unrated: insufficient evidence.</strong> {a.unrated_reason}</p>
           <p className="muted">Missing evidence is not treated as low vulnerability.</p>
         </div>
       )}
 
       {a.warnings.length > 0 && (
+        <details className="model-status"><summary>Method and data limitations</summary>
         <ul className="warnings" aria-label="Warnings">
           {a.warnings.map((w) => (
             <li key={w}>{w}</li>
           ))}
-        </ul>
+        </ul></details>
       )}
 
+      {rated && <>
+      {methodology.visual_method === 'clip_pairs' && <p className="context-label">
+        With the visual input set to zero and numerical inputs held fixed, this score would be{' '}
+        <strong>{formatScore(a.contributions.filter(c => c.feature !== 'clip_visual_difference').reduce((sum, c) => sum + (c.points ?? 0), 0))}</strong>.
+        CLIP contributes <strong>{(a.contributions.find(c => c.feature === 'clip_visual_difference')?.points ?? 0).toFixed(2)}</strong> points.
+        This is an input ablation, not an accuracy measurement.
+      </p>}
       <h3>How the score is built</h3>
       <p className="formula">
         <code>{methodology.formulas[kind]}</code>
@@ -108,16 +125,18 @@ export function AssessmentPanel({ area, kind, methodology, onOpenEvidence }: Pro
         </table>
       </div>
 
-      <h3>Image coverage ({text.frontage})</h3>
+      </>}
+
+      <details className="model-status"><summary>Image coverage ({text.frontage})</summary>
       <dl className="facts">
         <div>
-          <dt>Distinct reviewed locations</dt>
+          <dt>{methodology.visual_method === 'clip_pairs' ? 'Distinct dated image pairs' : 'Distinct reviewed locations'}</dt>
           <dd>
             {a.coverage.distinct_locations} of {a.coverage.required_locations} required
           </dd>
         </div>
         <div>
-          <dt>Assessable frontages</dt>
+          <dt>{methodology.visual_method === 'clip_pairs' ? 'Frontage counts (not used by CLIP)' : 'Assessable frontages'}</dt>
           <dd>
             {a.coverage.assessable_frontages} of {a.coverage.required_frontages} required
           </dd>
@@ -132,6 +151,7 @@ export function AssessmentPanel({ area, kind, methodology, onOpenEvidence }: Pro
         </div>
       </dl>
 
+      </details>
       <details className="indicators">
         <summary>Census indicators ({area.indicators.length})</summary>
         <dl className="facts">

@@ -32,3 +32,7 @@ Nine successful vision requests used an estimated $0.00596 in tokens under [publ
 ## Latest evaluation
 
 The subsequent 12-photo blind-label pilot matches 11 labels, equal to an always-absent baseline. It contains no construction-positive reference examples. See `docs/model-evaluation.md` and `artifacts/image-evaluation.json`; this is not area prediction accuracy. Total successful API calls are now 21, estimated token charges $0.01430, with $1.05 conservatively reserved.
+
+## Explorer presentation
+
+When every combined assessment is unavailable, the explorer now leads with available Census rent burden and renter share, their periods and denominators. The map shows rent-burden percentages; the area list stays alphabetical, not ranked by risk. Combined-score inputs and limitations remain expandable. These direct descriptive shares do not replace a missing multimodal score. The default selection uses an area with a verified listed business where available. A separate historical photo comparison is linked above the explorer.

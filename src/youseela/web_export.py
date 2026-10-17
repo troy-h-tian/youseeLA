@@ -24,7 +24,7 @@ def web_assessment(assessment: Assessment, area: Area, config: AssessmentConfig)
                                numerator=None, denominator=None, evidence_ids=c.evidence_ids,
                                note=c.explanation) for c in assessment.contributions],
         'coverage': dict(distinct_locations=coverage.sites, assessable_frontages=coverage.frontages,
-                         required_locations=config.minimum_sites, required_frontages=config.minimum_frontages,
+                         required_locations=config.minimum_pairs if config.visual_method == 'clip_pairs' else config.minimum_sites, required_frontages=0 if config.visual_method == 'clip_pairs' else config.minimum_frontages,
                          capture_date_range=dates),
     }
 
@@ -55,11 +55,12 @@ def to_web_bundle(bundle: Bundle) -> dict[str, Any]:
     formulas = {}
     for mode in ['housing', 'commercial']:
         w = getattr(config, mode)
-        formulas[mode] = f'100 × ({w.burden:g} × B + {w.pressure:g} × P + {w.visual_interaction:g} × V × P)'
+        visual_term = 'V' if config.visual_method == 'clip_pairs' else 'V × P'
+        formulas[mode] = f'100 × ({w.burden:g} × B + {w.pressure:g} × P + {w.visual_interaction:g} × {visual_term})'
     return dict(
         schema_version=1, generated_at=bundle.generated_at.isoformat(), data_kind=bundle.data_kind,
-        methodology=dict(config_version=config.version,
-                         summary='Experimental area support-priority proxy, not a validated prediction. B is rent burden, P is affordability pressure, and V is corroborated visual change. Missing evidence remains unrated.',
+        methodology=dict(config_version=config.version, visual_method=config.visual_method, assessed_as_of=bundle.assessed_as_of.isoformat(),
+                         summary=('Historical CLIP assessment: V = (1 − cosine similarity) / 2 for dated image pairs. No change labels or calibrated prediction accuracy. ' if config.visual_method == 'clip_pairs' else '') + 'Experimental area support-priority proxy, not a validated prediction. B is rent burden, P is affordability pressure, and V is the configured visual feature. Missing evidence remains unrated.',
                          limitations=bundle.methodology['limitations'],
                          tier_bands=dict(lower_below=33, moderate_below=67), formulas=formulas),
         areas=areas,
@@ -77,7 +78,7 @@ def to_web_bundle(bundle: Bundle) -> dict[str, Any]:
                        captured_at=e.source_date.isoformat(),
                        location=dict(lat=e.latitude, lon=e.longitude) if e.latitude is not None else None,
                        frontage_class='residential' if e.mode == 'housing' else 'commercial' if e.mode == 'commercial' else None,
-                       image_url=None, reviewed=e.reviewed,
+                       image_url=f'data/historical-images/{e.id.removeprefix("mapillary-")}.jpg' if any(e.id in [p.earlier_image_id, p.later_image_id] for p in bundle.clip_pairs) else None, reviewed=e.reviewed,
                        observations=[dict(feature=o.frontage_id, label='Visible physical work', status=o.redevelopment,
                                           visible_count=None, description=o.description) for o in e.observations],
                        corrections=[e.note] if e.note else []) for e in bundle.evidence],

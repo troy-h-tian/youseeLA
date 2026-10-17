@@ -261,6 +261,83 @@
       "title": "Business",
       "type": "object"
     },
+    "ClipPairFeature": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "area_id": {
+          "title": "Area Id",
+          "type": "string"
+        },
+        "mode": {
+          "enum": [
+            "housing",
+            "commercial"
+          ],
+          "title": "Mode",
+          "type": "string"
+        },
+        "site_id": {
+          "title": "Site Id",
+          "type": "string"
+        },
+        "earlier_image_id": {
+          "title": "Earlier Image Id",
+          "type": "string"
+        },
+        "later_image_id": {
+          "title": "Later Image Id",
+          "type": "string"
+        },
+        "cosine_similarity": {
+          "maximum": 1,
+          "minimum": -1,
+          "title": "Cosine Similarity",
+          "type": "number"
+        },
+        "visual_difference": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Visual Difference",
+          "type": "number"
+        },
+        "model": {
+          "title": "Model",
+          "type": "string"
+        },
+        "model_revision": {
+          "title": "Model Revision",
+          "type": "string"
+        },
+        "image_sha256": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "title": "Image Sha256",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "area_id",
+        "mode",
+        "site_id",
+        "earlier_image_id",
+        "later_image_id",
+        "cosine_similarity",
+        "visual_difference",
+        "model",
+        "model_revision",
+        "image_sha256"
+      ],
+      "title": "ClipPairFeature",
+      "type": "object"
+    },
     "Contribution": {
       "additionalProperties": false,
       "properties": {
@@ -772,6 +849,13 @@
         "$ref": "#/$defs/Evidence"
       },
       "title": "Evidence",
+      "type": "array"
+    },
+    "clip_pairs": {
+      "items": {
+        "$ref": "#/$defs/ClipPairFeature"
+      },
+      "title": "Clip Pairs",
       "type": "array"
     },
     "businesses": {

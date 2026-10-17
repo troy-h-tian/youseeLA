@@ -1,0 +1,20 @@
+{
+  "version": "experimental-clip-v1",
+  "minimum_sites": 3,
+  "minimum_frontages": 5,
+  "maximum_image_age_days": 1095,
+  "minimum_site_distance_m": 25,
+  "housing": {
+    "burden": 0.6,
+    "pressure": 0.25,
+    "visual_interaction": 0.15
+  },
+  "commercial": {
+    "burden": 0.3,
+    "pressure": 0.5,
+    "visual_interaction": 0.2
+  },
+  "visual_method": "clip_pairs",
+  "minimum_pairs": 1,
+  "maximum_pair_distance_m": 25
+}

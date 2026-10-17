@@ -1,0 +1,10 @@
+{
+  "sources": [
+    "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_ACS2014/MapServer/8",
+    "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_ACS2019/MapServer/8"
+  ],
+  "topological_equality": {
+    "06037600911": false,
+    "06037601401": true
+  }
+}
