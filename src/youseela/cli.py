@@ -82,6 +82,11 @@ def parser() -> argparse.ArgumentParser:
     images.add_argument("--bbox", required=True, help="west,south,east,north (use --bbox=-118.36,33.95,-118.355,33.955)")
     images.add_argument("--limit", type=int, default=50)
     images.add_argument("--captured-after", type=date.fromisoformat)
+    images.add_argument("--captured-before", type=date.fromisoformat)
+    images.add_argument("--include-panoramas", action="store_true", help="Keep 360-degree panoramas (excluded by default)")
+    images.add_argument("--max-pages", type=int, default=1, help="Result pages to follow (each up to --limit images)")
+    images.add_argument("--target", help="lon,lat of a building; keep only images whose camera faces it")
+    images.add_argument("--max-heading-offset", type=float, default=45)
     images.add_argument("--output", type=Path, default=Path("data/raw/images/discovery.json"))
     vision = sub.add_parser("vision", help="Analyze permitted local images; requires configured provider and budget")
     vision.add_argument("--manifest", type=Path, required=True)
@@ -163,8 +168,13 @@ def run(args: argparse.Namespace) -> None:
         bounds = tuple(float(v) for v in args.bbox.split(","))
         if len(bounds) != 4:
             raise ValueError("bbox needs four coordinates")
+        target = tuple(float(v) for v in args.target.split(",")) if args.target else None
+        if target is not None and len(target) != 2:
+            raise ValueError("target needs lon,lat")
         result = discover_images(bounds, os.environ.get("MAPILLARY_ACCESS_TOKEN", ""), args.limit,
-                                 captured_after=args.captured_after)
+                                 captured_after=args.captured_after, captured_before=args.captured_before,
+                                 include_panoramas=args.include_panoramas, max_pages=args.max_pages,
+                                 target=target, max_heading_offset=args.max_heading_offset)
         write_json(result, args.output)
         print(f"Discovered {len(result['images'])} images; has_more={result['has_more']}. Metadata needs review: {args.output}")
     elif args.command == "vision":

@@ -38,3 +38,16 @@ Camera separation: 1.52 metres.
 Use explicitly historical pairs for a change-analysis prototype, or obtain matching current photos before claiming current observations. Keep visual feature extraction separate from conclusions about displacement.
 
 Metadata and exact coordinates: `artifacts/temporal-imagery-search.json`. Originals remain in ignored `data/raw/images/`.
+
+## Targeted search at known new construction
+
+`python -m youseela.construction` locates new construction from the 2025 Assessor roll (effective year built 2019–2025) in a tract, groups parcels by Assessor map page, and searches Mapillary for photos taken before 2019 and after 2023 whose camera faces each site (within 60°). It pairs photos taken within 15 m and 30° of each other. Results are in `artifacts/construction-pairs.json`.
+
+Downtown tract 06037601001 has one large development: 226 parcels on map page 4015-024, built 2020–2023, at about 33.96713, −118.34572. **Mapillary has no usable coverage of it.** No images exist within 250 m. The nearest 33 images are 324–550 m away, all captured on 2016-08-03, with none newer. The two single-parcel sites also returned nothing. A known-change pair for this site would need another imagery source.
+
+Discovery changes in `sources/imagery.py`:
+- **Panoramas** are excluded by default (`--include-panoramas` keeps them).
+- **Date window:** `--captured-before` bounds the window.
+- **Paging:** `--max-pages` follows result pages without saving token-bearing links.
+- **Targeting:** `--target lon,lat` keeps only cameras facing a building.
+- **Positions:** the computed (structure-from-motion) position and heading are preferred over raw GPS.

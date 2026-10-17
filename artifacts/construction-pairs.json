@@ -1,0 +1,110 @@
+{
+  "generated_at": "2026-10-17T20:25:45.799094+00:00",
+  "tract": "06037601001",
+  "source": "LA County Assessor roll effective year built; Mapillary images (CC BY-SA 4.0)",
+  "built_years": [
+    2019,
+    2025
+  ],
+  "sites": [
+    {
+      "site_id": "assessor-page-4015024",
+      "parcels": 226,
+      "years_built": [
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "longitude": -118.345723,
+      "latitude": 33.967131,
+      "extent_m": 166.6,
+      "search_bbox": [
+        -118.347961,
+        33.965262,
+        -118.343485,
+        33.969
+      ],
+      "earlier": {
+        "captured_before": "2019-01-01",
+        "count": 0,
+        "has_more": false,
+        "images": []
+      },
+      "later": {
+        "captured_after": "2023-01-01",
+        "count": 0,
+        "has_more": false,
+        "images": []
+      },
+      "pairs": [],
+      "pair_count": 0
+    },
+    {
+      "site_id": "assessor-page-4021003",
+      "parcels": 1,
+      "years_built": [
+        2019
+      ],
+      "longitude": -118.348114,
+      "latitude": 33.964305,
+      "extent_m": 0.0,
+      "search_bbox": [
+        -118.348547,
+        33.963943,
+        -118.347681,
+        33.964667
+      ],
+      "earlier": {
+        "captured_before": "2019-01-01",
+        "count": 0,
+        "has_more": false,
+        "images": []
+      },
+      "later": {
+        "captured_after": "2023-01-01",
+        "count": 0,
+        "has_more": false,
+        "images": []
+      },
+      "pairs": [],
+      "pair_count": 0
+    },
+    {
+      "site_id": "assessor-page-4015026",
+      "parcels": 1,
+      "years_built": [
+        2019
+      ],
+      "longitude": -118.349233,
+      "latitude": 33.965074,
+      "extent_m": 0.0,
+      "search_bbox": [
+        -118.349666,
+        33.964712,
+        -118.3488,
+        33.965436
+      ],
+      "earlier": {
+        "captured_before": "2019-01-01",
+        "count": 0,
+        "has_more": false,
+        "images": []
+      },
+      "later": {
+        "captured_after": "2023-01-01",
+        "count": 0,
+        "has_more": false,
+        "images": []
+      },
+      "pairs": [],
+      "pair_count": 0
+    }
+  ],
+  "rule": "Pairs: same spot (<=15 m) and direction (<=30 degrees), at least one year apart, camera facing the site (<=60 degrees).",
+  "limitations": [
+    "A matching pair shows the same viewpoint, not necessarily the construction itself; inspect every pair.",
+    "Effective year built includes major renovation, not only new buildings.",
+    "Zero pairs means none in the bounded Mapillary search, not that no imagery exists anywhere."
+  ]
+}
