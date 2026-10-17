@@ -1,6 +1,4 @@
 ROOTED LA — INGLEWOOD COMMUNITY SUPPORT PROTOTYPE
-Revised team-alignment draft
-Workspace: /Users/caden/Gentrifcation
 Repository: https://github.com/troy-h-tian/youseeLA.git
 Team: two people
 Budget: five-hour build allocation; actual time remaining must be rechecked.
