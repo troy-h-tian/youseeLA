@@ -105,7 +105,7 @@ def run(args: argparse.Namespace) -> None:
         dataset = Dataset.model_validate_json(args.input.read_text())
         if args.context.exists():
             from youseela.context import ContextFile, attach
-            dataset = attach(dataset, ContextFile.model_validate_json(args.context.read_text()))
+            dataset = attach(dataset, ContextFile.model_validate_json(args.context.read_text()), args.as_of)
             print(f"Attached unscored context from {args.context}")
         bundle = build_bundle(dataset, load_config(args.config), args.as_of)
         write_bundle(bundle, args.output)

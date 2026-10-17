@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-10-17T20:00:54.607234Z",
+  "generated_at": "2026-10-17T20:21:21.542270Z",
   "assessed_as_of": "2020-12-31",
   "data_kind": "real",
   "methodology": {
@@ -347,6 +347,48 @@
       },
       "boundary_source_url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_ACS2019/MapServer/8",
       "boundary_vintage": "2019 ACS / 2010 Census geography; per-tract comparison recorded",
+      "context": [
+        {
+          "key": "reassessed_share_prior",
+          "label": "Taxable parcels reassessed after a sale or new construction",
+          "value": 0.1290743155149935,
+          "unit": "share",
+          "period": "Base years 2016–2020 (2020 roll)",
+          "evidence_ids": [
+            "assessor-2020-06037600911"
+          ],
+          "note": "99/767 parcels. Prop 13 base years reset on market sales and new construction, not on most family transfers."
+        },
+        {
+          "key": "built_or_renovated_share_prior",
+          "label": "Taxable parcels built or substantially renovated",
+          "value": 0.007822685788787484,
+          "unit": "share",
+          "period": "Effective year built 2016–2020",
+          "evidence_ids": [
+            "assessor-2020-06037600911"
+          ],
+          "note": "6/767 parcels by the Assessor's effective year built, which reflects major renovation as well as new construction."
+        },
+        {
+          "key": "amenity_establishments_prior",
+          "label": "Cafes, sit-down restaurants, bars and groceries in ZIP 90302",
+          "value": 6.0,
+          "unit": "count",
+          "period": "2019",
+          "evidence_ids": [
+            "zbp-2019-06037600911"
+          ],
+          "note": "ZIP-level count shared by every tract mostly inside 90302. Categories follow Glaeser, Kim & Luca's gentrification-linked business types; establishment counts, not openings."
+        }
+      ],
+      "reference_typology": {
+        "code": "SMMI",
+        "label": "Stable moderate/mixed income",
+        "source_period": "ACS 2014–2018",
+        "source_tract": "06037600911",
+        "evidence_id": "udp-2018-06037600911"
+      },
       "housing": {
         "mode": "housing",
         "status": "insufficient_evidence",
@@ -954,6 +996,48 @@
       },
       "boundary_source_url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_ACS2019/MapServer/8",
       "boundary_vintage": "2019 ACS / 2010 Census geography; per-tract comparison recorded",
+      "context": [
+        {
+          "key": "reassessed_share_prior",
+          "label": "Taxable parcels reassessed after a sale or new construction",
+          "value": 0.1258741258741259,
+          "unit": "share",
+          "period": "Base years 2016–2020 (2020 roll)",
+          "evidence_ids": [
+            "assessor-2020-06037601401"
+          ],
+          "note": "126/1001 parcels. Prop 13 base years reset on market sales and new construction, not on most family transfers."
+        },
+        {
+          "key": "built_or_renovated_share_prior",
+          "label": "Taxable parcels built or substantially renovated",
+          "value": 0.002997002997002997,
+          "unit": "share",
+          "period": "Effective year built 2016–2020",
+          "evidence_ids": [
+            "assessor-2020-06037601401"
+          ],
+          "note": "3/1001 parcels by the Assessor's effective year built, which reflects major renovation as well as new construction."
+        },
+        {
+          "key": "amenity_establishments_prior",
+          "label": "Cafes, sit-down restaurants, bars and groceries in ZIP 90301",
+          "value": 29.0,
+          "unit": "count",
+          "period": "2019",
+          "evidence_ids": [
+            "zbp-2019-06037601401"
+          ],
+          "note": "ZIP-level count shared by every tract mostly inside 90301. Categories follow Glaeser, Kim & Luca's gentrification-linked business types; establishment counts, not openings."
+        }
+      ],
+      "reference_typology": {
+        "code": "LISD",
+        "label": "Low-income / susceptible to displacement",
+        "source_period": "ACS 2014–2018",
+        "source_tract": "06037601401",
+        "evidence_id": "udp-2018-06037601401"
+      },
       "housing": {
         "mode": "housing",
         "status": "insufficient_evidence",
@@ -1202,6 +1286,114 @@
       "longitude": -118.363651,
       "observations": [],
       "note": "Original dated image used for frozen CLIP feature extraction. No human change label; not proof of redevelopment."
+    },
+    {
+      "id": "udp-2018-06037600911",
+      "area_id": "06037600911",
+      "kind": "typology",
+      "mode": "both",
+      "source_url": "https://github.com/urban-displacement/displacement-typologies",
+      "source_date": "2018-12-31",
+      "attribution": "Urban Displacement Project, Los Angeles displacement typology",
+      "license": "GPL-3.0 (source repository)",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "2010 tract 06037600911 matched to 2020 tract 06037600911 by Census land-area relationship (at least 95% mutual overlap). Based on ACS 2014–2018; predates SoFi Stadium's 2020 opening. Pinned commit a2479c79e630."
+    },
+    {
+      "id": "udp-2018-06037601401",
+      "area_id": "06037601401",
+      "kind": "typology",
+      "mode": "both",
+      "source_url": "https://github.com/urban-displacement/displacement-typologies",
+      "source_date": "2018-12-31",
+      "attribution": "Urban Displacement Project, Los Angeles displacement typology",
+      "license": "GPL-3.0 (source repository)",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "2010 tract 06037601401 matched to 2020 tract 06037601401 by Census land-area relationship (at least 95% mutual overlap). Based on ACS 2014–2018; predates SoFi Stadium's 2020 opening. Pinned commit a2479c79e630."
+    },
+    {
+      "id": "assessor-2020-06037600911",
+      "area_id": "06037600911",
+      "kind": "assessor",
+      "mode": "both",
+      "source_url": "https://services.arcgis.com/RmCCgQtiZLDCtblq/arcgis/rest/services/Parcel_Data_2016_2020_Table/FeatureServer/0",
+      "source_date": "2020-01-01",
+      "attribution": "Los Angeles County Office of the Assessor, secured assessment roll",
+      "license": "Los Angeles County open data; see https://data.lacounty.gov terms of use",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "767 taxable parcels located by parcel centroid. Automated aggregation; parcel rows retained separately."
+    },
+    {
+      "id": "assessor-2020-06037601401",
+      "area_id": "06037601401",
+      "kind": "assessor",
+      "mode": "both",
+      "source_url": "https://services.arcgis.com/RmCCgQtiZLDCtblq/arcgis/rest/services/Parcel_Data_2016_2020_Table/FeatureServer/0",
+      "source_date": "2020-01-01",
+      "attribution": "Los Angeles County Office of the Assessor, secured assessment roll",
+      "license": "Los Angeles County open data; see https://data.lacounty.gov terms of use",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "1001 taxable parcels located by parcel centroid. Automated aggregation; parcel rows retained separately."
+    },
+    {
+      "id": "zbp-2019-06037600911",
+      "area_id": "06037600911",
+      "kind": "business_patterns",
+      "mode": "commercial",
+      "source_url": "https://www2.census.gov/programs-surveys/cbp/datasets/2019/zbp19detail.zip",
+      "source_date": "2019-12-31",
+      "attribution": "U.S. Census Bureau, ZIP Code Business Patterns",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "ZIP 90302 covers 99% of this tract (2020 ZCTA approximation of the ZIP). Counts describe the whole ZIP, not the tract."
+    },
+    {
+      "id": "zbp-2019-06037601401",
+      "area_id": "06037601401",
+      "kind": "business_patterns",
+      "mode": "commercial",
+      "source_url": "https://www2.census.gov/programs-surveys/cbp/datasets/2019/zbp19detail.zip",
+      "source_date": "2019-12-31",
+      "attribution": "U.S. Census Bureau, ZIP Code Business Patterns",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "ZIP 90301 covers 100% of this tract (2020 ZCTA approximation of the ZIP). Counts describe the whole ZIP, not the tract."
     }
   ],
   "clip_pairs": [

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-10-17T19:56:59.215259Z",
+  "generated_at": "2026-10-17T20:20:48.701101Z",
   "assessed_as_of": "2026-10-17",
   "data_kind": "real",
   "methodology": {
@@ -9,6 +9,9 @@
     "score_is_probability": false,
     "configuration": {
       "version": "experimental-v2-sensitivity",
+      "visual_method": "reviewed_frontages",
+      "minimum_pairs": 1,
+      "maximum_pair_distance_m": 25,
       "minimum_sites": 3,
       "minimum_frontages": 5,
       "maximum_image_age_days": 1095,
@@ -18752,6 +18755,7 @@
       "note": "ZIP 90056 covers 93% of this tract (2020 ZCTA approximation of the ZIP). Counts describe the whole ZIP, not the tract."
     }
   ],
+  "clip_pairs": [],
   "businesses": [
     {
       "id": "dulans-manchester",

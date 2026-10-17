@@ -1,10 +1,12 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-17T19:56:59.215259+00:00",
+  "generated_at": "2026-10-17T20:20:48.701101+00:00",
   "data_kind": "real",
   "methodology": {
     "config_version": "experimental-v2-sensitivity",
-    "summary": "Experimental area support-priority proxy, not a validated prediction. B is rent burden, P is affordability pressure, and V is corroborated visual change. Missing evidence remains unrated.",
+    "visual_method": "reviewed_frontages",
+    "assessed_as_of": "2026-10-17",
+    "summary": "Experimental area support-priority proxy, not a validated prediction. B is rent burden, P is affordability pressure, and V is the configured visual feature. Missing evidence remains unrated.",
     "limitations": [
       "Selected imagery is not a representative survey.",
       "Descriptive pooled ACS changes do not track the same households.",

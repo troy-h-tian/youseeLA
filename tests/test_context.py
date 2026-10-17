@@ -105,7 +105,7 @@ def test_share_indicators_must_be_fractions() -> None:
         ContextIndicator(key="k", label="l", value=1.5, unit="share", period="p", evidence_ids=["e"])
 
 
-def fixture_with_context() -> tuple:
+def fixture_with_context(as_of: date = date(2026, 10, 17)) -> tuple:
     dataset = make_fixture(2)
     area_id = dataset.areas[0].id
     found, evidence = ctx.assessor_context({area_id: {"taxable": 100, "reassessed": 30, "built_or_renovated": 4}}, 2025, "latest")
@@ -117,7 +117,7 @@ def fixture_with_context() -> tuple:
                                                               reference_typology=labels[area_id]),
                                      "unknown-area": ctx.AreaContext()},
                               evidence=evidence + zbp_evidence + udp_evidence)
-    return dataset, ctx.attach(dataset, context), area_id
+    return dataset, ctx.attach(dataset, context, as_of), area_id
 
 
 def test_context_never_changes_scores_and_references_validate() -> None:
@@ -131,6 +131,15 @@ def test_context_never_changes_scores_and_references_validate() -> None:
     assert area.reference_typology and area.reference_typology.code == "OD"
     assert {c.key for c in area.context} == {"reassessed_share_latest", "built_or_renovated_share_latest", "amenity_establishments_latest"}
     assert len(after.evidence) == len(before.evidence) + 3
+
+
+def test_historical_assessments_drop_context_from_later_sources() -> None:
+    dataset, attached, area_id = fixture_with_context(date(2020, 12, 31))
+    area = next(a for a in attached.areas if a.id == area_id)
+    assert area.context == []
+    assert area.reference_typology and area.reference_typology.evidence_id == f"udp-2018-{area_id}"
+    added = [e for e in attached.evidence if e.id not in {x.id for x in dataset.evidence}]
+    assert [e.id for e in added] == [f"udp-2018-{area_id}"]
 
 
 def test_web_export_lists_context_and_filters_evidence_by_mode() -> None:

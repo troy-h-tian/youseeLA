@@ -187,14 +187,18 @@ def collect(geography: dict[str, Any], raw: Path, prior_roll: int, latest_roll: 
                        evidence=evidence)
 
 
-def attach(dataset: Dataset, context: ContextFile) -> Dataset:
-    """Add context to matching areas. Scoring ignores these fields by construction."""
+def attach(dataset: Dataset, context: ContextFile, as_of: date) -> Dataset:
+    """Add context to matching areas, keeping only sources dated on or before `as_of`. Scoring ignores these fields."""
     result = dataset.model_copy(deep=True)
     selected = {area.id for area in result.areas}
     existing = {e.id for e in result.evidence}
+    # A historical assessment must not cite sources from after its own date.
+    dated = {e.id: e for e in context.evidence if e.area_id in selected and e.source_date <= as_of}
     for area in result.areas:
         if area.id in context.areas:
-            area.context = context.areas[area.id].context
-            area.reference_typology = context.areas[area.id].reference_typology
-    result.evidence.extend(e for e in context.evidence if e.area_id in selected and e.id not in existing)
+            item = context.areas[area.id]
+            area.context = [c for c in item.context if all(ref in dated for ref in c.evidence_ids)]
+            typology_ref = item.reference_typology
+            area.reference_typology = typology_ref if typology_ref and typology_ref.evidence_id in dated else None
+    result.evidence.extend(e for e in dated.values() if e.id not in existing)
     return result
