@@ -1,0 +1,2288 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-17T00:00:00Z",
+  "data_kind": "fixture",
+  "methodology": {
+    "config_version": "fixture-rubric-v1",
+    "summary": "DEMO FIXTURE. Scores are experimental 0–100 vulnerability proxies that combine Census affordability indicators with human-reviewed, corroborated image observations. They identify places to investigate under stated assumptions; they are not probabilities, forecasts, or ratings of any business or household.",
+    "limitations": [
+      "All places, businesses, images and numbers in this fixture are invented.",
+      "Weights and the 0.20 affordability-gap cap are provisional, unvalidated choices.",
+      "Overlapping ACS five-year periods describe pooled estimates, not independent annual change.",
+      "Construction alone adds no risk; imagery only contributes alongside an affordability-change signal.",
+      "Missing evidence produces an unrated assessment, never a low score."
+    ],
+    "tier_bands": {
+      "lower_below": 33,
+      "moderate_below": 67
+    },
+    "formulas": {
+      "housing": "Housing = 100 × (0.60·B + 0.25·P + 0.15·Vh·P)",
+      "commercial": "Commercial = 100 × (0.30·B + 0.50·P + 0.20·Vc·P)"
+    }
+  },
+  "areas": [
+    {
+      "id": "fixture-a",
+      "label": "Fixture Area A",
+      "boundary": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -118.364,
+              33.963
+            ],
+            [
+              -118.35300000000001,
+              33.9645
+            ],
+            [
+              -118.35300000000001,
+              33.974000000000004
+            ],
+            [
+              -118.36250000000001,
+              33.974000000000004
+            ],
+            [
+              -118.364,
+              33.963
+            ]
+          ]
+        ]
+      },
+      "boundary_note": "Fixture boundary drawn for layout testing; not a Census tract.",
+      "indicators": [
+        {
+          "key": "rent_burden_share",
+          "label": "Renter households paying 30%+ of income on rent",
+          "value": 0.66,
+          "unit": "share",
+          "source_period": "ACS 2020–2024",
+          "margin_of_error": 0.06,
+          "numerator": 924,
+          "denominator": 1400,
+          "evidence_ids": [
+            "fixture-a-census"
+          ],
+          "unavailable_reason": null
+        },
+        {
+          "key": "renter_share",
+          "label": "Renter-occupied share of homes",
+          "value": 0.7616,
+          "unit": "share",
+          "source_period": "ACS 2020–2024",
+          "margin_of_error": 0.05,
+          "numerator": 1310,
+          "denominator": 1720,
+          "evidence_ids": [
+            "fixture-a-census"
+          ],
+          "unavailable_reason": null
+        },
+        {
+          "key": "median_gross_rent",
+          "label": "Median gross rent",
+          "value": 1810,
+          "unit": "usd",
+          "source_period": "ACS 2020–2024",
+          "margin_of_error": 85,
+          "numerator": null,
+          "denominator": null,
+          "evidence_ids": [
+            "fixture-a-census"
+          ],
+          "unavailable_reason": null
+        },
+        {
+          "key": "median_household_income",
+          "label": "Median household income",
+          "value": 52400,
+          "unit": "usd",
+          "source_period": "ACS 2020–2024",
+          "margin_of_error": 6200,
+          "numerator": null,
+          "denominator": null,
+          "evidence_ids": [
+            "fixture-a-census"
+          ],
+          "unavailable_reason": null
+        },
+        {
+          "key": "rent_change",
+          "label": "Median rent change, 2017–2021 to 2020–2024",
+          "value": 0.31,
+          "unit": "share",
+          "source_period": "ACS 2017–2021 vs 2020–2024",
+          "margin_of_error": null,
+          "numerator": null,
+          "denominator": null,
+          "evidence_ids": [
+            "fixture-a-census"
+          ],
+          "unavailable_reason": null
+        },
+        {
+          "key": "income_change",
+          "label": "Median income change, 2017–2021 to 2020–2024",
+          "value": 0.13,
+          "unit": "share",
+          "source_period": "ACS 2017–2021 vs 2020–2024",
+          "margin_of_error": null,
+          "numerator": null,
+          "denominator": null,
+          "evidence_ids": [
+            "fixture-a-census"
+          ],
+          "unavailable_reason": null
+        },
+        {
+          "key": "affordability_gap",
+          "label": "Rent change minus income change",
+          "value": 0.18,
+          "unit": "share",
+          "source_period": "ACS 2017–2021 vs 2020–2024",
+          "margin_of_error": null,
+          "numerator": null,
+          "denominator": null,
+          "evidence_ids": [
+            "fixture-a-census"
+          ],
+          "unavailable_reason": null
+        }
+      ],
+      "housing": {
+        "status": "rated",
+        "score": 67.5,
+        "tier": "higher",
+        "unrated_reason": null,
+        "contributions": [
+          {
+            "feature": "B",
+            "label": "Rent-burden share",
+            "weight": 0.6,
+            "value": 0.66,
+            "points": 39.6,
+            "formula": "100 × 0.60 × B",
+            "numerator": 924,
+            "denominator": 1400,
+            "evidence_ids": [
+              "fixture-a-census"
+            ],
+            "note": null
+          },
+          {
+            "feature": "P",
+            "label": "Affordability-change gap (capped at 0.20)",
+            "weight": 0.25,
+            "value": 0.9,
+            "points": 22.5,
+            "formula": "100 × 0.25 × P",
+            "numerator": null,
+            "denominator": null,
+            "evidence_ids": [
+              "fixture-a-census"
+            ],
+            "note": null
+          },
+          {
+            "feature": "Vh*P",
+            "label": "Corroborated residential redevelopment × P",
+            "weight": 0.15,
+            "value": 0.36,
+            "points": 5.4,
+            "formula": "100 × 0.15 × Vh × P",
+            "numerator": 2,
+            "denominator": 5,
+            "evidence_ids": [
+              "fixture-a-res-1",
+              "fixture-a-res-2",
+              "fixture-a-res-3",
+              "fixture-a-res-4",
+              "fixture-a-res-5",
+              "fixture-a-project"
+            ],
+            "note": null
+          }
+        ],
+        "warnings": [
+          "Small sample: five frontages per mode are an operational minimum, not a representative survey.",
+          "Images were captured in 2025; ACS values pool 2020–2024 responses."
+        ],
+        "evidence_ids": [
+          "fixture-a-census",
+          "fixture-a-res-1",
+          "fixture-a-res-2",
+          "fixture-a-res-3",
+          "fixture-a-res-4",
+          "fixture-a-res-5",
+          "fixture-a-project"
+        ],
+        "config_version": "fixture-rubric-v1",
+        "coverage": {
+          "distinct_locations": 3,
+          "assessable_frontages": 5,
+          "required_locations": 3,
+          "required_frontages": 5,
+          "capture_date_range": [
+            "2025-03-10",
+            "2025-05-12"
+          ]
+        }
+      },
+      "commercial": {
+        "status": "rated",
+        "score": 68.4,
+        "tier": "higher",
+        "unrated_reason": null,
+        "contributions": [
+          {
+            "feature": "B",
+            "label": "Rent-burden share",
+            "weight": 0.3,
+            "value": 0.66,
+            "points": 19.8,
+            "formula": "100 × 0.30 × B",
+            "numerator": 924,
+            "denominator": 1400,
+            "evidence_ids": [
+              "fixture-a-census"
+            ],
+            "note": null
+          },
+          {
+            "feature": "P",
+            "label": "Affordability-change gap (capped at 0.20)",
+            "weight": 0.5,
+            "value": 0.9,
+            "points": 45.0,
+            "formula": "100 × 0.50 × P",
+            "numerator": null,
+            "denominator": null,
+            "evidence_ids": [
+              "fixture-a-census"
+            ],
+            "note": null
+          },
+          {
+            "feature": "Vc*P",
+            "label": "Corroborated commercial redevelopment × P",
+            "weight": 0.2,
+            "value": 0.18,
+            "points": 3.6,
+            "formula": "100 × 0.20 × Vc × P",
+            "numerator": 1,
+            "denominator": 5,
+            "evidence_ids": [
+              "fixture-a-com-1",
+              "fixture-a-com-2",
+              "fixture-a-com-3",
+              "fixture-a-com-4",
+              "fixture-a-com-5",
+              "fixture-a-project"
+            ],
+            "note": null
+          }
+        ],
+        "warnings": [
+          "Small sample: five frontages per mode are an operational minimum, not a representative survey.",
+          "Images were captured in 2025; ACS values pool 2020–2024 responses.",
+          "Housing indicators are a neighborhood proxy, not commercial rent or business finances."
+        ],
+        "evidence_ids": [
+          "fixture-a-census",
+          "fixture-a-com-1",
+          "fixture-a-com-2",
+          "fixture-a-com-3",
+          "fixture-a-com-4",
+          "fixture-a-com-5",
+          "fixture-a-project"
+        ],
+        "config_version": "fixture-rubric-v1",
+        "coverage": {
+          "distinct_locations": 3,
+          "assessable_frontages": 5,
+          "required_locations": 3,
+          "required_frontages": 5,
+          "capture_date_range": [
+            "2025-03-10",
+            "2025-05-12"
+          ]
+        }
+      }
+    },
+    {
+      "id": "fixture-b",
+      "label": "Fixture Area B",
+      "boundary": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -118.35300000000001,
+              33.963
+            ],
+            [
+              -118.34200000000001,
+              33.9645
+            ],
+            [
+              -118.34200000000001,
+              33.974000000000004
+            ],
+            [
+              -118.35150000000002,
+              33.974000000000004
+            ],
+            [
+              -118.35300000000001,
+              33.963
+            ]
+          ]
+        ]
+      },
+      "boundary_note": "Fixture boundary drawn for layout testing; not a Census tract.",
+      "indicators": [
+        {
+          "key": "rent_burden_share",
+          "label": "Renter households paying 30%+ of income on rent",
+          "value": 0.42,
+          "unit": "share",
+          "source_period": "ACS 2020–2024",
+          "margin_of_error": 0.06,
+          "numerator": 546,
+          "denominator": 1300,
+          "evidence_ids": [
+            "fixture-b-census"
+          ],
+          "unavailable_reason": null
+        },
+        {
+          "key": "renter_share",
+          "label": "Renter-occupied share of homes",
+          "value": 0.5939,
+          "unit": "share",
+          "source_period": "ACS 2020–2024",
+          "margin_of_error": 0.05,
+          "numerator": 980,
+          "denominator": 1650,
+          "evidence_ids": [
+            "fixture-b-census"
+          ],
+          "unavailable_reason": null
+        },
+        {
+          "key": "median_gross_rent",
+          "label": "Median gross rent",
+          "value": 1640,
+          "unit": "usd",
+          "source_period": "ACS 2020–2024",
+          "margin_of_error": 85,
+          "numerator": null,
+          "denominator": null,
+          "evidence_ids": [
+            "fixture-b-census"
+          ],
+          "unavailable_reason": null
+        },
+        {
+          "key": "median_household_income",
+          "label": "Median household income",
+          "value": 61200,
+          "unit": "usd",
+          "source_period": "ACS 2020–2024",
+          "margin_of_error": 6200,
+          "numerator": null,
+          "denominator": null,
+          "evidence_ids": [
+            "fixture-b-census"
+          ],
+          "unavailable_reason": null
+        },
+        {
+          "key": "rent_change",
+          "label": "Median rent change, 2017–2021 to 2020–2024",
+          "value": 0.22,
+          "unit": "share",
+          "source_period": "ACS 2017–2021 vs 2020–2024",
+          "margin_of_error": null,
+          "numerator": null,
+          "denominator": null,
+          "evidence_ids": [
+            "fixture-b-census"
+          ],
+          "unavailable_reason": null
+        },
+        {
+          "key": "income_change",
+          "label": "Median income change, 2017–2021 to 2020–2024",
+          "value": 0.15,
+          "unit": "share",
+          "source_period": "ACS 2017–2021 vs 2020–2024",
+          "margin_of_error": null,
+          "numerator": null,
+          "denominator": null,
+          "evidence_ids": [
+            "fixture-b-census"
+          ],
+          "unavailable_reason": null
+        },
+        {
+          "key": "affordability_gap",
+          "label": "Rent change minus income change",
+          "value": 0.07,
+          "unit": "share",
+          "source_period": "ACS 2017–2021 vs 2020–2024",
+          "margin_of_error": null,
+          "numerator": null,
+          "denominator": null,
+          "evidence_ids": [
+            "fixture-b-census"
+          ],
+          "unavailable_reason": null
+        }
+      ],
+      "housing": {
+        "status": "insufficient_evidence",
+        "score": null,
+        "tier": null,
+        "unrated_reason": "Residential imagery covers 1 of 3 required locations and 1 of 5 required frontages.",
+        "contributions": [
+          {
+            "feature": "B",
+            "label": "Rent-burden share",
+            "weight": 0.6,
+            "value": 0.42,
+            "points": null,
+            "formula": "100 × 0.60 × B",
+            "numerator": 546,
+            "denominator": 1300,
+            "evidence_ids": [
+              "fixture-b-census"
+            ],
+            "note": "Not scored: the assessment is unrated."
+          },
+          {
+            "feature": "P",
+            "label": "Affordability-change gap (capped at 0.20)",
+            "weight": 0.25,
+            "value": 0.35,
+            "points": null,
+            "formula": "100 × 0.25 × P",
+            "numerator": null,
+            "denominator": null,
+            "evidence_ids": [
+              "fixture-b-census"
+            ],
+            "note": "Not scored: the assessment is unrated."
+          },
+          {
+            "feature": "Vh*P",
+            "label": "Corroborated residential redevelopment × P",
+            "weight": 0.15,
+            "value": null,
+            "points": null,
+            "formula": "100 × 0.15 × Vh × P",
+            "numerator": 0,
+            "denominator": 1,
+            "evidence_ids": [
+              "fixture-b-res-1",
+              "fixture-b-project"
+            ],
+            "note": "Unavailable: image coverage below minimum."
+          }
+        ],
+        "warnings": [
+          "Images were captured in 2025; ACS values pool 2020–2024 responses."
+        ],
+        "evidence_ids": [
+          "fixture-b-census",
+          "fixture-b-res-1",
+          "fixture-b-project"
+        ],
+        "config_version": "fixture-rubric-v1",
+        "coverage": {
+          "distinct_locations": 1,
+          "assessable_frontages": 1,
+          "required_locations": 3,
+          "required_frontages": 5,
+          "capture_date_range": [
+            "2025-03-10",
+            "2025-03-10"
+          ]
+        }
+      },
+      "commercial": {
+        "status": "rated",
+        "score": 34.3,
+        "tier": "moderate",
+        "unrated_reason": null,
+        "contributions": [
+          {
+            "feature": "B",
+            "label": "Rent-burden share",
+            "weight": 0.3,
+            "value": 0.42,
+            "points": 12.6,
+            "formula": "100 × 0.30 × B",
+            "numerator": 546,
+            "denominator": 1300,
+            "evidence_ids": [
+              "fixture-b-census"
+            ],
+            "note": null
+          },
+          {
+            "feature": "P",
+            "label": "Affordability-change gap (capped at 0.20)",
+            "weight": 0.5,
+            "value": 0.35,
+            "points": 17.5,
+            "formula": "100 × 0.50 × P",
+            "numerator": null,
+            "denominator": null,
+            "evidence_ids": [
+              "fixture-b-census"
+            ],
+            "note": null
+          },
+          {
+            "feature": "Vc*P",
+            "label": "Corroborated commercial redevelopment × P",
+            "weight": 0.2,
+            "value": 0.21,
+            "points": 4.2,
+            "formula": "100 × 0.20 × Vc × P",
+            "numerator": 3,
+            "denominator": 5,
+            "evidence_ids": [
+              "fixture-b-com-1",
+              "fixture-b-com-2",
+              "fixture-b-com-3",
+              "fixture-b-com-4",
+              "fixture-b-com-5",
+              "fixture-b-project"
+            ],
+            "note": null
+          }
+        ],
+        "warnings": [
+          "Small sample: five frontages per mode are an operational minimum, not a representative survey.",
+          "Images were captured in 2025; ACS values pool 2020–2024 responses.",
+          "Housing indicators are a neighborhood proxy, not commercial rent or business finances."
+        ],
+        "evidence_ids": [
+          "fixture-b-census",
+          "fixture-b-com-1",
+          "fixture-b-com-2",
+          "fixture-b-com-3",
+          "fixture-b-com-4",
+          "fixture-b-com-5",
+          "fixture-b-project"
+        ],
+        "config_version": "fixture-rubric-v1",
+        "coverage": {
+          "distinct_locations": 3,
+          "assessable_frontages": 5,
+          "required_locations": 3,
+          "required_frontages": 5,
+          "capture_date_range": [
+            "2025-03-10",
+            "2025-05-12"
+          ]
+        }
+      }
+    },
+    {
+      "id": "fixture-c",
+      "label": "Fixture Area C",
+      "boundary": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -118.364,
+              33.952
+            ],
+            [
+              -118.35300000000001,
+              33.9535
+            ],
+            [
+              -118.35300000000001,
+              33.963
+            ],
+            [
+              -118.36250000000001,
+              33.963
+            ],
+            [
+              -118.364,
+              33.952
+            ]
+          ]
+        ]
+      },
+      "boundary_note": "Fixture boundary drawn for layout testing; not a Census tract.",
+      "indicators": [
+        {
+          "key": "rent_burden_share",
+          "label": "Renter households paying 30%+ of income on rent",
+          "value": 0.5169,
+          "unit": "share",
+          "source_period": "ACS 2020–2024",
+          "margin_of_error": 0.06,
+          "numerator": 610,
+          "denominator": 1180,
+          "evidence_ids": [
+            "fixture-c-census"
+          ],
+          "unavailable_reason": null
+        },
+        {
+          "key": "renter_share",
+          "label": "Renter-occupied share of homes",
+          "value": 0.58,
+          "unit": "share",
+          "source_period": "ACS 2020–2024",
+          "margin_of_error": 0.05,
+          "numerator": 870,
+          "denominator": 1500,
+          "evidence_ids": [
+            "fixture-c-census"
+          ],
+          "unavailable_reason": null
+        },
+        {
+          "key": "median_gross_rent",
+          "label": "Median gross rent",
+          "value": 1580,
+          "unit": "usd",
+          "source_period": "ACS 2020–2024",
+          "margin_of_error": 85,
+          "numerator": null,
+          "denominator": null,
+          "evidence_ids": [
+            "fixture-c-census"
+          ],
+          "unavailable_reason": null
+        },
+        {
+          "key": "median_household_income",
+          "label": "Median household income",
+          "value": 57800,
+          "unit": "usd",
+          "source_period": "ACS 2020–2024",
+          "margin_of_error": 6200,
+          "numerator": null,
+          "denominator": null,
+          "evidence_ids": [
+            "fixture-c-census"
+          ],
+          "unavailable_reason": null
+        },
+        {
+          "key": "rent_change",
+          "label": "Median rent change, 2017–2021 to 2020–2024",
+          "value": null,
+          "unit": "share",
+          "source_period": "ACS 2017–2021 vs 2020–2024",
+          "margin_of_error": null,
+          "numerator": null,
+          "denominator": null,
+          "evidence_ids": [
+            "fixture-c-census"
+          ],
+          "unavailable_reason": "No compatible earlier ACS vintage for this boundary."
+        },
+        {
+          "key": "income_change",
+          "label": "Median income change, 2017–2021 to 2020–2024",
+          "value": null,
+          "unit": "share",
+          "source_period": "ACS 2017–2021 vs 2020–2024",
+          "margin_of_error": null,
+          "numerator": null,
+          "denominator": null,
+          "evidence_ids": [
+            "fixture-c-census"
+          ],
+          "unavailable_reason": "No compatible earlier ACS vintage for this boundary."
+        },
+        {
+          "key": "affordability_gap",
+          "label": "Rent change minus income change",
+          "value": null,
+          "unit": "share",
+          "source_period": "ACS 2017–2021 vs 2020–2024",
+          "margin_of_error": null,
+          "numerator": null,
+          "denominator": null,
+          "evidence_ids": [
+            "fixture-c-census"
+          ],
+          "unavailable_reason": "No compatible earlier ACS vintage for this boundary."
+        }
+      ],
+      "housing": {
+        "status": "insufficient_evidence",
+        "score": null,
+        "tier": null,
+        "unrated_reason": "No compatible earlier ACS vintage, so the affordability-change term P is unavailable; no residential imagery.",
+        "contributions": [
+          {
+            "feature": "B",
+            "label": "Rent-burden share",
+            "weight": 0.6,
+            "value": 0.5169,
+            "points": null,
+            "formula": "100 × 0.60 × B",
+            "numerator": 610,
+            "denominator": 1180,
+            "evidence_ids": [
+              "fixture-c-census"
+            ],
+            "note": "Not scored: the assessment is unrated."
+          },
+          {
+            "feature": "P",
+            "label": "Affordability-change gap (capped at 0.20)",
+            "weight": 0.25,
+            "value": null,
+            "points": null,
+            "formula": "100 × 0.25 × P",
+            "numerator": null,
+            "denominator": null,
+            "evidence_ids": [
+              "fixture-c-census"
+            ],
+            "note": "Unavailable: no compatible earlier ACS vintage."
+          },
+          {
+            "feature": "Vh*P",
+            "label": "Corroborated residential redevelopment × P",
+            "weight": 0.15,
+            "value": null,
+            "points": null,
+            "formula": "100 × 0.15 × Vh × P",
+            "numerator": 0,
+            "denominator": 0,
+            "evidence_ids": [],
+            "note": "Unavailable: image coverage below minimum."
+          }
+        ],
+        "warnings": [],
+        "evidence_ids": [
+          "fixture-c-census"
+        ],
+        "config_version": "fixture-rubric-v1",
+        "coverage": {
+          "distinct_locations": 0,
+          "assessable_frontages": 0,
+          "required_locations": 3,
+          "required_frontages": 5,
+          "capture_date_range": null
+        }
+      },
+      "commercial": {
+        "status": "insufficient_evidence",
+        "score": null,
+        "tier": null,
+        "unrated_reason": "No compatible earlier ACS vintage, so P is unavailable; commercial imagery covers 1 of 3 required locations.",
+        "contributions": [
+          {
+            "feature": "B",
+            "label": "Rent-burden share",
+            "weight": 0.3,
+            "value": 0.5169,
+            "points": null,
+            "formula": "100 × 0.30 × B",
+            "numerator": 610,
+            "denominator": 1180,
+            "evidence_ids": [
+              "fixture-c-census"
+            ],
+            "note": "Not scored: the assessment is unrated."
+          },
+          {
+            "feature": "P",
+            "label": "Affordability-change gap (capped at 0.20)",
+            "weight": 0.5,
+            "value": null,
+            "points": null,
+            "formula": "100 × 0.50 × P",
+            "numerator": null,
+            "denominator": null,
+            "evidence_ids": [
+              "fixture-c-census"
+            ],
+            "note": "Unavailable: no compatible earlier ACS vintage."
+          },
+          {
+            "feature": "Vc*P",
+            "label": "Corroborated commercial redevelopment × P",
+            "weight": 0.2,
+            "value": null,
+            "points": null,
+            "formula": "100 × 0.20 × Vc × P",
+            "numerator": 0,
+            "denominator": 2,
+            "evidence_ids": [
+              "fixture-c-com-1",
+              "fixture-c-com-2"
+            ],
+            "note": "Unavailable: image coverage below minimum."
+          }
+        ],
+        "warnings": [],
+        "evidence_ids": [
+          "fixture-c-census",
+          "fixture-c-com-1",
+          "fixture-c-com-2"
+        ],
+        "config_version": "fixture-rubric-v1",
+        "coverage": {
+          "distinct_locations": 1,
+          "assessable_frontages": 2,
+          "required_locations": 3,
+          "required_frontages": 5,
+          "capture_date_range": [
+            "2025-03-10",
+            "2025-03-11"
+          ]
+        }
+      }
+    },
+    {
+      "id": "fixture-d",
+      "label": "Fixture Area D",
+      "boundary": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -118.35300000000001,
+              33.952
+            ],
+            [
+              -118.34200000000001,
+              33.9535
+            ],
+            [
+              -118.34200000000001,
+              33.963
+            ],
+            [
+              -118.35150000000002,
+              33.963
+            ],
+            [
+              -118.35300000000001,
+              33.952
+            ]
+          ]
+        ]
+      },
+      "boundary_note": "Fixture boundary drawn for layout testing; not a Census tract.",
+      "indicators": [
+        {
+          "key": "rent_burden_share",
+          "label": "Renter households paying 30%+ of income on rent",
+          "value": 0.31,
+          "unit": "share",
+          "source_period": "ACS 2020–2024",
+          "margin_of_error": 0.06,
+          "numerator": 372,
+          "denominator": 1200,
+          "evidence_ids": [
+            "fixture-d-census"
+          ],
+          "unavailable_reason": null
+        },
+        {
+          "key": "renter_share",
+          "label": "Renter-occupied share of homes",
+          "value": 0.4295,
+          "unit": "share",
+          "source_period": "ACS 2020–2024",
+          "margin_of_error": 0.05,
+          "numerator": 640,
+          "denominator": 1490,
+          "evidence_ids": [
+            "fixture-d-census"
+          ],
+          "unavailable_reason": null
+        },
+        {
+          "key": "median_gross_rent",
+          "label": "Median gross rent",
+          "value": 1490,
+          "unit": "usd",
+          "source_period": "ACS 2020–2024",
+          "margin_of_error": 85,
+          "numerator": null,
+          "denominator": null,
+          "evidence_ids": [
+            "fixture-d-census"
+          ],
+          "unavailable_reason": null
+        },
+        {
+          "key": "median_household_income",
+          "label": "Median household income",
+          "value": 68900,
+          "unit": "usd",
+          "source_period": "ACS 2020–2024",
+          "margin_of_error": 6200,
+          "numerator": null,
+          "denominator": null,
+          "evidence_ids": [
+            "fixture-d-census"
+          ],
+          "unavailable_reason": null
+        },
+        {
+          "key": "rent_change",
+          "label": "Median rent change, 2017–2021 to 2020–2024",
+          "value": 0.12,
+          "unit": "share",
+          "source_period": "ACS 2017–2021 vs 2020–2024",
+          "margin_of_error": null,
+          "numerator": null,
+          "denominator": null,
+          "evidence_ids": [
+            "fixture-d-census"
+          ],
+          "unavailable_reason": null
+        },
+        {
+          "key": "income_change",
+          "label": "Median income change, 2017–2021 to 2020–2024",
+          "value": 0.16,
+          "unit": "share",
+          "source_period": "ACS 2017–2021 vs 2020–2024",
+          "margin_of_error": null,
+          "numerator": null,
+          "denominator": null,
+          "evidence_ids": [
+            "fixture-d-census"
+          ],
+          "unavailable_reason": null
+        },
+        {
+          "key": "affordability_gap",
+          "label": "Rent change minus income change",
+          "value": -0.04,
+          "unit": "share",
+          "source_period": "ACS 2017–2021 vs 2020–2024",
+          "margin_of_error": null,
+          "numerator": null,
+          "denominator": null,
+          "evidence_ids": [
+            "fixture-d-census"
+          ],
+          "unavailable_reason": null
+        }
+      ],
+      "housing": {
+        "status": "rated",
+        "score": 18.6,
+        "tier": "lower",
+        "unrated_reason": null,
+        "contributions": [
+          {
+            "feature": "B",
+            "label": "Rent-burden share",
+            "weight": 0.6,
+            "value": 0.31,
+            "points": 18.6,
+            "formula": "100 × 0.60 × B",
+            "numerator": 372,
+            "denominator": 1200,
+            "evidence_ids": [
+              "fixture-d-census"
+            ],
+            "note": null
+          },
+          {
+            "feature": "P",
+            "label": "Affordability-change gap (capped at 0.20)",
+            "weight": 0.25,
+            "value": 0.0,
+            "points": 0.0,
+            "formula": "100 × 0.25 × P",
+            "numerator": null,
+            "denominator": null,
+            "evidence_ids": [
+              "fixture-d-census"
+            ],
+            "note": null
+          },
+          {
+            "feature": "Vh*P",
+            "label": "Corroborated residential redevelopment × P",
+            "weight": 0.15,
+            "value": 0.0,
+            "points": 0.0,
+            "formula": "100 × 0.15 × Vh × P",
+            "numerator": 0,
+            "denominator": 5,
+            "evidence_ids": [
+              "fixture-d-res-1",
+              "fixture-d-res-2",
+              "fixture-d-res-3",
+              "fixture-d-res-4",
+              "fixture-d-res-5"
+            ],
+            "note": "Adds nothing because P is 0: imagery alone is not a risk signal."
+          }
+        ],
+        "warnings": [
+          "Small sample: five frontages per mode are an operational minimum, not a representative survey.",
+          "Images were captured in 2025; ACS values pool 2020–2024 responses."
+        ],
+        "evidence_ids": [
+          "fixture-d-census",
+          "fixture-d-res-1",
+          "fixture-d-res-2",
+          "fixture-d-res-3",
+          "fixture-d-res-4",
+          "fixture-d-res-5"
+        ],
+        "config_version": "fixture-rubric-v1",
+        "coverage": {
+          "distinct_locations": 3,
+          "assessable_frontages": 5,
+          "required_locations": 3,
+          "required_frontages": 5,
+          "capture_date_range": [
+            "2025-03-10",
+            "2025-05-12"
+          ]
+        }
+      },
+      "commercial": {
+        "status": "rated",
+        "score": 9.3,
+        "tier": "lower",
+        "unrated_reason": null,
+        "contributions": [
+          {
+            "feature": "B",
+            "label": "Rent-burden share",
+            "weight": 0.3,
+            "value": 0.31,
+            "points": 9.3,
+            "formula": "100 × 0.30 × B",
+            "numerator": 372,
+            "denominator": 1200,
+            "evidence_ids": [
+              "fixture-d-census"
+            ],
+            "note": null
+          },
+          {
+            "feature": "P",
+            "label": "Affordability-change gap (capped at 0.20)",
+            "weight": 0.5,
+            "value": 0.0,
+            "points": 0.0,
+            "formula": "100 × 0.50 × P",
+            "numerator": null,
+            "denominator": null,
+            "evidence_ids": [
+              "fixture-d-census"
+            ],
+            "note": null
+          },
+          {
+            "feature": "Vc*P",
+            "label": "Corroborated commercial redevelopment × P",
+            "weight": 0.2,
+            "value": 0.0,
+            "points": 0.0,
+            "formula": "100 × 0.20 × Vc × P",
+            "numerator": 1,
+            "denominator": 6,
+            "evidence_ids": [
+              "fixture-d-com-1",
+              "fixture-d-com-2",
+              "fixture-d-com-3",
+              "fixture-d-com-4",
+              "fixture-d-com-5",
+              "fixture-d-com-6"
+            ],
+            "note": "Adds nothing because P is 0: imagery alone is not a risk signal."
+          }
+        ],
+        "warnings": [
+          "Small sample: five frontages per mode are an operational minimum, not a representative survey.",
+          "Images were captured in 2025; ACS values pool 2020–2024 responses.",
+          "Housing indicators are a neighborhood proxy, not commercial rent or business finances."
+        ],
+        "evidence_ids": [
+          "fixture-d-census",
+          "fixture-d-com-1",
+          "fixture-d-com-2",
+          "fixture-d-com-3",
+          "fixture-d-com-4",
+          "fixture-d-com-5",
+          "fixture-d-com-6"
+        ],
+        "config_version": "fixture-rubric-v1",
+        "coverage": {
+          "distinct_locations": 3,
+          "assessable_frontages": 6,
+          "required_locations": 3,
+          "required_frontages": 5,
+          "capture_date_range": [
+            "2025-03-10",
+            "2025-05-15"
+          ]
+        }
+      }
+    }
+  ],
+  "businesses": [
+    {
+      "id": "fixture-biz-1",
+      "name": "Fixture Bakery",
+      "address": "111 Example Ave (fixture)",
+      "location": {
+        "lat": 33.9675,
+        "lon": -118.35900000000001
+      },
+      "area_id": "fixture-a",
+      "category": "Bakery",
+      "description": "Invented neighborhood bakery for UI testing.",
+      "rationale": "Independent business in an area with a higher commercial vulnerability rating under this rubric.",
+      "source_url": "https://example.com/fixture-listing/1",
+      "verified_at": "2026-10-01",
+      "website_url": "https://example.com/fixture-business-1",
+      "directions_url": null
+    },
+    {
+      "id": "fixture-biz-2",
+      "name": "Fixture Hardware",
+      "address": "122 Example Ave (fixture)",
+      "location": {
+        "lat": 33.967999999999996,
+        "lon": -118.35900000000001
+      },
+      "area_id": "fixture-a",
+      "category": "Hardware store",
+      "description": "Invented hardware store for UI testing.",
+      "rationale": "Long-listed local shop in an area with a higher commercial vulnerability rating.",
+      "source_url": "https://example.com/fixture-listing/2",
+      "verified_at": "2026-10-01",
+      "website_url": null,
+      "directions_url": null
+    },
+    {
+      "id": "fixture-biz-3",
+      "name": "Fixture Barbershop",
+      "address": "133 Example Ave (fixture)",
+      "location": {
+        "lat": 33.9685,
+        "lon": -118.34800000000001
+      },
+      "area_id": "fixture-b",
+      "category": "Barbershop",
+      "description": "Invented barbershop for UI testing.",
+      "rationale": "Local service business in an area with a moderate commercial vulnerability rating.",
+      "source_url": "https://example.com/fixture-listing/3",
+      "verified_at": "2026-10-01",
+      "website_url": "https://example.com/fixture-business-3",
+      "directions_url": null
+    },
+    {
+      "id": "fixture-biz-4",
+      "name": "Fixture Taqueria",
+      "address": "144 Example Ave (fixture)",
+      "location": {
+        "lat": 33.958,
+        "lon": -118.35900000000001
+      },
+      "area_id": "fixture-c",
+      "category": "Restaurant",
+      "description": "Invented restaurant for UI testing.",
+      "rationale": "Listed local business; this area is unrated, so no vulnerability context is claimed.",
+      "source_url": "https://example.com/fixture-listing/4",
+      "verified_at": "2026-10-01",
+      "website_url": "https://example.com/fixture-business-4",
+      "directions_url": null
+    },
+    {
+      "id": "fixture-biz-5",
+      "name": "Fixture Books",
+      "address": "155 Example Ave (fixture)",
+      "location": {
+        "lat": 33.958499999999994,
+        "lon": -118.34800000000001
+      },
+      "area_id": "fixture-d",
+      "category": "Bookstore",
+      "description": "Invented bookstore for UI testing.",
+      "rationale": "Local business in an area with a lower commercial vulnerability rating.",
+      "source_url": "https://example.com/fixture-listing/5",
+      "verified_at": "2026-10-01",
+      "website_url": "https://example.com/fixture-business-5",
+      "directions_url": null
+    }
+  ],
+  "resources": [
+    {
+      "id": "fixture-res-tenant",
+      "name": "Fixture Tenant Rights Clinic",
+      "kind": "housing",
+      "description": "Invented tenant counseling resource for UI testing.",
+      "url": "https://example.org/fixture-tenant-clinic",
+      "service_area": "Fixture service area (all pilot areas)",
+      "area_ids": null,
+      "source_url": "https://example.org/fixture-tenant-clinic/about",
+      "verified_at": "2026-10-01"
+    },
+    {
+      "id": "fixture-res-rental",
+      "name": "Fixture Rental Assistance Desk",
+      "kind": "housing",
+      "description": "Invented rental assistance referral for UI testing.",
+      "url": "https://example.org/fixture-rental-desk",
+      "service_area": "Fixture Areas A and B only",
+      "area_ids": [
+        "fixture-a",
+        "fixture-b"
+      ],
+      "source_url": "https://example.org/fixture-rental-desk/about",
+      "verified_at": "2026-10-01"
+    },
+    {
+      "id": "fixture-res-smallbiz",
+      "name": "Fixture Small Business Center",
+      "kind": "business",
+      "description": "Invented small-business support program for UI testing.",
+      "url": "https://example.org/fixture-sbdc",
+      "service_area": "Fixture service area (all pilot areas)",
+      "area_ids": null,
+      "source_url": "https://example.org/fixture-sbdc/about",
+      "verified_at": "2026-10-01"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "fixture-a-census",
+      "evidence_type": "census",
+      "area_id": "fixture-a",
+      "title": "Fixture ACS tables for Fixture Area A",
+      "source_url": "https://example.org/fixture/fixture-a-census",
+      "attribution": "youseeLA demo fixture (invented)",
+      "license": "Fixture — not a real source",
+      "captured_at": "2025-12-11",
+      "location": null,
+      "frontage_class": null,
+      "image_url": null,
+      "reviewed": true,
+      "observations": [],
+      "corrections": []
+    },
+    {
+      "id": "fixture-a-project",
+      "evidence_type": "project_record",
+      "area_id": "fixture-a",
+      "title": "Fixture permit record, Fixture Area A",
+      "source_url": "https://example.org/fixture/fixture-a-project",
+      "attribution": "youseeLA demo fixture (invented)",
+      "license": "Fixture — not a real source",
+      "captured_at": "2024-08-01",
+      "location": null,
+      "frontage_class": null,
+      "image_url": null,
+      "reviewed": true,
+      "observations": [],
+      "corrections": []
+    },
+    {
+      "id": "fixture-a-res-1",
+      "evidence_type": "image",
+      "area_id": "fixture-a",
+      "title": "Fixture residential frontage 1 (location 1)",
+      "source_url": "https://example.org/fixture/fixture-a-res-1",
+      "attribution": "youseeLA demo fixture (invented)",
+      "license": "Fixture — not a real source",
+      "captured_at": "2025-03-10",
+      "location": {
+        "lat": 33.963,
+        "lon": -118.364
+      },
+      "frontage_class": "residential",
+      "image_url": "data/fixture-images/construction.svg",
+      "reviewed": true,
+      "observations": [
+        {
+          "feature": "redevelopment",
+          "label": "Corroborated redevelopment work",
+          "status": "present",
+          "visible_count": 1,
+          "description": "Scaffolding and new framing visible; matched to fixture project record."
+        }
+      ],
+      "corrections": [
+        "Model reported 'unclear' for construction; reviewer confirmed scaffolding is present."
+      ]
+    },
+    {
+      "id": "fixture-a-res-2",
+      "evidence_type": "image",
+      "area_id": "fixture-a",
+      "title": "Fixture residential frontage 2 (location 2)",
+      "source_url": "https://example.org/fixture/fixture-a-res-2",
+      "attribution": "youseeLA demo fixture (invented)",
+      "license": "Fixture — not a real source",
+      "captured_at": "2025-04-11",
+      "location": {
+        "lat": 33.965,
+        "lon": -118.36330000000001
+      },
+      "frontage_class": "residential",
+      "image_url": "data/fixture-images/construction.svg",
+      "reviewed": true,
+      "observations": [
+        {
+          "feature": "redevelopment",
+          "label": "Corroborated redevelopment work",
+          "status": "present",
+          "visible_count": 1,
+          "description": "Scaffolding and new framing visible; matched to fixture project record."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "id": "fixture-a-res-3",
+      "evidence_type": "image",
+      "area_id": "fixture-a",
+      "title": "Fixture residential frontage 3 (location 3)",
+      "source_url": "https://example.org/fixture/fixture-a-res-3",
+      "attribution": "youseeLA demo fixture (invented)",
+      "license": "Fixture — not a real source",
+      "captured_at": "2025-05-12",
+      "location": {
+        "lat": 33.967,
+        "lon": -118.3626
+      },
+      "frontage_class": "residential",
+      "image_url": "data/fixture-images/residential.svg",
+      "reviewed": true,
+      "observations": [
+        {
+          "feature": "redevelopment",
+          "label": "Corroborated redevelopment work",
+          "status": "absent",
+          "visible_count": 0,
+          "description": "No construction or reconstruction visible on this frontage."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "id": "fixture-a-res-4",
+      "evidence_type": "image",
+      "area_id": "fixture-a",
+      "title": "Fixture residential frontage 4 (location 1)",
+      "source_url": "https://example.org/fixture/fixture-a-res-4",
+      "attribution": "youseeLA demo fixture (invented)",
+      "license": "Fixture — not a real source",
+      "captured_at": "2025-03-13",
+      "location": {
+        "lat": 33.963,
+        "lon": -118.3619
+      },
+      "frontage_class": "residential",
+      "image_url": "data/fixture-images/residential.svg",
+      "reviewed": true,
+      "observations": [
+        {
+          "feature": "redevelopment",
+          "label": "Corroborated redevelopment work",
+          "status": "absent",
+          "visible_count": 0,
+          "description": "No construction or reconstruction visible on this frontage."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "id": "fixture-a-res-5",
+      "evidence_type": "image",
+      "area_id": "fixture-a",
+      "title": "Fixture residential frontage 5 (location 2)",
+      "source_url": "https://example.org/fixture/fixture-a-res-5",
+      "attribution": "youseeLA demo fixture (invented)",
+      "license": "Fixture — not a real source",
+      "captured_at": "2025-04-14",
+      "location": {
+        "lat": 33.965,
+        "lon": -118.36120000000001
+      },
+      "frontage_class": "residential",
+      "image_url": "data/fixture-images/missing-on-purpose.jpg",
+      "reviewed": true,
+      "observations": [
+        {
+          "feature": "redevelopment",
+          "label": "Corroborated redevelopment work",
+          "status": "absent",
+          "visible_count": 0,
+          "description": "No construction or reconstruction visible on this frontage."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "id": "fixture-a-com-1",
+      "evidence_type": "image",
+      "area_id": "fixture-a",
+      "title": "Fixture commercial frontage 1 (location 1)",
+      "source_url": "https://example.org/fixture/fixture-a-com-1",
+      "attribution": "youseeLA demo fixture (invented)",
+      "license": "Fixture — not a real source",
+      "captured_at": "2025-03-10",
+      "location": {
+        "lat": 33.967,
+        "lon": -118.36
+      },
+      "frontage_class": "commercial",
+      "image_url": "data/fixture-images/construction.svg",
+      "reviewed": true,
+      "observations": [
+        {
+          "feature": "redevelopment",
+          "label": "Corroborated redevelopment work",
+          "status": "present",
+          "visible_count": 1,
+          "description": "Scaffolding and new framing visible; matched to fixture project record."
+        },
+        {
+          "feature": "for_lease_sign",
+          "label": "For-lease signage",
+          "status": "absent",
+          "visible_count": 0,
+          "description": "No leasing signage visible."
+        }
+      ],
+      "corrections": [
+        "Model reported 'unclear' for construction; reviewer confirmed scaffolding is present."
+      ]
+    },
+    {
+      "id": "fixture-a-com-2",
+      "evidence_type": "image",
+      "area_id": "fixture-a",
+      "title": "Fixture commercial frontage 2 (location 2)",
+      "source_url": "https://example.org/fixture/fixture-a-com-2",
+      "attribution": "youseeLA demo fixture (invented)",
+      "license": "Fixture — not a real source",
+      "captured_at": "2025-04-11",
+      "location": {
+        "lat": 33.969,
+        "lon": -118.3593
+      },
+      "frontage_class": "commercial",
+      "image_url": "data/fixture-images/commercial.svg",
+      "reviewed": true,
+      "observations": [
+        {
+          "feature": "redevelopment",
+          "label": "Corroborated redevelopment work",
+          "status": "absent",
+          "visible_count": 0,
+          "description": "No construction or reconstruction visible on this frontage."
+        },
+        {
+          "feature": "for_lease_sign",
+          "label": "For-lease signage",
+          "status": "unclear",
+          "visible_count": 0,
+          "description": "Window glare obscures part of the storefront."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "id": "fixture-a-com-3",
+      "evidence_type": "image",
+      "area_id": "fixture-a",
+      "title": "Fixture commercial frontage 3 (location 3)",
+      "source_url": "https://example.org/fixture/fixture-a-com-3",
+      "attribution": "youseeLA demo fixture (invented)",
+      "license": "Fixture — not a real source",
+      "captured_at": "2025-05-12",
+      "location": {
+        "lat": 33.971,
+        "lon": -118.3586
+      },
+      "frontage_class": "commercial",
+      "image_url": "data/fixture-images/commercial.svg",
+      "reviewed": true,
+      "observations": [
+        {
+          "feature": "redevelopment",
+          "label": "Corroborated redevelopment work",
+          "status": "absent",
+          "visible_count": 0,
+          "description": "No construction or reconstruction visible on this frontage."
+        },
+        {
+          "feature": "for_lease_sign",
+          "label": "For-lease signage",
+          "status": "absent",
+          "visible_count": 0,
+          "description": "No leasing signage visible."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "id": "fixture-a-com-4",
+      "evidence_type": "image",
+      "area_id": "fixture-a",
+      "title": "Fixture commercial frontage 4 (location 1)",
+      "source_url": "https://example.org/fixture/fixture-a-com-4",
+      "attribution": "youseeLA demo fixture (invented)",
+      "license": "Fixture — not a real source",
+      "captured_at": "2025-03-13",
+      "location": {
+        "lat": 33.967,
+        "lon": -118.3579
+      },
+      "frontage_class": "commercial",
+      "image_url": "data/fixture-images/commercial.svg",
+      "reviewed": true,
+      "observations": [
+        {
+          "feature": "redevelopment",
+          "label": "Corroborated redevelopment work",
+          "status": "absent",
+          "visible_count": 0,
+          "description": "No construction or reconstruction visible on this frontage."
+        },
+        {
+          "feature": "for_lease_sign",
+          "label": "For-lease signage",
+          "status": "absent",
+          "visible_count": 0,
+          "description": "No leasing signage visible."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "id": "fixture-a-com-5",
+      "evidence_type": "image",
+      "area_id": "fixture-a",
+      "title": "Fixture commercial frontage 5 (location 2)",
+      "source_url": "https://example.org/fixture/fixture-a-com-5",
+      "attribution": "youseeLA demo fixture (invented)",
+      "license": "Fixture — not a real source",
+      "captured_at": "2025-04-14",
+      "location": {
+        "lat": 33.969,
+        "lon": -118.3572
+      },
+      "frontage_class": "commercial",
+      "image_url": "data/fixture-images/commercial.svg",
+      "reviewed": true,
+      "observations": [
+        {
+          "feature": "redevelopment",
+          "label": "Corroborated redevelopment work",
+          "status": "absent",
+          "visible_count": 0,
+          "description": "No construction or reconstruction visible on this frontage."
+        },
+        {
+          "feature": "for_lease_sign",
+          "label": "For-lease signage",
+          "status": "absent",
+          "visible_count": 0,
+          "description": "No leasing signage visible."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "id": "fixture-b-census",
+      "evidence_type": "census",
+      "area_id": "fixture-b",
+      "title": "Fixture ACS tables for Fixture Area B",
+      "source_url": "https://example.org/fixture/fixture-b-census",
+      "attribution": "youseeLA demo fixture (invented)",
+      "license": "Fixture — not a real source",
+      "captured_at": "2025-12-11",
+      "location": null,
+      "frontage_class": null,
+      "image_url": null,
+      "reviewed": true,
+      "observations": [],
+      "corrections": []
+    },
+    {
+      "id": "fixture-b-project",
+      "evidence_type": "project_record",
+      "area_id": "fixture-b",
+      "title": "Fixture permit record, Fixture Area B",
+      "source_url": "https://example.org/fixture/fixture-b-project",
+      "attribution": "youseeLA demo fixture (invented)",
+      "license": "Fixture — not a real source",
+      "captured_at": "2024-08-01",
+      "location": null,
+      "frontage_class": null,
+      "image_url": null,
+      "reviewed": true,
+      "observations": [],
+      "corrections": []
+    },
+    {
+      "id": "fixture-b-res-1",
+      "evidence_type": "image",
+      "area_id": "fixture-b",
+      "title": "Fixture residential frontage 1 (location 1)",
+      "source_url": "https://example.org/fixture/fixture-b-res-1",
+      "attribution": "youseeLA demo fixture (invented)",
+      "license": "Fixture — not a real source",
+      "captured_at": "2025-03-10",
+      "location": {
+        "lat": 33.963,
+        "lon": -118.35300000000001
+      },
+      "frontage_class": "residential",
+      "image_url": "data/fixture-images/residential.svg",
+      "reviewed": true,
+      "observations": [
+        {
+          "feature": "redevelopment",
+          "label": "Corroborated redevelopment work",
+          "status": "absent",
+          "visible_count": 0,
+          "description": "No construction or reconstruction visible on this frontage."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "id": "fixture-b-com-1",
+      "evidence_type": "image",
+      "area_id": "fixture-b",
+      "title": "Fixture commercial frontage 1 (location 1)",
+      "source_url": "https://example.org/fixture/fixture-b-com-1",
+      "attribution": "youseeLA demo fixture (invented)",
+      "license": "Fixture — not a real source",
+      "captured_at": "2025-03-10",
+      "location": {
+        "lat": 33.967,
+        "lon": -118.349
+      },
+      "frontage_class": "commercial",
+      "image_url": "data/fixture-images/construction.svg",
+      "reviewed": true,
+      "observations": [
+        {
+          "feature": "redevelopment",
+          "label": "Corroborated redevelopment work",
+          "status": "present",
+          "visible_count": 1,
+          "description": "Scaffolding and new framing visible; matched to fixture project record."
+        },
+        {
+          "feature": "for_lease_sign",
+          "label": "For-lease signage",
+          "status": "absent",
+          "visible_count": 0,
+          "description": "No leasing signage visible."
+        }
+      ],
+      "corrections": [
+        "Model reported 'unclear' for construction; reviewer confirmed scaffolding is present."
+      ]
+    },
+    {
+      "id": "fixture-b-com-2",
+      "evidence_type": "image",
+      "area_id": "fixture-b",
+      "title": "Fixture commercial frontage 2 (location 2)",
+      "source_url": "https://example.org/fixture/fixture-b-com-2",
+      "attribution": "youseeLA demo fixture (invented)",
+      "license": "Fixture — not a real source",
+      "captured_at": "2025-04-11",
+      "location": {
+        "lat": 33.969,
+        "lon": -118.34830000000001
+      },
+      "frontage_class": "commercial",
+      "image_url": "data/fixture-images/construction.svg",
+      "reviewed": true,
+      "observations": [
+        {
+          "feature": "redevelopment",
+          "label": "Corroborated redevelopment work",
+          "status": "present",
+          "visible_count": 1,
+          "description": "Scaffolding and new framing visible; matched to fixture project record."
+        },
+        {
+          "feature": "for_lease_sign",
+          "label": "For-lease signage",
+          "status": "unclear",
+          "visible_count": 0,
+          "description": "Window glare obscures part of the storefront."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "id": "fixture-b-com-3",
+      "evidence_type": "image",
+      "area_id": "fixture-b",
+      "title": "Fixture commercial frontage 3 (location 3)",
+      "source_url": "https://example.org/fixture/fixture-b-com-3",
+      "attribution": "youseeLA demo fixture (invented)",
+      "license": "Fixture — not a real source",
+      "captured_at": "2025-05-12",
+      "location": {
+        "lat": 33.971,
+        "lon": -118.3476
+      },
+      "frontage_class": "commercial",
+      "image_url": "data/fixture-images/construction.svg",
+      "reviewed": true,
+      "observations": [
+        {
+          "feature": "redevelopment",
+          "label": "Corroborated redevelopment work",
+          "status": "present",
+          "visible_count": 1,
+          "description": "Scaffolding and new framing visible; matched to fixture project record."
+        },
+        {
+          "feature": "for_lease_sign",
+          "label": "For-lease signage",
+          "status": "absent",
+          "visible_count": 0,
+          "description": "No leasing signage visible."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "id": "fixture-b-com-4",
+      "evidence_type": "image",
+      "area_id": "fixture-b",
+      "title": "Fixture commercial frontage 4 (location 1)",
+      "source_url": "https://example.org/fixture/fixture-b-com-4",
+      "attribution": "youseeLA demo fixture (invented)",
+      "license": "Fixture — not a real source",
+      "captured_at": "2025-03-13",
+      "location": {
+        "lat": 33.967,
+        "lon": -118.3469
+      },
+      "frontage_class": "commercial",
+      "image_url": "data/fixture-images/commercial.svg",
+      "reviewed": true,
+      "observations": [
+        {
+          "feature": "redevelopment",
+          "label": "Corroborated redevelopment work",
+          "status": "absent",
+          "visible_count": 0,
+          "description": "No construction or reconstruction visible on this frontage."
+        },
+        {
+          "feature": "for_lease_sign",
+          "label": "For-lease signage",
+          "status": "absent",
+          "visible_count": 0,
+          "description": "No leasing signage visible."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "id": "fixture-b-com-5",
+      "evidence_type": "image",
+      "area_id": "fixture-b",
+      "title": "Fixture commercial frontage 5 (location 2)",
+      "source_url": "https://example.org/fixture/fixture-b-com-5",
+      "attribution": "youseeLA demo fixture (invented)",
+      "license": "Fixture — not a real source",
+      "captured_at": "2025-04-14",
+      "location": {
+        "lat": 33.969,
+        "lon": -118.34620000000001
+      },
+      "frontage_class": "commercial",
+      "image_url": "data/fixture-images/commercial.svg",
+      "reviewed": true,
+      "observations": [
+        {
+          "feature": "redevelopment",
+          "label": "Corroborated redevelopment work",
+          "status": "absent",
+          "visible_count": 0,
+          "description": "No construction or reconstruction visible on this frontage."
+        },
+        {
+          "feature": "for_lease_sign",
+          "label": "For-lease signage",
+          "status": "absent",
+          "visible_count": 0,
+          "description": "No leasing signage visible."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "id": "fixture-c-census",
+      "evidence_type": "census",
+      "area_id": "fixture-c",
+      "title": "Fixture ACS tables for Fixture Area C",
+      "source_url": "https://example.org/fixture/fixture-c-census",
+      "attribution": "youseeLA demo fixture (invented)",
+      "license": "Fixture — not a real source",
+      "captured_at": "2025-12-11",
+      "location": null,
+      "frontage_class": null,
+      "image_url": null,
+      "reviewed": true,
+      "observations": [],
+      "corrections": []
+    },
+    {
+      "id": "fixture-c-com-1",
+      "evidence_type": "image",
+      "area_id": "fixture-c",
+      "title": "Fixture commercial frontage 1 (location 1)",
+      "source_url": "https://example.org/fixture/fixture-c-com-1",
+      "attribution": "youseeLA demo fixture (invented)",
+      "license": "Fixture — not a real source",
+      "captured_at": "2025-03-10",
+      "location": {
+        "lat": 33.955999999999996,
+        "lon": -118.36
+      },
+      "frontage_class": "commercial",
+      "image_url": "data/fixture-images/commercial.svg",
+      "reviewed": true,
+      "observations": [
+        {
+          "feature": "redevelopment",
+          "label": "Corroborated redevelopment work",
+          "status": "absent",
+          "visible_count": 0,
+          "description": "No construction or reconstruction visible on this frontage."
+        },
+        {
+          "feature": "for_lease_sign",
+          "label": "For-lease signage",
+          "status": "absent",
+          "visible_count": 0,
+          "description": "No leasing signage visible."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "id": "fixture-c-com-2",
+      "evidence_type": "image",
+      "area_id": "fixture-c",
+      "title": "Fixture commercial frontage 2 (location 1)",
+      "source_url": "https://example.org/fixture/fixture-c-com-2",
+      "attribution": "youseeLA demo fixture (invented)",
+      "license": "Fixture — not a real source",
+      "captured_at": "2025-03-11",
+      "location": {
+        "lat": 33.955999999999996,
+        "lon": -118.3593
+      },
+      "frontage_class": "commercial",
+      "image_url": "data/fixture-images/commercial.svg",
+      "reviewed": true,
+      "observations": [
+        {
+          "feature": "redevelopment",
+          "label": "Corroborated redevelopment work",
+          "status": "absent",
+          "visible_count": 0,
+          "description": "No construction or reconstruction visible on this frontage."
+        },
+        {
+          "feature": "for_lease_sign",
+          "label": "For-lease signage",
+          "status": "unclear",
+          "visible_count": 0,
+          "description": "Window glare obscures part of the storefront."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "id": "fixture-d-census",
+      "evidence_type": "census",
+      "area_id": "fixture-d",
+      "title": "Fixture ACS tables for Fixture Area D",
+      "source_url": "https://example.org/fixture/fixture-d-census",
+      "attribution": "youseeLA demo fixture (invented)",
+      "license": "Fixture — not a real source",
+      "captured_at": "2025-12-11",
+      "location": null,
+      "frontage_class": null,
+      "image_url": null,
+      "reviewed": true,
+      "observations": [],
+      "corrections": []
+    },
+    {
+      "id": "fixture-d-res-1",
+      "evidence_type": "image",
+      "area_id": "fixture-d",
+      "title": "Fixture residential frontage 1 (location 1)",
+      "source_url": "https://example.org/fixture/fixture-d-res-1",
+      "attribution": "youseeLA demo fixture (invented)",
+      "license": "Fixture — not a real source",
+      "captured_at": "2025-03-10",
+      "location": {
+        "lat": 33.952,
+        "lon": -118.35300000000001
+      },
+      "frontage_class": "residential",
+      "image_url": "data/fixture-images/residential.svg",
+      "reviewed": true,
+      "observations": [
+        {
+          "feature": "redevelopment",
+          "label": "Corroborated redevelopment work",
+          "status": "absent",
+          "visible_count": 0,
+          "description": "No construction or reconstruction visible on this frontage."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "id": "fixture-d-res-2",
+      "evidence_type": "image",
+      "area_id": "fixture-d",
+      "title": "Fixture residential frontage 2 (location 2)",
+      "source_url": "https://example.org/fixture/fixture-d-res-2",
+      "attribution": "youseeLA demo fixture (invented)",
+      "license": "Fixture — not a real source",
+      "captured_at": "2025-04-11",
+      "location": {
+        "lat": 33.954,
+        "lon": -118.35230000000001
+      },
+      "frontage_class": "residential",
+      "image_url": "data/fixture-images/residential.svg",
+      "reviewed": true,
+      "observations": [
+        {
+          "feature": "redevelopment",
+          "label": "Corroborated redevelopment work",
+          "status": "absent",
+          "visible_count": 0,
+          "description": "No construction or reconstruction visible on this frontage."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "id": "fixture-d-res-3",
+      "evidence_type": "image",
+      "area_id": "fixture-d",
+      "title": "Fixture residential frontage 3 (location 3)",
+      "source_url": "https://example.org/fixture/fixture-d-res-3",
+      "attribution": "youseeLA demo fixture (invented)",
+      "license": "Fixture — not a real source",
+      "captured_at": "2025-05-12",
+      "location": {
+        "lat": 33.955999999999996,
+        "lon": -118.3516
+      },
+      "frontage_class": "residential",
+      "image_url": "data/fixture-images/residential.svg",
+      "reviewed": true,
+      "observations": [
+        {
+          "feature": "redevelopment",
+          "label": "Corroborated redevelopment work",
+          "status": "absent",
+          "visible_count": 0,
+          "description": "No construction or reconstruction visible on this frontage."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "id": "fixture-d-res-4",
+      "evidence_type": "image",
+      "area_id": "fixture-d",
+      "title": "Fixture residential frontage 4 (location 1)",
+      "source_url": "https://example.org/fixture/fixture-d-res-4",
+      "attribution": "youseeLA demo fixture (invented)",
+      "license": "Fixture — not a real source",
+      "captured_at": "2025-03-13",
+      "location": {
+        "lat": 33.952,
+        "lon": -118.35090000000001
+      },
+      "frontage_class": "residential",
+      "image_url": "data/fixture-images/residential.svg",
+      "reviewed": true,
+      "observations": [
+        {
+          "feature": "redevelopment",
+          "label": "Corroborated redevelopment work",
+          "status": "absent",
+          "visible_count": 0,
+          "description": "No construction or reconstruction visible on this frontage."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "id": "fixture-d-res-5",
+      "evidence_type": "image",
+      "area_id": "fixture-d",
+      "title": "Fixture residential frontage 5 (location 2)",
+      "source_url": "https://example.org/fixture/fixture-d-res-5",
+      "attribution": "youseeLA demo fixture (invented)",
+      "license": "Fixture — not a real source",
+      "captured_at": "2025-04-14",
+      "location": {
+        "lat": 33.954,
+        "lon": -118.35020000000002
+      },
+      "frontage_class": "residential",
+      "image_url": "data/fixture-images/residential.svg",
+      "reviewed": true,
+      "observations": [
+        {
+          "feature": "redevelopment",
+          "label": "Corroborated redevelopment work",
+          "status": "absent",
+          "visible_count": 0,
+          "description": "No construction or reconstruction visible on this frontage."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "id": "fixture-d-com-1",
+      "evidence_type": "image",
+      "area_id": "fixture-d",
+      "title": "Fixture commercial frontage 1 (location 1)",
+      "source_url": "https://example.org/fixture/fixture-d-com-1",
+      "attribution": "youseeLA demo fixture (invented)",
+      "license": "Fixture — not a real source",
+      "captured_at": "2025-03-10",
+      "location": {
+        "lat": 33.955999999999996,
+        "lon": -118.349
+      },
+      "frontage_class": "commercial",
+      "image_url": "data/fixture-images/construction.svg",
+      "reviewed": true,
+      "observations": [
+        {
+          "feature": "redevelopment",
+          "label": "Corroborated redevelopment work",
+          "status": "present",
+          "visible_count": 1,
+          "description": "Scaffolding and new framing visible; matched to fixture project record."
+        },
+        {
+          "feature": "for_lease_sign",
+          "label": "For-lease signage",
+          "status": "absent",
+          "visible_count": 0,
+          "description": "No leasing signage visible."
+        }
+      ],
+      "corrections": [
+        "Model reported 'unclear' for construction; reviewer confirmed scaffolding is present."
+      ]
+    },
+    {
+      "id": "fixture-d-com-2",
+      "evidence_type": "image",
+      "area_id": "fixture-d",
+      "title": "Fixture commercial frontage 2 (location 2)",
+      "source_url": "https://example.org/fixture/fixture-d-com-2",
+      "attribution": "youseeLA demo fixture (invented)",
+      "license": "Fixture — not a real source",
+      "captured_at": "2025-04-11",
+      "location": {
+        "lat": 33.958,
+        "lon": -118.34830000000001
+      },
+      "frontage_class": "commercial",
+      "image_url": "data/fixture-images/commercial.svg",
+      "reviewed": true,
+      "observations": [
+        {
+          "feature": "redevelopment",
+          "label": "Corroborated redevelopment work",
+          "status": "absent",
+          "visible_count": 0,
+          "description": "No construction or reconstruction visible on this frontage."
+        },
+        {
+          "feature": "for_lease_sign",
+          "label": "For-lease signage",
+          "status": "unclear",
+          "visible_count": 0,
+          "description": "Window glare obscures part of the storefront."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "id": "fixture-d-com-3",
+      "evidence_type": "image",
+      "area_id": "fixture-d",
+      "title": "Fixture commercial frontage 3 (location 3)",
+      "source_url": "https://example.org/fixture/fixture-d-com-3",
+      "attribution": "youseeLA demo fixture (invented)",
+      "license": "Fixture — not a real source",
+      "captured_at": "2025-05-12",
+      "location": {
+        "lat": 33.959999999999994,
+        "lon": -118.3476
+      },
+      "frontage_class": "commercial",
+      "image_url": "data/fixture-images/commercial.svg",
+      "reviewed": true,
+      "observations": [
+        {
+          "feature": "redevelopment",
+          "label": "Corroborated redevelopment work",
+          "status": "absent",
+          "visible_count": 0,
+          "description": "No construction or reconstruction visible on this frontage."
+        },
+        {
+          "feature": "for_lease_sign",
+          "label": "For-lease signage",
+          "status": "absent",
+          "visible_count": 0,
+          "description": "No leasing signage visible."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "id": "fixture-d-com-4",
+      "evidence_type": "image",
+      "area_id": "fixture-d",
+      "title": "Fixture commercial frontage 4 (location 1)",
+      "source_url": "https://example.org/fixture/fixture-d-com-4",
+      "attribution": "youseeLA demo fixture (invented)",
+      "license": "Fixture — not a real source",
+      "captured_at": "2025-03-13",
+      "location": {
+        "lat": 33.955999999999996,
+        "lon": -118.3469
+      },
+      "frontage_class": "commercial",
+      "image_url": "data/fixture-images/commercial.svg",
+      "reviewed": true,
+      "observations": [
+        {
+          "feature": "redevelopment",
+          "label": "Corroborated redevelopment work",
+          "status": "absent",
+          "visible_count": 0,
+          "description": "No construction or reconstruction visible on this frontage."
+        },
+        {
+          "feature": "for_lease_sign",
+          "label": "For-lease signage",
+          "status": "absent",
+          "visible_count": 0,
+          "description": "No leasing signage visible."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "id": "fixture-d-com-5",
+      "evidence_type": "image",
+      "area_id": "fixture-d",
+      "title": "Fixture commercial frontage 5 (location 2)",
+      "source_url": "https://example.org/fixture/fixture-d-com-5",
+      "attribution": "youseeLA demo fixture (invented)",
+      "license": "Fixture — not a real source",
+      "captured_at": "2025-04-14",
+      "location": {
+        "lat": 33.958,
+        "lon": -118.34620000000001
+      },
+      "frontage_class": "commercial",
+      "image_url": "data/fixture-images/commercial.svg",
+      "reviewed": true,
+      "observations": [
+        {
+          "feature": "redevelopment",
+          "label": "Corroborated redevelopment work",
+          "status": "absent",
+          "visible_count": 0,
+          "description": "No construction or reconstruction visible on this frontage."
+        },
+        {
+          "feature": "for_lease_sign",
+          "label": "For-lease signage",
+          "status": "absent",
+          "visible_count": 0,
+          "description": "No leasing signage visible."
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "id": "fixture-d-com-6",
+      "evidence_type": "image",
+      "area_id": "fixture-d",
+      "title": "Fixture commercial frontage 6 (location 3)",
+      "source_url": "https://example.org/fixture/fixture-d-com-6",
+      "attribution": "youseeLA demo fixture (invented)",
+      "license": "Fixture — not a real source",
+      "captured_at": "2025-05-15",
+      "location": {
+        "lat": 33.959999999999994,
+        "lon": -118.3455
+      },
+      "frontage_class": "commercial",
+      "image_url": "data/fixture-images/commercial.svg",
+      "reviewed": true,
+      "observations": [
+        {
+          "feature": "redevelopment",
+          "label": "Corroborated redevelopment work",
+          "status": "absent",
+          "visible_count": 0,
+          "description": "No construction or reconstruction visible on this frontage."
+        },
+        {
+          "feature": "for_lease_sign",
+          "label": "For-lease signage",
+          "status": "absent",
+          "visible_count": 0,
+          "description": "No leasing signage visible."
+        }
+      ],
+      "corrections": []
+    }
+  ]
+}
