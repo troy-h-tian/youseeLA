@@ -22,9 +22,13 @@ npm --prefix web run dev                       # http://localhost:5173/
 
 MapLibre renders a tilted OpenFreeMap basemap with building extrusions. No map API key is required. The basemap, fonts, sprites, and vector tiles require internet access; building coverage and height detail depend on the source. Attribution stays visible on the map. Search and location details remain available if the map cannot load.
 
+Use **Explore today / Historical analysis** above search to switch datasets. The historical landing view offers shortcuts to available commercial and housing examples; scores remain labeled as historical experiments.
+
 Search or browse to select a business or Census tract. The detail panel has Overview, Evidence, and Local support tabs. Street stories opens the dated photo comparison. View controls switch between flat and tilted views and reset to downtown Inglewood.
 
 Business markers indicate listed locations, not business risk. Housing markers represent Census tracts; selecting one outlines its boundary. Gray indicates unavailable or provisional assessments. Experimental tiers use green, amber, and red. The historical CLIP dataset remains separate at `?data=clip`.
+
+The overview explains missing assessments and summarizes dated Assessor, ZIP business, and historical Urban Displacement Project context. These additional indicators do not affect scores; the source button opens the existing evidence drawer. Housing summaries omit commercial ZIP business counts.
 
 Business overview photos are linked from official business websites via `src/data/businessPhotos.ts`, with captions and source links. They are display-only and do not enter the predictive pipeline. Images remain on their source hosts; unavailable images show a fallback. The interface uses native system sans-serif typography without an external font download.
 

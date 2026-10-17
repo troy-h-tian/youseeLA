@@ -5,6 +5,7 @@ import { CityMap } from './CityMap';
 import { BusinessPhoto } from './BusinessPhoto';
 import { ModeSwitch } from './ModeSwitch';
 import { AssessmentPanel } from './AssessmentPanel';
+import { NeighborhoodSummary } from './NeighborhoodSummary';
 import { NumericalContext } from './NumericalContext';
 import { EvidenceDrawer } from './EvidenceDrawer';
 import { HistoricalComparison } from './HistoricalComparison';
@@ -51,7 +52,7 @@ export function CityExplorer({ bundle }: { bundle: Bundle }) {
   const changeMode = (next: Mode) => {
     startAction('mode-switch'); setMode(next); setBusinessId(null); setTab('overview');
   };
-  const closeDetails = () => { setSelectedId(null); setBusinessId(null); searchRef.current?.focus(); };
+  const closeDetails = () => { setSelectedId(null); setBusinessId(null); searchRef.current?.focus(); setBrowsing(false); };
   useEffect(() => { markInitialRender(); }, []);
   useEffect(() => { finishPendingActions(); });
   useEffect(() => {
@@ -69,6 +70,10 @@ export function CityExplorer({ bundle }: { bundle: Bundle }) {
     </header>
 
     <section className="explore-tools" aria-label="Find a place">
+      <nav className="dataset-switch" aria-label="Explore views">
+        <a href="?data=demo" aria-current={!historical && !fixture ? 'page' : undefined}>Explore today</a>
+        <a href="?data=clip" aria-current={historical ? 'page' : undefined}>Historical analysis</a>
+      </nav>
       <div className="city-search"><span aria-hidden="true">⌕</span><input ref={searchRef} type="search" aria-label="Search places or Census tracts" placeholder={mode === 'business' ? 'Find a local place…' : 'Find a Census tract…'} value={query} onFocus={() => setBrowsing(true)} onChange={e => setQuery(e.target.value)} onKeyDown={e => { if (e.key === 'Escape') { setBrowsing(false); setQuery(''); e.currentTarget.blur(); } }} /><button aria-label={showResults ? 'Close place list' : 'Browse all places'} onClick={() => { setBrowsing(!showResults); setQuery(''); }}>{showResults ? '×' : '☷'}</button></div>
       <ModeSwitch mode={mode} onChange={changeMode} panelId="city-mode-panel" />
       {showResults && <nav className="city-results" aria-label="Places and areas">
@@ -88,9 +93,17 @@ export function CityExplorer({ bundle }: { bundle: Bundle }) {
     <div id="city-mode-panel" role="tabpanel" aria-labelledby={`tab-${mode}`}>
       {!area && !showResults && <section className="city-intro">
         <p className="city-eyebrow">THE CITY, A LITTLE CLOSER</p>
-        <h1>Every block<br />has a story.</h1>
-        <p>{bundle.areas.length === 0 ? 'This bundle contains no areas yet.' : mode === 'business' ? 'Discover local places and the neighborhoods around them.' : 'Explore housing conditions, one neighborhood at a time.'}</p>
-        <button className="explore-cta" onClick={() => { setBrowsing(true); searchRef.current?.focus(); }}>Explore {mode === 'business' ? 'local places' : 'neighborhoods'} <span>↗</span></button>
+        <h1>{historical ? <>Neighborhoods,<br />through time.</> : <>Every block<br />has a story.</>}</h1>
+        <p>{bundle.areas.length === 0 ? 'This bundle contains no areas yet.' : historical ? 'Census data and dated photos. Experimental scores, not current risk.' : mode === 'business' ? 'Discover local places and the neighborhoods around them.' : 'Explore housing conditions, one neighborhood at a time.'}</p>
+        {historical && <div className="historical-examples" aria-label="Scored historical examples">
+          {(['business', 'housing'] as const).flatMap(exampleMode => {
+            const example = bundle.areas.find(item => item[ASSESSMENT_FOR_MODE[exampleMode]].status === 'rated');
+            return example ? [<button key={exampleMode} onClick={() => { changeMode(exampleMode); selectArea(example.id); }}>
+              <span>{exampleMode === 'business' ? 'Commercial' : 'Housing'} example<small>{shortArea(example)}</small></span><span aria-hidden="true">↗</span>
+            </button>] : [];
+          })}
+        </div>}
+        <button className="explore-cta" onClick={() => { setBrowsing(true); searchRef.current?.focus(); }}>{historical ? 'Browse historical areas' : `Explore ${mode === 'business' ? 'local places' : 'neighborhoods'}`} <span>↗</span></button>
       </section>}
       {area && <section ref={panelRef} tabIndex={-1} className="location-panel" aria-label="Location details">
         <header className="location-panel-header"><div><p className="city-eyebrow">{business ? business.category : 'NEIGHBORHOOD CONTEXT'}</p><h2>{business?.name ?? shortArea(area)}</h2><p>{business?.address ?? `Inglewood area · ${area.id}`}</p></div><button className="close-location" aria-label="Close location details" onClick={closeDetails}>×</button></header>
@@ -108,7 +121,12 @@ export function CityExplorer({ bundle }: { bundle: Bundle }) {
             <div className="tract-label"><span>◇</span><div><strong>{shortArea(area)}</strong><small>Outlined on the map · area context, not a business rating</small></div></div>
             <NumericalContext area={area} />
             <p className="assessment-status"><span className="location-dot" />{area[kind].status === 'rated' ? `Experimental area score: ${area[kind].score?.toFixed(1)} / 100${area[kind].score_range ? ' · provisional' : ''}` : 'Combined assessment pending'}<small>{area[kind].status === 'rated' ? 'An exploratory index, not a probability. See Evidence for limitations.' : 'Available housing facts are shown above. Missing evidence is not low risk.'}</small></p>
+            {area[kind].status !== 'rated' && <div className="missing-summary">
+              <h3>Why there’s no score yet</h3>
+              <p>{area[kind].unrated_reason ?? 'There is not enough compatible evidence to calculate an assessment.'}</p>
+            </div>}
             <button className="panel-link" onClick={() => setTab('assessment')}>Explore the evidence <span>→</span></button>
+            <NeighborhoodSummary area={area} kind={kind} onSources={() => setEvidenceOpen(true)} />
             {!business && mode === 'business' && <BusinessPanel bundle={bundle} area={area} />}
           </>}
           {tab === 'assessment' && <><AssessmentPanel area={area} kind={kind} methodology={bundle.methodology} onOpenEvidence={() => setEvidenceOpen(true)} /><details className="model-status"><summary>About this dataset</summary><p>{bundle.methodology.summary}</p><ul>{bundle.methodology.limitations.map(item => <li key={item}>{item}</li>)}</ul></details></>}
@@ -117,7 +135,7 @@ export function CityExplorer({ bundle }: { bundle: Bundle }) {
       </section>}
     </div>
 
-    <footer className="city-footer"><div className="city-legend"><span className={`legend-dot ${businessMarkers ? 'legend-dot--business' : ''}`} />{businessMarkers ? 'Local business · not a risk rating' : 'Tract marker · gray means unrated / provisional'}{!businessMarkers && <span className="tier-key">Green: lower · amber: moderate · red: higher experimental tier</span>}</div><a href={historical ? '?data=demo' : '?data=clip'}>{historical ? 'Current Census explorer' : 'Historical experiment'} ↗</a></footer>
+    <footer className="city-footer"><div className="city-legend"><span className={`legend-dot ${businessMarkers ? 'legend-dot--business' : ''}`} />{businessMarkers ? 'Local business · not a risk rating' : 'Tract marker · gray means unrated / provisional'}{!businessMarkers && <span className="tier-key">Green: lower · amber: moderate · red: higher experimental tier</span>}</div></footer>
     {area && <EvidenceDrawer open={evidenceOpen} onClose={() => setEvidenceOpen(false)} area={area} kind={kind} evidence={bundle.evidence} />}
     <dialog ref={photoDialog} className="street-dialog" onCancel={() => setPhotosOpen(false)} onClose={() => setPhotosOpen(false)} aria-label="Historical street stories"><button className="street-close" onClick={() => setPhotosOpen(false)}>Close stories ×</button>{photosOpen && <HistoricalComparison />}</dialog>
   </main>;

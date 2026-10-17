@@ -15,7 +15,7 @@ const fixtureText = readFileSync(resolve(__dirname, '../../public/data/fixture.j
 const fixture = (): Bundle => JSON.parse(fixtureText) as Bundle;
 
 const areaButton = (label: string) => {
-  if (!screen.queryByRole('navigation')) fireEvent.click(screen.getByRole('button', { name: 'Browse all places' }));
+  if (!screen.queryByRole('navigation', { name: 'Places and areas' })) fireEvent.click(screen.getByRole('button', { name: 'Browse all places' }));
   return screen.getByRole('button', { name: new RegExp(`^${label}`) });
 };
 const evidenceTab = () => screen.getByRole('tab', { name: 'Evidence' });

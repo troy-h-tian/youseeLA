@@ -200,3 +200,46 @@
 .city-explorer .city-marker { font-family: var(--app-font); }
 .city-eyebrow { letter-spacing: 1.2px; }
 @media (max-height: 550px) { .business-photo img { max-height: 160px; } }
+
+/* Dataset navigation stays separate from the business/housing audience controls. */
+.dataset-switch { display: flex; padding: 4px; gap: 4px; margin-bottom: 10px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); box-shadow: 0 3px 16px #20342909; }
+.dataset-switch a { flex: 1; text-align: center; padding: 10px 5px; border-radius: 8px; font-size: 12px; color: var(--muted); text-decoration: none; }
+.dataset-switch a[aria-current='page'] { background: #e7eee5; color: #294f3e; font-weight: 600; }
+.dataset-switch a:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
+.historical-examples { display: grid; gap: 7px; pointer-events: auto; }
+.historical-examples button { display: flex; justify-content: space-between; align-items: center; gap: 14px; text-align: left; color: var(--text); background: var(--surface); border: 1px solid var(--border); padding: 10px 12px; border-radius: 10px; font-size: 12px; }
+.historical-examples small { display: block; color: var(--muted); font-size: 10px; margin-top: 3px; }
+.city-intro:has(.historical-examples) h1 { font-size: 32px; }
+.city-intro:has(.historical-examples) .city-eyebrow { display: none; }
+.city-intro:has(.historical-examples) > p:not(.city-eyebrow) { max-width: 295px; font-size: 12px; }
+.city-intro:has(.historical-examples) .explore-cta { margin-top: 10px; }
+.neighborhood-summary { margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--border); }
+.neighborhood-summary h3, .missing-summary h3 { font-size: 12px; font-weight: 600; margin: 0 0 7px; }
+.summary-caption { color: var(--muted); font-size: 10px; line-height: 1.6; }
+.neighborhood-summary dl > div { padding: 12px 0; border-bottom: 1px solid var(--border); }
+.neighborhood-summary dt { font-size: 11px; }
+.neighborhood-summary dd { margin: 7px 0 0; font-size: 20px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.neighborhood-summary small, .reference-summary > span { display: block; font-size: 9px; font-weight: 400; color: var(--muted); line-height: 1.6; margin-top: 4px; }
+.reference-summary { background: var(--surface-2); border-radius: 9px; padding: 12px; margin-top: 14px; }
+.reference-summary strong { display: block; font-size: 11px; font-weight: 500; margin-top: 6px; }
+.missing-summary { margin-top: 15px; padding: 12px; background: var(--surface-2); border-radius: 9px; }
+.missing-summary p { font-size: 10px; line-height: 1.7; color: #526656; margin: 0; }
+.city-results { max-height: calc(100dvh - 365px); }
+@media (max-width: 760px) {
+  .city-dataset-note { top: 244px; }
+  .location-panel { max-height: calc(100dvh - 295px); }
+  .city-explorer:has(.location-panel) .city-view-controls { top: 280px; }
+  .city-results { max-height: calc(100dvh - 285px); }
+  .city-intro:has(.historical-examples) { bottom: 110px; width: 235px; }
+  .city-intro:has(.historical-examples) h1 { font-size: 29px; }
+}
+@media (max-height: 700px) {
+  .city-intro:has(.historical-examples) h1 { display: none; }
+  .city-intro:has(.historical-examples) > p { display: none; }
+}
+@media (max-height: 550px) and (max-width: 760px) {
+  .location-panel { max-height: none; }
+  .city-dataset-note { top: 231px; }
+  .city-results { max-height: calc(100dvh - 235px); }
+  .city-intro:has(.historical-examples) { left: auto; right: 24px; bottom: 90px; width: 235px; }
+}
