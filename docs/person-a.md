@@ -25,7 +25,7 @@ For a smaller pilot, append `--area-ids 06037601001 06037601303 06037601100`. Th
 ## 3. Imagery
 
 ```sh
-python -m youseela.cli images --bbox=-118.356,33.958,-118.351,33.963
+python -m youseela.cli images --bbox=-118.356,33.958,-118.351,33.963 --captured-after 2023-10-18
 ```
 
 This discovers metadata; it does not establish permission or adequate coverage. Check capture dates, coordinates, attribution, license, and whether analytical use and local caching are allowed. Google Street View analysis is not cleared for this project. Download permitted JPEG/PNG files to ignored `data/raw/images/`; the vision adapter accepts files up to 5 MB.
@@ -49,4 +49,4 @@ python -m pytest -q
 python -m youseela.benchmark --sizes 10,100,1000 --runs 10 --output artifacts/scalability.json
 ```
 
-Check both mode scores, explanations, map positions, dates, and support links in the teammate's UI. Verify that missing evidence displays as unrated. The fixture tests demonstrate that relevant image changes affect the formula; they do not demonstrate predictive accuracy. Full live Census-to-image inference remains unverified until credentials, permitted imagery, and reviewed evidence are available.
+Check both mode scores, explanations, map positions, dates, and support links in the teammate's UI. Verify that missing evidence displays as unrated. The fixture tests demonstrate that relevant image changes affect the formula; they do not demonstrate predictive accuracy. Live Census retrieval and image extraction have now been exercised. A rated real-data result remains unverified: the selected change estimates are uncertain and the imagery still needs adequate frontage coverage and human review.

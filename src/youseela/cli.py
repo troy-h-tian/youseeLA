@@ -62,6 +62,7 @@ def parser() -> argparse.ArgumentParser:
     images = sub.add_parser("images", help="Discover Mapillary metadata in a small bounding box")
     images.add_argument("--bbox", required=True, help="west,south,east,north (use --bbox=-118.36,33.95,-118.355,33.955)")
     images.add_argument("--limit", type=int, default=50)
+    images.add_argument("--captured-after", type=date.fromisoformat)
     images.add_argument("--output", type=Path, default=Path("data/raw/images/discovery.json"))
     vision = sub.add_parser("vision", help="Analyze permitted local images; requires configured provider and budget")
     vision.add_argument("--manifest", type=Path, required=True)
@@ -119,7 +120,8 @@ def run(args: argparse.Namespace) -> None:
         bounds = tuple(float(v) for v in args.bbox.split(","))
         if len(bounds) != 4:
             raise ValueError("bbox needs four coordinates")
-        result = discover_images(bounds, os.environ.get("MAPILLARY_ACCESS_TOKEN", ""), args.limit)
+        result = discover_images(bounds, os.environ.get("MAPILLARY_ACCESS_TOKEN", ""), args.limit,
+                                 captured_after=args.captured_after)
         write_json(result, args.output)
         print(f"Discovered {len(result['images'])} images; has_more={result['has_more']}. Metadata needs review: {args.output}")
     elif args.command == "vision":

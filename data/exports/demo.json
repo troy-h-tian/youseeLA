@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-10-17T19:00:31.590956Z",
+  "generated_at": "2026-10-17T19:05:04.271145Z",
   "assessed_as_of": "2026-10-17",
   "data_kind": "real",
   "methodology": {
@@ -35,7 +35,7 @@
   "areas": [
     {
       "id": "06037600501",
-      "name": "Census tract 06037600501",
+      "name": "Census Tract 6005.01; Los Angeles County; California",
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -292,16 +292,19 @@
         ]
       },
       "indicators": {
-        "rent_burden_share": null,
-        "renter_share": null,
+        "rent_burden_share": 0.8539682539682539,
+        "renter_share": 0.3554083885209713,
         "affordability_pressure": null,
-        "evidence_ids": [],
+        "evidence_ids": [
+          "acs-2024-06037600501",
+          "acs-2021-06037600501"
+        ],
         "periods": [
           "2017–2021",
           "2020–2024"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld."
         ]
@@ -314,14 +317,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed housing image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -346,14 +347,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed commercial image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -376,7 +375,7 @@
     },
     {
       "id": "06037600601",
-      "name": "Census tract 06037600601",
+      "name": "Census Tract 6006.01; Los Angeles County; California",
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -577,16 +576,19 @@
         ]
       },
       "indicators": {
-        "rent_burden_share": null,
-        "renter_share": null,
+        "rent_burden_share": 0.6958174904942965,
+        "renter_share": 0.3561643835616438,
         "affordability_pressure": null,
-        "evidence_ids": [],
+        "evidence_ids": [
+          "acs-2024-06037600601",
+          "acs-2021-06037600601"
+        ],
         "periods": [
           "2017–2021",
           "2020–2024"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld."
         ]
@@ -599,14 +601,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed housing image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -631,14 +631,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed commercial image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -661,7 +659,7 @@
     },
     {
       "id": "06037600602",
-      "name": "Census tract 06037600602",
+      "name": "Census Tract 6006.02; Los Angeles County; California",
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -870,16 +868,19 @@
         ]
       },
       "indicators": {
-        "rent_burden_share": null,
-        "renter_share": null,
+        "rent_burden_share": 0.6358118361153262,
+        "renter_share": 0.926490984743412,
         "affordability_pressure": null,
-        "evidence_ids": [],
+        "evidence_ids": [
+          "acs-2024-06037600602",
+          "acs-2021-06037600602"
+        ],
         "periods": [
           "2017–2021",
           "2020–2024"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld."
         ]
@@ -892,14 +893,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed housing image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -924,14 +923,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed commercial image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -954,7 +951,7 @@
     },
     {
       "id": "06037600702",
-      "name": "Census tract 06037600702",
+      "name": "Census Tract 6007.02; Los Angeles County; California",
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -1443,16 +1440,19 @@
         ]
       },
       "indicators": {
-        "rent_burden_share": null,
-        "renter_share": null,
+        "rent_burden_share": 0.7928118393234672,
+        "renter_share": 0.31731909845788847,
         "affordability_pressure": null,
-        "evidence_ids": [],
+        "evidence_ids": [
+          "acs-2024-06037600702",
+          "acs-2021-06037600702"
+        ],
         "periods": [
           "2017–2021",
           "2020–2024"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld."
         ]
@@ -1465,14 +1465,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed housing image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -1497,14 +1495,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed commercial image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -1527,7 +1523,7 @@
     },
     {
       "id": "06037600703",
-      "name": "Census tract 06037600703",
+      "name": "Census Tract 6007.03; Los Angeles County; California",
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -1752,16 +1748,19 @@
         ]
       },
       "indicators": {
-        "rent_burden_share": null,
-        "renter_share": null,
+        "rent_burden_share": 0.7960526315789473,
+        "renter_share": 0.18181818181818182,
         "affordability_pressure": null,
-        "evidence_ids": [],
+        "evidence_ids": [
+          "acs-2024-06037600703",
+          "acs-2021-06037600703"
+        ],
         "periods": [
           "2017–2021",
           "2020–2024"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld."
         ]
@@ -1774,14 +1773,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed housing image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -1806,14 +1803,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed commercial image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -1836,7 +1831,7 @@
     },
     {
       "id": "06037600704",
-      "name": "Census tract 06037600704",
+      "name": "Census Tract 6007.04; Los Angeles County; California",
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -2133,16 +2128,19 @@
         ]
       },
       "indicators": {
-        "rent_burden_share": null,
-        "renter_share": null,
+        "rent_burden_share": 0.6591865357643759,
+        "renter_share": 0.6094017094017095,
         "affordability_pressure": null,
-        "evidence_ids": [],
+        "evidence_ids": [
+          "acs-2024-06037600704",
+          "acs-2021-06037600704"
+        ],
         "periods": [
           "2017–2021",
           "2020–2024"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld."
         ]
@@ -2155,14 +2153,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed housing image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -2187,14 +2183,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed commercial image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -2217,7 +2211,7 @@
     },
     {
       "id": "06037600801",
-      "name": "Census tract 06037600801",
+      "name": "Census Tract 6008.01; Los Angeles County; California",
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -2546,16 +2540,19 @@
         ]
       },
       "indicators": {
-        "rent_burden_share": null,
-        "renter_share": null,
+        "rent_burden_share": 0.5112359550561798,
+        "renter_share": 0.2800944138473643,
         "affordability_pressure": null,
-        "evidence_ids": [],
+        "evidence_ids": [
+          "acs-2024-06037600801",
+          "acs-2021-06037600801"
+        ],
         "periods": [
           "2017–2021",
           "2020–2024"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld."
         ]
@@ -2568,14 +2565,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed housing image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -2600,14 +2595,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed commercial image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -2630,7 +2623,7 @@
     },
     {
       "id": "06037600802",
-      "name": "Census tract 06037600802",
+      "name": "Census Tract 6008.02; Los Angeles County; California",
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -3127,16 +3120,19 @@
         ]
       },
       "indicators": {
-        "rent_burden_share": null,
-        "renter_share": null,
+        "rent_burden_share": 0.6413043478260869,
+        "renter_share": 0.5504273504273505,
         "affordability_pressure": null,
-        "evidence_ids": [],
+        "evidence_ids": [
+          "acs-2024-06037600802",
+          "acs-2021-06037600802"
+        ],
         "periods": [
           "2017–2021",
           "2020–2024"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld."
         ]
@@ -3149,14 +3145,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed housing image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -3181,14 +3175,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed commercial image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -3211,7 +3203,7 @@
     },
     {
       "id": "06037600902",
-      "name": "Census tract 06037600902",
+      "name": "Census Tract 6009.02; Los Angeles County; California",
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -3560,16 +3552,19 @@
         ]
       },
       "indicators": {
-        "rent_burden_share": null,
-        "renter_share": null,
+        "rent_burden_share": 0.6344383057090239,
+        "renter_share": 0.8278595696489242,
         "affordability_pressure": null,
-        "evidence_ids": [],
+        "evidence_ids": [
+          "acs-2024-06037600902",
+          "acs-2021-06037600902"
+        ],
         "periods": [
           "2017–2021",
           "2020–2024"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld."
         ]
@@ -3582,14 +3577,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed housing image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -3614,14 +3607,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed commercial image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -3644,7 +3635,7 @@
     },
     {
       "id": "06037600911",
-      "name": "Census tract 06037600911",
+      "name": "Census Tract 6009.11; Los Angeles County; California",
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -3933,16 +3924,19 @@
         ]
       },
       "indicators": {
-        "rent_burden_share": null,
-        "renter_share": null,
+        "rent_burden_share": 0.6098310291858678,
+        "renter_share": 0.6424682395644283,
         "affordability_pressure": null,
-        "evidence_ids": [],
+        "evidence_ids": [
+          "acs-2024-06037600911",
+          "acs-2021-06037600911"
+        ],
         "periods": [
           "2017–2021",
           "2020–2024"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld."
         ]
@@ -3955,14 +3949,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed housing image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -3987,14 +3979,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed commercial image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -4017,7 +4007,7 @@
     },
     {
       "id": "06037600912",
-      "name": "Census tract 06037600912",
+      "name": "Census Tract 6009.12; Los Angeles County; California",
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -4378,16 +4368,19 @@
         ]
       },
       "indicators": {
-        "rent_burden_share": null,
-        "renter_share": null,
+        "rent_burden_share": 0.5077639751552795,
+        "renter_share": 0.44370419720186544,
         "affordability_pressure": null,
-        "evidence_ids": [],
+        "evidence_ids": [
+          "acs-2024-06037600912",
+          "acs-2021-06037600912"
+        ],
         "periods": [
           "2017–2021",
           "2020–2024"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld."
         ]
@@ -4400,14 +4393,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed housing image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -4432,14 +4423,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed commercial image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -4462,7 +4451,7 @@
     },
     {
       "id": "06037601001",
-      "name": "Census tract 06037601001",
+      "name": "Census Tract 6010.01; Los Angeles County; California",
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -4823,16 +4812,19 @@
         ]
       },
       "indicators": {
-        "rent_burden_share": null,
-        "renter_share": null,
+        "rent_burden_share": 0.5872442839951865,
+        "renter_share": 0.7061973986228003,
         "affordability_pressure": null,
-        "evidence_ids": [],
+        "evidence_ids": [
+          "acs-2024-06037601001",
+          "acs-2021-06037601001"
+        ],
         "periods": [
           "2017–2021",
           "2020–2024"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld."
         ]
@@ -4845,14 +4837,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed housing image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -4877,14 +4867,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed commercial image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -4907,7 +4895,7 @@
     },
     {
       "id": "06037601002",
-      "name": "Census tract 06037601002",
+      "name": "Census Tract 6010.02; Los Angeles County; California",
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -5180,16 +5168,19 @@
         ]
       },
       "indicators": {
-        "rent_burden_share": null,
-        "renter_share": null,
+        "rent_burden_share": 0.6046511627906976,
+        "renter_share": 0.7908872901678657,
         "affordability_pressure": null,
-        "evidence_ids": [],
+        "evidence_ids": [
+          "acs-2024-06037601002",
+          "acs-2021-06037601002"
+        ],
         "periods": [
           "2017–2021",
           "2020–2024"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld."
         ]
@@ -5202,14 +5193,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed housing image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -5234,14 +5223,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed commercial image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -5264,7 +5251,7 @@
     },
     {
       "id": "06037601100",
-      "name": "Census tract 06037601100",
+      "name": "Census Tract 6011; Los Angeles County; California",
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -5493,16 +5480,19 @@
         ]
       },
       "indicators": {
-        "rent_burden_share": null,
-        "renter_share": null,
+        "rent_burden_share": 0.7599758162031439,
+        "renter_share": 0.8411764705882353,
         "affordability_pressure": null,
-        "evidence_ids": [],
+        "evidence_ids": [
+          "acs-2024-06037601100",
+          "acs-2021-06037601100"
+        ],
         "periods": [
           "2017–2021",
           "2020–2024"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld."
         ]
@@ -5515,14 +5505,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed housing image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -5547,14 +5535,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed commercial image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -5577,7 +5563,7 @@
     },
     {
       "id": "06037601202",
-      "name": "Census tract 06037601202",
+      "name": "Census Tract 6012.02; Los Angeles County; California",
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -5914,16 +5900,19 @@
         ]
       },
       "indicators": {
-        "rent_burden_share": null,
-        "renter_share": null,
+        "rent_burden_share": 0.7825,
+        "renter_share": 0.43447037701974867,
         "affordability_pressure": null,
-        "evidence_ids": [],
+        "evidence_ids": [
+          "acs-2024-06037601202",
+          "acs-2021-06037601202"
+        ],
         "periods": [
           "2017–2021",
           "2020–2024"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld."
         ]
@@ -5936,14 +5925,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed housing image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -5968,14 +5955,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed commercial image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -5998,7 +5983,7 @@
     },
     {
       "id": "06037601211",
-      "name": "Census tract 06037601211",
+      "name": "Census Tract 6012.11; Los Angeles County; California",
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -6279,16 +6264,19 @@
         ]
       },
       "indicators": {
-        "rent_burden_share": null,
-        "renter_share": null,
+        "rent_burden_share": 0.6267696267696268,
+        "renter_share": 0.7201458523245214,
         "affordability_pressure": null,
-        "evidence_ids": [],
+        "evidence_ids": [
+          "acs-2024-06037601211",
+          "acs-2021-06037601211"
+        ],
         "periods": [
           "2017–2021",
           "2020–2024"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld."
         ]
@@ -6301,14 +6289,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed housing image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -6333,14 +6319,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed commercial image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -6363,7 +6347,7 @@
     },
     {
       "id": "06037601212",
-      "name": "Census tract 06037601212",
+      "name": "Census Tract 6012.12; Los Angeles County; California",
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -6684,16 +6668,19 @@
         ]
       },
       "indicators": {
-        "rent_burden_share": null,
-        "renter_share": null,
+        "rent_burden_share": 0.5994605529332434,
+        "renter_share": 0.824773413897281,
         "affordability_pressure": null,
-        "evidence_ids": [],
+        "evidence_ids": [
+          "acs-2024-06037601212",
+          "acs-2021-06037601212"
+        ],
         "periods": [
           "2017–2021",
           "2020–2024"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld."
         ]
@@ -6706,14 +6693,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed housing image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -6738,14 +6723,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed commercial image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -6768,7 +6751,7 @@
     },
     {
       "id": "06037601301",
-      "name": "Census tract 06037601301",
+      "name": "Census Tract 6013.01; Los Angeles County; California",
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -7041,16 +7024,19 @@
         ]
       },
       "indicators": {
-        "rent_burden_share": null,
-        "renter_share": null,
+        "rent_burden_share": 0.5150501672240803,
+        "renter_share": 0.40283140283140284,
         "affordability_pressure": null,
-        "evidence_ids": [],
+        "evidence_ids": [
+          "acs-2024-06037601301",
+          "acs-2021-06037601301"
+        ],
         "periods": [
           "2017–2021",
           "2020–2024"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld."
         ]
@@ -7063,14 +7049,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed housing image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -7095,14 +7079,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed commercial image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -7125,7 +7107,7 @@
     },
     {
       "id": "06037601302",
-      "name": "Census tract 06037601302",
+      "name": "Census Tract 6013.02; Los Angeles County; California",
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -7694,16 +7676,19 @@
         ]
       },
       "indicators": {
-        "rent_burden_share": null,
-        "renter_share": null,
+        "rent_burden_share": 0.5873925501432665,
+        "renter_share": 0.7882966828177413,
         "affordability_pressure": null,
-        "evidence_ids": [],
+        "evidence_ids": [
+          "acs-2024-06037601302",
+          "acs-2021-06037601302"
+        ],
         "periods": [
           "2017–2021",
           "2020–2024"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld."
         ]
@@ -7716,14 +7701,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed housing image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -7748,14 +7731,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed commercial image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -7778,7 +7759,7 @@
     },
     {
       "id": "06037601303",
-      "name": "Census tract 06037601303",
+      "name": "Census Tract 6013.03; Los Angeles County; California",
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -8003,16 +7984,19 @@
         ]
       },
       "indicators": {
-        "rent_burden_share": null,
-        "renter_share": null,
+        "rent_burden_share": 0.7310789049919485,
+        "renter_share": 0.9001790510295434,
         "affordability_pressure": null,
-        "evidence_ids": [],
+        "evidence_ids": [
+          "acs-2024-06037601303",
+          "acs-2021-06037601303"
+        ],
         "periods": [
           "2017–2021",
           "2020–2024"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld."
         ]
@@ -8025,14 +8009,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed housing image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -8057,14 +8039,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed commercial image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -8087,7 +8067,7 @@
     },
     {
       "id": "06037601401",
-      "name": "Census tract 06037601401",
+      "name": "Census Tract 6014.01; Los Angeles County; California",
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -8608,16 +8588,19 @@
         ]
       },
       "indicators": {
-        "rent_burden_share": null,
-        "renter_share": null,
+        "rent_burden_share": 0.5503931379556827,
+        "renter_share": 0.7488176563321072,
         "affordability_pressure": null,
-        "evidence_ids": [],
+        "evidence_ids": [
+          "acs-2024-06037601401",
+          "acs-2021-06037601401"
+        ],
         "periods": [
           "2017–2021",
           "2020–2024"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld."
         ]
@@ -8630,14 +8613,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed housing image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -8662,14 +8643,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed commercial image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -8692,7 +8671,7 @@
     },
     {
       "id": "06037601402",
-      "name": "Census tract 06037601402",
+      "name": "Census Tract 6014.02; Los Angeles County; California",
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -9129,16 +9108,19 @@
         ]
       },
       "indicators": {
-        "rent_burden_share": null,
-        "renter_share": null,
+        "rent_burden_share": 0.6292682926829268,
+        "renter_share": 0.5037650602409639,
         "affordability_pressure": null,
-        "evidence_ids": [],
+        "evidence_ids": [
+          "acs-2024-06037601402",
+          "acs-2021-06037601402"
+        ],
         "periods": [
           "2017–2021",
           "2020–2024"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld."
         ]
@@ -9151,14 +9133,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed housing image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -9183,14 +9163,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed commercial image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -9213,7 +9191,7 @@
     },
     {
       "id": "06037601501",
-      "name": "Census tract 06037601501",
+      "name": "Census Tract 6015.01; Los Angeles County; California",
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -9566,16 +9544,19 @@
         ]
       },
       "indicators": {
-        "rent_burden_share": null,
-        "renter_share": null,
+        "rent_burden_share": 0.6362515413070283,
+        "renter_share": 0.8664529914529915,
         "affordability_pressure": null,
-        "evidence_ids": [],
+        "evidence_ids": [
+          "acs-2024-06037601501",
+          "acs-2021-06037601501"
+        ],
         "periods": [
           "2017–2021",
           "2020–2024"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld."
         ]
@@ -9588,14 +9569,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed housing image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -9620,14 +9599,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed commercial image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -9650,7 +9627,7 @@
     },
     {
       "id": "06037601700",
-      "name": "Census tract 06037601700",
+      "name": "Census Tract 6017; Los Angeles County; California",
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -10019,16 +9996,19 @@
         ]
       },
       "indicators": {
-        "rent_burden_share": null,
-        "renter_share": null,
+        "rent_burden_share": 0.6251276813074566,
+        "renter_share": 0.8183925811437404,
         "affordability_pressure": null,
-        "evidence_ids": [],
+        "evidence_ids": [
+          "acs-2024-06037601700",
+          "acs-2021-06037601700"
+        ],
         "periods": [
           "2017–2021",
           "2020–2024"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld."
         ]
@@ -10041,14 +10021,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed housing image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -10073,14 +10051,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed commercial image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -10103,7 +10079,7 @@
     },
     {
       "id": "06037601801",
-      "name": "Census tract 06037601801",
+      "name": "Census Tract 6018.01; Los Angeles County; California",
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -10312,16 +10288,19 @@
         ]
       },
       "indicators": {
-        "rent_burden_share": null,
-        "renter_share": null,
+        "rent_burden_share": 0.5628140703517588,
+        "renter_share": 0.7023529411764706,
         "affordability_pressure": null,
-        "evidence_ids": [],
+        "evidence_ids": [
+          "acs-2024-06037601801",
+          "acs-2021-06037601801"
+        ],
         "periods": [
           "2017–2021",
           "2020–2024"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld."
         ]
@@ -10334,14 +10313,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed housing image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -10366,14 +10343,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed commercial image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -10396,7 +10371,7 @@
     },
     {
       "id": "06037601802",
-      "name": "Census tract 06037601802",
+      "name": "Census Tract 6018.02; Los Angeles County; California",
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -10609,16 +10584,19 @@
         ]
       },
       "indicators": {
-        "rent_burden_share": null,
-        "renter_share": null,
+        "rent_burden_share": 0.4134078212290503,
+        "renter_share": 0.699885452462772,
         "affordability_pressure": null,
-        "evidence_ids": [],
+        "evidence_ids": [
+          "acs-2024-06037601802",
+          "acs-2021-06037601802"
+        ],
         "periods": [
           "2017–2021",
           "2020–2024"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld."
         ]
@@ -10631,14 +10609,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed housing image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -10663,14 +10639,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed commercial image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -10693,7 +10667,7 @@
     },
     {
       "id": "06037601900",
-      "name": "Census tract 06037601900",
+      "name": "Census Tract 6019; Los Angeles County; California",
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -10910,16 +10884,19 @@
         ]
       },
       "indicators": {
-        "rent_burden_share": null,
-        "renter_share": null,
+        "rent_burden_share": 0.6498353457738749,
+        "renter_share": 0.7018867924528301,
         "affordability_pressure": null,
-        "evidence_ids": [],
+        "evidence_ids": [
+          "acs-2024-06037601900",
+          "acs-2021-06037601900"
+        ],
         "periods": [
           "2017–2021",
           "2020–2024"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld."
         ]
@@ -10932,14 +10909,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed housing image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -10964,14 +10939,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed commercial image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -10994,7 +10967,7 @@
     },
     {
       "id": "06037602003",
-      "name": "Census tract 06037602003",
+      "name": "Census Tract 6020.03; Los Angeles County; California",
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -11267,16 +11240,19 @@
         ]
       },
       "indicators": {
-        "rent_burden_share": null,
-        "renter_share": null,
+        "rent_burden_share": 0.6430678466076696,
+        "renter_share": 0.5602893890675241,
         "affordability_pressure": null,
-        "evidence_ids": [],
+        "evidence_ids": [
+          "acs-2024-06037602003",
+          "acs-2021-06037602003"
+        ],
         "periods": [
           "2017–2021",
           "2020–2024"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld."
         ]
@@ -11289,14 +11265,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed housing image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -11321,14 +11295,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed commercial image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -11351,7 +11323,7 @@
     },
     {
       "id": "06037604200",
-      "name": "Census tract 06037604200",
+      "name": "Census Tract 6042; Los Angeles County; California",
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -11932,16 +11904,19 @@
         ]
       },
       "indicators": {
-        "rent_burden_share": null,
-        "renter_share": null,
+        "rent_burden_share": 0.6364812419146184,
+        "renter_share": 0.44527649769585254,
         "affordability_pressure": null,
-        "evidence_ids": [],
+        "evidence_ids": [
+          "acs-2024-06037604200",
+          "acs-2021-06037604200"
+        ],
         "periods": [
           "2017–2021",
           "2020–2024"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld."
         ]
@@ -11954,14 +11929,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed housing image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -11986,14 +11959,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed commercial image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -12016,7 +11987,7 @@
     },
     {
       "id": "06037703002",
-      "name": "Census tract 06037703002",
+      "name": "Census Tract 7030.02; Los Angeles County; California",
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -12601,16 +12572,19 @@
         ]
       },
       "indicators": {
-        "rent_burden_share": null,
-        "renter_share": null,
+        "rent_burden_share": 0.5065458207452165,
+        "renter_share": 0.35724282715185446,
         "affordability_pressure": null,
-        "evidence_ids": [],
+        "evidence_ids": [
+          "acs-2024-06037703002",
+          "acs-2021-06037703002"
+        ],
         "periods": [
           "2017–2021",
           "2020–2024"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld."
         ]
@@ -12623,14 +12597,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed housing image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -12655,14 +12627,12 @@
         "score": null,
         "tier": null,
         "reasons": [
-          "Rent-burden data is missing or invalid",
           "Compatible, interpretable affordability-change evidence is missing",
-          "Numerical evidence needs reviewed, matching Census sources",
           "Need 3 distinct reviewed commercial image sites",
           "Need 5 uniquely identifiable, assessable frontages"
         ],
         "warnings": [
-          "Missing rent/income estimates or margins of error",
+          "Affordability-change direction is ambiguous under reported margins",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Tract comparability across source vintages has not been verified; change score withheld.",
           "Experimental vulnerability proxy; not a probability or proof of gentrification.",
@@ -12684,7 +12654,1088 @@
       }
     }
   ],
-  "evidence": [],
+  "evidence": [
+    {
+      "id": "acs-2024-06037600501",
+      "area_id": "06037600501",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2024/acs/acs5.html",
+      "source_date": "2024-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2020–2024 estimates; source_date is period end. GEOID 06037600501. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2021-06037600501",
+      "area_id": "06037600501",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2021/acs/acs5.html",
+      "source_date": "2021-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2017–2021 estimates; source_date is period end. GEOID 06037600501. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2024-06037600601",
+      "area_id": "06037600601",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2024/acs/acs5.html",
+      "source_date": "2024-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2020–2024 estimates; source_date is period end. GEOID 06037600601. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2021-06037600601",
+      "area_id": "06037600601",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2021/acs/acs5.html",
+      "source_date": "2021-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2017–2021 estimates; source_date is period end. GEOID 06037600601. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2024-06037600602",
+      "area_id": "06037600602",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2024/acs/acs5.html",
+      "source_date": "2024-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2020–2024 estimates; source_date is period end. GEOID 06037600602. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2021-06037600602",
+      "area_id": "06037600602",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2021/acs/acs5.html",
+      "source_date": "2021-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2017–2021 estimates; source_date is period end. GEOID 06037600602. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2024-06037600702",
+      "area_id": "06037600702",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2024/acs/acs5.html",
+      "source_date": "2024-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2020–2024 estimates; source_date is period end. GEOID 06037600702. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2021-06037600702",
+      "area_id": "06037600702",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2021/acs/acs5.html",
+      "source_date": "2021-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2017–2021 estimates; source_date is period end. GEOID 06037600702. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2024-06037600703",
+      "area_id": "06037600703",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2024/acs/acs5.html",
+      "source_date": "2024-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2020–2024 estimates; source_date is period end. GEOID 06037600703. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2021-06037600703",
+      "area_id": "06037600703",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2021/acs/acs5.html",
+      "source_date": "2021-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2017–2021 estimates; source_date is period end. GEOID 06037600703. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2024-06037600704",
+      "area_id": "06037600704",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2024/acs/acs5.html",
+      "source_date": "2024-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2020–2024 estimates; source_date is period end. GEOID 06037600704. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2021-06037600704",
+      "area_id": "06037600704",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2021/acs/acs5.html",
+      "source_date": "2021-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2017–2021 estimates; source_date is period end. GEOID 06037600704. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2024-06037600801",
+      "area_id": "06037600801",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2024/acs/acs5.html",
+      "source_date": "2024-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2020–2024 estimates; source_date is period end. GEOID 06037600801. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2021-06037600801",
+      "area_id": "06037600801",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2021/acs/acs5.html",
+      "source_date": "2021-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2017–2021 estimates; source_date is period end. GEOID 06037600801. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2024-06037600802",
+      "area_id": "06037600802",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2024/acs/acs5.html",
+      "source_date": "2024-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2020–2024 estimates; source_date is period end. GEOID 06037600802. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2021-06037600802",
+      "area_id": "06037600802",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2021/acs/acs5.html",
+      "source_date": "2021-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2017–2021 estimates; source_date is period end. GEOID 06037600802. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2024-06037600902",
+      "area_id": "06037600902",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2024/acs/acs5.html",
+      "source_date": "2024-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2020–2024 estimates; source_date is period end. GEOID 06037600902. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2021-06037600902",
+      "area_id": "06037600902",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2021/acs/acs5.html",
+      "source_date": "2021-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2017–2021 estimates; source_date is period end. GEOID 06037600902. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2024-06037600911",
+      "area_id": "06037600911",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2024/acs/acs5.html",
+      "source_date": "2024-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2020–2024 estimates; source_date is period end. GEOID 06037600911. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2021-06037600911",
+      "area_id": "06037600911",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2021/acs/acs5.html",
+      "source_date": "2021-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2017–2021 estimates; source_date is period end. GEOID 06037600911. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2024-06037600912",
+      "area_id": "06037600912",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2024/acs/acs5.html",
+      "source_date": "2024-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2020–2024 estimates; source_date is period end. GEOID 06037600912. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2021-06037600912",
+      "area_id": "06037600912",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2021/acs/acs5.html",
+      "source_date": "2021-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2017–2021 estimates; source_date is period end. GEOID 06037600912. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2024-06037601001",
+      "area_id": "06037601001",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2024/acs/acs5.html",
+      "source_date": "2024-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2020–2024 estimates; source_date is period end. GEOID 06037601001. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2021-06037601001",
+      "area_id": "06037601001",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2021/acs/acs5.html",
+      "source_date": "2021-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2017–2021 estimates; source_date is period end. GEOID 06037601001. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2024-06037601002",
+      "area_id": "06037601002",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2024/acs/acs5.html",
+      "source_date": "2024-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2020–2024 estimates; source_date is period end. GEOID 06037601002. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2021-06037601002",
+      "area_id": "06037601002",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2021/acs/acs5.html",
+      "source_date": "2021-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2017–2021 estimates; source_date is period end. GEOID 06037601002. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2024-06037601100",
+      "area_id": "06037601100",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2024/acs/acs5.html",
+      "source_date": "2024-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2020–2024 estimates; source_date is period end. GEOID 06037601100. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2021-06037601100",
+      "area_id": "06037601100",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2021/acs/acs5.html",
+      "source_date": "2021-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2017–2021 estimates; source_date is period end. GEOID 06037601100. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2024-06037601202",
+      "area_id": "06037601202",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2024/acs/acs5.html",
+      "source_date": "2024-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2020–2024 estimates; source_date is period end. GEOID 06037601202. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2021-06037601202",
+      "area_id": "06037601202",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2021/acs/acs5.html",
+      "source_date": "2021-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2017–2021 estimates; source_date is period end. GEOID 06037601202. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2024-06037601211",
+      "area_id": "06037601211",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2024/acs/acs5.html",
+      "source_date": "2024-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2020–2024 estimates; source_date is period end. GEOID 06037601211. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2021-06037601211",
+      "area_id": "06037601211",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2021/acs/acs5.html",
+      "source_date": "2021-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2017–2021 estimates; source_date is period end. GEOID 06037601211. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2024-06037601212",
+      "area_id": "06037601212",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2024/acs/acs5.html",
+      "source_date": "2024-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2020–2024 estimates; source_date is period end. GEOID 06037601212. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2021-06037601212",
+      "area_id": "06037601212",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2021/acs/acs5.html",
+      "source_date": "2021-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2017–2021 estimates; source_date is period end. GEOID 06037601212. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2024-06037601301",
+      "area_id": "06037601301",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2024/acs/acs5.html",
+      "source_date": "2024-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2020–2024 estimates; source_date is period end. GEOID 06037601301. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2021-06037601301",
+      "area_id": "06037601301",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2021/acs/acs5.html",
+      "source_date": "2021-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2017–2021 estimates; source_date is period end. GEOID 06037601301. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2024-06037601302",
+      "area_id": "06037601302",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2024/acs/acs5.html",
+      "source_date": "2024-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2020–2024 estimates; source_date is period end. GEOID 06037601302. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2021-06037601302",
+      "area_id": "06037601302",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2021/acs/acs5.html",
+      "source_date": "2021-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2017–2021 estimates; source_date is period end. GEOID 06037601302. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2024-06037601303",
+      "area_id": "06037601303",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2024/acs/acs5.html",
+      "source_date": "2024-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2020–2024 estimates; source_date is period end. GEOID 06037601303. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2021-06037601303",
+      "area_id": "06037601303",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2021/acs/acs5.html",
+      "source_date": "2021-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2017–2021 estimates; source_date is period end. GEOID 06037601303. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2024-06037601401",
+      "area_id": "06037601401",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2024/acs/acs5.html",
+      "source_date": "2024-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2020–2024 estimates; source_date is period end. GEOID 06037601401. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2021-06037601401",
+      "area_id": "06037601401",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2021/acs/acs5.html",
+      "source_date": "2021-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2017–2021 estimates; source_date is period end. GEOID 06037601401. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2024-06037601402",
+      "area_id": "06037601402",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2024/acs/acs5.html",
+      "source_date": "2024-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2020–2024 estimates; source_date is period end. GEOID 06037601402. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2021-06037601402",
+      "area_id": "06037601402",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2021/acs/acs5.html",
+      "source_date": "2021-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2017–2021 estimates; source_date is period end. GEOID 06037601402. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2024-06037601501",
+      "area_id": "06037601501",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2024/acs/acs5.html",
+      "source_date": "2024-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2020–2024 estimates; source_date is period end. GEOID 06037601501. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2021-06037601501",
+      "area_id": "06037601501",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2021/acs/acs5.html",
+      "source_date": "2021-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2017–2021 estimates; source_date is period end. GEOID 06037601501. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2024-06037601700",
+      "area_id": "06037601700",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2024/acs/acs5.html",
+      "source_date": "2024-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2020–2024 estimates; source_date is period end. GEOID 06037601700. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2021-06037601700",
+      "area_id": "06037601700",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2021/acs/acs5.html",
+      "source_date": "2021-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2017–2021 estimates; source_date is period end. GEOID 06037601700. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2024-06037601801",
+      "area_id": "06037601801",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2024/acs/acs5.html",
+      "source_date": "2024-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2020–2024 estimates; source_date is period end. GEOID 06037601801. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2021-06037601801",
+      "area_id": "06037601801",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2021/acs/acs5.html",
+      "source_date": "2021-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2017–2021 estimates; source_date is period end. GEOID 06037601801. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2024-06037601802",
+      "area_id": "06037601802",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2024/acs/acs5.html",
+      "source_date": "2024-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2020–2024 estimates; source_date is period end. GEOID 06037601802. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2021-06037601802",
+      "area_id": "06037601802",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2021/acs/acs5.html",
+      "source_date": "2021-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2017–2021 estimates; source_date is period end. GEOID 06037601802. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2024-06037601900",
+      "area_id": "06037601900",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2024/acs/acs5.html",
+      "source_date": "2024-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2020–2024 estimates; source_date is period end. GEOID 06037601900. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2021-06037601900",
+      "area_id": "06037601900",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2021/acs/acs5.html",
+      "source_date": "2021-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2017–2021 estimates; source_date is period end. GEOID 06037601900. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2024-06037602003",
+      "area_id": "06037602003",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2024/acs/acs5.html",
+      "source_date": "2024-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2020–2024 estimates; source_date is period end. GEOID 06037602003. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2021-06037602003",
+      "area_id": "06037602003",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2021/acs/acs5.html",
+      "source_date": "2021-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2017–2021 estimates; source_date is period end. GEOID 06037602003. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2024-06037604200",
+      "area_id": "06037604200",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2024/acs/acs5.html",
+      "source_date": "2024-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2020–2024 estimates; source_date is period end. GEOID 06037604200. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2021-06037604200",
+      "area_id": "06037604200",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2021/acs/acs5.html",
+      "source_date": "2021-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2017–2021 estimates; source_date is period end. GEOID 06037604200. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2024-06037703002",
+      "area_id": "06037703002",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2024/acs/acs5.html",
+      "source_date": "2024-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2020–2024 estimates; source_date is period end. GEOID 06037703002. Automated ratio/schema checks; raw rows retained separately."
+    },
+    {
+      "id": "acs-2021-06037703002",
+      "area_id": "06037703002",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://api.census.gov/data/2021/acs/acs5.html",
+      "source_date": "2021-12-31",
+      "attribution": "U.S. Census Bureau, American Community Survey",
+      "license": "U.S. government data",
+      "reviewed": true,
+      "data_kind": "real",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": "Pooled 2017–2021 estimates; source_date is period end. GEOID 06037703002. Automated ratio/schema checks; raw rows retained separately."
+    }
+  ],
   "businesses": [
     {
       "id": "dulans-manchester",

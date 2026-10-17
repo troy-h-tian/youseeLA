@@ -16,3 +16,5 @@ For each assessment:
 Business cards can use verified website and directions links even when unrated. Resources are Inglewood-specific pointers, not promises of eligibility or legal advice. Public URLs must not contain secrets. No frontend API keys are needed for precomputed bundles.
 
 A teammate can copy the selected bundle into their app's public directory at build time. Check both modes and all three fixture states, a business-to-area join, evidence drill-down, and one external support action. Frontend load/render benchmarks remain the frontend owner's task; backend timing does not measure browser performance.
+
+Historical fallback and recent-coverage results are documented in [evidence status](evidence-status.md). The historical context bundle uses the same Bundle schema. The separate image review packet is unreviewed and must not be used to populate rated assessments. Keep historical dates prominent and avoid suggesting current businesses existed at the same sites in 2019.

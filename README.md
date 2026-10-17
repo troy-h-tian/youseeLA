@@ -18,13 +18,14 @@ python -m youseela.cli build
 python -m pytest -q
 ```
 
-`data/fixtures/bundle.json` contains clearly labeled synthetic examples for UI development. `data/exports/demo.json` contains real geography and verified business locations; its assessments are currently unrated because numerical and image evidence is incomplete. Do not present fixture ratings as real findings.
+`data/fixtures/bundle.json` contains clearly labeled synthetic examples for UI development. `data/exports/demo.json` contains real geography and verified business locations; its assessments are currently unrated because change estimates are uncertain, tract comparability needs verification, and reviewed image coverage is incomplete. Do not present fixture ratings as real findings.
 
 ## Data and integration
 
 - [Person A setup and evidence workflow](docs/person-a.md)
 - [Frontend handoff and missing-data behavior](docs/frontend-handoff.md)
 - [Scalability evaluation](docs/scalability.md)
+- [Historical evidence and coverage findings](docs/evidence-status.md)
 - [Public JSON Schema](contracts/bundle.schema.json)
 
 Configuration lives in `config/assessment.json`. Images affect scores through a corroborated physical-change feature combined with numerical affordability pressure. Missing or ambiguous evidence produces an unrated result. Housing context does not establish an individual business's financial condition.

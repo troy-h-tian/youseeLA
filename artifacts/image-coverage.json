@@ -1,0 +1,739 @@
+{
+  "generated_at": "2026-10-17T19:10:23.949796+00:00",
+  "source": "https://graph.mapillary.com/images",
+  "captured_after": "2023-10-18",
+  "initial_queries": 37,
+  "retry_subqueries": 28,
+  "successful_queries": 50,
+  "failed_queries": 15,
+  "unique_recent_images_inside_city": 118,
+  "counts_by_2020_tract": {
+    "06037601302": 2,
+    "06037601402": 96,
+    "06037601900": 2,
+    "06037601401": 18
+  },
+  "queries": [
+    {
+      "bbox": [
+        -118.37885000006007,
+        33.93532599965163,
+        -118.36885000006006,
+        33.94532599965163
+      ],
+      "http_status": 200,
+      "returned_images": 10,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.37885000006007,
+        33.95532599965163,
+        -118.36885000006006,
+        33.965325999651625
+      ],
+      "http_status": 500,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.37885000006007,
+        33.965325999651625,
+        -118.36885000006006,
+        33.97532599965162
+      ],
+      "http_status": 500,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.37885000006007,
+        33.97532599965162,
+        -118.36885000006006,
+        33.982970000187784
+      ],
+      "http_status": 200,
+      "returned_images": 60,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.37885000006007,
+        33.94532599965163,
+        -118.36885000006006,
+        33.95532599965163
+      ],
+      "http_status": 200,
+      "returned_images": 96,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.36885000006006,
+        33.93532599965163,
+        -118.35885000006006,
+        33.94532599965163
+      ],
+      "http_status": 500,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.36885000006006,
+        33.965325999651625,
+        -118.35885000006006,
+        33.97532599965162
+      ],
+      "http_status": 200,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.36885000006006,
+        33.94532599965163,
+        -118.35885000006006,
+        33.95532599965163
+      ],
+      "http_status": 500,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.36885000006006,
+        33.97532599965162,
+        -118.35885000006006,
+        33.982970000187784
+      ],
+      "http_status": 200,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.35885000006006,
+        33.94532599965163,
+        -118.34885000006005,
+        33.95532599965163
+      ],
+      "http_status": 200,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.35885000006006,
+        33.93532599965163,
+        -118.34885000006005,
+        33.94532599965163
+      ],
+      "http_status": 200,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.35885000006006,
+        33.965325999651625,
+        -118.34885000006005,
+        33.97532599965162
+      ],
+      "http_status": 200,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.35885000006006,
+        33.95532599965163,
+        -118.34885000006005,
+        33.965325999651625
+      ],
+      "http_status": 200,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.36885000006006,
+        33.95532599965163,
+        -118.35885000006006,
+        33.965325999651625
+      ],
+      "http_status": 500,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.35885000006006,
+        33.97532599965162,
+        -118.34885000006005,
+        33.982970000187784
+      ],
+      "http_status": 200,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.34885000006005,
+        33.93532599965163,
+        -118.33885000006005,
+        33.94532599965163
+      ],
+      "http_status": 200,
+      "returned_images": 2,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.34885000006005,
+        33.95532599965163,
+        -118.33885000006005,
+        33.965325999651625
+      ],
+      "http_status": 200,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.34885000006005,
+        33.94532599965163,
+        -118.33885000006005,
+        33.95532599965163
+      ],
+      "http_status": 200,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.34885000006005,
+        33.965325999651625,
+        -118.33885000006005,
+        33.97532599965162
+      ],
+      "http_status": 200,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.34885000006005,
+        33.92532599965163,
+        -118.33885000006005,
+        33.93532599965163
+      ],
+      "http_status": 500,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.34885000006005,
+        33.97532599965162,
+        -118.33885000006005,
+        33.982970000187784
+      ],
+      "http_status": 200,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.33885000006005,
+        33.93532599965163,
+        -118.32885000006004,
+        33.94532599965163
+      ],
+      "http_status": 200,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.33885000006005,
+        33.94532599965163,
+        -118.32885000006004,
+        33.95532599965163
+      ],
+      "http_status": 200,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.33885000006005,
+        33.95532599965163,
+        -118.32885000006004,
+        33.965325999651625
+      ],
+      "http_status": 200,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.33885000006005,
+        33.965325999651625,
+        -118.32885000006004,
+        33.97532599965162
+      ],
+      "http_status": 200,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.33885000006005,
+        33.92532599965163,
+        -118.32885000006004,
+        33.93532599965163
+      ],
+      "http_status": 200,
+      "returned_images": 20,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.33885000006005,
+        33.97532599965162,
+        -118.32885000006004,
+        33.982970000187784
+      ],
+      "http_status": 200,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.32885000006004,
+        33.94532599965163,
+        -118.31885000006004,
+        33.95532599965163
+      ],
+      "http_status": 200,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.32885000006004,
+        33.92532599965163,
+        -118.31885000006004,
+        33.93532599965163
+      ],
+      "http_status": 500,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.32885000006004,
+        33.95532599965163,
+        -118.31885000006004,
+        33.965325999651625
+      ],
+      "http_status": 200,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.32885000006004,
+        33.93532599965163,
+        -118.31885000006004,
+        33.94532599965163
+      ],
+      "http_status": 200,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.31885000006004,
+        33.93532599965163,
+        -118.3176860003734,
+        33.94532599965163
+      ],
+      "http_status": 200,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.32885000006004,
+        33.965325999651625,
+        -118.31885000006004,
+        33.97532599965162
+      ],
+      "http_status": 200,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.31885000006004,
+        33.94532599965163,
+        -118.3176860003734,
+        33.95532599965163
+      ],
+      "http_status": 200,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.31885000006004,
+        33.965325999651625,
+        -118.3176860003734,
+        33.97532599965162
+      ],
+      "http_status": 200,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.31885000006004,
+        33.95532599965163,
+        -118.3176860003734,
+        33.965325999651625
+      ],
+      "http_status": 200,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.31885000006004,
+        33.92532599965163,
+        -118.3176860003734,
+        33.93532599965163
+      ],
+      "http_status": 200,
+      "returned_images": 66,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.37885000006007,
+        33.95532599965163,
+        -118.37385000006006,
+        33.96032599965163
+      ],
+      "http_status": 200,
+      "returned_images": 7,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.37385000006006,
+        33.95532599965163,
+        -118.36885000006006,
+        33.96032599965163
+      ],
+      "http_status": 500,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.37385000006006,
+        33.96032599965163,
+        -118.36885000006006,
+        33.965325999651625
+      ],
+      "http_status": 500,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.37885000006007,
+        33.96032599965163,
+        -118.37385000006006,
+        33.965325999651625
+      ],
+      "http_status": 200,
+      "returned_images": 83,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.37385000006006,
+        33.965325999651625,
+        -118.36885000006006,
+        33.97032599965162
+      ],
+      "http_status": 500,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.37385000006006,
+        33.97032599965162,
+        -118.36885000006006,
+        33.97532599965162
+      ],
+      "http_status": 200,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.37885000006007,
+        33.97032599965162,
+        -118.37385000006006,
+        33.97532599965162
+      ],
+      "http_status": 200,
+      "returned_images": 85,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.36385000006007,
+        33.93532599965163,
+        -118.35885000006006,
+        33.940325999651634
+      ],
+      "http_status": 200,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.37885000006007,
+        33.965325999651625,
+        -118.37385000006006,
+        33.97032599965162
+      ],
+      "http_status": 200,
+      "returned_images": 83,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.36385000006007,
+        33.940325999651634,
+        -118.35885000006006,
+        33.94532599965163
+      ],
+      "http_status": 200,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.36885000006006,
+        33.93532599965163,
+        -118.36385000006007,
+        33.940325999651634
+      ],
+      "http_status": 500,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.36885000006006,
+        33.94532599965163,
+        -118.36385000006007,
+        33.950325999651625
+      ],
+      "http_status": 500,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.36385000006007,
+        33.94532599965163,
+        -118.35885000006006,
+        33.950325999651625
+      ],
+      "http_status": 200,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.36385000006007,
+        33.950325999651625,
+        -118.35885000006006,
+        33.95532599965163
+      ],
+      "http_status": 200,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.36885000006006,
+        33.940325999651634,
+        -118.36385000006007,
+        33.94532599965163
+      ],
+      "http_status": 500,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.36385000006007,
+        33.95532599965163,
+        -118.35885000006006,
+        33.96032599965163
+      ],
+      "http_status": 200,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.36885000006006,
+        33.95532599965163,
+        -118.36385000006007,
+        33.96032599965163
+      ],
+      "http_status": 500,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.36885000006006,
+        33.950325999651625,
+        -118.36385000006007,
+        33.95532599965163
+      ],
+      "http_status": 500,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.36385000006007,
+        33.96032599965163,
+        -118.35885000006006,
+        33.965325999651625
+      ],
+      "http_status": 200,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.34885000006005,
+        33.92532599965163,
+        -118.34385000006006,
+        33.93032599965163
+      ],
+      "http_status": 200,
+      "returned_images": 14,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.36885000006006,
+        33.96032599965163,
+        -118.36385000006007,
+        33.965325999651625
+      ],
+      "http_status": 200,
+      "returned_images": 18,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.34385000006006,
+        33.93032599965163,
+        -118.33885000006005,
+        33.93532599965163
+      ],
+      "http_status": 200,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.34385000006006,
+        33.92532599965163,
+        -118.33885000006005,
+        33.93032599965163
+      ],
+      "http_status": 200,
+      "returned_images": 90,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.34885000006005,
+        33.93032599965163,
+        -118.34385000006006,
+        33.93532599965163
+      ],
+      "http_status": 200,
+      "returned_images": 84,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.32885000006004,
+        33.93032599965163,
+        -118.32385000006005,
+        33.93532599965163
+      ],
+      "http_status": 200,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.32385000006005,
+        33.93032599965163,
+        -118.31885000006004,
+        33.93532599965163
+      ],
+      "http_status": 200,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.32385000006005,
+        33.92532599965163,
+        -118.31885000006004,
+        33.93032599965163
+      ],
+      "http_status": 200,
+      "returned_images": 0,
+      "limit_reached": false
+    },
+    {
+      "bbox": [
+        -118.32885000006004,
+        33.92532599965163,
+        -118.32385000006005,
+        33.93032599965163
+      ],
+      "http_status": 200,
+      "returned_images": 0,
+      "limit_reached": false
+    }
+  ],
+  "limitations": [
+    "Bounded discovery with 100-image query limits, no exhaustive pagination.",
+    "Failed requests and capped responses prevent claiming complete city coverage.",
+    "Capture position does not identify every depicted building or its tract.",
+    "Inspected recent samples include freeway views, a wall, an obstructed intersection, and a stadium interior; no adequate reviewed storefront sample established."
+  ]
+}

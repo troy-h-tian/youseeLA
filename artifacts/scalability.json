@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T19:00:33.692525+00:00",
+  "generated_at": "2026-10-17T19:10:23.809574+00:00",
   "data_kind": "synthetic_performance_fixture",
   "environment": {
     "python": "3.11.13",
@@ -30,13 +30,13 @@
       "businesses": 10,
       "evidence_records": 53,
       "runs": 10,
-      "score_median_seconds": 0.000449187500635162,
-      "score_max_seconds": 0.0005271660047583282,
-      "export_validate_median_seconds": 0.0004916665202472359,
-      "export_validate_max_seconds": 0.0006567079981323332,
-      "areas_per_second": 22262.41822370337,
+      "score_median_seconds": 0.00044991700269747525,
+      "score_max_seconds": 0.0005275000003166497,
+      "export_validate_median_seconds": 0.0005051460029790178,
+      "export_validate_max_seconds": 0.0006120839971117675,
+      "areas_per_second": 22226.321610530493,
       "output_bytes": 69996,
-      "output_sha256": "f8f77dd84a5d230698224934648ba34a6d8e5a9b8901b508e21d331fd4316d68",
+      "output_sha256": "284b0c800f8335dedd4cd97e493af8853b5454bbec43910ef01bf4fdb64a978c",
       "errors": 0
     },
     {
@@ -45,13 +45,13 @@
       "businesses": 100,
       "evidence_records": 503,
       "runs": 10,
-      "score_median_seconds": 0.004619396000634879,
-      "score_max_seconds": 0.0047659169940743595,
-      "export_validate_median_seconds": 0.00489637500140816,
-      "export_validate_max_seconds": 0.009095875022467226,
-      "areas_per_second": 21647.85179409954,
+      "score_median_seconds": 0.004616874997736886,
+      "score_max_seconds": 0.004907458991510794,
+      "export_validate_median_seconds": 0.005062625001301058,
+      "export_validate_max_seconds": 0.009889042004942894,
+      "areas_per_second": 21659.672408072194,
       "output_bytes": 662729,
-      "output_sha256": "31f6900d838964281718d7a5d30aec392565f78eb5f438efe30fdc332287c48c",
+      "output_sha256": "cdfa6c20572dc2f6ca3652a8b8be3b26aa37e2eb56a6142052be5a52b06858ad",
       "errors": 0
     },
     {
@@ -60,19 +60,34 @@
       "businesses": 1000,
       "evidence_records": 5003,
       "runs": 10,
-      "score_median_seconds": 0.05293406250711996,
-      "score_max_seconds": 0.08798841701354831,
-      "export_validate_median_seconds": 0.09720031250617467,
-      "export_validate_max_seconds": 0.1452164999791421,
-      "areas_per_second": 18891.427421908036,
+      "score_median_seconds": 0.05332406300294679,
+      "score_max_seconds": 0.0861881659948267,
+      "export_validate_median_seconds": 0.09904181200545281,
+      "export_validate_max_seconds": 0.15996895800344646,
+      "areas_per_second": 18753.259667117603,
       "output_bytes": 6595269,
-      "output_sha256": "39ef7688fb2e875a8c075fbb906de90508e5c071ed4987bdc7d84914906cf09d",
+      "output_sha256": "a390c36059c04e172788259a5cc4b4b912dbb5a861b0d4ae810a68d475507038",
       "errors": 0
     }
   ],
   "image_api": {
-    "status": "unmeasured",
-    "reason": "No real pilot API telemetry available; no calls made for benchmark."
+    "status": "measured_pilot",
+    "completed_requests": 9,
+    "cache_hits": 8,
+    "errors": 0,
+    "duration_median_seconds": 1.7136899999750312,
+    "duration_max_seconds": 4.878063833981287,
+    "models": [
+      "gpt-4.1-mini"
+    ],
+    "mean_billed_cost_usd": null,
+    "cost_note": "Reservations are not billed costs. Missing billing data is unmeasured.",
+    "projected_cost_usd_six_images_per_area": {
+      "10": null,
+      "100": null,
+      "1000": null
+    },
+    "projection_assumptions": "Six images per area, same provider/model/image mix and pricing; no retries. Historical corroboration may add images."
   },
   "frontend": {
     "status": "unmeasured",
