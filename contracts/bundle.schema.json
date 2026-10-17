@@ -280,6 +280,60 @@
           ],
           "title": "Data Kind",
           "type": "string"
+        },
+        "business_type": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Business Type"
+        },
+        "opened_year": {
+          "anyOf": [
+            {
+              "maximum": 2100,
+              "minimum": 1800,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Opened Year"
+        },
+        "opened_source_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Opened Source Url"
+        },
+        "opened_note": {
+          "default": "",
+          "title": "Opened Note",
+          "type": "string"
+        },
+        "outlook": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/BusinessOutlook"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
         }
       },
       "required": [
@@ -296,6 +350,93 @@
         "directions_url"
       ],
       "title": "Business",
+      "type": "object"
+    },
+    "BusinessOutlook": {
+      "additionalProperties": false,
+      "description": "A support-priority score for one business: its own model estimate plus its area's rent outlook.",
+      "properties": {
+        "priority_score": {
+          "maximum": 100,
+          "minimum": 0,
+          "title": "Priority Score",
+          "type": "number"
+        },
+        "tier": {
+          "enum": [
+            "lower",
+            "moderate",
+            "higher"
+          ],
+          "title": "Tier",
+          "type": "string"
+        },
+        "closure_probability": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Closure Probability",
+          "type": "number"
+        },
+        "typical_probability": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Typical Probability",
+          "type": "number"
+        },
+        "business_type": {
+          "title": "Business Type",
+          "type": "string"
+        },
+        "age_years": {
+          "minimum": 0,
+          "title": "Age Years",
+          "type": "number"
+        },
+        "area_rent_percentile": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Area Rent Percentile"
+        },
+        "reasons": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Reasons",
+          "type": "array"
+        },
+        "basis": {
+          "minLength": 1,
+          "title": "Basis",
+          "type": "string"
+        },
+        "accuracy": {
+          "minLength": 1,
+          "title": "Accuracy",
+          "type": "string"
+        }
+      },
+      "required": [
+        "priority_score",
+        "tier",
+        "closure_probability",
+        "typical_probability",
+        "business_type",
+        "age_years",
+        "reasons",
+        "basis",
+        "accuracy"
+      ],
+      "title": "BusinessOutlook",
       "type": "object"
     },
     "ClipPairFeature": {

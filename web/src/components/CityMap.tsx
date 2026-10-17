@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import type { Map as LibreMap, Marker as LibreMarker, GeoJSONSource } from 'maplibre-gl';
 import type { Area, AssessmentKind, Business, Mode } from '../data/types';
 import { areaCenter, shortArea } from '../lib/city';
-import { lensColor, lensValue, type Lens } from '../lib/outlook';
+import { lensColor, lensValue, rampColor, type Lens } from '../lib/outlook';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
 
@@ -90,8 +90,9 @@ export function CityMap(props: Props) {
     void import('maplibre-gl').then(({ Marker }) => {
       if (disposed) return;
       const locations = props.mode === 'business' && props.businesses.length > 0
-        ? props.businesses.map(b => ({ id: b.area_id, businessId: b.id, label: b.name, coordinates: [b.location.lon, b.location.lat] as [number, number], color: '#397965' }))
-        : props.areas.map(a => ({ id: a.id, businessId: undefined, label: shortArea(a), coordinates: areaCenter(a.boundary), color: lensColor(a, props.lens, props.kind) }));
+        ? props.businesses.map(b => ({ id: b.area_id, businessId: b.id, label: b.name, badge: b.outlook ? String(Math.round(b.outlook.priority_score)) : undefined,
+            coordinates: [b.location.lon, b.location.lat] as [number, number], color: b.outlook ? rampColor(b.outlook.priority_score / 100) : '#397965' }))
+        : props.areas.map(a => ({ id: a.id, businessId: undefined, label: shortArea(a), badge: undefined, coordinates: areaCenter(a.boundary), color: lensColor(a, props.lens, props.kind) }));
       for (const item of locations) {
         const button = document.createElement('button');
         button.type = 'button';
@@ -102,6 +103,11 @@ export function CityMap(props: Props) {
         button.setAttribute('aria-pressed', String(selected));
         const dot = document.createElement('span'); dot.className = 'city-marker-dot';
         const label = document.createElement('span'); label.className = 'city-marker-label'; label.textContent = item.label;
+        if (item.badge) {
+          // Visible score only; the accessible name stays the business name.
+          const badge = document.createElement('span'); badge.className = 'city-marker-badge'; badge.textContent = item.badge;
+          badge.setAttribute('aria-hidden', 'true'); label.append(badge);
+        }
         button.append(dot, label);
         button.addEventListener('click', () => latest.current.onSelect(item.id, item.businessId));
         markers.push(new Marker({ element: button, anchor: 'center' }).setLngLat(item.coordinates).addTo(map));

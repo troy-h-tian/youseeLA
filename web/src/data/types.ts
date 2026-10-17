@@ -193,6 +193,25 @@ export interface Business {
   website_url: string | null;
   /** Optional override; otherwise directions are derived from location. */
   directions_url: string | null;
+  business_type?: string | null;
+  opened_year?: number | null;
+  opened_source_url?: string | null;
+  opened_note?: string;
+  /** Support priority from the business's own model estimate and its area's rent outlook. */
+  outlook?: BusinessOutlook | null;
+}
+
+export interface BusinessOutlook {
+  priority_score: number;
+  tier: Tier;
+  closure_probability: number;
+  typical_probability: number;
+  business_type: string;
+  age_years: number;
+  area_rent_percentile: number | null;
+  reasons: string[];
+  basis: string;
+  accuracy: string;
 }
 
 export type ResourceKind = 'housing' | 'business';

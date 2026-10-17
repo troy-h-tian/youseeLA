@@ -13,7 +13,11 @@
     "verified_at": "2026-10-17",
     "website_url": "https://www.dulans-sfk.com/",
     "directions_url": "https://www.google.com/maps/dir/?api=1&destination=202+E+Manchester+Blvd%2C+Inglewood%2C+CA+90301",
-    "data_kind": "real"
+    "data_kind": "real",
+    "opened_year": 1999,
+    "opened_source_url": "https://lasentinel.net/?p=86676",
+    "opened_note": "LA Sentinel: flagship opened in 1999 at 202 E. Manchester; the LA Conservancy gives 2001.",
+    "business_type": "Food & drink"
   },
   {
     "id": "hilltop-inglewood",
@@ -29,7 +33,11 @@
     "verified_at": "2026-10-17",
     "website_url": "https://www.findyourhilltop.com/inglewood",
     "directions_url": "https://www.google.com/maps/dir/?api=1&destination=170+N+La+Brea+Ave%2C+Inglewood%2C+CA+90301",
-    "data_kind": "real"
+    "data_kind": "real",
+    "opened_year": 2019,
+    "opened_source_url": "https://thegrio.com/2019/12/11/issa-rae-partners-to-open-massive-new-inglewood-coffee-space/",
+    "opened_note": "Inglewood location opened December 2019.",
+    "business_type": "Food & drink"
   },
   {
     "id": "serving-spoon",
@@ -45,7 +53,11 @@
     "verified_at": "2026-10-17",
     "website_url": "https://www.theservingspoon.net/visit/",
     "directions_url": "https://www.google.com/maps/dir/?api=1&destination=1403+Centinela+Ave%2C+Inglewood%2C+CA+90302",
-    "data_kind": "real"
+    "data_kind": "real",
+    "opened_year": 1983,
+    "opened_source_url": "https://lasentinel.net/the-serving-spoon-brings-soul-food-cuisine-to-taste-of-soul.html",
+    "opened_note": "Founded by Harold Sparks in 1983.",
+    "business_type": "Food & drink"
   },
   {
     "id": "sweet-red-peach",
@@ -61,7 +73,11 @@
     "verified_at": "2026-10-17",
     "website_url": "https://www.sweetredpeach.com/location/sweet-red-peach-inglewood/",
     "directions_url": "https://www.google.com/maps/dir/?api=1&destination=1035+S+Prairie+Ave%2C+Inglewood%2C+CA+90301",
-    "data_kind": "real"
+    "data_kind": "real",
+    "opened_year": 2011,
+    "opened_source_url": "https://www.pasadenanow.com/weekendr/sweet-red-peach-bakery-to-open-new-location-in-pasadena",
+    "opened_note": "First opened in Inglewood in 2011.",
+    "business_type": "Food & drink"
   },
   {
     "id": "toast-and-jam",
@@ -77,6 +93,10 @@
     "verified_at": "2026-10-17",
     "website_url": "https://www.thetoastandjam.com/",
     "directions_url": "https://www.google.com/maps/dir/?api=1&destination=324+S+Market+St%2C+Inglewood%2C+CA+90301",
-    "data_kind": "real"
+    "data_kind": "real",
+    "opened_year": 2014,
+    "opened_source_url": "https://www.thetoastandjam.com/about/",
+    "opened_note": "Family business since 2014, first as Rusty Pot Cafe; time at this address may be shorter.",
+    "business_type": "Food & drink"
   }
 ]

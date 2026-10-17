@@ -1,6 +1,6 @@
 {
   "model": "business-closure-v1",
-  "generated_at": "2026-10-17T21:28:16.344114+00:00",
+  "generated_at": "2026-10-17T21:47:40.030722+00:00",
   "chosen": "gradient_boosting",
   "test_auc": 0.5903,
   "test_auc_consumer": 0.6211,
@@ -786,6 +786,43 @@
           "typical_age_years": 7.7
         }
       }
+    }
+  },
+  "businesses": {
+    "dulans-manchester": {
+      "probability": 0.0316,
+      "county_typical": 0.0925,
+      "type": "Food & drink",
+      "age_years": 26.5,
+      "zip": "90301"
+    },
+    "hilltop-inglewood": {
+      "probability": 0.0569,
+      "county_typical": 0.0925,
+      "type": "Food & drink",
+      "age_years": 6.5,
+      "zip": "90301"
+    },
+    "serving-spoon": {
+      "probability": 0.0402,
+      "county_typical": 0.0925,
+      "type": "Food & drink",
+      "age_years": 42.5,
+      "zip": "90302"
+    },
+    "sweet-red-peach": {
+      "probability": 0.0402,
+      "county_typical": 0.0925,
+      "type": "Food & drink",
+      "age_years": 14.5,
+      "zip": "90301"
+    },
+    "toast-and-jam": {
+      "probability": 0.0458,
+      "county_typical": 0.0925,
+      "type": "Food & drink",
+      "age_years": 11.5,
+      "zip": "90301"
     }
   }
 }

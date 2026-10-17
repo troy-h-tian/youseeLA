@@ -5,10 +5,124 @@
   ],
   "rule": "Comparable when the maximum boundary shift is at most 5 m and the area difference is at most 0.1%.",
   "tracts": {
+    "06037600501": {
+      "exact_equal": false,
+      "area_difference_share": 0.00011,
+      "max_shift_m": 5.198653,
+      "comparable": false
+    },
+    "06037600601": {
+      "exact_equal": true,
+      "area_difference_share": 0.0,
+      "max_shift_m": 0.0,
+      "comparable": true
+    },
+    "06037600602": {
+      "exact_equal": true,
+      "area_difference_share": 0.0,
+      "max_shift_m": 0.0,
+      "comparable": true
+    },
+    "06037600702": {
+      "exact_equal": true,
+      "area_difference_share": 0.0,
+      "max_shift_m": 0.0,
+      "comparable": true
+    },
+    "06037600703": {
+      "exact_equal": true,
+      "area_difference_share": 0.0,
+      "max_shift_m": 0.0,
+      "comparable": true
+    },
+    "06037600704": {
+      "exact_equal": true,
+      "area_difference_share": 0.0,
+      "max_shift_m": 0.0,
+      "comparable": true
+    },
+    "06037600801": {
+      "exact_equal": true,
+      "area_difference_share": 0.0,
+      "max_shift_m": 0.0,
+      "comparable": true
+    },
+    "06037600802": {
+      "exact_equal": false,
+      "area_difference_share": 0.001502,
+      "max_shift_m": 10.55864,
+      "comparable": false
+    },
+    "06037600902": {
+      "exact_equal": true,
+      "area_difference_share": 0.0,
+      "max_shift_m": 0.0,
+      "comparable": true
+    },
     "06037600911": {
       "exact_equal": false,
       "area_difference_share": 5e-06,
       "max_shift_m": 0.108051,
+      "comparable": true
+    },
+    "06037600912": {
+      "exact_equal": false,
+      "area_difference_share": 0.002683,
+      "max_shift_m": 10.558258,
+      "comparable": false
+    },
+    "06037601001": {
+      "exact_equal": true,
+      "area_difference_share": 0.0,
+      "max_shift_m": 0.0,
+      "comparable": true
+    },
+    "06037601002": {
+      "exact_equal": true,
+      "area_difference_share": 0.0,
+      "max_shift_m": 0.0,
+      "comparable": true
+    },
+    "06037601100": {
+      "exact_equal": true,
+      "area_difference_share": 0.0,
+      "max_shift_m": 0.0,
+      "comparable": true
+    },
+    "06037601202": {
+      "exact_equal": false,
+      "area_difference_share": 3e-06,
+      "max_shift_m": 0.076294,
+      "comparable": true
+    },
+    "06037601211": {
+      "exact_equal": true,
+      "area_difference_share": 0.0,
+      "max_shift_m": 0.0,
+      "comparable": true
+    },
+    "06037601212": {
+      "exact_equal": true,
+      "area_difference_share": 0.0,
+      "max_shift_m": 0.0,
+      "comparable": true
+    },
+    "06037601301": {
+      "exact_equal": true,
+      "area_difference_share": 0.0,
+      "max_shift_m": 0.0,
+      "comparable": true
+    },
+    "06037601302": {
+      "exact_equal": true,
+      "area_difference_share": 0.0,
+      "max_shift_m": 0.0,
+      "comparable": true
+    },
+    "06037601303": {
+      "exact_equal": true,
+      "area_difference_share": 0.0,
+      "max_shift_m": 0.0,
       "comparable": true
     },
     "06037601401": {
@@ -16,6 +130,54 @@
       "area_difference_share": 0.0,
       "max_shift_m": 0.0,
       "comparable": true
+    },
+    "06037601402": {
+      "exact_equal": false,
+      "area_difference_share": 4e-06,
+      "max_shift_m": 0.076292,
+      "comparable": true
+    },
+    "06037601501": {
+      "exact_equal": true,
+      "area_difference_share": 0.0,
+      "max_shift_m": 0.0,
+      "comparable": true
+    },
+    "06037601700": {
+      "exact_equal": false,
+      "area_difference_share": 0.029243,
+      "max_shift_m": 58.515327,
+      "comparable": false
+    },
+    "06037601801": {
+      "exact_equal": true,
+      "area_difference_share": 0.0,
+      "max_shift_m": 0.0,
+      "comparable": true
+    },
+    "06037601802": {
+      "exact_equal": true,
+      "area_difference_share": 0.0,
+      "max_shift_m": 0.0,
+      "comparable": true
+    },
+    "06037601900": {
+      "exact_equal": true,
+      "area_difference_share": 0.0,
+      "max_shift_m": 0.0,
+      "comparable": true
+    },
+    "06037602003": {
+      "exact_equal": false,
+      "area_difference_share": 9e-06,
+      "max_shift_m": 0.05434,
+      "comparable": true
+    },
+    "06037703002": {
+      "exact_equal": false,
+      "area_difference_share": 0.008296,
+      "max_shift_m": 27.740727,
+      "comparable": false
     }
   }
 }

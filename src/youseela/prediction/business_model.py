@@ -98,7 +98,8 @@ def candidates() -> dict[str, Any]:
                                                                 min_samples_leaf=200, l2_regularization=1.0, random_state=SEED)}
 
 
-def run(output: Path, forecast_output: Path, areas_path: Path) -> dict[str, Any]:
+def run(output: Path, forecast_output: Path, areas_path: Path,
+        businesses_path: Path = Path("data/curated/businesses.json")) -> dict[str, Any]:
     started = time.perf_counter()
     businesses = data.la_city_businesses()
     zip_values = {name: zip_rows(name) for name in ("train", "test", "forecast")}
@@ -187,6 +188,19 @@ def run(output: Path, forecast_output: Path, areas_path: Path) -> dict[str, Any]
                                                   "established": scored[(n, "established")], "county_typical": county_typical[n],
                                                   "typical_age_years": round(median_age[n], 1)} for n in CONSUMER_TYPES}}
     infer_seconds = time.perf_counter() - start
+
+    # Specific businesses with a sourced opening year: scored on their own age, type and address ZIP.
+    specific = {}
+    for item in json.loads(businesses_path.read_text()) if businesses_path.exists() else []:
+        found = re.findall(r"\b(9\d{4})\b", item.get("address", ""))
+        kind = item.get("business_type") or category(item["name"])
+        if not item.get("opened_year") or not found or found[-1] not in zip_values["forecast"] or kind not in CONSUMER_TYPES:
+            continue
+        # The outlook starts from 2020–2024 conditions, so age is measured to mid-2025.
+        age = min(max(.5, 2025.5 - item["opened_year"]), 80)
+        p = float(final.predict_proba(business_matrix([{"age_years": age, "category": kind}], [found[-1]], zip_values["forecast"]))[0, 1])
+        specific[item["id"]] = {"probability": round(p, 4), "county_typical": county_typical[kind], "type": kind,
+                                "age_years": round(age, 1), "zip": found[-1]}
     scale = []
     for size in (10_000, 100_000, 1_000_000):
         tiled = np.resize(x_test, (size, x_test.shape[1]))
@@ -222,7 +236,7 @@ def run(output: Path, forecast_output: Path, areas_path: Path) -> dict[str, Any]
     forecast_output.write_text(json.dumps({"model": report["model"], "generated_at": report["generated_at"], "chosen": chosen,
                                            "test_auc": models[chosen]["auc"], "test_auc_consumer": consumer_subset["auc"],
                                            "test_businesses": int(len(y_test)), "horizon": "Five years from ACS 2020–2024 conditions",
-                                           "tracts": forecasts}, indent=2) + "\n")
+                                           "tracts": forecasts, "businesses": specific}, indent=2) + "\n")
     return report
 
 

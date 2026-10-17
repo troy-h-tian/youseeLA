@@ -5,7 +5,7 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
-from youseela.contracts import Dataset, Prediction, PredictionFactor
+from youseela.contracts import BusinessOutlook, Dataset, Prediction, PredictionFactor
 
 # ACS 2020–2024 tables were published in December 2025; earlier assessment dates get the backtest instead.
 FORECAST_AVAILABLE = date(2025, 12, 31)
@@ -51,6 +51,35 @@ def business_prediction(item: dict[str, Any], report: dict[str, Any]) -> Predict
                       basis=BUSINESS_BASIS + f" ZIP {item['zip']}.", by_type=by_type)
 
 
+def business_outlook(item: dict[str, Any], opened_year: int, rent: dict[str, Any] | None, report: dict[str, Any],
+                     rent_auc: float) -> BusinessOutlook:
+    """Support priority = half the business's own closure signal, half its area's rent outlook.
+
+    The closure signal is the model's estimate relative to a typical business of the same type:
+    0.5 means typical, 1.0 means at least twice the typical chance of closing or moving.
+    """
+    closure = min(1.0, item["probability"] / (2 * item["county_typical"]))
+    percentile = rent["county_percentile"] if rent else None
+    score = round(100 * (.5 * closure + .5 * percentile), 1) if percentile is not None else round(100 * closure, 1)
+    relative = item["probability"] / item["county_typical"]
+    comparison = "higher than" if relative > 1.1 else "lower than" if relative < .9 else "about the same as"
+    reasons = [f"Open since {opened_year} (about {item['age_years']:.0f} years). Estimated {item['probability']:.0%} chance a "
+               f"{item['type'].lower()} business this established closes or moves within five years: {comparison} the "
+               f"{item['county_typical']:.0%} for a typical one in LA County."]
+    if percentile is not None:
+        top = round((1 - percentile) * 100)
+        reasons.append(f"Its neighborhood's five-year rent-pressure outlook ranks in the top {max(top, 1)}% of LA County tracts."
+                       if percentile >= .5 else f"Its neighborhood's five-year rent-pressure outlook is lower than {100 - round(percentile * 100)}% of LA County tracts.")
+    return BusinessOutlook(priority_score=score, tier=tier(score / 100), closure_probability=item["probability"],
+                           typical_probability=item["county_typical"], business_type=item["type"], age_years=item["age_years"],
+                           area_rent_percentile=percentile, reasons=reasons,
+                           basis=("Half from this business's own closure estimate (business model: its sourced opening year, type and "
+                                  f"ZIP {item['zip']}), half from its tract's rent-pressure forecast. A support priority, not a prediction "
+                                  "that this business will close."),
+                           accuracy=(f"Business model test AUC {report['test_auc_consumer']:.2f} for food, retail and personal services; "
+                                     f"rent model test AUC {rent_auc:.2f}. Both were tested on 2019→2024 outcomes they never saw."))
+
+
 def attach_predictions(dataset: Dataset, as_of: date, tract_path: Path, business_path: Path) -> Dataset:
     result = dataset.model_copy(deep=True)
     tract = json.loads(tract_path.read_text()) if tract_path.exists() else None
@@ -65,4 +94,9 @@ def attach_predictions(dataset: Dataset, as_of: date, tract_path: Path, business
         if business and not backtest and area.id in business["tracts"]:
             predictions.append(business_prediction(business["tracts"][area.id], business))
         area.predictions = predictions
+    if business and tract and not backtest:
+        for item in result.businesses:
+            scored = business.get("businesses", {}).get(item.id)
+            if scored and item.opened_year:
+                item.outlook = business_outlook(scored, item.opened_year, tract["tracts"].get(item.area_id), business, tract["test_auc"])
     return result

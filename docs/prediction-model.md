@@ -120,3 +120,30 @@ Re-scoring every tract in the county takes milliseconds, and extending to all of
 - Registry end dates mix closures, relocations and lapsed registrations.
 - Both test periods include COVID-era shocks.
 - Explanations show how much each value moves the prediction relative to the typical tract. They are associations, not causes.
+
+## Business support priority (per business)
+
+Each listed business has a sourced opening year (in `data/curated/businesses.json`). The business model scores that specific business on its own age, type and address ZIP. Its **support priority** (0–100) is:
+
+> 100 × (½ × closure signal + ½ × its tract's rent-pressure percentile)
+
+The closure signal is the business's estimated closure chance relative to a typical business of its type, capped at 1. A value of 0.5 means typical; 1.0 means at least twice the typical chance.
+
+The score is a hand-built combination of two tested model outputs. It is not separately validated, and it is labeled as "where a visit helps most", **not** as a prediction that the business will close. Current values:
+
+| Business | Priority |
+| --- | --- |
+| Hilltop Coffee + Kitchen | 57 |
+| The Toast & Jam | 54 |
+| Dulan's Soul Food Kitchen | 51 |
+| Sweet Red Peach | 35 |
+| The Serving Spoon | 15 |
+
+Business markers on the map are colored by this score.
+
+## Historical view coverage
+
+The historical view covers all 29 Inglewood-area tracts (2010 boundaries), each with the model's 2019 backtest.
+- **24 tracts** passed the 2014/2019 boundary tolerance check (`artifacts/boundary-tolerance-check.json`) and get a rent-vs-income change term.
+- **5 tracts** shifted by 5–59 m and are scored on rent burden alone, labeled as such.
+- The two photo-pair tracts keep their CLIP-backed scores.

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-17T21:28:48.370337+00:00",
+  "generated_at": "2026-10-17T21:48:02.478800+00:00",
   "data_kind": "real",
   "methodology": {
     "config_version": "experimental-v2-sensitivity-partial",
@@ -20804,7 +20804,26 @@
       "source_url": "https://www.dulans-sfk.com/",
       "verified_at": "2026-10-17",
       "website_url": "https://www.dulans-sfk.com/",
-      "directions_url": "https://www.google.com/maps/dir/?api=1&destination=202+E+Manchester+Blvd%2C+Inglewood%2C+CA+90301"
+      "directions_url": "https://www.google.com/maps/dir/?api=1&destination=202+E+Manchester+Blvd%2C+Inglewood%2C+CA+90301",
+      "business_type": "Food & drink",
+      "opened_year": 1999,
+      "opened_source_url": "https://lasentinel.net/?p=86676",
+      "opened_note": "LA Sentinel: flagship opened in 1999 at 202 E. Manchester; the LA Conservancy gives 2001.",
+      "outlook": {
+        "priority_score": 50.5,
+        "tier": "moderate",
+        "closure_probability": 0.0316,
+        "typical_probability": 0.0925,
+        "business_type": "Food & drink",
+        "age_years": 26.5,
+        "area_rent_percentile": 0.8398,
+        "reasons": [
+          "Open since 1999 (about 26 years). Estimated 3% chance a food & drink business this established closes or moves within five years: lower than the 9% for a typical one in LA County.",
+          "Its neighborhood's five-year rent-pressure outlook ranks in the top 16% of LA County tracts."
+        ],
+        "basis": "Half from this business's own closure estimate (business model: its sourced opening year, type and ZIP 90301), half from its tract's rent-pressure forecast. A support priority, not a prediction that this business will close.",
+        "accuracy": "Business model test AUC 0.62 for food, retail and personal services; rent model test AUC 0.75. Both were tested on 2019\u21922024 outcomes they never saw."
+      }
     },
     {
       "id": "hilltop-inglewood",
@@ -20821,7 +20840,26 @@
       "source_url": "https://www.findyourhilltop.com/inglewood",
       "verified_at": "2026-10-17",
       "website_url": "https://www.findyourhilltop.com/inglewood",
-      "directions_url": "https://www.google.com/maps/dir/?api=1&destination=170+N+La+Brea+Ave%2C+Inglewood%2C+CA+90301"
+      "directions_url": "https://www.google.com/maps/dir/?api=1&destination=170+N+La+Brea+Ave%2C+Inglewood%2C+CA+90301",
+      "business_type": "Food & drink",
+      "opened_year": 2019,
+      "opened_source_url": "https://thegrio.com/2019/12/11/issa-rae-partners-to-open-massive-new-inglewood-coffee-space/",
+      "opened_note": "Inglewood location opened December 2019.",
+      "outlook": {
+        "priority_score": 57.4,
+        "tier": "moderate",
+        "closure_probability": 0.0569,
+        "typical_probability": 0.0925,
+        "business_type": "Food & drink",
+        "age_years": 6.5,
+        "area_rent_percentile": 0.8398,
+        "reasons": [
+          "Open since 2019 (about 6 years). Estimated 6% chance a food & drink business this established closes or moves within five years: lower than the 9% for a typical one in LA County.",
+          "Its neighborhood's five-year rent-pressure outlook ranks in the top 16% of LA County tracts."
+        ],
+        "basis": "Half from this business's own closure estimate (business model: its sourced opening year, type and ZIP 90301), half from its tract's rent-pressure forecast. A support priority, not a prediction that this business will close.",
+        "accuracy": "Business model test AUC 0.62 for food, retail and personal services; rent model test AUC 0.75. Both were tested on 2019\u21922024 outcomes they never saw."
+      }
     },
     {
       "id": "serving-spoon",
@@ -20838,7 +20876,26 @@
       "source_url": "https://www.theservingspoon.net/visit/",
       "verified_at": "2026-10-17",
       "website_url": "https://www.theservingspoon.net/visit/",
-      "directions_url": "https://www.google.com/maps/dir/?api=1&destination=1403+Centinela+Ave%2C+Inglewood%2C+CA+90302"
+      "directions_url": "https://www.google.com/maps/dir/?api=1&destination=1403+Centinela+Ave%2C+Inglewood%2C+CA+90302",
+      "business_type": "Food & drink",
+      "opened_year": 1983,
+      "opened_source_url": "https://lasentinel.net/the-serving-spoon-brings-soul-food-cuisine-to-taste-of-soul.html",
+      "opened_note": "Founded by Harold Sparks in 1983.",
+      "outlook": {
+        "priority_score": 15.3,
+        "tier": "lower",
+        "closure_probability": 0.0402,
+        "typical_probability": 0.0925,
+        "business_type": "Food & drink",
+        "age_years": 42.5,
+        "area_rent_percentile": 0.0888,
+        "reasons": [
+          "Open since 1983 (about 42 years). Estimated 4% chance a food & drink business this established closes or moves within five years: lower than the 9% for a typical one in LA County.",
+          "Its neighborhood's five-year rent-pressure outlook is lower than 91% of LA County tracts."
+        ],
+        "basis": "Half from this business's own closure estimate (business model: its sourced opening year, type and ZIP 90302), half from its tract's rent-pressure forecast. A support priority, not a prediction that this business will close.",
+        "accuracy": "Business model test AUC 0.62 for food, retail and personal services; rent model test AUC 0.75. Both were tested on 2019\u21922024 outcomes they never saw."
+      }
     },
     {
       "id": "sweet-red-peach",
@@ -20855,7 +20912,26 @@
       "source_url": "https://www.sweetredpeach.com/location/sweet-red-peach-inglewood/",
       "verified_at": "2026-10-17",
       "website_url": "https://www.sweetredpeach.com/location/sweet-red-peach-inglewood/",
-      "directions_url": "https://www.google.com/maps/dir/?api=1&destination=1035+S+Prairie+Ave%2C+Inglewood%2C+CA+90301"
+      "directions_url": "https://www.google.com/maps/dir/?api=1&destination=1035+S+Prairie+Ave%2C+Inglewood%2C+CA+90301",
+      "business_type": "Food & drink",
+      "opened_year": 2011,
+      "opened_source_url": "https://www.pasadenanow.com/weekendr/sweet-red-peach-bakery-to-open-new-location-in-pasadena",
+      "opened_note": "First opened in Inglewood in 2011.",
+      "outlook": {
+        "priority_score": 34.5,
+        "tier": "lower",
+        "closure_probability": 0.0402,
+        "typical_probability": 0.0925,
+        "business_type": "Food & drink",
+        "age_years": 14.5,
+        "area_rent_percentile": 0.4722,
+        "reasons": [
+          "Open since 2011 (about 14 years). Estimated 4% chance a food & drink business this established closes or moves within five years: lower than the 9% for a typical one in LA County.",
+          "Its neighborhood's five-year rent-pressure outlook is lower than 53% of LA County tracts."
+        ],
+        "basis": "Half from this business's own closure estimate (business model: its sourced opening year, type and ZIP 90301), half from its tract's rent-pressure forecast. A support priority, not a prediction that this business will close.",
+        "accuracy": "Business model test AUC 0.62 for food, retail and personal services; rent model test AUC 0.75. Both were tested on 2019\u21922024 outcomes they never saw."
+      }
     },
     {
       "id": "toast-and-jam",
@@ -20872,7 +20948,26 @@
       "source_url": "https://www.thetoastandjam.com/",
       "verified_at": "2026-10-17",
       "website_url": "https://www.thetoastandjam.com/",
-      "directions_url": "https://www.google.com/maps/dir/?api=1&destination=324+S+Market+St%2C+Inglewood%2C+CA+90301"
+      "directions_url": "https://www.google.com/maps/dir/?api=1&destination=324+S+Market+St%2C+Inglewood%2C+CA+90301",
+      "business_type": "Food & drink",
+      "opened_year": 2014,
+      "opened_source_url": "https://www.thetoastandjam.com/about/",
+      "opened_note": "Family business since 2014, first as Rusty Pot Cafe; time at this address may be shorter.",
+      "outlook": {
+        "priority_score": 54.4,
+        "tier": "moderate",
+        "closure_probability": 0.0458,
+        "typical_probability": 0.0925,
+        "business_type": "Food & drink",
+        "age_years": 11.5,
+        "area_rent_percentile": 0.8398,
+        "reasons": [
+          "Open since 2014 (about 12 years). Estimated 5% chance a food & drink business this established closes or moves within five years: lower than the 9% for a typical one in LA County.",
+          "Its neighborhood's five-year rent-pressure outlook ranks in the top 16% of LA County tracts."
+        ],
+        "basis": "Half from this business's own closure estimate (business model: its sourced opening year, type and ZIP 90301), half from its tract's rent-pressure forecast. A support priority, not a prediction that this business will close.",
+        "accuracy": "Business model test AUC 0.62 for food, retail and personal services; rent model test AUC 0.75. Both were tested on 2019\u21922024 outcomes they never saw."
+      }
     }
   ],
   "resources": [

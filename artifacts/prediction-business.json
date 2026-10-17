@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T21:28:16.344114+00:00",
+  "generated_at": "2026-10-17T21:47:40.030722+00:00",
   "model": "business-closure-v1",
   "question": "Will a business location in the City of Los Angeles close or move within five years?",
   "data": {
@@ -461,27 +461,27 @@
     ]
   },
   "scalability": {
-    "build_seconds": 11.7,
+    "build_seconds": 11.8,
     "fit_seconds": {
-      "logistic_regression": 1.076,
-      "gradient_boosting": 2.072
+      "logistic_regression": 1.12,
+      "gradient_boosting": 1.915
     },
-    "area_type_scoring_seconds": 0.16,
+    "area_type_scoring_seconds": 0.099,
     "prediction": [
       {
         "rows": 10000,
-        "seconds": 0.013,
-        "rows_per_second": 743980
+        "seconds": 0.014,
+        "rows_per_second": 714000
       },
       {
         "rows": 100000,
-        "seconds": 0.157,
-        "rows_per_second": 637453
+        "seconds": 0.156,
+        "rows_per_second": 642488
       },
       {
         "rows": 1000000,
-        "seconds": 1.342,
-        "rows_per_second": 745166
+        "seconds": 1.366,
+        "rows_per_second": 732213
       }
     ]
   },

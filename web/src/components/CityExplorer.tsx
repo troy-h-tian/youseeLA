@@ -9,6 +9,7 @@ import { AreaStory } from './AreaStory';
 import { NextSteps } from './NextSteps';
 import { NeighborhoodSummary } from './NeighborhoodSummary';
 import { OutlookCard } from './OutlookCard';
+import { SupportPriority } from './SupportPriority';
 import { rampColor, UNRATED_COLOR, type Lens } from '../lib/outlook';
 import { NumericalContext } from './NumericalContext';
 import { EvidenceDrawer } from './EvidenceDrawer';
@@ -124,7 +125,7 @@ export function CityExplorer({ bundle }: { bundle: Bundle }) {
         }}>{(['overview', 'assessment', 'support'] as const).map(t => <button key={t} id={`detail-tab-${t}`} role="tab" tabIndex={tab === t ? 0 : -1} aria-selected={tab === t} aria-controls="location-content" onClick={() => setTab(t)}>{t === 'assessment' ? 'Evidence' : t === 'support' ? 'Local support' : 'Overview'}</button>)}</div>
         <div key={`${selectedId}-${businessId}-${tab}`} className="location-content" id="location-content" role="tabpanel" aria-labelledby={`detail-tab-${tab}`}>
           {tab === 'overview' && <>
-            {business && <><BusinessPhoto businessId={business.id} name={business.name} /><p className="place-description">{business.description}</p><a className="listing-source" href={business.source_url} target="_blank" rel="noopener noreferrer">Listing source · verified {business.verified_at}</a></>}
+            {business && <><BusinessPhoto businessId={business.id} name={business.name} /><SupportPriority business={business} /><p className="place-description">{business.description}</p><a className="listing-source" href={business.source_url} target="_blank" rel="noopener noreferrer">Listing source · verified {business.verified_at}</a></>}
             <div className="tract-label"><span>◇</span><div><strong>{shortArea(area)}</strong><small>Outlined on the map · area context, not a business rating</small></div></div>
             <AreaStory area={area} kind={kind} onEvidence={() => setEvidenceOpen(true)} />
             <NextSteps area={area} bundle={bundle} mode={mode} business={business} onBusiness={item => selectArea(item.area_id, item.id)} onSupport={() => setTab('support')} />
@@ -145,7 +146,7 @@ export function CityExplorer({ bundle }: { bundle: Bundle }) {
     </div>
 
     <footer className="city-footer"><div className="city-legend">
-      {businessMarkers && <span className="legend-business"><span className="legend-dot legend-dot--business" />Local business · not a risk rating</span>}
+      {businessMarkers && <span className="legend-business"><span className="legend-dot legend-dot--business" style={{ background: rampColor(.7) }} />Business dot color: support priority</span>}
       <span className="lens-legend" aria-label="Map color key">
         <span className="lens-switch" role="group" aria-label="Color the map by">
           <button aria-pressed={lens === 'outlook'} onClick={() => setLens('outlook')}>{historical ? 'Model backtest' : '5-year outlook'}</button>

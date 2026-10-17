@@ -108,3 +108,19 @@ def test_partial_evidence_rates_from_census_and_says_so() -> None:
                 assert "corroborated_visual_change" not in {c.feature for c in b.contributions}
             else:
                 assert b.status == "insufficient_evidence"
+
+
+def test_business_support_priority_combines_own_estimate_and_area_outlook(tmp_path) -> None:
+    dataset = make_fixture(1)
+    area_id, business = dataset.areas[0].id, dataset.businesses[0]
+    business.opened_year = 2021
+    tract_path, business_path = predictions_files(tmp_path, area_id)
+    report = json.loads(business_path.read_text())
+    report["businesses"] = {business.id: {"probability": .16, "county_typical": .08, "type": "Food & drink", "age_years": 4.5, "zip": "90301"}}
+    business_path.write_text(json.dumps(report))
+    outlook = attach.attach_predictions(dataset, date(2026, 10, 17), tract_path, business_path).businesses[0].outlook
+    # Twice the typical closure chance caps the closure signal at 1.0; the area is at the 90th percentile.
+    assert outlook.priority_score == 95.0 and outlook.tier == "higher"
+    assert "Open since 2021" in outlook.reasons[0] and "higher than" in outlook.reasons[0] and "top 10%" in outlook.reasons[1]
+    assert "not a prediction that this business will close" in outlook.basis
+    assert attach.attach_predictions(dataset, date(2020, 1, 1), tract_path, business_path).businesses[0].outlook is None

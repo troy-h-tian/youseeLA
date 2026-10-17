@@ -239,6 +239,20 @@ class Area(AreaInput):
     commercial: Assessment
 
 
+class BusinessOutlook(Record):
+    """A support-priority score for one business: its own model estimate plus its area's rent outlook."""
+    priority_score: float = Field(ge=0, le=100)
+    tier: Literal["lower", "moderate", "higher"]
+    closure_probability: UnitValue
+    typical_probability: UnitValue
+    business_type: str
+    age_years: float = Field(ge=0)
+    area_rent_percentile: UnitValue | None = None
+    reasons: list[str] = Field(min_length=1)
+    basis: str = Field(min_length=1)
+    accuracy: str = Field(min_length=1)
+
+
 class Business(Record):
     id: str
     name: str
@@ -254,8 +268,18 @@ class Business(Record):
     website_url: str
     directions_url: str
     data_kind: Literal["real", "fixture"] = "real"
+    business_type: str | None = None
+    opened_year: int | None = Field(default=None, ge=1800, le=2100)
+    opened_source_url: str | None = None
+    opened_note: str = ""
+    outlook: BusinessOutlook | None = None
 
     _urls = field_validator("source_url", "website_url", "directions_url")(public_url)
+
+    @field_validator("opened_source_url")
+    @classmethod
+    def opened_source(cls, value: str | None) -> str | None:
+        return public_url(value) if value else None
 
     @field_validator("location_source_url")
     @classmethod
