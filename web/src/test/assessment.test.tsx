@@ -2,17 +2,24 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fireEvent, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { App, Explorer } from '../App';
 import { validateBundle } from '../data/load';
 import type { Area, Bundle } from '../data/types';
 import { rankAreas } from '../lib/ranking';
 import { housingSummary } from '../lib/summary';
 
+vi.mock('../components/CityMap', () => ({ CityMap: () => <div aria-label="Interactive city map" /> }));
+
 const fixtureText = readFileSync(resolve(__dirname, '../../public/data/fixture.json'), 'utf8');
 const fixture = (): Bundle => JSON.parse(fixtureText) as Bundle;
 
-const areaButton = (label: string) => screen.getByRole('button', { name: new RegExp(`^${label}`) });
+const areaButton = (label: string) => {
+  if (!screen.queryByRole('navigation')) fireEvent.click(screen.getByRole('button', { name: 'Browse all places' }));
+  return screen.getByRole('button', { name: new RegExp(`^${label}`) });
+};
+const evidenceTab = () => screen.getByRole('tab', { name: 'Evidence' });
+const supportTab = () => screen.getByRole('tab', { name: 'Local support' });
 
 function renderExplorer(bundle = fixture()) {
   const user = userEvent.setup();
@@ -81,23 +88,27 @@ describe('area ranking', () => {
 describe('explorer', () => {
   it('shows a persistent fixture label', () => {
     renderExplorer();
-    expect(screen.getByRole('note')).toHaveTextContent(/Demo fixture/);
+    expect(screen.getByRole('note')).toHaveTextContent(/Synthetic demo/);
   });
 
   it('switching modes keeps the selected area but changes the assessment and actions', async () => {
     const user = renderExplorer();
     await user.click(areaButton('Fixture Area B'));
+    await user.click(evidenceTab());
     expect(screen.getByRole('heading', { name: 'Commercial area vulnerability' })).toBeInTheDocument();
+    await user.click(supportTab());
     expect(screen.getByRole('heading', { name: /Local businesses in Fixture Area B/ })).toBeInTheDocument();
 
     await user.click(screen.getByRole('tab', { name: /Housing support/ }));
     expect(screen.getByRole('tab', { name: /Housing support/ })).toHaveAttribute('aria-selected', 'true');
+    await user.click(evidenceTab());
     expect(screen.getByRole('heading', { name: 'Housing area vulnerability' })).toBeInTheDocument();
     expect(screen.getByText('Fixture Area B · Tract fixture-b')).toBeInTheDocument();
     // Area B has commercial evidence but too little residential imagery.
     await user.click(screen.getByText('Combined assessment pending — view missing inputs'));
     expect(screen.getByText(/Residential imagery covers 1 of 3 required locations/, { selector: '.model-status p' })).toBeVisible();
     expect(screen.queryByRole('heading', { name: /Local businesses/ })).not.toBeInTheDocument();
+    await user.click(supportTab());
     expect(screen.getByRole('heading', { name: /Tenant resources for Fixture Area B/ })).toBeInTheDocument();
   });
 
@@ -112,6 +123,7 @@ describe('explorer', () => {
   it('displays an unrated area with its reason and never as a zero score', async () => {
     const user = renderExplorer();
     await user.click(areaButton('Fixture Area C'));
+    await user.click(evidenceTab());
     const panel = screen.getByRole('heading', { name: 'Commercial area vulnerability' }).closest('section')!;
     await user.click(within(panel).getByText('Combined assessment pending — view missing inputs'));
     expect(within(panel).getByText(/P is unavailable/, { selector: '.model-status p' })).toBeVisible();
@@ -121,11 +133,10 @@ describe('explorer', () => {
     expect(within(panel).getAllByText('Unavailable').length).toBeGreaterThan(0);
   });
 
-  it('lists unrated areas separately from rated ones', () => {
-    renderExplorer();
-    const unratedHeading = screen.getByRole('heading', { name: /Unrated — insufficient evidence \(1\)/ });
-    const list = unratedHeading.nextElementSibling as HTMLElement;
-    expect(within(list).getByRole('button', { name: /Fixture Area C/ })).toBeInTheDocument();
+  it('labels unrated search results as Census context rather than low risk', async () => {
+    const user = renderExplorer();
+    await user.click(screen.getByRole('button', { name: 'Browse all places' }));
+    expect(areaButton('Fixture Area C')).toHaveTextContent('Census context');
   });
 
   it('labels business cards with area context rather than a business rating', async () => {
@@ -142,6 +153,7 @@ describe('explorer', () => {
   it('filters evidence to the active mode', async () => {
     const user = renderExplorer();
     await user.click(areaButton('Fixture Area A'));
+    await user.click(evidenceTab());
     await user.click(screen.getByRole('button', { name: /View commercial evidence/ }));
     let dialog = screen.getByRole('dialog', { name: 'Commercial evidence' });
     expect(within(dialog).getAllByText(/Fixture commercial frontage/).length).toBe(5);
@@ -150,9 +162,10 @@ describe('explorer', () => {
     await user.click(within(dialog).getByRole('button', { name: /^Image/ }));
     expect(within(dialog).queryByText(/Fixture ACS tables/)).not.toBeInTheDocument();
     await user.keyboard('{Escape}');
-    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+    expect(screen.queryByRole('dialog', { name: 'Commercial evidence' })).not.toBeInTheDocument();
 
     await user.click(screen.getByRole('tab', { name: /Housing support/ }));
+    await user.click(evidenceTab());
     await user.click(screen.getByRole('button', { name: /View housing evidence/ }));
     dialog = screen.getByRole('dialog', { name: 'Housing evidence' });
     expect(within(dialog).getAllByText(/Fixture residential frontage/).length).toBe(5);
@@ -163,6 +176,7 @@ describe('explorer', () => {
     const user = renderExplorer();
     await user.click(screen.getByRole('tab', { name: /Housing support/ }));
     await user.click(areaButton('Fixture Area A'));
+    await user.click(evidenceTab());
     await user.click(screen.getByRole('button', { name: /View housing evidence/ }));
     const item = document.querySelector('[data-evidence-id="fixture-a-res-5"]') as HTMLElement;
     fireEvent.error(within(item).getByRole('img'));
@@ -174,6 +188,7 @@ describe('explorer', () => {
     const user = renderExplorer();
     await user.click(screen.getByRole('tab', { name: /Housing support/ }));
     await user.click(areaButton('Fixture Area A'));
+    await user.click(supportTab());
     await user.selectOptions(screen.getByLabelText(/Compare Fixture Area A with/), 'fixture-b');
     const table = screen.getByRole('table', { name: /Housing factors for Fixture Area A and Fixture Area B/ });
     const ratingRow = within(table).getByRole('row', { name: /Housing rating/ });
@@ -185,8 +200,10 @@ describe('explorer', () => {
     const user = renderExplorer();
     await user.click(screen.getByRole('tab', { name: /Housing support/ }));
     await user.click(areaButton('Fixture Area A'));
+    await user.click(supportTab());
     expect(screen.getByRole('link', { name: 'Fixture Rental Assistance Desk' })).toBeInTheDocument();
     await user.click(areaButton('Fixture Area D'));
+    await user.click(supportTab());
     expect(screen.queryByRole('link', { name: 'Fixture Rental Assistance Desk' })).not.toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Fixture Tenant Rights Clinic' })).toBeInTheDocument();
   });
@@ -239,10 +256,12 @@ describe('uncertainty-aware assessment display', () => {
     expect(result.orderingSupported).toBe(false);
     expect(result.rated.map(x => x.label)).toEqual(['A area', 'Z area']);
   });
-  it('displays a provisional range and rejects reversed ranges', () => {
+  it('displays a provisional range and rejects reversed ranges', async () => {
     const bundle = fixture();
     bundle.areas[0]!.commercial.score_range = { lower: 20, upper: 85, explanation: 'Input sensitivity only; not a confidence interval.' };
-    renderExplorer(bundle);
+    const user = renderExplorer(bundle);
+    await user.click(areaButton('Fixture Area A'));
+    await user.click(evidenceTab());
     expect(screen.getByText(/Input sensitivity only; not a confidence interval/)).toBeVisible();
     expect(screen.getByText(/^Sensitivity range /)).toBeVisible();
     bundle.areas[0]!.commercial.score_range.lower = 90;

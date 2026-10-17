@@ -107,13 +107,14 @@ test('UI responsiveness on pilot and synthetic bundles', async ({ browser, brows
       runs.mode_switch.push(
         await timeMeasure(page, 'youseela:mode-switch', () => page.getByRole('tab', { name: /Housing support/ }).click()),
       );
-      await expect(page.getByRole('heading', { name: 'Housing area vulnerability' })).toBeVisible();
+      await expect(page.getByRole('tab', { name: 'Housing support' })).toHaveAttribute('aria-selected', 'true');
+      await page.getByRole('button', { name: 'Browse all places' }).click();
 
       // Select the last listed area so the content genuinely changes.
       const target = page.getByRole('navigation').getByRole('button').last();
-      const label = (await target.locator('.area-item__label').textContent())!;
+      const label = (await target.locator('strong').textContent())!;
       runs.area_select.push(await timeMeasure(page, 'youseela:area-select', () => target.click()));
-      await expect(page.locator('section.assessment .eyebrow')).toContainText(label);
+      await expect(page.locator('.location-panel-header h2')).toContainText(label);
 
       await context.close();
     }
@@ -151,7 +152,7 @@ test('UI responsiveness on pilot and synthetic bundles', async ({ browser, brows
       initial_render: 'Navigation start until the first paint after the loaded bundle is committed (includes fetch, JSON parse, validation and render).',
       mode_switch: 'Business → Housing tab click handler until the first macrotask after the next animation frame following the React commit.',
       area_select: 'Area list click handler until the first macrotask after the next animation frame following the React commit.',
-      exclusions: 'Images load lazily from a controlled local route and only inside the evidence drawer; provider/network image delivery is not measured.',
+      exclusions: 'UI shell and data interactions only; map tile loading, WebGL readiness, camera animation and external imagery delivery are not measured.',
     },
     environment: {
       browser: `${browserName} ${browser.version()}`,

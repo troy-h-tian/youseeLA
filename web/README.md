@@ -1,13 +1,13 @@
 # youseeLA web explorer
 
-React + TypeScript + Vite app with two equal modes: **Support businesses** (customers) and **Housing support** (organizations). It reads one precomputed JSON bundle. There is no backend, and no credentials reach the browser.
+Map-first React + TypeScript + Vite app with two modes: **Support businesses** (customers) and **Housing support** (organizations). It reads one precomputed JSON bundle. There is no backend, and no credentials reach the browser.
 
 ## Setup
 
 ```sh
 npm --prefix web install
 npx --prefix web playwright install chromium   # once, for browser tests
-npm --prefix web run dev                       # http://localhost:5173/?data=fixture
+npm --prefix web run dev                       # http://localhost:5173/
 ```
 
 | Command | What it does |
@@ -18,10 +18,22 @@ npm --prefix web run dev                       # http://localhost:5173/?data=fix
 | `npm --prefix web run test:e2e` | Playwright: both user journeys, failed images, keyboard use, mobile layout (desktop + Pixel 7) |
 | `npm --prefix web run test:scalability` | Playwright: production-build UI timings → `artifacts/ui-scalability.json` |
 
+## City map
+
+MapLibre renders a tilted OpenFreeMap basemap with building extrusions. No map API key is required. The basemap, fonts, sprites, and vector tiles require internet access; building coverage and height detail depend on the source. Attribution stays visible on the map. Search and location details remain available if the map cannot load.
+
+Search or browse to select a business or Census tract. The detail panel has Overview, Evidence, and Local support tabs. Street stories opens the dated photo comparison. View controls switch between flat and tilted views and reset to downtown Inglewood.
+
+Business markers indicate listed locations, not business risk. Housing markers represent Census tracts; selecting one outlines its boundary. Gray indicates unavailable or provisional assessments. Experimental tiers use green, amber, and red. The historical CLIP dataset remains separate at `?data=clip`.
+
+Business overview photos are linked from official business websites via `src/data/businessPhotos.ts`, with captions and source links. They are display-only and do not enter the predictive pipeline. Images remain on their source hosts; unavailable images show a fallback. The interface uses native system sans-serif typography without an external font download.
+
+The renderer and its module worker are bundled separately by Vite. Changes are limited to the frontend; the exported JSON interface is unchanged.
+
 ## Data sources
 
 - `public/data/demo.json` is the **real** bundle. Person A's pipeline writes it (`python -m youseela.cli web-export`). Never edit it by hand. The app loads it by default.
-- `public/data/fixture.json` is the **labeled acceptance fixture**: invented areas, businesses, images and scores. Open it with `?data=fixture`, or build with `VITE_DATA_SOURCE=fixture`. Whenever `data_kind` is `fixture`, a persistent "Demo fixture" banner is shown.
+- `public/data/fixture.json` is the **labeled acceptance fixture**: invented areas, businesses, images and scores. Open it with `?data=fixture`, or build with `VITE_DATA_SOURCE=fixture`. Whenever `data_kind` is `fixture`, a persistent "Synthetic demo" notice is shown.
 - The fixture covers the three required states: Area A is fully rated; Area B has a rated commercial assessment but unrated housing (too few residential images); Area C is unrated in both modes (no compatible ACS history). Area D adds the lower tier and has commercial imagery with P = 0, so the imagery adds no points.
 
 ## Data contract (schema v1)
@@ -52,4 +64,4 @@ It runs on the pilot bundle (`demo.json` if it exists, otherwise the fixture) an
 - **How bundles are loaded:** the test intercepts the app's normal `data/demo.json` request, so the shipped app has no benchmark route.
 - **Synthetic data:** the bundles come from a seeded generator in `tests/support/synthetic.ts`. To use the Python generator's output instead, set `YOUSEELA_BENCHMARK_DIR` to a directory containing `bundle-100.json` and `bundle-1000.json`.
 - **What is timed:** measure definitions are in `src/lib/perf.ts` and in the output JSON. Interaction timings stop at the first macrotask after the next animation frame, so about one frame (~16 ms) is the smallest value they can report.
-- **What is not timed:** images load lazily from a controlled local route, so provider and network image delivery are excluded.
+- **What is not timed:** map tile loading, WebGL readiness, camera animations, and provider/network image delivery. These timings measure the interface and data interactions, not complete map startup.
