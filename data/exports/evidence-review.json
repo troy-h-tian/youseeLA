@@ -1,0 +1,295 @@
+{
+  "generated_at": "2026-10-17T19:09:44.648857+00:00",
+  "status": "screened_candidates_require_observation_verification",
+  "claim": "Dated image observations and housing context; no validated current or historical risk rating.",
+  "historical_context_bundle": "historical-context.json",
+  "historical_pressure": {
+    "value": null,
+    "gap": -0.06304401828203798,
+    "lower_bound": -1.5537937514880262,
+    "upper_bound": 0.921479861161213,
+    "reason": "Affordability-change direction is ambiguous under reported margins"
+  },
+  "current_context_bundle": "demo.json",
+  "image_drafts": [
+    {
+      "id": "mapillary-385806601283567",
+      "area_id": "06037601302",
+      "kind": "image",
+      "mode": "commercial",
+      "source_url": "https://www.mapillary.com/app/?pKey=385806601283567",
+      "source_date": "2024-07-30",
+      "attribution": "Mapillary contributor KingKratos",
+      "license": "CC-BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/",
+      "reviewed": false,
+      "data_kind": "real",
+      "site_id": "mapillary-site-385806601283567",
+      "applies_to_site_ids": [],
+      "latitude": 33.977073606569,
+      "longitude": -118.37007362696,
+      "observations": [
+        {
+          "frontage_id": "mapillary-site-385806601283567-candidate-0",
+          "redevelopment": "absent",
+          "corroboration_ids": [],
+          "description": "left side: Buildings mostly obscured by vehicles and billboard, no visible physical work on building surfaces"
+        },
+        {
+          "frontage_id": "mapillary-site-385806601283567-candidate-1",
+          "redevelopment": "absent",
+          "corroboration_ids": [],
+          "description": "right side: Commercial buildings visible but no signs of active work or physical changes on the storefronts"
+        }
+      ],
+      "note": "Unreviewed vision extraction. Visible work is not confirmed redevelopment. Verify findings, align frontage IDs, and add independent corroboration before export."
+    },
+    {
+      "id": "mapillary-2471340813367986",
+      "area_id": "06037601402",
+      "kind": "image",
+      "mode": "commercial",
+      "source_url": "https://www.mapillary.com/app/?pKey=2471340813367986",
+      "source_date": "2026-05-29",
+      "attribution": "Mapillary contributor newtonwong",
+      "license": "CC-BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/",
+      "reviewed": false,
+      "data_kind": "real",
+      "site_id": "mapillary-site-2471340813367986",
+      "applies_to_site_ids": [],
+      "latitude": 33.9499733,
+      "longitude": -118.36887,
+      "observations": [],
+      "note": "Unreviewed vision extraction. Visible work is not confirmed redevelopment. Verify findings, align frontage IDs, and add independent corroboration before export."
+    },
+    {
+      "id": "mapillary-2156917414881506",
+      "area_id": "06037601402",
+      "kind": "image",
+      "mode": "commercial",
+      "source_url": "https://www.mapillary.com/app/?pKey=2156917414881506",
+      "source_date": "2026-05-29",
+      "attribution": "Mapillary contributor newtonwong",
+      "license": "CC-BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/",
+      "reviewed": false,
+      "data_kind": "real",
+      "site_id": "mapillary-site-2156917414881506",
+      "applies_to_site_ids": [],
+      "latitude": 33.9503267,
+      "longitude": -118.36895,
+      "observations": [],
+      "note": "Unreviewed vision extraction. Visible work is not confirmed redevelopment. Verify findings, align frontage IDs, and add independent corroboration before export."
+    },
+    {
+      "id": "mapillary-1474662787768585",
+      "area_id": "06037601402",
+      "kind": "image",
+      "mode": "commercial",
+      "source_url": "https://www.mapillary.com/app/?pKey=1474662787768585",
+      "source_date": "2026-05-29",
+      "attribution": "Mapillary contributor newtonwong",
+      "license": "CC-BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/",
+      "reviewed": false,
+      "data_kind": "real",
+      "site_id": "mapillary-site-1474662787768585",
+      "applies_to_site_ids": [],
+      "latitude": 33.95067,
+      "longitude": -118.3690317,
+      "observations": [],
+      "note": "Unreviewed vision extraction. Visible work is not confirmed redevelopment. Verify findings, align frontage IDs, and add independent corroboration before export."
+    },
+    {
+      "id": "mapillary-835492836143880",
+      "area_id": "06037601900",
+      "kind": "image",
+      "mode": "commercial",
+      "source_url": "https://www.mapillary.com/app/?pKey=835492836143880",
+      "source_date": "2024-08-28",
+      "attribution": "Mapillary contributor DrivingRoundTown",
+      "license": "CC-BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/",
+      "reviewed": false,
+      "data_kind": "real",
+      "site_id": "mapillary-site-835492836143880",
+      "applies_to_site_ids": [],
+      "latitude": 33.943747399722,
+      "longitude": -118.34302049972,
+      "observations": [
+        {
+          "frontage_id": "mapillary-site-835492836143880-candidate-0",
+          "redevelopment": "absent",
+          "corroboration_ids": [],
+          "description": "left lower: Glass storefronts with no visible physical work, doors and windows intact."
+        },
+        {
+          "frontage_id": "mapillary-site-835492836143880-candidate-1",
+          "redevelopment": "absent",
+          "corroboration_ids": [],
+          "description": "left upper: Glass panels and balconies with planted beds, no active physical work visible."
+        }
+      ],
+      "note": "Unreviewed vision extraction. Visible work is not confirmed redevelopment. Verify findings, align frontage IDs, and add independent corroboration before export."
+    },
+    {
+      "id": "mapillary-468377774385947",
+      "area_id": "06037601001",
+      "kind": "image",
+      "mode": "commercial",
+      "source_url": "https://www.mapillary.com/app/?pKey=468377774385947",
+      "source_date": "2019-12-19",
+      "attribution": "Mapillary contributor cfwarren3",
+      "license": "CC-BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/",
+      "reviewed": false,
+      "data_kind": "real",
+      "site_id": "mapillary-site-468377774385947",
+      "applies_to_site_ids": [],
+      "latitude": 33.961737,
+      "longitude": -118.351374,
+      "observations": [
+        {
+          "frontage_id": "mapillary-site-468377774385947-candidate-0",
+          "redevelopment": "absent",
+          "corroboration_ids": [],
+          "description": "right near car: Storefront with windows and signage, no visible work"
+        },
+        {
+          "frontage_id": "mapillary-site-468377774385947-candidate-1",
+          "redevelopment": "absent",
+          "corroboration_ids": [],
+          "description": "right mid-large building: Large white building with some awnings and palm trees, no visible work"
+        },
+        {
+          "frontage_id": "mapillary-site-468377774385947-candidate-2",
+          "redevelopment": "absent",
+          "corroboration_ids": [],
+          "description": "left mid buildings: Yellowish-beige buildings with windows and doors visible, no visible work"
+        }
+      ],
+      "note": "Unreviewed vision extraction. Visible work is not confirmed redevelopment. Verify findings, align frontage IDs, and add independent corroboration before export."
+    },
+    {
+      "id": "mapillary-285537773241284",
+      "area_id": "06037601001",
+      "kind": "image",
+      "mode": "commercial",
+      "source_url": "https://www.mapillary.com/app/?pKey=285537773241284",
+      "source_date": "2019-12-19",
+      "attribution": "Mapillary contributor cfwarren3",
+      "license": "CC-BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/",
+      "reviewed": false,
+      "data_kind": "real",
+      "site_id": "mapillary-site-285537773241284",
+      "applies_to_site_ids": [],
+      "latitude": 33.961731,
+      "longitude": -118.35179,
+      "observations": [
+        {
+          "frontage_id": "mapillary-site-285537773241284-candidate-0",
+          "redevelopment": "absent",
+          "corroboration_ids": [],
+          "description": "Right side frontage 1: A commercial building with ground level storefronts, some with metal security grates; no visible physical work or changes under way."
+        },
+        {
+          "frontage_id": "mapillary-site-285537773241284-candidate-1",
+          "redevelopment": "absent",
+          "corroboration_ids": [],
+          "description": "Left side frontage 1: Various commercial buildings including a beige one with balconies and a sign above storefronts; no visible physical work or construction."
+        }
+      ],
+      "note": "Unreviewed vision extraction. Visible work is not confirmed redevelopment. Verify findings, align frontage IDs, and add independent corroboration before export."
+    },
+    {
+      "id": "mapillary-130365825800137",
+      "area_id": "06037601001",
+      "kind": "image",
+      "mode": "commercial",
+      "source_url": "https://www.mapillary.com/app/?pKey=130365825800137",
+      "source_date": "2019-12-19",
+      "attribution": "Mapillary contributor cfwarren3",
+      "license": "CC-BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/",
+      "reviewed": false,
+      "data_kind": "real",
+      "site_id": "mapillary-site-130365825800137",
+      "applies_to_site_ids": [],
+      "latitude": 33.961731,
+      "longitude": -118.352123,
+      "observations": [
+        {
+          "frontage_id": "mapillary-site-130365825800137-candidate-0",
+          "redevelopment": "absent",
+          "corroboration_ids": [],
+          "description": "left side: Visible storefronts appear standard with no visible construction or redevelopment work."
+        },
+        {
+          "frontage_id": "mapillary-site-130365825800137-candidate-1",
+          "redevelopment": "absent",
+          "corroboration_ids": [],
+          "description": "right corner: Large building with curved corner and signage; no visible physical redevelopment work."
+        }
+      ],
+      "note": "Unreviewed vision extraction. Visible work is not confirmed redevelopment. Verify findings, align frontage IDs, and add independent corroboration before export."
+    }
+  ],
+  "cost": {
+    "estimated_token_cost_usd": 0.005960400000000001,
+    "completed_requests": 9,
+    "budget_usd": 5,
+    "pricing_source": "https://developers.openai.com/api/docs/models/gpt-4.1-mini",
+    "actual_billed_cost_usd": null
+  },
+  "warnings": [
+    "Photo locations are capture positions, not necessarily the positions of depicted buildings.",
+    "Repeated views must not be counted as distinct storefronts.",
+    "Current business listings do not establish that those businesses operated in 2019.",
+    "All vision findings require human review; freeway and interior images cannot supply local storefront coverage.",
+    "Historical numbers and photos do not describe current conditions."
+  ],
+  "human_review": {
+    "reviewed_at": "2026-10-17T19:14:22.269Z",
+    "decisions": [
+      {
+        "image_id": "mapillary-385806601283567",
+        "decision": "candidate"
+      },
+      {
+        "image_id": "mapillary-2471340813367986",
+        "decision": "duplicate"
+      },
+      {
+        "image_id": "mapillary-2156917414881506",
+        "decision": "duplicate"
+      },
+      {
+        "image_id": "mapillary-1474662787768585",
+        "decision": "duplicate"
+      },
+      {
+        "image_id": "mapillary-835492836143880",
+        "decision": "candidate"
+      },
+      {
+        "image_id": "mapillary-468377774385947",
+        "decision": "candidate"
+      },
+      {
+        "image_id": "mapillary-285537773241284",
+        "decision": "duplicate"
+      },
+      {
+        "image_id": "mapillary-130365825800137",
+        "decision": "candidate"
+      }
+    ],
+    "scope": "Image selection and duplicate screening only; candidate does not certify individual observations or scoring eligibility.",
+    "candidate_image_ids": [
+      "mapillary-385806601283567",
+      "mapillary-835492836143880",
+      "mapillary-468377774385947",
+      "mapillary-130365825800137"
+    ],
+    "excluded_image_ids": [
+      "mapillary-2471340813367986",
+      "mapillary-2156917414881506",
+      "mapillary-1474662787768585",
+      "mapillary-285537773241284"
+    ]
+  }
+}

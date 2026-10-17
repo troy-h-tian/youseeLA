@@ -1,0 +1,102 @@
+{
+  "generated_at": "2026-10-17T19:10:23.809574+00:00",
+  "data_kind": "synthetic_performance_fixture",
+  "environment": {
+    "python": "3.11.13",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "processor": "arm64"
+  },
+  "configuration": {
+    "version": "experimental-v1",
+    "minimum_sites": 3,
+    "minimum_frontages": 5,
+    "maximum_image_age_days": 1095,
+    "minimum_site_distance_m": 25,
+    "housing": {
+      "burden": 0.6,
+      "pressure": 0.25,
+      "visual_interaction": 0.15
+    },
+    "commercial": {
+      "burden": 0.3,
+      "pressure": 0.5,
+      "visual_interaction": 0.2
+    }
+  },
+  "measurements": [
+    {
+      "areas": 10,
+      "mode_assessments": 20,
+      "businesses": 10,
+      "evidence_records": 53,
+      "runs": 10,
+      "score_median_seconds": 0.00044991700269747525,
+      "score_max_seconds": 0.0005275000003166497,
+      "export_validate_median_seconds": 0.0005051460029790178,
+      "export_validate_max_seconds": 0.0006120839971117675,
+      "areas_per_second": 22226.321610530493,
+      "output_bytes": 69996,
+      "output_sha256": "284b0c800f8335dedd4cd97e493af8853b5454bbec43910ef01bf4fdb64a978c",
+      "errors": 0
+    },
+    {
+      "areas": 100,
+      "mode_assessments": 200,
+      "businesses": 100,
+      "evidence_records": 503,
+      "runs": 10,
+      "score_median_seconds": 0.004616874997736886,
+      "score_max_seconds": 0.004907458991510794,
+      "export_validate_median_seconds": 0.005062625001301058,
+      "export_validate_max_seconds": 0.009889042004942894,
+      "areas_per_second": 21659.672408072194,
+      "output_bytes": 662729,
+      "output_sha256": "cdfa6c20572dc2f6ca3652a8b8be3b26aa37e2eb56a6142052be5a52b06858ad",
+      "errors": 0
+    },
+    {
+      "areas": 1000,
+      "mode_assessments": 2000,
+      "businesses": 1000,
+      "evidence_records": 5003,
+      "runs": 10,
+      "score_median_seconds": 0.05332406300294679,
+      "score_max_seconds": 0.0861881659948267,
+      "export_validate_median_seconds": 0.09904181200545281,
+      "export_validate_max_seconds": 0.15996895800344646,
+      "areas_per_second": 18753.259667117603,
+      "output_bytes": 6595269,
+      "output_sha256": "a390c36059c04e172788259a5cc4b4b912dbb5a861b0d4ae810a68d475507038",
+      "errors": 0
+    }
+  ],
+  "image_api": {
+    "status": "measured_pilot",
+    "completed_requests": 9,
+    "cache_hits": 8,
+    "errors": 0,
+    "duration_median_seconds": 1.7136899999750312,
+    "duration_max_seconds": 4.878063833981287,
+    "models": [
+      "gpt-4.1-mini"
+    ],
+    "mean_billed_cost_usd": null,
+    "cost_note": "Reservations are not billed costs. Missing billing data is unmeasured.",
+    "projected_cost_usd_six_images_per_area": {
+      "10": null,
+      "100": null,
+      "1000": null
+    },
+    "projection_assumptions": "Six images per area, same provider/model/image mix and pricing; no retries. Historical corroboration may add images."
+  },
+  "frontend": {
+    "status": "unmeasured",
+    "owner": "Person B"
+  },
+  "limitations": [
+    "Synthetic schema/throughput evaluation, not model accuracy or real imagery coverage.",
+    "Scoring includes geometry checks and bundle construction; export includes JSON validation.",
+    "No network, image downloads, paid calls or human review time are included in synthetic timings.",
+    "Fixture creation and one warm-up per size are excluded; timings are local to the recorded machine."
+  ]
+}

@@ -20,7 +20,7 @@ npm --prefix web run dev                       # http://localhost:5173/?data=fix
 
 ## Data sources
 
-- `public/data/demo.json` is the **real** bundle. Person A's pipeline writes it (`python -m youseela.cli build … --output web/public/data/demo.json`). Never edit it by hand. The app loads it by default.
+- `public/data/demo.json` is the **real** bundle. Person A's pipeline writes it (`python -m youseela.cli web-export`). Never edit it by hand. The app loads it by default.
 - `public/data/fixture.json` is the **labeled acceptance fixture**: invented areas, businesses, images and scores. Open it with `?data=fixture`, or build with `VITE_DATA_SOURCE=fixture`. Whenever `data_kind` is `fixture`, a persistent "Demo fixture" banner is shown.
 - The fixture covers the three required states: Area A is fully rated; Area B has a rated commercial assessment but unrated housing (too few residential images); Area C is unrated in both modes (no compatible ACS history). Area D adds the lower tier and has commercial imagery with P = 0, so the imagery adds no points.
 

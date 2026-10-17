@@ -1,0 +1,933 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-17T19:00:31.359524Z",
+  "assessed_as_of": "2026-10-17",
+  "data_kind": "fixture",
+  "methodology": {
+    "name": "Experimental area vulnerability proxy",
+    "validated_prediction": false,
+    "score_is_probability": false,
+    "configuration": {
+      "version": "experimental-v1",
+      "minimum_sites": 3,
+      "minimum_frontages": 5,
+      "maximum_image_age_days": 1095,
+      "minimum_site_distance_m": 25,
+      "housing": {
+        "burden": 0.6,
+        "pressure": 0.25,
+        "visual_interaction": 0.15
+      },
+      "commercial": {
+        "burden": 0.3,
+        "pressure": 0.5,
+        "visual_interaction": 0.2
+      }
+    },
+    "formula": "100 * (burden_weight * B + pressure_weight * P + visual_weight * V * P)",
+    "limitations": [
+      "Selected imagery is not a representative survey.",
+      "Descriptive pooled ACS changes do not track the same households.",
+      "Area scores do not establish individual business or tenant distress.",
+      "Weights and thresholds are provisional; no accuracy claim is made."
+    ]
+  },
+  "areas": [
+    {
+      "id": "fixture-0000",
+      "name": "Synthetic area 1 — fixture",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -118.38,
+              33.93
+            ],
+            [
+              -118.371,
+              33.93
+            ],
+            [
+              -118.371,
+              33.939
+            ],
+            [
+              -118.38,
+              33.939
+            ],
+            [
+              -118.38,
+              33.93
+            ]
+          ]
+        ]
+      },
+      "indicators": {
+        "rent_burden_share": 0.4,
+        "renter_share": 0.6,
+        "affordability_pressure": 0.5,
+        "evidence_ids": [
+          "fixture-0000-acs"
+        ],
+        "periods": [
+          "Synthetic period"
+        ],
+        "warnings": []
+      },
+      "boundary_source_url": null,
+      "boundary_vintage": null,
+      "housing": {
+        "mode": "housing",
+        "status": "rated",
+        "score": 40.25,
+        "tier": "moderate",
+        "reasons": [],
+        "warnings": [
+          "Experimental vulnerability proxy; not a probability or proof of gentrification.",
+          "Small selected image sample is not a representative neighborhood survey.",
+          "Redevelopment may improve affordability; feature weights are unvalidated assumptions."
+        ],
+        "contributions": [
+          {
+            "feature": "rent_burden",
+            "label": "Existing housing affordability exposure",
+            "value": 0.4,
+            "weight": 0.6,
+            "points": 24.0,
+            "evidence_ids": [
+              "fixture-0000-acs"
+            ],
+            "explanation": "Share of rent-paying households spending at least 30% of income on rent; not evidence of gentrification alone."
+          },
+          {
+            "feature": "affordability_change",
+            "label": "Descriptive affordability-change proxy",
+            "value": 0.5,
+            "weight": 0.25,
+            "points": 12.5,
+            "evidence_ids": [
+              "fixture-0000-acs"
+            ],
+            "explanation": "Rent change relative to household-income change in compatible pooled Census estimates."
+          },
+          {
+            "feature": "corroborated_visual_change",
+            "label": "Physical change with affordability context",
+            "value": 0.25,
+            "weight": 0.15,
+            "points": 3.75,
+            "evidence_ids": [
+              "fixture-0000-acs",
+              "fixture-0000-housing-0",
+              "fixture-0000-housing-1",
+              "fixture-0000-housing-2",
+              "fixture-0000-project"
+            ],
+            "explanation": "3/6 sampled frontages show corroborated redevelopment; multiplied by affordability pressure."
+          }
+        ],
+        "evidence_ids": [
+          "fixture-0000-acs",
+          "fixture-0000-housing-0",
+          "fixture-0000-housing-1",
+          "fixture-0000-housing-2",
+          "fixture-0000-project"
+        ],
+        "configuration_version": "experimental-v1",
+        "coverage": {
+          "images": 3,
+          "sites": 3,
+          "frontages": 6,
+          "redevelopment_frontages": 3,
+          "earliest_capture": "2026-01-01",
+          "latest_capture": "2026-01-01"
+        }
+      },
+      "commercial": {
+        "mode": "commercial",
+        "status": "rated",
+        "score": 42.0,
+        "tier": "moderate",
+        "reasons": [],
+        "warnings": [
+          "Experimental vulnerability proxy; not a probability or proof of gentrification.",
+          "Small selected image sample is not a representative neighborhood survey.",
+          "Redevelopment may improve affordability; feature weights are unvalidated assumptions.",
+          "Housing indicators describe area context, not commercial rents or individual business finances."
+        ],
+        "contributions": [
+          {
+            "feature": "rent_burden",
+            "label": "Existing housing affordability exposure",
+            "value": 0.4,
+            "weight": 0.3,
+            "points": 12.0,
+            "evidence_ids": [
+              "fixture-0000-acs"
+            ],
+            "explanation": "Share of rent-paying households spending at least 30% of income on rent; not evidence of gentrification alone."
+          },
+          {
+            "feature": "affordability_change",
+            "label": "Descriptive affordability-change proxy",
+            "value": 0.5,
+            "weight": 0.5,
+            "points": 25.0,
+            "evidence_ids": [
+              "fixture-0000-acs"
+            ],
+            "explanation": "Rent change relative to household-income change in compatible pooled Census estimates."
+          },
+          {
+            "feature": "corroborated_visual_change",
+            "label": "Physical change with affordability context",
+            "value": 0.25,
+            "weight": 0.2,
+            "points": 5.0,
+            "evidence_ids": [
+              "fixture-0000-acs",
+              "fixture-0000-commercial-0",
+              "fixture-0000-commercial-1",
+              "fixture-0000-commercial-2",
+              "fixture-0000-project"
+            ],
+            "explanation": "3/6 sampled frontages show corroborated redevelopment; multiplied by affordability pressure."
+          }
+        ],
+        "evidence_ids": [
+          "fixture-0000-acs",
+          "fixture-0000-commercial-0",
+          "fixture-0000-commercial-1",
+          "fixture-0000-commercial-2",
+          "fixture-0000-project"
+        ],
+        "configuration_version": "experimental-v1",
+        "coverage": {
+          "images": 3,
+          "sites": 3,
+          "frontages": 6,
+          "redevelopment_frontages": 3,
+          "earliest_capture": "2026-01-01",
+          "latest_capture": "2026-01-01"
+        }
+      }
+    },
+    {
+      "id": "fixture-0001",
+      "name": "Synthetic area 2 — fixture",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -118.36999999999999,
+              33.93
+            ],
+            [
+              -118.36099999999999,
+              33.93
+            ],
+            [
+              -118.36099999999999,
+              33.939
+            ],
+            [
+              -118.36999999999999,
+              33.939
+            ],
+            [
+              -118.36999999999999,
+              33.93
+            ]
+          ]
+        ]
+      },
+      "indicators": {
+        "rent_burden_share": 0.5,
+        "renter_share": 0.6,
+        "affordability_pressure": 0.5,
+        "evidence_ids": [
+          "fixture-0001-acs"
+        ],
+        "periods": [
+          "Synthetic period"
+        ],
+        "warnings": []
+      },
+      "boundary_source_url": null,
+      "boundary_vintage": null,
+      "housing": {
+        "mode": "housing",
+        "status": "insufficient_evidence",
+        "score": null,
+        "tier": null,
+        "reasons": [
+          "Need 3 distinct reviewed housing image sites",
+          "Need 5 uniquely identifiable, assessable frontages"
+        ],
+        "warnings": [
+          "Experimental vulnerability proxy; not a probability or proof of gentrification.",
+          "Small selected image sample is not a representative neighborhood survey.",
+          "Redevelopment may improve affordability; feature weights are unvalidated assumptions."
+        ],
+        "contributions": [],
+        "evidence_ids": [],
+        "configuration_version": "experimental-v1",
+        "coverage": {
+          "images": 0,
+          "sites": 0,
+          "frontages": 0,
+          "redevelopment_frontages": 0,
+          "earliest_capture": null,
+          "latest_capture": null
+        }
+      },
+      "commercial": {
+        "mode": "commercial",
+        "status": "rated",
+        "score": 45.0,
+        "tier": "moderate",
+        "reasons": [],
+        "warnings": [
+          "Experimental vulnerability proxy; not a probability or proof of gentrification.",
+          "Small selected image sample is not a representative neighborhood survey.",
+          "Redevelopment may improve affordability; feature weights are unvalidated assumptions.",
+          "Housing indicators describe area context, not commercial rents or individual business finances."
+        ],
+        "contributions": [
+          {
+            "feature": "rent_burden",
+            "label": "Existing housing affordability exposure",
+            "value": 0.5,
+            "weight": 0.3,
+            "points": 15.0,
+            "evidence_ids": [
+              "fixture-0001-acs"
+            ],
+            "explanation": "Share of rent-paying households spending at least 30% of income on rent; not evidence of gentrification alone."
+          },
+          {
+            "feature": "affordability_change",
+            "label": "Descriptive affordability-change proxy",
+            "value": 0.5,
+            "weight": 0.5,
+            "points": 25.0,
+            "evidence_ids": [
+              "fixture-0001-acs"
+            ],
+            "explanation": "Rent change relative to household-income change in compatible pooled Census estimates."
+          },
+          {
+            "feature": "corroborated_visual_change",
+            "label": "Physical change with affordability context",
+            "value": 0.25,
+            "weight": 0.2,
+            "points": 5.0,
+            "evidence_ids": [
+              "fixture-0001-acs",
+              "fixture-0001-commercial-0",
+              "fixture-0001-commercial-1",
+              "fixture-0001-commercial-2",
+              "fixture-0001-project"
+            ],
+            "explanation": "3/6 sampled frontages show corroborated redevelopment; multiplied by affordability pressure."
+          }
+        ],
+        "evidence_ids": [
+          "fixture-0001-acs",
+          "fixture-0001-commercial-0",
+          "fixture-0001-commercial-1",
+          "fixture-0001-commercial-2",
+          "fixture-0001-project"
+        ],
+        "configuration_version": "experimental-v1",
+        "coverage": {
+          "images": 3,
+          "sites": 3,
+          "frontages": 6,
+          "redevelopment_frontages": 3,
+          "earliest_capture": "2026-01-01",
+          "latest_capture": "2026-01-01"
+        }
+      }
+    },
+    {
+      "id": "fixture-0002",
+      "name": "Synthetic area 3 — fixture",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -118.36,
+              33.93
+            ],
+            [
+              -118.351,
+              33.93
+            ],
+            [
+              -118.351,
+              33.939
+            ],
+            [
+              -118.36,
+              33.939
+            ],
+            [
+              -118.36,
+              33.93
+            ]
+          ]
+        ]
+      },
+      "indicators": {
+        "rent_burden_share": 0.6000000000000001,
+        "renter_share": 0.6,
+        "affordability_pressure": 0.5,
+        "evidence_ids": [
+          "fixture-0002-acs"
+        ],
+        "periods": [
+          "Synthetic period"
+        ],
+        "warnings": []
+      },
+      "boundary_source_url": null,
+      "boundary_vintage": null,
+      "housing": {
+        "mode": "housing",
+        "status": "insufficient_evidence",
+        "score": null,
+        "tier": null,
+        "reasons": [
+          "Need 3 distinct reviewed housing image sites",
+          "Need 5 uniquely identifiable, assessable frontages"
+        ],
+        "warnings": [
+          "Experimental vulnerability proxy; not a probability or proof of gentrification.",
+          "Small selected image sample is not a representative neighborhood survey.",
+          "Redevelopment may improve affordability; feature weights are unvalidated assumptions."
+        ],
+        "contributions": [],
+        "evidence_ids": [],
+        "configuration_version": "experimental-v1",
+        "coverage": {
+          "images": 0,
+          "sites": 0,
+          "frontages": 0,
+          "redevelopment_frontages": 0,
+          "earliest_capture": null,
+          "latest_capture": null
+        }
+      },
+      "commercial": {
+        "mode": "commercial",
+        "status": "insufficient_evidence",
+        "score": null,
+        "tier": null,
+        "reasons": [
+          "Need 3 distinct reviewed commercial image sites",
+          "Need 5 uniquely identifiable, assessable frontages"
+        ],
+        "warnings": [
+          "Experimental vulnerability proxy; not a probability or proof of gentrification.",
+          "Small selected image sample is not a representative neighborhood survey.",
+          "Redevelopment may improve affordability; feature weights are unvalidated assumptions.",
+          "Housing indicators describe area context, not commercial rents or individual business finances."
+        ],
+        "contributions": [],
+        "evidence_ids": [],
+        "configuration_version": "experimental-v1",
+        "coverage": {
+          "images": 0,
+          "sites": 0,
+          "frontages": 0,
+          "redevelopment_frontages": 0,
+          "earliest_capture": null,
+          "latest_capture": null
+        }
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "id": "fixture-0000-acs",
+      "area_id": "fixture-0000",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://example.org/synthetic-evidence",
+      "source_date": "2026-01-01",
+      "attribution": "Synthetic fixture — not real neighborhood evidence",
+      "license": "Synthetic test data",
+      "reviewed": true,
+      "data_kind": "fixture",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": ""
+    },
+    {
+      "id": "fixture-0000-project",
+      "area_id": "fixture-0000",
+      "kind": "project",
+      "mode": "both",
+      "source_url": "https://example.org/synthetic-evidence",
+      "source_date": "2026-01-01",
+      "attribution": "Synthetic fixture — not real neighborhood evidence",
+      "license": "Synthetic test data",
+      "reviewed": true,
+      "data_kind": "fixture",
+      "site_id": null,
+      "applies_to_site_ids": [
+        "fixture-0000-housing-site-0",
+        "fixture-0000-housing-site-1",
+        "fixture-0000-housing-site-2",
+        "fixture-0000-commercial-site-0",
+        "fixture-0000-commercial-site-1",
+        "fixture-0000-commercial-site-2"
+      ],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": ""
+    },
+    {
+      "id": "fixture-0000-housing-0",
+      "area_id": "fixture-0000",
+      "kind": "image",
+      "mode": "housing",
+      "source_url": "https://example.org/synthetic-evidence",
+      "source_date": "2026-01-01",
+      "attribution": "Synthetic fixture — not real neighborhood evidence",
+      "license": "Synthetic test data",
+      "reviewed": true,
+      "data_kind": "fixture",
+      "site_id": "fixture-0000-housing-site-0",
+      "applies_to_site_ids": [],
+      "latitude": 33.932,
+      "longitude": -118.378,
+      "observations": [
+        {
+          "frontage_id": "fixture-0000-housing-0-0",
+          "redevelopment": "present",
+          "corroboration_ids": [
+            "fixture-0000-project"
+          ],
+          "description": "Synthetic observation for development only"
+        },
+        {
+          "frontage_id": "fixture-0000-housing-0-1",
+          "redevelopment": "absent",
+          "corroboration_ids": [],
+          "description": "Synthetic observation for development only"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "id": "fixture-0000-housing-1",
+      "area_id": "fixture-0000",
+      "kind": "image",
+      "mode": "housing",
+      "source_url": "https://example.org/synthetic-evidence",
+      "source_date": "2026-01-01",
+      "attribution": "Synthetic fixture — not real neighborhood evidence",
+      "license": "Synthetic test data",
+      "reviewed": true,
+      "data_kind": "fixture",
+      "site_id": "fixture-0000-housing-site-1",
+      "applies_to_site_ids": [],
+      "latitude": 33.933,
+      "longitude": -118.378,
+      "observations": [
+        {
+          "frontage_id": "fixture-0000-housing-1-0",
+          "redevelopment": "present",
+          "corroboration_ids": [
+            "fixture-0000-project"
+          ],
+          "description": "Synthetic observation for development only"
+        },
+        {
+          "frontage_id": "fixture-0000-housing-1-1",
+          "redevelopment": "absent",
+          "corroboration_ids": [],
+          "description": "Synthetic observation for development only"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "id": "fixture-0000-housing-2",
+      "area_id": "fixture-0000",
+      "kind": "image",
+      "mode": "housing",
+      "source_url": "https://example.org/synthetic-evidence",
+      "source_date": "2026-01-01",
+      "attribution": "Synthetic fixture — not real neighborhood evidence",
+      "license": "Synthetic test data",
+      "reviewed": true,
+      "data_kind": "fixture",
+      "site_id": "fixture-0000-housing-site-2",
+      "applies_to_site_ids": [],
+      "latitude": 33.934000000000005,
+      "longitude": -118.378,
+      "observations": [
+        {
+          "frontage_id": "fixture-0000-housing-2-0",
+          "redevelopment": "present",
+          "corroboration_ids": [
+            "fixture-0000-project"
+          ],
+          "description": "Synthetic observation for development only"
+        },
+        {
+          "frontage_id": "fixture-0000-housing-2-1",
+          "redevelopment": "absent",
+          "corroboration_ids": [],
+          "description": "Synthetic observation for development only"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "id": "fixture-0000-commercial-0",
+      "area_id": "fixture-0000",
+      "kind": "image",
+      "mode": "commercial",
+      "source_url": "https://example.org/synthetic-evidence",
+      "source_date": "2026-01-01",
+      "attribution": "Synthetic fixture — not real neighborhood evidence",
+      "license": "Synthetic test data",
+      "reviewed": true,
+      "data_kind": "fixture",
+      "site_id": "fixture-0000-commercial-site-0",
+      "applies_to_site_ids": [],
+      "latitude": 33.932,
+      "longitude": -118.378,
+      "observations": [
+        {
+          "frontage_id": "fixture-0000-commercial-0-0",
+          "redevelopment": "present",
+          "corroboration_ids": [
+            "fixture-0000-project"
+          ],
+          "description": "Synthetic observation for development only"
+        },
+        {
+          "frontage_id": "fixture-0000-commercial-0-1",
+          "redevelopment": "absent",
+          "corroboration_ids": [],
+          "description": "Synthetic observation for development only"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "id": "fixture-0000-commercial-1",
+      "area_id": "fixture-0000",
+      "kind": "image",
+      "mode": "commercial",
+      "source_url": "https://example.org/synthetic-evidence",
+      "source_date": "2026-01-01",
+      "attribution": "Synthetic fixture — not real neighborhood evidence",
+      "license": "Synthetic test data",
+      "reviewed": true,
+      "data_kind": "fixture",
+      "site_id": "fixture-0000-commercial-site-1",
+      "applies_to_site_ids": [],
+      "latitude": 33.933,
+      "longitude": -118.378,
+      "observations": [
+        {
+          "frontage_id": "fixture-0000-commercial-1-0",
+          "redevelopment": "present",
+          "corroboration_ids": [
+            "fixture-0000-project"
+          ],
+          "description": "Synthetic observation for development only"
+        },
+        {
+          "frontage_id": "fixture-0000-commercial-1-1",
+          "redevelopment": "absent",
+          "corroboration_ids": [],
+          "description": "Synthetic observation for development only"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "id": "fixture-0000-commercial-2",
+      "area_id": "fixture-0000",
+      "kind": "image",
+      "mode": "commercial",
+      "source_url": "https://example.org/synthetic-evidence",
+      "source_date": "2026-01-01",
+      "attribution": "Synthetic fixture — not real neighborhood evidence",
+      "license": "Synthetic test data",
+      "reviewed": true,
+      "data_kind": "fixture",
+      "site_id": "fixture-0000-commercial-site-2",
+      "applies_to_site_ids": [],
+      "latitude": 33.934000000000005,
+      "longitude": -118.378,
+      "observations": [
+        {
+          "frontage_id": "fixture-0000-commercial-2-0",
+          "redevelopment": "present",
+          "corroboration_ids": [
+            "fixture-0000-project"
+          ],
+          "description": "Synthetic observation for development only"
+        },
+        {
+          "frontage_id": "fixture-0000-commercial-2-1",
+          "redevelopment": "absent",
+          "corroboration_ids": [],
+          "description": "Synthetic observation for development only"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "id": "fixture-0001-acs",
+      "area_id": "fixture-0001",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://example.org/synthetic-evidence",
+      "source_date": "2026-01-01",
+      "attribution": "Synthetic fixture — not real neighborhood evidence",
+      "license": "Synthetic test data",
+      "reviewed": true,
+      "data_kind": "fixture",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": ""
+    },
+    {
+      "id": "fixture-0001-project",
+      "area_id": "fixture-0001",
+      "kind": "project",
+      "mode": "both",
+      "source_url": "https://example.org/synthetic-evidence",
+      "source_date": "2026-01-01",
+      "attribution": "Synthetic fixture — not real neighborhood evidence",
+      "license": "Synthetic test data",
+      "reviewed": true,
+      "data_kind": "fixture",
+      "site_id": null,
+      "applies_to_site_ids": [
+        "fixture-0001-housing-site-0",
+        "fixture-0001-housing-site-1",
+        "fixture-0001-housing-site-2",
+        "fixture-0001-commercial-site-0",
+        "fixture-0001-commercial-site-1",
+        "fixture-0001-commercial-site-2"
+      ],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": ""
+    },
+    {
+      "id": "fixture-0001-commercial-0",
+      "area_id": "fixture-0001",
+      "kind": "image",
+      "mode": "commercial",
+      "source_url": "https://example.org/synthetic-evidence",
+      "source_date": "2026-01-01",
+      "attribution": "Synthetic fixture — not real neighborhood evidence",
+      "license": "Synthetic test data",
+      "reviewed": true,
+      "data_kind": "fixture",
+      "site_id": "fixture-0001-commercial-site-0",
+      "applies_to_site_ids": [],
+      "latitude": 33.932,
+      "longitude": -118.368,
+      "observations": [
+        {
+          "frontage_id": "fixture-0001-commercial-0-0",
+          "redevelopment": "present",
+          "corroboration_ids": [
+            "fixture-0001-project"
+          ],
+          "description": "Synthetic observation for development only"
+        },
+        {
+          "frontage_id": "fixture-0001-commercial-0-1",
+          "redevelopment": "absent",
+          "corroboration_ids": [],
+          "description": "Synthetic observation for development only"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "id": "fixture-0001-commercial-1",
+      "area_id": "fixture-0001",
+      "kind": "image",
+      "mode": "commercial",
+      "source_url": "https://example.org/synthetic-evidence",
+      "source_date": "2026-01-01",
+      "attribution": "Synthetic fixture — not real neighborhood evidence",
+      "license": "Synthetic test data",
+      "reviewed": true,
+      "data_kind": "fixture",
+      "site_id": "fixture-0001-commercial-site-1",
+      "applies_to_site_ids": [],
+      "latitude": 33.933,
+      "longitude": -118.368,
+      "observations": [
+        {
+          "frontage_id": "fixture-0001-commercial-1-0",
+          "redevelopment": "present",
+          "corroboration_ids": [
+            "fixture-0001-project"
+          ],
+          "description": "Synthetic observation for development only"
+        },
+        {
+          "frontage_id": "fixture-0001-commercial-1-1",
+          "redevelopment": "absent",
+          "corroboration_ids": [],
+          "description": "Synthetic observation for development only"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "id": "fixture-0001-commercial-2",
+      "area_id": "fixture-0001",
+      "kind": "image",
+      "mode": "commercial",
+      "source_url": "https://example.org/synthetic-evidence",
+      "source_date": "2026-01-01",
+      "attribution": "Synthetic fixture — not real neighborhood evidence",
+      "license": "Synthetic test data",
+      "reviewed": true,
+      "data_kind": "fixture",
+      "site_id": "fixture-0001-commercial-site-2",
+      "applies_to_site_ids": [],
+      "latitude": 33.934000000000005,
+      "longitude": -118.368,
+      "observations": [
+        {
+          "frontage_id": "fixture-0001-commercial-2-0",
+          "redevelopment": "present",
+          "corroboration_ids": [
+            "fixture-0001-project"
+          ],
+          "description": "Synthetic observation for development only"
+        },
+        {
+          "frontage_id": "fixture-0001-commercial-2-1",
+          "redevelopment": "absent",
+          "corroboration_ids": [],
+          "description": "Synthetic observation for development only"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "id": "fixture-0002-acs",
+      "area_id": "fixture-0002",
+      "kind": "census",
+      "mode": "both",
+      "source_url": "https://example.org/synthetic-evidence",
+      "source_date": "2026-01-01",
+      "attribution": "Synthetic fixture — not real neighborhood evidence",
+      "license": "Synthetic test data",
+      "reviewed": true,
+      "data_kind": "fixture",
+      "site_id": null,
+      "applies_to_site_ids": [],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": ""
+    },
+    {
+      "id": "fixture-0002-project",
+      "area_id": "fixture-0002",
+      "kind": "project",
+      "mode": "both",
+      "source_url": "https://example.org/synthetic-evidence",
+      "source_date": "2026-01-01",
+      "attribution": "Synthetic fixture — not real neighborhood evidence",
+      "license": "Synthetic test data",
+      "reviewed": true,
+      "data_kind": "fixture",
+      "site_id": null,
+      "applies_to_site_ids": [
+        "fixture-0002-housing-site-0",
+        "fixture-0002-housing-site-1",
+        "fixture-0002-housing-site-2",
+        "fixture-0002-commercial-site-0",
+        "fixture-0002-commercial-site-1",
+        "fixture-0002-commercial-site-2"
+      ],
+      "latitude": null,
+      "longitude": null,
+      "observations": [],
+      "note": ""
+    }
+  ],
+  "businesses": [
+    {
+      "id": "business-0",
+      "name": "Synthetic business 1",
+      "area_id": "fixture-0000",
+      "address": "",
+      "location_source_url": null,
+      "latitude": 33.932,
+      "longitude": -118.378,
+      "description": "Fixture, not an actual business",
+      "recommendation_reason": "Synthetic area context for UI development",
+      "source_url": "https://example.org",
+      "verified_at": "2026-01-01",
+      "website_url": "https://example.org",
+      "directions_url": "https://example.org",
+      "data_kind": "fixture"
+    },
+    {
+      "id": "business-1",
+      "name": "Synthetic business 2",
+      "area_id": "fixture-0001",
+      "address": "",
+      "location_source_url": null,
+      "latitude": 33.932,
+      "longitude": -118.368,
+      "description": "Fixture, not an actual business",
+      "recommendation_reason": "Synthetic area context for UI development",
+      "source_url": "https://example.org",
+      "verified_at": "2026-01-01",
+      "website_url": "https://example.org",
+      "directions_url": "https://example.org",
+      "data_kind": "fixture"
+    },
+    {
+      "id": "business-2",
+      "name": "Synthetic business 3",
+      "area_id": "fixture-0002",
+      "address": "",
+      "location_source_url": null,
+      "latitude": 33.932,
+      "longitude": -118.358,
+      "description": "Fixture, not an actual business",
+      "recommendation_reason": "Synthetic area context for UI development",
+      "source_url": "https://example.org",
+      "verified_at": "2026-01-01",
+      "website_url": "https://example.org",
+      "directions_url": "https://example.org",
+      "data_kind": "fixture"
+    }
+  ],
+  "resources": []
+}

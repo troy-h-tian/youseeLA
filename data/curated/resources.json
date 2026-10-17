@@ -1,0 +1,32 @@
+[
+  {
+    "id": "inglewood-housing-protection",
+    "name": "Inglewood Housing Protection Department",
+    "concern": "rent_increase_or_eviction",
+    "jurisdiction": "City of Inglewood",
+    "description": "City information and contacts for local rental protections. Contact the department about applicability to a particular tenancy.",
+    "source_url": "https://www.cityofinglewood.org/1473/Housing-Protection",
+    "verified_at": "2026-10-17",
+    "data_kind": "real"
+  },
+  {
+    "id": "inglewood-fair-housing",
+    "name": "Inglewood Housing Rights",
+    "concern": "housing_discrimination_or_counseling",
+    "jurisdiction": "Inglewood residents and community members",
+    "description": "City referral to fair housing and landlord/tenant counseling through the Housing Rights Center.",
+    "source_url": "https://www.cityofinglewood.org/187/Housing-Rights",
+    "verified_at": "2026-10-17",
+    "data_kind": "real"
+  },
+  {
+    "id": "inglewood-housing-authority",
+    "name": "Inglewood Housing Authority",
+    "concern": "housing_assistance",
+    "jurisdiction": "City of Inglewood",
+    "description": "Official housing programs and contact information. Program eligibility and waiting-list availability must be checked with the agency.",
+    "source_url": "https://www.cityofinglewood.org/162/Housing",
+    "verified_at": "2026-10-17",
+    "data_kind": "real"
+  }
+]
