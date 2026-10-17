@@ -28,6 +28,7 @@ python -m pytest -q
 - [Scalability evaluation](docs/scalability.md)
 - [Historical evidence and coverage findings](docs/evidence-status.md)
 - [Assessor, business-pattern and UDP benchmark context](docs/context-sources.md)
+- [Demo script](docs/demo-script.md)
 - [Public JSON Schema](contracts/bundle.schema.json)
 
 Configuration lives in `config/assessment.json`. Images affect scores through a corroborated physical-change feature combined with numerical affordability pressure. Missing or ambiguous evidence produces an unrated result. Housing context does not establish an individual business's financial condition.
