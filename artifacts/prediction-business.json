@@ -1,0 +1,496 @@
+{
+  "generated_at": "2026-10-17T21:28:16.344114+00:00",
+  "model": "business-closure-v1",
+  "question": "Will a business location in the City of Los Angeles close or move within five years?",
+  "data": {
+    "source": "https://data.lacity.org/Administration-Finance/Listing-of-All-Businesses/r4uk-afju",
+    "types_from_name_keywords": {
+      "Food & drink": [
+        "BAKE",
+        "BAKERY",
+        "BAR",
+        "BBQ",
+        "BISTRO",
+        "BOBA",
+        "BREWERY",
+        "BREWING",
+        "BURGER",
+        "BURGERS",
+        "CAFE",
+        "CANTINA",
+        "CATERING",
+        "CHICKEN",
+        "COFFEE",
+        "CREAMERY",
+        "DELI",
+        "DESSERTS",
+        "DINER",
+        "DONUT",
+        "DONUTS",
+        "EATERY",
+        "FOOD",
+        "FOODS",
+        "GRILL",
+        "ICE CREAM",
+        "JUICE",
+        "KITCHEN",
+        "NOODLE",
+        "NOODLES",
+        "PHO",
+        "PIZZA",
+        "PIZZERIA",
+        "RAMEN",
+        "RESTAURANT",
+        "SUSHI",
+        "TACO",
+        "TACOS",
+        "TAQUERIA",
+        "TEA",
+        "THAI",
+        "WINGS"
+      ],
+      "Retail": [
+        "APPAREL",
+        "BOOKS",
+        "BOUTIQUE",
+        "CLOTHING",
+        "FLORIST",
+        "FLOWERS",
+        "FURNITURE",
+        "GIFTS",
+        "GROCERY",
+        "HARDWARE",
+        "JEWELERS",
+        "JEWELRY",
+        "LIQUOR",
+        "MARKET",
+        "MART",
+        "OUTLET",
+        "PHARMACY",
+        "SHOES",
+        "SHOP",
+        "STORE",
+        "SUPERMARKET",
+        "THRIFT"
+      ],
+      "Personal services": [
+        "AUTO",
+        "BARBER",
+        "BARBERSHOP",
+        "BEAUTY",
+        "BROWS",
+        "CARWASH",
+        "CLEANERS",
+        "FITNESS",
+        "GYM",
+        "HAIR",
+        "LASH",
+        "LASHES",
+        "LAUNDROMAT",
+        "LAUNDRY",
+        "MASSAGE",
+        "NAIL",
+        "NAILS",
+        "REPAIR",
+        "SALON",
+        "SPA",
+        "TAILOR",
+        "TAILORING",
+        "TATTOO",
+        "YOGA"
+      ]
+    },
+    "type_counts": {
+      "train": {
+        "Food & drink": 7504,
+        "Retail": 9786,
+        "Personal services": 9192,
+        "Other": 464675
+      },
+      "test": {
+        "Food & drink": 10503,
+        "Retail": 12096,
+        "Personal services": 12969,
+        "Other": 518666
+      }
+    },
+    "label": "Location end date recorded within five years (closure or relocation of the registered location)."
+  },
+  "design": {
+    "train": "Open on 2014-12-31; outcome by 2019-12-31; area features from ACS 2010\u20132014",
+    "test": "Open on 2019-12-31; outcome by 2024-12-31; area features from ACS 2015\u20132019; never used for training or model choice",
+    "deployment": "Inglewood businesses are not in the City registry, so the refit model scores a typical business of each type in each tract."
+  },
+  "sizes": {
+    "train_businesses": 491157,
+    "test_businesses": 554234,
+    "train_closure_rate": 0.257,
+    "test_closure_rate": 0.1716
+  },
+  "model_selection": {
+    "cv_auc_on_train_sample": {
+      "logistic_regression": 0.5874,
+      "gradient_boosting": 0.5906
+    },
+    "chosen": "gradient_boosting"
+  },
+  "test": {
+    "models": {
+      "logistic_regression": {
+        "n": 554234,
+        "positives": 95117,
+        "base_rate": 0.1716,
+        "auc": 0.5873,
+        "average_precision": 0.209,
+        "precision_top10": 0.2179,
+        "lift_top10": 1.27,
+        "auc_95": [
+          0.585,
+          0.589
+        ],
+        "precision_top10_95": [
+          0.214,
+          0.221
+        ],
+        "brier": 0.1471,
+        "brier_base_rate": 0.1422,
+        "calibration": [
+          {
+            "predicted": 0.1229,
+            "observed": 0.0981,
+            "n": 55424
+          },
+          {
+            "predicted": 0.1872,
+            "observed": 0.1208,
+            "n": 55424
+          },
+          {
+            "predicted": 0.218,
+            "observed": 0.1321,
+            "n": 55424
+          },
+          {
+            "predicted": 0.2359,
+            "observed": 0.145,
+            "n": 55424
+          },
+          {
+            "predicted": 0.2523,
+            "observed": 0.1648,
+            "n": 55423
+          },
+          {
+            "predicted": 0.269,
+            "observed": 0.1895,
+            "n": 55423
+          },
+          {
+            "predicted": 0.2839,
+            "observed": 0.2039,
+            "n": 55423
+          },
+          {
+            "predicted": 0.2977,
+            "observed": 0.2152,
+            "n": 55423
+          },
+          {
+            "predicted": 0.3136,
+            "observed": 0.2289,
+            "n": 55423
+          },
+          {
+            "predicted": 0.3365,
+            "observed": 0.2179,
+            "n": 55423
+          }
+        ]
+      },
+      "gradient_boosting": {
+        "n": 554234,
+        "positives": 95117,
+        "base_rate": 0.1716,
+        "auc": 0.5903,
+        "average_precision": 0.2131,
+        "precision_top10": 0.2313,
+        "lift_top10": 1.348,
+        "auc_95": [
+          0.588,
+          0.592
+        ],
+        "precision_top10_95": [
+          0.228,
+          0.235
+        ],
+        "brier": 0.1465,
+        "brier_base_rate": 0.1422,
+        "calibration": [
+          {
+            "predicted": 0.1185,
+            "observed": 0.0837,
+            "n": 55424
+          },
+          {
+            "predicted": 0.1649,
+            "observed": 0.1252,
+            "n": 55424
+          },
+          {
+            "predicted": 0.1913,
+            "observed": 0.1358,
+            "n": 55424
+          },
+          {
+            "predicted": 0.2335,
+            "observed": 0.1559,
+            "n": 55424
+          },
+          {
+            "predicted": 0.2561,
+            "observed": 0.1727,
+            "n": 55423
+          },
+          {
+            "predicted": 0.2685,
+            "observed": 0.1796,
+            "n": 55423
+          },
+          {
+            "predicted": 0.2847,
+            "observed": 0.1933,
+            "n": 55423
+          },
+          {
+            "predicted": 0.302,
+            "observed": 0.2151,
+            "n": 55423
+          },
+          {
+            "predicted": 0.3178,
+            "observed": 0.2236,
+            "n": 55423
+          },
+          {
+            "predicted": 0.3426,
+            "observed": 0.2312,
+            "n": 55423
+          }
+        ]
+      }
+    },
+    "consumer_facing_subset": {
+      "n": 35568,
+      "positives": 2536,
+      "base_rate": 0.0713,
+      "auc": 0.6211,
+      "average_precision": 0.1125,
+      "precision_top10": 0.1369,
+      "lift_top10": 1.92,
+      "auc_95": [
+        0.609,
+        0.632
+      ],
+      "precision_top10_95": [
+        0.127,
+        0.146
+      ],
+      "note": "Test businesses whose names mark them as food & drink, retail or personal services."
+    },
+    "baselines": {
+      "younger_business_first": {
+        "n": 554234,
+        "positives": 95117,
+        "base_rate": 0.1716,
+        "auc": 0.5759,
+        "average_precision": 0.2031,
+        "precision_top10": 0.2096,
+        "lift_top10": 1.221,
+        "auc_95": [
+          0.574,
+          0.578
+        ],
+        "precision_top10_95": [
+          0.206,
+          0.213
+        ]
+      },
+      "business_type_rate": {
+        "n": 554234,
+        "positives": 95117,
+        "base_rate": 0.1716,
+        "auc": 0.5227,
+        "average_precision": 0.1784,
+        "precision_top10": 0.133,
+        "lift_top10": 0.775,
+        "auc_95": [
+          0.522,
+          0.523
+        ],
+        "precision_top10_95": [
+          0.175,
+          0.182
+        ]
+      },
+      "zip_closure_rate_2015_2019": {
+        "n": 554234,
+        "positives": 95117,
+        "base_rate": 0.1716,
+        "auc": 0.5012,
+        "average_precision": 0.1723,
+        "precision_top10": 0.171,
+        "lift_top10": 0.996,
+        "auc_95": [
+          0.499,
+          0.503
+        ],
+        "precision_top10_95": [
+          0.169,
+          0.175
+        ],
+        "note": "City-only signal: not available for Inglewood, so it is a baseline, not a feature."
+      }
+    },
+    "ablations": {
+      "without_race": {
+        "features": 26,
+        "auc": 0.5898,
+        "precision_top10": 0.2309,
+        "auc_95": [
+          0.588,
+          0.592
+        ]
+      },
+      "without_area_features": {
+        "features": 6,
+        "auc": 0.59,
+        "precision_top10": 0.23,
+        "auc_95": [
+          0.588,
+          0.592
+        ]
+      }
+    },
+    "fairness_by_zip_majority_group": {
+      "Asian": {
+        "businesses": 16855,
+        "observed_rate": 0.171,
+        "mean_predicted": 0.265,
+        "auc": 0.6032
+      },
+      "Black": {
+        "businesses": 11043,
+        "observed_rate": 0.128,
+        "mean_predicted": 0.237,
+        "auc": 0.5877
+      },
+      "Hispanic or Latino": {
+        "businesses": 262850,
+        "observed_rate": 0.161,
+        "mean_predicted": 0.249,
+        "auc": 0.5988
+      },
+      "White": {
+        "businesses": 263486,
+        "observed_rate": 0.184,
+        "mean_predicted": 0.247,
+        "auc": 0.5828
+      }
+    },
+    "permutation_importance": [
+      {
+        "feature": "age_years",
+        "label": "Years in business at this location",
+        "auc_drop": 0.0681
+      },
+      {
+        "feature": "category_Other",
+        "label": "Business type: Other",
+        "auc_drop": 0.0165
+      },
+      {
+        "feature": "pressure_prior",
+        "label": "Rent growth minus income growth, previous period",
+        "auc_drop": 0.0007
+      },
+      {
+        "feature": "establishment_growth",
+        "label": "Two-year growth in all establishments (ZIP)",
+        "auc_drop": 0.0005
+      },
+      {
+        "feature": "vacancy_rate",
+        "label": "Housing vacancy rate",
+        "auc_drop": 0.0004
+      },
+      {
+        "feature": "category_Personal services",
+        "label": "Business type: Personal services",
+        "auc_drop": 0.0002
+      },
+      {
+        "feature": "unemployment_rate",
+        "label": "Unemployment rate",
+        "auc_drop": 0.0002
+      },
+      {
+        "feature": "amenity_density",
+        "label": "Cafes, restaurants, bars and groceries per km\u00b2 (ZIP)",
+        "auc_drop": 0.0002
+      },
+      {
+        "feature": "rent_vs_county",
+        "label": "Median rent relative to county",
+        "auc_drop": 0.0001
+      },
+      {
+        "feature": "home_value_vs_county",
+        "label": "Median home value relative to county",
+        "auc_drop": 0.0001
+      },
+      {
+        "feature": "rent_income_pct",
+        "label": "Median rent as % of income",
+        "auc_drop": 0.0001
+      },
+      {
+        "feature": "bachelor_share",
+        "label": "Adults with a bachelor's degree or higher",
+        "auc_drop": 0.0001
+      }
+    ]
+  },
+  "scalability": {
+    "build_seconds": 11.7,
+    "fit_seconds": {
+      "logistic_regression": 1.076,
+      "gradient_boosting": 2.072
+    },
+    "area_type_scoring_seconds": 0.16,
+    "prediction": [
+      {
+        "rows": 10000,
+        "seconds": 0.013,
+        "rows_per_second": 743980
+      },
+      {
+        "rows": 100000,
+        "seconds": 0.157,
+        "rows_per_second": 637453
+      },
+      {
+        "rows": 1000000,
+        "seconds": 1.342,
+        "rows_per_second": 745166
+      }
+    ]
+  },
+  "limitations": [
+    "Registry end dates mix closures, relocations and lapsed registrations.",
+    "The 2019\u20132024 test period includes the COVID shock, so closure rates differ from training.",
+    "Trained on the City of Los Angeles; Inglewood scores assume the same relationships hold nearby.",
+    "Area conditions are ZIP-level, so every tract in the same ZIP gets the same business outlook.",
+    "Business type comes from name keywords, so many businesses fall under Other and some are misclassified.",
+    "Scores describe a typical business of each type in an area, never a specific named business."
+  ]
+}

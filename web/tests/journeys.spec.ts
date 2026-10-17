@@ -170,7 +170,9 @@ test('visible dataset switch leads to historical examples and dated neighborhood
   await expect(views.getByRole('link', { name: 'Explore today' })).toHaveAttribute('aria-current', 'page');
   await page.getByRole('searchbox').fill('Dulan');
   await page.getByRole('navigation', { name: 'Places and areas' }).getByRole('button', { name: /Dulan.*Manchester/i }).click();
-  await expect(page.getByRole('heading', { name: 'Why there’s no score yet' })).toBeVisible();
+  await expect(page.getByText(/Today’s pressure score: \d+\.\d \/ 100/)).toBeVisible();
+  await expect(page.getByText(/Rough score from Census data only/)).toBeVisible();
+  await expect(page.getByRole('region', { name: 'Five-year outlook' })).toContainText('Will rents outpace incomes?');
   const summary = page.getByRole('region', { name: 'Neighborhood indicators' });
   await expect(summary).toContainText('these indicators do not affect the score');
   await expect(summary).toContainText('2025 roll');
@@ -182,7 +184,8 @@ test('visible dataset switch leads to historical examples and dated neighborhood
   await expect(views.getByRole('link', { name: 'Historical analysis' })).toHaveAttribute('aria-current', 'page');
   await page.getByRole('button', { name: /Housing example/ }).click();
   await expect(page.getByRole('tab', { name: 'Housing support' })).toHaveAttribute('aria-selected', 'true');
-  await expect(page.getByText(/Experimental area score: 38.6/)).toBeVisible();
+  await expect(page.getByText(/Today’s pressure score: 38.6/)).toBeVisible();
+  await expect(page.getByRole('region', { name: 'Five-year outlook' })).toContainText('What happened');
   await expect(summary).toContainText('2020 roll');
   await expect(summary).not.toContainText('2025');
   await expect(summary).not.toContainText('ZIP');
@@ -195,7 +198,7 @@ test('visible dataset switch leads to historical examples and dated neighborhood
   expect(introBox!.y).toBeGreaterThan(toolsBox!.y + toolsBox!.height);
   await page.screenshot({ animations: 'disabled', path: `../.Codex/plans/historical-home-${test.info().project.name}.png` });
   await page.getByRole('button', { name: /Commercial example/ }).click();
-  await expect(page.getByText(/Experimental area score: 16.1/)).toBeVisible();
+  await expect(page.getByText(/Today’s pressure score: 16.1/)).toBeVisible();
   await views.getByRole('link', { name: 'Explore today' }).click();
   await expect(page).toHaveURL(/data=demo/);
   await expect(page.getByRole('button', { name: /Housing example/ })).toHaveCount(0);

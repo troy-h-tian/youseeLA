@@ -1,0 +1,791 @@
+{
+  "model": "business-closure-v1",
+  "generated_at": "2026-10-17T21:28:16.344114+00:00",
+  "chosen": "gradient_boosting",
+  "test_auc": 0.5903,
+  "test_auc_consumer": 0.6211,
+  "test_businesses": 554234,
+  "horizon": "Five years from ACS 2020\u20132024 conditions",
+  "tracts": {
+    "06037601002": {
+      "zip": "90301",
+      "by_type": {
+        "Food & drink": {
+          "new_business": 0.0653,
+          "typical": 0.0521,
+          "established": 0.0499,
+          "county_typical": 0.0925,
+          "typical_age_years": 7.4
+        },
+        "Retail": {
+          "new_business": 0.0658,
+          "typical": 0.0424,
+          "established": 0.0433,
+          "county_typical": 0.0721,
+          "typical_age_years": 10.6
+        },
+        "Personal services": {
+          "new_business": 0.0465,
+          "typical": 0.0385,
+          "established": 0.0373,
+          "county_typical": 0.0717,
+          "typical_age_years": 7.7
+        }
+      }
+    },
+    "06037600501": {
+      "zip": "90303",
+      "by_type": {
+        "Food & drink": {
+          "new_business": 0.0736,
+          "typical": 0.0566,
+          "established": 0.0579,
+          "county_typical": 0.0925,
+          "typical_age_years": 7.4
+        },
+        "Retail": {
+          "new_business": 0.08,
+          "typical": 0.0567,
+          "established": 0.0574,
+          "county_typical": 0.0721,
+          "typical_age_years": 10.6
+        },
+        "Personal services": {
+          "new_business": 0.0515,
+          "typical": 0.0448,
+          "established": 0.047,
+          "county_typical": 0.0717,
+          "typical_age_years": 7.7
+        }
+      }
+    },
+    "06037600802": {
+      "zip": "90305",
+      "by_type": {
+        "Food & drink": {
+          "new_business": 0.0734,
+          "typical": 0.08,
+          "established": 0.0763,
+          "county_typical": 0.0925,
+          "typical_age_years": 7.4
+        },
+        "Retail": {
+          "new_business": 0.0875,
+          "typical": 0.0746,
+          "established": 0.0824,
+          "county_typical": 0.0721,
+          "typical_age_years": 10.6
+        },
+        "Personal services": {
+          "new_business": 0.0514,
+          "typical": 0.0571,
+          "established": 0.0549,
+          "county_typical": 0.0717,
+          "typical_age_years": 7.7
+        }
+      }
+    },
+    "06037600902": {
+      "zip": "90302",
+      "by_type": {
+        "Food & drink": {
+          "new_business": 0.0719,
+          "typical": 0.0628,
+          "established": 0.0618,
+          "county_typical": 0.0925,
+          "typical_age_years": 7.4
+        },
+        "Retail": {
+          "new_business": 0.0779,
+          "typical": 0.0507,
+          "established": 0.0517,
+          "county_typical": 0.0721,
+          "typical_age_years": 10.6
+        },
+        "Personal services": {
+          "new_business": 0.0565,
+          "typical": 0.0457,
+          "established": 0.0455,
+          "county_typical": 0.0717,
+          "typical_age_years": 7.7
+        }
+      }
+    },
+    "06037600911": {
+      "zip": "90302",
+      "by_type": {
+        "Food & drink": {
+          "new_business": 0.0719,
+          "typical": 0.0628,
+          "established": 0.0618,
+          "county_typical": 0.0925,
+          "typical_age_years": 7.4
+        },
+        "Retail": {
+          "new_business": 0.0779,
+          "typical": 0.0507,
+          "established": 0.0517,
+          "county_typical": 0.0721,
+          "typical_age_years": 10.6
+        },
+        "Personal services": {
+          "new_business": 0.0565,
+          "typical": 0.0457,
+          "established": 0.0455,
+          "county_typical": 0.0717,
+          "typical_age_years": 7.7
+        }
+      }
+    },
+    "06037600601": {
+      "zip": "90303",
+      "by_type": {
+        "Food & drink": {
+          "new_business": 0.0736,
+          "typical": 0.0566,
+          "established": 0.0579,
+          "county_typical": 0.0925,
+          "typical_age_years": 7.4
+        },
+        "Retail": {
+          "new_business": 0.08,
+          "typical": 0.0567,
+          "established": 0.0574,
+          "county_typical": 0.0721,
+          "typical_age_years": 10.6
+        },
+        "Personal services": {
+          "new_business": 0.0515,
+          "typical": 0.0448,
+          "established": 0.047,
+          "county_typical": 0.0717,
+          "typical_age_years": 7.7
+        }
+      }
+    },
+    "06037600602": {
+      "zip": "90303",
+      "by_type": {
+        "Food & drink": {
+          "new_business": 0.0736,
+          "typical": 0.0566,
+          "established": 0.0579,
+          "county_typical": 0.0925,
+          "typical_age_years": 7.4
+        },
+        "Retail": {
+          "new_business": 0.08,
+          "typical": 0.0567,
+          "established": 0.0574,
+          "county_typical": 0.0721,
+          "typical_age_years": 10.6
+        },
+        "Personal services": {
+          "new_business": 0.0515,
+          "typical": 0.0448,
+          "established": 0.047,
+          "county_typical": 0.0717,
+          "typical_age_years": 7.7
+        }
+      }
+    },
+    "06037601211": {
+      "zip": "90301",
+      "by_type": {
+        "Food & drink": {
+          "new_business": 0.0653,
+          "typical": 0.0521,
+          "established": 0.0499,
+          "county_typical": 0.0925,
+          "typical_age_years": 7.4
+        },
+        "Retail": {
+          "new_business": 0.0658,
+          "typical": 0.0424,
+          "established": 0.0433,
+          "county_typical": 0.0721,
+          "typical_age_years": 10.6
+        },
+        "Personal services": {
+          "new_business": 0.0465,
+          "typical": 0.0385,
+          "established": 0.0373,
+          "county_typical": 0.0717,
+          "typical_age_years": 7.7
+        }
+      }
+    },
+    "06037601212": {
+      "zip": "90301",
+      "by_type": {
+        "Food & drink": {
+          "new_business": 0.0653,
+          "typical": 0.0521,
+          "established": 0.0499,
+          "county_typical": 0.0925,
+          "typical_age_years": 7.4
+        },
+        "Retail": {
+          "new_business": 0.0658,
+          "typical": 0.0424,
+          "established": 0.0433,
+          "county_typical": 0.0721,
+          "typical_age_years": 10.6
+        },
+        "Personal services": {
+          "new_business": 0.0465,
+          "typical": 0.0385,
+          "established": 0.0373,
+          "county_typical": 0.0717,
+          "typical_age_years": 7.7
+        }
+      }
+    },
+    "06037601301": {
+      "zip": "90302",
+      "by_type": {
+        "Food & drink": {
+          "new_business": 0.0719,
+          "typical": 0.0628,
+          "established": 0.0618,
+          "county_typical": 0.0925,
+          "typical_age_years": 7.4
+        },
+        "Retail": {
+          "new_business": 0.0779,
+          "typical": 0.0507,
+          "established": 0.0517,
+          "county_typical": 0.0721,
+          "typical_age_years": 10.6
+        },
+        "Personal services": {
+          "new_business": 0.0565,
+          "typical": 0.0457,
+          "established": 0.0455,
+          "county_typical": 0.0717,
+          "typical_age_years": 7.7
+        }
+      }
+    },
+    "06037601501": {
+      "zip": "90304",
+      "by_type": {
+        "Food & drink": {
+          "new_business": 0.0779,
+          "typical": 0.0667,
+          "established": 0.0655,
+          "county_typical": 0.0925,
+          "typical_age_years": 7.4
+        },
+        "Retail": {
+          "new_business": 0.0844,
+          "typical": 0.0497,
+          "established": 0.0504,
+          "county_typical": 0.0721,
+          "typical_age_years": 10.6
+        },
+        "Personal services": {
+          "new_business": 0.0584,
+          "typical": 0.064,
+          "established": 0.0621,
+          "county_typical": 0.0717,
+          "typical_age_years": 7.7
+        }
+      }
+    },
+    "06037600702": {
+      "zip": "90305",
+      "by_type": {
+        "Food & drink": {
+          "new_business": 0.0734,
+          "typical": 0.08,
+          "established": 0.0763,
+          "county_typical": 0.0925,
+          "typical_age_years": 7.4
+        },
+        "Retail": {
+          "new_business": 0.0875,
+          "typical": 0.0746,
+          "established": 0.0824,
+          "county_typical": 0.0721,
+          "typical_age_years": 10.6
+        },
+        "Personal services": {
+          "new_business": 0.0514,
+          "typical": 0.0571,
+          "established": 0.0549,
+          "county_typical": 0.0717,
+          "typical_age_years": 7.7
+        }
+      }
+    },
+    "06037600703": {
+      "zip": "90305",
+      "by_type": {
+        "Food & drink": {
+          "new_business": 0.0734,
+          "typical": 0.08,
+          "established": 0.0763,
+          "county_typical": 0.0925,
+          "typical_age_years": 7.4
+        },
+        "Retail": {
+          "new_business": 0.0875,
+          "typical": 0.0746,
+          "established": 0.0824,
+          "county_typical": 0.0721,
+          "typical_age_years": 10.6
+        },
+        "Personal services": {
+          "new_business": 0.0514,
+          "typical": 0.0571,
+          "established": 0.0549,
+          "county_typical": 0.0717,
+          "typical_age_years": 7.7
+        }
+      }
+    },
+    "06037600704": {
+      "zip": "90305",
+      "by_type": {
+        "Food & drink": {
+          "new_business": 0.0734,
+          "typical": 0.08,
+          "established": 0.0763,
+          "county_typical": 0.0925,
+          "typical_age_years": 7.4
+        },
+        "Retail": {
+          "new_business": 0.0875,
+          "typical": 0.0746,
+          "established": 0.0824,
+          "county_typical": 0.0721,
+          "typical_age_years": 10.6
+        },
+        "Personal services": {
+          "new_business": 0.0514,
+          "typical": 0.0571,
+          "established": 0.0549,
+          "county_typical": 0.0717,
+          "typical_age_years": 7.7
+        }
+      }
+    },
+    "06037600801": {
+      "zip": "90305",
+      "by_type": {
+        "Food & drink": {
+          "new_business": 0.0734,
+          "typical": 0.08,
+          "established": 0.0763,
+          "county_typical": 0.0925,
+          "typical_age_years": 7.4
+        },
+        "Retail": {
+          "new_business": 0.0875,
+          "typical": 0.0746,
+          "established": 0.0824,
+          "county_typical": 0.0721,
+          "typical_age_years": 10.6
+        },
+        "Personal services": {
+          "new_business": 0.0514,
+          "typical": 0.0571,
+          "established": 0.0549,
+          "county_typical": 0.0717,
+          "typical_age_years": 7.7
+        }
+      }
+    },
+    "06037601700": {
+      "zip": "90304",
+      "by_type": {
+        "Food & drink": {
+          "new_business": 0.0779,
+          "typical": 0.0667,
+          "established": 0.0655,
+          "county_typical": 0.0925,
+          "typical_age_years": 7.4
+        },
+        "Retail": {
+          "new_business": 0.0844,
+          "typical": 0.0497,
+          "established": 0.0504,
+          "county_typical": 0.0721,
+          "typical_age_years": 10.6
+        },
+        "Personal services": {
+          "new_business": 0.0584,
+          "typical": 0.064,
+          "established": 0.0621,
+          "county_typical": 0.0717,
+          "typical_age_years": 7.7
+        }
+      }
+    },
+    "06037601802": {
+      "zip": "90304",
+      "by_type": {
+        "Food & drink": {
+          "new_business": 0.0779,
+          "typical": 0.0667,
+          "established": 0.0655,
+          "county_typical": 0.0925,
+          "typical_age_years": 7.4
+        },
+        "Retail": {
+          "new_business": 0.0844,
+          "typical": 0.0497,
+          "established": 0.0504,
+          "county_typical": 0.0721,
+          "typical_age_years": 10.6
+        },
+        "Personal services": {
+          "new_business": 0.0584,
+          "typical": 0.064,
+          "established": 0.0621,
+          "county_typical": 0.0717,
+          "typical_age_years": 7.7
+        }
+      }
+    },
+    "06037601402": {
+      "zip": "90301",
+      "by_type": {
+        "Food & drink": {
+          "new_business": 0.0653,
+          "typical": 0.0521,
+          "established": 0.0499,
+          "county_typical": 0.0925,
+          "typical_age_years": 7.4
+        },
+        "Retail": {
+          "new_business": 0.0658,
+          "typical": 0.0424,
+          "established": 0.0433,
+          "county_typical": 0.0721,
+          "typical_age_years": 10.6
+        },
+        "Personal services": {
+          "new_business": 0.0465,
+          "typical": 0.0385,
+          "established": 0.0373,
+          "county_typical": 0.0717,
+          "typical_age_years": 7.7
+        }
+      }
+    },
+    "06037604200": {
+      "zip": "90303",
+      "by_type": {
+        "Food & drink": {
+          "new_business": 0.0736,
+          "typical": 0.0566,
+          "established": 0.0579,
+          "county_typical": 0.0925,
+          "typical_age_years": 7.4
+        },
+        "Retail": {
+          "new_business": 0.08,
+          "typical": 0.0567,
+          "established": 0.0574,
+          "county_typical": 0.0721,
+          "typical_age_years": 10.6
+        },
+        "Personal services": {
+          "new_business": 0.0515,
+          "typical": 0.0448,
+          "established": 0.047,
+          "county_typical": 0.0717,
+          "typical_age_years": 7.7
+        }
+      }
+    },
+    "06037601801": {
+      "zip": "90304",
+      "by_type": {
+        "Food & drink": {
+          "new_business": 0.0779,
+          "typical": 0.0667,
+          "established": 0.0655,
+          "county_typical": 0.0925,
+          "typical_age_years": 7.4
+        },
+        "Retail": {
+          "new_business": 0.0844,
+          "typical": 0.0497,
+          "established": 0.0504,
+          "county_typical": 0.0721,
+          "typical_age_years": 10.6
+        },
+        "Personal services": {
+          "new_business": 0.0584,
+          "typical": 0.064,
+          "established": 0.0621,
+          "county_typical": 0.0717,
+          "typical_age_years": 7.7
+        }
+      }
+    },
+    "06037602003": {
+      "zip": "90303",
+      "by_type": {
+        "Food & drink": {
+          "new_business": 0.0736,
+          "typical": 0.0566,
+          "established": 0.0579,
+          "county_typical": 0.0925,
+          "typical_age_years": 7.4
+        },
+        "Retail": {
+          "new_business": 0.08,
+          "typical": 0.0567,
+          "established": 0.0574,
+          "county_typical": 0.0721,
+          "typical_age_years": 10.6
+        },
+        "Personal services": {
+          "new_business": 0.0515,
+          "typical": 0.0448,
+          "established": 0.047,
+          "county_typical": 0.0717,
+          "typical_age_years": 7.7
+        }
+      }
+    },
+    "06037601302": {
+      "zip": "90302",
+      "by_type": {
+        "Food & drink": {
+          "new_business": 0.0719,
+          "typical": 0.0628,
+          "established": 0.0618,
+          "county_typical": 0.0925,
+          "typical_age_years": 7.4
+        },
+        "Retail": {
+          "new_business": 0.0779,
+          "typical": 0.0507,
+          "established": 0.0517,
+          "county_typical": 0.0721,
+          "typical_age_years": 10.6
+        },
+        "Personal services": {
+          "new_business": 0.0565,
+          "typical": 0.0457,
+          "established": 0.0455,
+          "county_typical": 0.0717,
+          "typical_age_years": 7.7
+        }
+      }
+    },
+    "06037600912": {
+      "zip": "90302",
+      "by_type": {
+        "Food & drink": {
+          "new_business": 0.0719,
+          "typical": 0.0628,
+          "established": 0.0618,
+          "county_typical": 0.0925,
+          "typical_age_years": 7.4
+        },
+        "Retail": {
+          "new_business": 0.0779,
+          "typical": 0.0507,
+          "established": 0.0517,
+          "county_typical": 0.0721,
+          "typical_age_years": 10.6
+        },
+        "Personal services": {
+          "new_business": 0.0565,
+          "typical": 0.0457,
+          "established": 0.0455,
+          "county_typical": 0.0717,
+          "typical_age_years": 7.7
+        }
+      }
+    },
+    "06037601001": {
+      "zip": "90301",
+      "by_type": {
+        "Food & drink": {
+          "new_business": 0.0653,
+          "typical": 0.0521,
+          "established": 0.0499,
+          "county_typical": 0.0925,
+          "typical_age_years": 7.4
+        },
+        "Retail": {
+          "new_business": 0.0658,
+          "typical": 0.0424,
+          "established": 0.0433,
+          "county_typical": 0.0721,
+          "typical_age_years": 10.6
+        },
+        "Personal services": {
+          "new_business": 0.0465,
+          "typical": 0.0385,
+          "established": 0.0373,
+          "county_typical": 0.0717,
+          "typical_age_years": 7.7
+        }
+      }
+    },
+    "06037601100": {
+      "zip": "90301",
+      "by_type": {
+        "Food & drink": {
+          "new_business": 0.0653,
+          "typical": 0.0521,
+          "established": 0.0499,
+          "county_typical": 0.0925,
+          "typical_age_years": 7.4
+        },
+        "Retail": {
+          "new_business": 0.0658,
+          "typical": 0.0424,
+          "established": 0.0433,
+          "county_typical": 0.0721,
+          "typical_age_years": 10.6
+        },
+        "Personal services": {
+          "new_business": 0.0465,
+          "typical": 0.0385,
+          "established": 0.0373,
+          "county_typical": 0.0717,
+          "typical_age_years": 7.7
+        }
+      }
+    },
+    "06037601401": {
+      "zip": "90301",
+      "by_type": {
+        "Food & drink": {
+          "new_business": 0.0653,
+          "typical": 0.0521,
+          "established": 0.0499,
+          "county_typical": 0.0925,
+          "typical_age_years": 7.4
+        },
+        "Retail": {
+          "new_business": 0.0658,
+          "typical": 0.0424,
+          "established": 0.0433,
+          "county_typical": 0.0721,
+          "typical_age_years": 10.6
+        },
+        "Personal services": {
+          "new_business": 0.0465,
+          "typical": 0.0385,
+          "established": 0.0373,
+          "county_typical": 0.0717,
+          "typical_age_years": 7.7
+        }
+      }
+    },
+    "06037601202": {
+      "zip": "90301",
+      "by_type": {
+        "Food & drink": {
+          "new_business": 0.0653,
+          "typical": 0.0521,
+          "established": 0.0499,
+          "county_typical": 0.0925,
+          "typical_age_years": 7.4
+        },
+        "Retail": {
+          "new_business": 0.0658,
+          "typical": 0.0424,
+          "established": 0.0433,
+          "county_typical": 0.0721,
+          "typical_age_years": 10.6
+        },
+        "Personal services": {
+          "new_business": 0.0465,
+          "typical": 0.0385,
+          "established": 0.0373,
+          "county_typical": 0.0717,
+          "typical_age_years": 7.7
+        }
+      }
+    },
+    "06037601900": {
+      "zip": "90303",
+      "by_type": {
+        "Food & drink": {
+          "new_business": 0.0736,
+          "typical": 0.0566,
+          "established": 0.0579,
+          "county_typical": 0.0925,
+          "typical_age_years": 7.4
+        },
+        "Retail": {
+          "new_business": 0.08,
+          "typical": 0.0567,
+          "established": 0.0574,
+          "county_typical": 0.0721,
+          "typical_age_years": 10.6
+        },
+        "Personal services": {
+          "new_business": 0.0515,
+          "typical": 0.0448,
+          "established": 0.047,
+          "county_typical": 0.0717,
+          "typical_age_years": 7.7
+        }
+      }
+    },
+    "06037601303": {
+      "zip": "90302",
+      "by_type": {
+        "Food & drink": {
+          "new_business": 0.0719,
+          "typical": 0.0628,
+          "established": 0.0618,
+          "county_typical": 0.0925,
+          "typical_age_years": 7.4
+        },
+        "Retail": {
+          "new_business": 0.0779,
+          "typical": 0.0507,
+          "established": 0.0517,
+          "county_typical": 0.0721,
+          "typical_age_years": 10.6
+        },
+        "Personal services": {
+          "new_business": 0.0565,
+          "typical": 0.0457,
+          "established": 0.0455,
+          "county_typical": 0.0717,
+          "typical_age_years": 7.7
+        }
+      }
+    },
+    "06037703002": {
+      "zip": "90056",
+      "by_type": {
+        "Food & drink": {
+          "new_business": 0.1078,
+          "typical": 0.1038,
+          "established": 0.096,
+          "county_typical": 0.0925,
+          "typical_age_years": 7.4
+        },
+        "Retail": {
+          "new_business": 0.0961,
+          "typical": 0.0722,
+          "established": 0.078,
+          "county_typical": 0.0721,
+          "typical_age_years": 10.6
+        },
+        "Personal services": {
+          "new_business": 0.0693,
+          "typical": 0.0784,
+          "established": 0.0757,
+          "county_typical": 0.0717,
+          "typical_age_years": 7.7
+        }
+      }
+    }
+  }
+}

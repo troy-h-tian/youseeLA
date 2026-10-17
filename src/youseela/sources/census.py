@@ -35,7 +35,7 @@ def parse_table(table: list[list[Any]]) -> dict[str, dict[str, Any]]:
 
 
 def fetch_county(year: int, api_key: str, *, state: str = "06", county: str = "037",
-                 client: httpx.Client | None = None) -> dict[str, dict[str, Any]]:
+                 client: httpx.Client | None = None, variables: list[str] = VARIABLES) -> dict[str, dict[str, Any]]:
     if not api_key:
         raise CensusAccessError("Set CENSUS_API_KEY in .env or import an official CSV")
     if year < 2009 or year > 2100 or not state.isdigit() or not county.isdigit():
@@ -44,7 +44,7 @@ def fetch_county(year: int, api_key: str, *, state: str = "06", county: str = "0
     client = client or httpx.Client(timeout=30, follow_redirects=True)
     try:
         response = client.get(f"https://api.census.gov/data/{year}/acs/acs5",
-                              params={"get": ",".join(VARIABLES), "for": "tract:*", "in": f"state:{state} county:{county}", "key": api_key})
+                              params={"get": ",".join(variables), "for": "tract:*", "in": f"state:{state} county:{county}", "key": api_key})
         if response.status_code != 200:
             raise CensusAccessError(f"Census returned HTTP {response.status_code}; check key and dataset availability")
         try:

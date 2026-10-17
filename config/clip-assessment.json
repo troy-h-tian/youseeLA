@@ -1,5 +1,5 @@
 {
-  "version": "experimental-clip-v1",
+  "version": "experimental-clip-v1-partial",
   "minimum_sites": 3,
   "minimum_frontages": 5,
   "maximum_image_age_days": 1095,
@@ -16,5 +16,6 @@
   },
   "visual_method": "clip_pairs",
   "minimum_pairs": 1,
-  "maximum_pair_distance_m": 25
+  "maximum_pair_distance_m": 25,
+  "allow_partial_evidence": true
 }

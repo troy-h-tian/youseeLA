@@ -66,8 +66,37 @@ export interface Area {
   indicators: Indicator[];
   /** External benchmark classification (Urban Displacement Project); never a score input. */
   reference_typology?: ReferenceTypology | null;
+  /** Trained-model outputs: forecasts in current views, backtests in historical ones. */
+  predictions?: Prediction[];
   housing: Assessment;
   commercial: Assessment;
+}
+
+export interface PredictionFactor {
+  feature: string;
+  label: string;
+  /** Drop in probability if this feature were the county median; positive raises risk. */
+  effect: number;
+  value: number | null;
+  county_median: number | null;
+}
+
+export interface Prediction {
+  key: 'rent_pressure_5yr' | 'business_closure_5yr';
+  label: string;
+  model: string;
+  horizon: string;
+  kind: 'forecast' | 'backtest';
+  probability: number | null;
+  /** 0–1 rank among all LA County tracts. */
+  county_percentile: number | null;
+  tier: Tier | null;
+  accuracy: string;
+  basis: string;
+  factors: PredictionFactor[];
+  /** Business outlook by type: new_business, typical, established, county_typical probabilities. */
+  by_type: Record<string, Record<string, number>>;
+  outcome: string | null;
 }
 
 export interface ReferenceTypology {
@@ -109,6 +138,8 @@ export interface Assessment {
   evidence_ids: string[];
   config_version: string;
   coverage: Coverage;
+  /** What evidence a rated score rests on, e.g. Census only when images are missing. */
+  basis?: string | null;
 }
 
 export interface Contribution {

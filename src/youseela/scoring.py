@@ -28,6 +28,8 @@ class AssessmentConfig(Record):
     visual_method: Literal["reviewed_frontages", "clip_pairs"] = "reviewed_frontages"
     minimum_pairs: int = Field(default=1, ge=1)
     maximum_pair_distance_m: float = Field(default=25, gt=0)
+    # Rate areas without enough images from their Census terms alone, labeled as such, instead of leaving them unrated.
+    allow_partial_evidence: bool = False
     minimum_sites: int = Field(default=3, ge=1)
     minimum_frontages: int = Field(default=5, ge=1)
     maximum_image_age_days: int = Field(default=1095, ge=1)
@@ -47,6 +49,40 @@ def distance_m(a: Evidence, b: Evidence) -> float:
     dlat = lat2-lat1
     dlon = math.radians(b.longitude-a.longitude)
     return 6371000 * 2 * math.asin(min(1, math.sqrt(math.sin(dlat/2)**2 + math.cos(lat1)*math.cos(lat2)*math.sin(dlon/2)**2)))
+
+
+def census_only(mode: Mode, indicators: NumericalIndicators, config: AssessmentConfig, common: dict,
+                missing: list[str], image_term: str) -> Assessment | None:
+    """A rough score from rent burden and, when available, affordability change, with the image weight dropped.
+
+    Returns None when even the Census inputs are unusable, so the area stays unrated.
+    """
+    if indicators.rent_burden_share is None or not indicators.evidence_ids:
+        return None
+    weights = getattr(config, mode)
+    terms = [("rent_burden", "Existing housing affordability exposure", float(indicators.rent_burden_share), weights.burden,
+              "Share of rent-paying households spending at least 30% of income on rent; not evidence of gentrification alone.")]
+    if indicators.affordability_pressure is not None:
+        terms.append(("affordability_change", "Descriptive affordability-change proxy", float(indicators.affordability_pressure), weights.pressure,
+                      "Rent change relative to household-income change in compatible pooled Census estimates."))
+    total = sum(weight for *_, weight, _ in terms)
+    contributions = [Contribution(feature=key, label=label, value=value, weight=round(weight/total, 6), points=100*weight/total*value,
+                                  evidence_ids=indicators.evidence_ids, explanation=note) for key, label, value, weight, note in terms]
+    score = round(sum(c.points for c in contributions), 6)
+    score_range = None
+    bounds = indicators.affordability_pressure_range
+    if bounds and indicators.affordability_pressure is not None:
+        burden_points = contributions[0].points
+        share = contributions[1].weight
+        score_range = ScoreRange(lower=round(burden_points + 100*share*bounds.lower, 6), upper=round(burden_points + 100*share*bounds.upper, 6))
+    periods = " vs ".join(indicators.periods) if indicators.periods else "the stated ACS periods"
+    used = "rent burden and rent-vs-income change" if len(terms) == 2 else "rent burden only (rent-vs-income change unavailable)"
+    basis = (f"Rough score from Census data only: {used}, ACS {periods}. {image_term} is left out and the remaining weights are rescaled.")
+    warnings = [*common["warnings"], "Rough score: " + "; ".join(missing) + "."]
+    return Assessment(status="rated", score=score, score_range=score_range,
+                      tier="lower" if score < 33 else "moderate" if score < 67 else "higher",
+                      contributions=contributions, evidence_ids=sorted(indicators.evidence_ids), basis=basis,
+                      **{**common, "warnings": warnings})
 
 
 def assess(area_id: str, mode: Mode, indicators: NumericalIndicators,
@@ -120,6 +156,11 @@ def assess(area_id: str, mode: Mode, indicators: NumericalIndicators,
     if mode == "commercial":
         warnings.append("Housing indicators describe area context, not commercial rents or individual business finances.")
     common = dict(mode=mode, configuration_version=config.version, coverage=coverage, warnings=warnings)
+    census_ok = bool(indicators.evidence_ids) and all(ref in lookup and lookup[ref].kind == "census" for ref in indicators.evidence_ids)
+    if reasons and config.allow_partial_evidence and census_ok:
+        partial = census_only(mode, indicators, config, common, reasons, "No reviewed street-image evidence meets the coverage rules, so the image term")
+        if partial:
+            return partial
     if reasons:
         return Assessment(status="insufficient_evidence", reasons=reasons, **common)
     burden = float(indicators.rent_burden_share)
@@ -145,5 +186,5 @@ def assess(area_id: str, mode: Mode, indicators: NumericalIndicators,
         score_range = ScoreRange(lower=sensitivity(bounds.lower), upper=sensitivity(bounds.upper))
         warnings.append("Provisional point estimate. Sensitivity ranges omit uncertainty in rent burden, image sampling, and chosen weights; they are not confidence intervals.")
     return Assessment(status="rated", score=score, tier="lower" if score < 33 else "moderate" if score < 67 else "higher",
-                      score_range=score_range,
+                      score_range=score_range, basis=f"Census data and {len(sites)} reviewed street-image sites ({len(frontages)} frontages).",
                       contributions=contributions, evidence_ids=sorted(used_ids), **common)

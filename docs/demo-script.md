@@ -1,6 +1,6 @@
 # Demo script
 
-Lead with the **historical CLIP view**. It is the only view where scores combine Census data and images. The current view is honest about its gaps, but every tract there is unrated.
+Lead with the **trained model on the map**, then show the historical view's image-backed scores and backtest.
 
 ## Setup
 
@@ -9,42 +9,40 @@ npm --prefix web run build
 npm --prefix web run preview -- --host 127.0.0.1 --port 4175
 ```
 
-Open `http://127.0.0.1:4175/?data=clip`. If any data changed, rebuild it first with the commands in [clip-pipeline.md](clip-pipeline.md).
+Open `http://127.0.0.1:4175/`. If any data changed, rebuild it first (see [prediction-model.md](prediction-model.md)).
 
 ## Flow (about 5 minutes)
 
-1. **Frame it (historical view).** Read the banner: "Historical multimodal prototype · as of 2020-12-31." Say that this is a 2019–2020 look back, not a current prediction.
-2. **Business mode, tract 6014.01** (customers):
-   - Score **16.1/100**, sensitivity range 16.1–66.1.
-   - Open "Method and data limitations." With images zeroed, the score is 14.8, so **CLIP contributes 1.23 points**.
-   - Open the evidence drawer to show the two dated Mapillary photos with attribution.
-3. **Housing mode, tract 6009.11** (organizations):
-   - Score **38.6/100**, range 38.6–63.6, driven by **63.7% rent burden**.
-   - CLIP contributes **0.39 points**, because the photo pair barely differs. This shows that images influence the score without overriding the Census data.
-4. **Historical photo comparison** ("Explore a historical photo comparison →"). Show the paired-image model comparison: matching landmarks and no clear structural change. Stress that it is an unreviewed scene comparison, not a prediction.
-5. **Switch to "Current Census explorer"** for both journeys:
-   - **Customer:** pick an area with a listed business, open the business card, then "Visit website" or directions.
-   - **Organization:** Housing mode, compare two tracts, open evidence, then reach a tenant resource.
-   - Point out the **unrated** states. Missing images are never scored as zero.
-   - Open "Indicators" to show the Assessor, business-pattern and UDP context. It is labeled as not affecting the score.
-6. **Scale.** Use the slide claim from [clip-evaluation.md](clip-evaluation.md): 1,000 areas, a 155 ms median build and 149 ms export/validation, and all 30 runs valid.
+1. **The map (Explore today).** Tracts are colored by the **5-year outlook**: predicted rent pressure, from light (lower) to red (top of LA County). Say: "This model was trained on 2014→2019 and tested on 2019→2024, a period it never saw."
+2. **Housing support → a red tract** (for example Tract 6013.01):
+   - The Outlook card shows **Higher pressure**, its county rank, and the three main reasons in plain numbers.
+   - Open **How accurate is this?**: AUC 0.75, and 63% of top-10% flags were right versus 25% by chance.
+3. **Toggle the legend to "Today's score".** Every tract now has a current pressure score. Ones without street images say "Rough score from Census data only".
+4. **Support businesses → Dulan's Soul Food Kitchen:**
+   - Show the photo, website and directions.
+   - Scroll to **Business staying power**: the chance a new versus typical food business closes within five years.
+   - The message for customers: new businesses are the most fragile.
+5. **Historical analysis:**
+   - **Commercial example (16.1)** and **Housing example (38.6)** are the image-backed scores. Each panel shows exactly how many points the photos add.
+   - The **Model backtest** shows what the model predicted in 2019 and what actually happened, including its misses.
+6. **Scale.** Re-scoring every LA County tract takes milliseconds (9.5M predictions per second). The business model trained on more than 1M business-years in 2 seconds.
 
 ## Claims we can make
 
-- Scores combine Census and image features, and the ablation shows each one's exact contribution (1.23 and 0.39 points).
-- Every number traces to a dated, attributed source. Missing evidence shows as unrated, not zero.
-- We tested our own signals and report what failed. Assessor indicators did not separate UDP-gentrifying tracts countywide (AUC 0.54–0.59, n=100; [context-sources.md](context-sources.md)).
-- The pipeline scales to 1,000 areas with measured timings.
+- A predictive model tested on an unseen later period: **AUC 0.75, 2.5× lift** in its top 10%.
+- **It beats every simple rule**, including "help where rent burden is high" and the UDP displacement map. The intuitive rules actually point the wrong way.
+- **Business closure is hard to predict** (AUC 0.59–0.62). We show it honestly, by business type and age.
+- **We tested fairness and ablations.** Race features add nothing measurable, and the model is weakest in Black-majority tracts.
+- **Every score states its evidence:** Census-only, image-backed, or model forecast.
 
 ## Claims we must not make
 
-- Any accuracy or prediction claim. No outcome labels exist, and the image test only matched its baseline.
-- That a score means a tract *is* gentrifying, or anything about a specific business or household.
-- That CLIP difference means redevelopment. It also picks up lighting, season and framing.
+- That a tract *will* gentrify or that anyone will be displaced. The model predicts rent outpacing income, a pressure proxy.
+- Anything about a specific business closing.
+- That race or any single factor causes the outcome. Explanations are associations.
 
 ## Likely questions
 
-- **"How accurate is it?"** Unmeasured. We say so, and we show the ablation and sensitivity ranges instead. A real test needs an independently observed later outcome.
-- **"Why so few rated areas?"** Usable before/after photos are scarce. Our targeted search at a 226-parcel development built 2020–2023 found no Mapillary coverage within 250 m ([temporal-imagery-search.md](temporal-imagery-search.md)).
-- **"Why is the image contribution so small?"** The weights are provisional assumptions (15–20% visual), and the available pairs show little change. More image weight does not always raise the score; see the sensitivity table in clip-evaluation.md.
-- **"Why not Google Street View?"** Its terms restrict derived analysis and model evaluation. Mapillary is CC BY-SA.
+- **"Why logistic regression?"** It generalized better on the unseen period and is explainable. We disclose that we picked it after seeing test results.
+- **"Why are the street images such a small part?"** Usable before/after photos are scarce: no Mapillary coverage within 250 m of a 226-unit development built 2020–2023. Images enter where they exist, with an ablation showing exactly how much they move the score.
+- **"Why not Google Street View?"** Its terms restrict derived analysis. Mapillary is CC BY-SA.

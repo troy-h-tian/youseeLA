@@ -243,3 +243,44 @@
   .city-results { max-height: calc(100dvh - 235px); }
   .city-intro:has(.historical-examples) { left: auto; right: 24px; bottom: 90px; width: 235px; }
 }
+
+/* Map lens and model outlook */
+.lens-switch { display: flex; padding: 3px; gap: 3px; margin-bottom: 4px; border: 1px solid var(--border); border-radius: 9px; background: var(--surface-2); }
+.lens-switch button { flex: 1; padding: 6px 8px; border: 0; border-radius: 7px; background: transparent; font: inherit; font-size: 10px; color: var(--muted); cursor: pointer; white-space: nowrap; }
+.lens-switch button[aria-pressed='true'] { background: #e7eee5; color: #294f3e; font-weight: 600; }
+.lens-switch button:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
+.city-legend:has(.lens-legend) { max-width: none; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.lens-legend { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.lens-legend .lens-switch { margin: 0; }
+.lens-key { display: grid; gap: 3px; }
+.lens-key strong { font-size: 10px; font-weight: 600; color: var(--text); }
+.lens-scale { display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+.lens-ramp { display: block; width: 110px; height: 8px; border-radius: 4px; }
+.lens-none { display: inline-flex; align-items: center; gap: 4px; margin-left: 8px; }
+.legend-swatch { display: inline-block; width: 10px; height: 10px; border-radius: 3px; }
+.legend-business { display: inline-flex; align-items: center; gap: 6px; }
+.outlook-card { margin: 18px 0 6px; padding: 16px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
+.outlook-card h3 { font-size: 15px; font-weight: 600; margin: 6px 0 12px; }
+.outlook-headline { display: flex; align-items: center; gap: 12px; }
+.outlook-swatch { flex: none; width: 34px; height: 34px; border-radius: 9px; box-shadow: inset 0 0 0 1px #0000001a; }
+.outlook-headline strong { display: block; font-size: 18px; }
+.outlook-headline small { display: block; font-size: 10px; color: var(--muted); line-height: 1.6; margin-top: 2px; }
+.outlook-outcome { margin: 12px 0 0; padding: 10px 12px; border-radius: 9px; background: var(--warn-bg); font-size: 11px; line-height: 1.6; }
+.outlook-subhead { margin: 16px 0 6px; font-size: 11px; font-weight: 600; }
+.outlook-factors { list-style: none; margin: 0; padding: 0; }
+.outlook-factors li { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 11px; line-height: 1.5; }
+.outlook-factors small { flex: none; font-variant-numeric: tabular-nums; color: #8a3a2d; font-weight: 600; }
+.outlook-details { margin-top: 12px; font-size: 10px; line-height: 1.7; color: #526656; }
+.outlook-details summary { cursor: pointer; font-weight: 600; color: var(--text); }
+.business-outlook { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border); }
+.business-outlook table { width: 100%; border-collapse: collapse; font-size: 11px; font-variant-numeric: tabular-nums; margin-top: 8px; }
+.business-outlook th, .business-outlook td { text-align: right; padding: 7px 4px; border-bottom: 1px solid var(--border); }
+.business-outlook th:first-child, .business-outlook th[scope='row'] { text-align: left; }
+.business-outlook thead th { font-weight: 500; color: var(--muted); font-size: 10px; }
+.outlook-tip { margin: 10px 0 0; font-size: 11px; line-height: 1.6; color: #294f3e; }
+
+@media (max-width: 760px) {
+  /* Space is tight on phones: the outlook key matters more than the marker note. */
+  .legend-business { display: none; }
+  .lens-ramp { width: 80px; }
+}

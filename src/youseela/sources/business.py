@@ -18,8 +18,10 @@ TOTAL = "------"
 
 
 def zbp_url(year: int) -> str:
-    if not 2017 <= year <= 2100:
-        raise ValueError("ZIP Business Patterns years from 2017 use the supported NAICS 2017 layout")
+    # The four amenity codes are unchanged across the NAICS 2012 and 2017 editions, and the
+    # zip/naics/est columns are the same in every detail file since 2012.
+    if not 2012 <= year <= 2100:
+        raise ValueError("ZIP Business Patterns detail files from 2012 onward are supported")
     return f"https://www2.census.gov/programs-surveys/cbp/datasets/{year}/zbp{year % 100:02d}detail.zip"
 
 

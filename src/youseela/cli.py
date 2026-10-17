@@ -46,6 +46,8 @@ def parser() -> argparse.ArgumentParser:
     build.add_argument("--as-of", type=date.fromisoformat, default=date.today())
     build.add_argument("--context", type=Path, default=Path("data/curated/context.json"),
                        help="Unscored neighborhood-change context to attach when the file exists")
+    build.add_argument("--tract-predictions", type=Path, default=Path("data/curated/predictions-tract.json"))
+    build.add_argument("--business-predictions", type=Path, default=Path("data/curated/predictions-business.json"))
     context = sub.add_parser("context", help="Derive assessor, business-pattern and UDP benchmark context per tract")
     context.add_argument("--geography", type=Path, default=Path("data/curated/areas.geojson"))
     context.add_argument("--raw", type=Path, default=Path("data/raw/context"))
@@ -117,6 +119,10 @@ def run(args: argparse.Namespace) -> None:
             from youseela.context import ContextFile, attach
             dataset = attach(dataset, ContextFile.model_validate_json(args.context.read_text()), args.as_of)
             print(f"Attached unscored context from {args.context}")
+        if args.tract_predictions.exists() or args.business_predictions.exists():
+            from youseela.prediction.attach import attach_predictions
+            dataset = attach_predictions(dataset, args.as_of, args.tract_predictions, args.business_predictions)
+            print(f"Attached model predictions to {sum(1 for a in dataset.areas if a.predictions)} areas")
         bundle = build_bundle(dataset, load_config(args.config), args.as_of)
         write_bundle(bundle, args.output)
         rated = sum(a.housing.status == "rated" for a in bundle.areas) + sum(a.commercial.status == "rated" for a in bundle.areas)

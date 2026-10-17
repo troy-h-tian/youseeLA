@@ -50,14 +50,25 @@ def comparable_boundaries(shift: dict[str, Any], max_shift_m: float = 5, max_are
     return shift["max_shift_m"] <= max_shift_m and shift["area_difference_share"] <= max_area_share
 
 
+def tract_layer(year: int, client: httpx.Client) -> int:
+    """The tract layer's number differs between ACS vintages of TIGERweb, so look it up by name."""
+    response = client.get(f"{BASE}/tigerWMS_ACS{year}/MapServer", params={"f": "json"})
+    response.raise_for_status()
+    layers = [layer["id"] for layer in response.json().get("layers", []) if layer["name"] == "Census Tracts"]
+    if not layers:
+        raise ValueError(f"No Census Tracts layer in the ACS {year} TIGERweb service")
+    return layers[0]
+
+
 def compare_vintages(geoids: list[str], earlier_year: int, later_year: int,
                      client: httpx.Client | None = None) -> dict[str, Any]:
     owned = client is None
     client = client or httpx.Client(timeout=60)
     try:
         where = "GEOID IN (" + ",".join(f"'{g}'" for g in geoids) + ")"
+        layers = {year: tract_layer(year, client) for year in (earlier_year, later_year)}
         shapes = {year: {str(f["properties"]["GEOID"]): f["geometry"]
-                         for f in query_layer(f"tigerWMS_ACS{year}", 8, where, client)["features"]}
+                         for f in query_layer(f"tigerWMS_ACS{year}", layers[year], where, client)["features"]}
                   for year in (earlier_year, later_year)}
     finally:
         if owned:
@@ -70,7 +81,7 @@ def compare_vintages(geoids: list[str], earlier_year: int, later_year: int,
         shift = boundary_shift(shapes[earlier_year][geoid], shapes[later_year][geoid])
         tracts[geoid] = {**{k: round(v, 6) if isinstance(v, float) else v for k, v in shift.items()},
                          "comparable": comparable_boundaries(shift)}
-    return {"sources": [f"{BASE}/tigerWMS_ACS{year}/MapServer/8" for year in (earlier_year, later_year)],
+    return {"sources": [f"{BASE}/tigerWMS_ACS{year}/MapServer/{layers[year]}" for year in (earlier_year, later_year)],
             "rule": "Comparable when the maximum boundary shift is at most 5 m and the area difference is at most 0.1%.",
             "tracts": tracts}
 

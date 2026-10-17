@@ -12,21 +12,31 @@ const select = () => {
 };
 const real = (): Bundle => JSON.parse(readFileSync('public/data/demo.json', 'utf8')) as Bundle;
 
-it('leads with measured Census context when every combined score is unavailable', () => {
+it('labels rough scores with their Census-only basis and shows the model outlook', () => {
   render(<Explorer bundle={real()} />);
   select();
   const context = screen.getByRole('region', { name: 'Census housing context' });
   expect(within(context).getByText('2020–2024')).toBeVisible();
   expect(within(context).getByText(/rent burden/i)).toBeVisible();
-  expect(screen.getByText('Combined assessment pending')).toBeVisible();
-  expect(screen.queryByRole('heading', { name: 'Rated areas (0)' })).not.toBeInTheDocument();
-  expect(screen.queryByRole('table', { name: 'Score contributions' })).not.toBeInTheDocument();
+  expect(screen.getByText(/Today’s pressure score: \d+\.\d \/ 100/)).toBeVisible();
+  expect(screen.getByText(/Rough score from Census data only/)).toBeVisible();
+  const outlook = screen.getByRole('region', { name: 'Five-year outlook' });
+  expect(within(outlook).getByText('Will rents outpace incomes?')).toBeVisible();
+  expect(within(outlook).getByText(/of LA County tracts/)).toBeVisible();
+  expect(within(outlook).getByRole('table')).toHaveTextContent('Food & drink');
   expect(screen.getByText(/not a business rating/)).toBeVisible();
 });
 
 it('does not display missing Census values as zero or erase missing model inputs', () => {
   const bundle = real();
-  for (const area of bundle.areas) for (const indicator of area.indicators) indicator.value = null;
+  for (const area of bundle.areas) {
+    for (const indicator of area.indicators) indicator.value = null;
+    // Without Census inputs even the rough score is unavailable.
+    for (const kind of ['housing', 'commercial'] as const) {
+      Object.assign(area[kind], { status: 'insufficient_evidence', score: null, tier: null, score_range: null, basis: null,
+        contributions: [], unrated_reason: 'Rent-burden data is missing or invalid' });
+    }
+  }
   render(<Explorer bundle={bundle} />);
   select();
   fireEvent.click(screen.getByRole('tab', { name: 'Evidence' }));

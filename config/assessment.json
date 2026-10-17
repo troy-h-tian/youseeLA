@@ -1,5 +1,5 @@
 {
-  "version": "experimental-v2-sensitivity",
+  "version": "experimental-v2-sensitivity-partial",
   "minimum_sites": 3,
   "minimum_frontages": 5,
   "maximum_image_age_days": 1095,
@@ -13,5 +13,6 @@
     "burden": 0.3,
     "pressure": 0.5,
     "visual_interaction": 0.2
-  }
+  },
+  "allow_partial_evidence": true
 }

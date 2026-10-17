@@ -6,6 +6,8 @@ import { BusinessPhoto } from './BusinessPhoto';
 import { ModeSwitch } from './ModeSwitch';
 import { AssessmentPanel } from './AssessmentPanel';
 import { NeighborhoodSummary } from './NeighborhoodSummary';
+import { OutlookCard } from './OutlookCard';
+import { rampColor, UNRATED_COLOR, type Lens } from '../lib/outlook';
 import { NumericalContext } from './NumericalContext';
 import { EvidenceDrawer } from './EvidenceDrawer';
 import { HistoricalComparison } from './HistoricalComparison';
@@ -20,6 +22,7 @@ type DetailTab = 'overview' | 'assessment' | 'support';
 
 export function CityExplorer({ bundle }: { bundle: Bundle }) {
   const [mode, setMode] = useState<Mode>('business');
+  const [lens, setLens] = useState<Lens>('outlook');
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [businessId, setBusinessId] = useState<string | null>(null);
   const [query, setQuery] = useState('');
@@ -62,7 +65,7 @@ export function CityExplorer({ bundle }: { bundle: Bundle }) {
   const showResults = browsing || query.length > 0;
 
   return <main className="city-explorer">
-    <CityMap areas={bundle.areas} businesses={bundle.businesses} mode={mode} selectedId={selectedId} selectedBusinessId={businessId} onSelect={selectArea} />
+    <CityMap areas={bundle.areas} businesses={bundle.businesses} mode={mode} lens={lens} kind={kind} selectedId={selectedId} selectedBusinessId={businessId} onSelect={selectArea} />
     <header className="city-header">
       <a className="city-brand" href="?data=demo" aria-label="youseeLA home"><span className="brand-symbol" aria-hidden="true">y.</span><span>yousee<span className="brand-la">LA</span><small>A closer look at your city.</small></span></a>
       <div className="city-location"><span className="location-dot" /> INGLEWOOD, CA</div>
@@ -97,7 +100,10 @@ export function CityExplorer({ bundle }: { bundle: Bundle }) {
         <p>{bundle.areas.length === 0 ? 'This bundle contains no areas yet.' : historical ? 'Census data and dated photos. Experimental scores, not current risk.' : mode === 'business' ? 'Discover local places and the neighborhoods around them.' : 'Explore housing conditions, one neighborhood at a time.'}</p>
         {historical && <div className="historical-examples" aria-label="Scored historical examples">
           {(['business', 'housing'] as const).flatMap(exampleMode => {
-            const example = bundle.areas.find(item => item[ASSESSMENT_FOR_MODE[exampleMode]].status === 'rated');
+            // Showcase image-backed scores first; Census-only rough scores are the fallback.
+            const rated = (item: typeof bundle.areas[number]) => item[ASSESSMENT_FOR_MODE[exampleMode]].status === 'rated';
+            const example = bundle.areas.find(item => rated(item) && !item[ASSESSMENT_FOR_MODE[exampleMode]].basis?.startsWith('Rough'))
+              ?? bundle.areas.find(rated);
             return example ? [<button key={exampleMode} onClick={() => { changeMode(exampleMode); selectArea(example.id); }}>
               <span>{exampleMode === 'business' ? 'Commercial' : 'Housing'} example<small>{shortArea(example)}</small></span><span aria-hidden="true">↗</span>
             </button>] : [];
@@ -120,7 +126,8 @@ export function CityExplorer({ bundle }: { bundle: Bundle }) {
             {business && <><BusinessPhoto businessId={business.id} name={business.name} /><p className="place-description">{business.description}</p><div className="place-actions">{business.website_url && <a href={business.website_url} target="_blank" rel="noopener noreferrer">Visit website <span aria-hidden="true">↗</span></a>}<a href={directionsUrl(business)} target="_blank" rel="noopener noreferrer">Directions <span aria-hidden="true">↗</span></a></div><a className="listing-source" href={business.source_url} target="_blank" rel="noopener noreferrer">Listing source · verified {business.verified_at}</a></>}
             <div className="tract-label"><span>◇</span><div><strong>{shortArea(area)}</strong><small>Outlined on the map · area context, not a business rating</small></div></div>
             <NumericalContext area={area} />
-            <p className="assessment-status"><span className="location-dot" />{area[kind].status === 'rated' ? `Experimental area score: ${area[kind].score?.toFixed(1)} / 100${area[kind].score_range ? ' · provisional' : ''}` : 'Combined assessment pending'}<small>{area[kind].status === 'rated' ? 'An exploratory index, not a probability. See Evidence for limitations.' : 'Available housing facts are shown above. Missing evidence is not low risk.'}</small></p>
+            <OutlookCard area={area} mode={mode} />
+            <p className="assessment-status"><span className="location-dot" />{area[kind].status === 'rated' ? `Today’s pressure score: ${area[kind].score?.toFixed(1)} / 100${area[kind].score_range ? ` · range ${area[kind].score_range!.lower.toFixed(0)}–${area[kind].score_range!.upper.toFixed(0)}` : ''}` : 'Pressure score unavailable'}<small>{area[kind].status === 'rated' ? (area[kind].basis ?? 'An exploratory index, not a probability. See Evidence for limitations.') : 'Available housing facts are shown above. Missing evidence is not low risk.'}</small></p>
             {area[kind].status !== 'rated' && <div className="missing-summary">
               <h3>Why there’s no score yet</h3>
               <p>{area[kind].unrated_reason ?? 'There is not enough compatible evidence to calculate an assessment.'}</p>
@@ -135,7 +142,20 @@ export function CityExplorer({ bundle }: { bundle: Bundle }) {
       </section>}
     </div>
 
-    <footer className="city-footer"><div className="city-legend"><span className={`legend-dot ${businessMarkers ? 'legend-dot--business' : ''}`} />{businessMarkers ? 'Local business · not a risk rating' : 'Tract marker · gray means unrated / provisional'}{!businessMarkers && <span className="tier-key">Green: lower · amber: moderate · red: higher experimental tier</span>}</div></footer>
+    <footer className="city-footer"><div className="city-legend">
+      {businessMarkers && <span className="legend-business"><span className="legend-dot legend-dot--business" />Local business · not a risk rating</span>}
+      <span className="lens-legend" aria-label="Map color key">
+        <span className="lens-switch" role="group" aria-label="Color the map by">
+          <button aria-pressed={lens === 'outlook'} onClick={() => setLens('outlook')}>{historical ? 'Model backtest' : '5-year outlook'}</button>
+          <button aria-pressed={lens === 'today'} onClick={() => setLens('today')}>Today’s score</button>
+        </span>
+        <span className="lens-key">
+          <strong>{lens === 'outlook' ? (historical ? 'Predicted in 2019: rent pressure' : 'Predicted rent pressure, next 5 years') : 'Today’s pressure score'}</strong>
+          <span className="lens-scale"><span>Lower</span><span className="lens-ramp" style={{ background: `linear-gradient(90deg, ${rampColor(0)}, ${rampColor(.5)}, ${rampColor(.75)}, ${rampColor(1)})` }} aria-hidden="true" /><span>{lens === 'outlook' ? 'Top of LA County' : 'Higher'}</span>
+            <span className="lens-none"><span className="legend-swatch" style={{ background: UNRATED_COLOR }} />No score</span></span>
+        </span>
+      </span>
+    </div></footer>
     {area && <EvidenceDrawer open={evidenceOpen} onClose={() => setEvidenceOpen(false)} area={area} kind={kind} evidence={bundle.evidence} />}
     <dialog ref={photoDialog} className="street-dialog" onCancel={() => setPhotosOpen(false)} onClose={() => setPhotosOpen(false)} aria-label="Historical street stories"><button className="street-close" onClick={() => setPhotosOpen(false)}>Close stories ×</button>{photosOpen && <HistoricalComparison />}</dialog>
   </main>;

@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import type { Map as LibreMap, Marker as LibreMarker, GeoJSONSource } from 'maplibre-gl';
-import type { Area, Business, Mode } from '../data/types';
-import { areaCenter, assessmentColor, shortArea } from '../lib/city';
+import type { Area, AssessmentKind, Business, Mode } from '../data/types';
+import { areaCenter, shortArea } from '../lib/city';
+import { lensColor, lensValue, type Lens } from '../lib/outlook';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
 
@@ -9,6 +10,8 @@ interface Props {
   areas: Area[];
   businesses: Business[];
   mode: Mode;
+  lens: Lens;
+  kind: AssessmentKind;
   selectedId: string | null;
   selectedBusinessId: string | null;
   onSelect: (areaId: string, businessId?: string) => void;
@@ -51,6 +54,16 @@ export function CityMap(props: Props) {
               'fill-extrusion-height': ['coalesce', ['get', 'render_height'], 3],
               'fill-extrusion-base': ['coalesce', ['get', 'render_min_height'], 0],
               'fill-extrusion-opacity': 0.9 } }, label);
+          // Every tract is filled by the active lens (outlook or today) so priority areas stand out at a glance.
+          map.addSource('area-lens', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
+          map.addLayer({ id: 'area-lens-fill', type: 'fill', source: 'area-lens', paint: { 'fill-color': ['get', 'color'], 'fill-opacity': 0.42 } }, 'city-buildings');
+          map.addLayer({ id: 'area-lens-line', type: 'line', source: 'area-lens', paint: { 'line-color': '#ffffff', 'line-width': 1, 'line-opacity': 0.8 } });
+          map.on('click', 'area-lens-fill', (event) => {
+            const id = event.features?.[0]?.properties?.id;
+            if (typeof id === 'string') latest.current.onSelect(id);
+          });
+          map.on('mouseenter', 'area-lens-fill', () => { map!.getCanvas().style.cursor = 'pointer'; });
+          map.on('mouseleave', 'area-lens-fill', () => { map!.getCanvas().style.cursor = ''; });
           map.addSource('selected-area', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
           map.addLayer({ id: 'selected-area-fill', type: 'fill', source: 'selected-area', paint: { 'fill-color': '#46766b', 'fill-opacity': 0.065 } }, 'city-buildings');
           map.addLayer({ id: 'selected-area-line', type: 'line', source: 'selected-area', paint: { 'line-color': '#397965', 'line-width': 2, 'line-dasharray': [3, 2] } });
@@ -76,7 +89,7 @@ export function CityMap(props: Props) {
       if (disposed) return;
       const locations = props.mode === 'business' && props.businesses.length > 0
         ? props.businesses.map(b => ({ id: b.area_id, businessId: b.id, label: b.name, coordinates: [b.location.lon, b.location.lat] as [number, number], color: '#397965' }))
-        : props.areas.map(a => ({ id: a.id, businessId: undefined, label: shortArea(a), coordinates: areaCenter(a.boundary), color: assessmentColor(props.mode === 'housing' ? a.housing : a.commercial) }));
+        : props.areas.map(a => ({ id: a.id, businessId: undefined, label: shortArea(a), coordinates: areaCenter(a.boundary), color: lensColor(a, props.lens, props.kind) }));
       for (const item of locations) {
         const button = document.createElement('button');
         button.type = 'button';
@@ -93,7 +106,15 @@ export function CityMap(props: Props) {
       }
     });
     return () => { disposed = true; markers.forEach(m => m.remove()); };
-  }, [ready, props.areas, props.businesses, props.mode, props.selectedId, props.selectedBusinessId]);
+  }, [ready, props.areas, props.businesses, props.mode, props.lens, props.kind, props.selectedId, props.selectedBusinessId]);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!ready || !map) return;
+    (map.getSource('area-lens') as GeoJSONSource).setData({ type: 'FeatureCollection', features: props.areas.map(a => ({
+      type: 'Feature', geometry: a.boundary,
+      properties: { id: a.id, color: lensColor(a, props.lens, props.kind), value: lensValue(a, props.lens, props.kind) } })) });
+  }, [ready, props.areas, props.lens, props.kind]);
 
   useEffect(() => {
     const map = mapRef.current;

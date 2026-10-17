@@ -147,6 +147,7 @@ class Assessment(Record):
     evidence_ids: list[str] = Field(default_factory=list)
     configuration_version: str = "experimental-v1"
     coverage: Coverage = Field(default_factory=Coverage)
+    basis: str | None = None  # Plain-language statement of the evidence a rated score rests on.
 
     @model_validator(mode="after")
     def coherent_status(self) -> "Assessment":
@@ -190,6 +191,32 @@ class ReferenceTypology(Record):
     evidence_id: str = Field(min_length=1)
 
 
+class PredictionFactor(Record):
+    """One reason behind a prediction: how much the probability falls if this feature were the county median."""
+    feature: str
+    label: str
+    effect: float = Field(allow_inf_nan=False)
+    value: float | None = Field(default=None, allow_inf_nan=False)
+    county_median: float | None = Field(default=None, allow_inf_nan=False)
+
+
+class Prediction(Record):
+    """A trained model's output for an area. Separate from the hand-weighted assessment."""
+    key: Literal["rent_pressure_5yr", "business_closure_5yr"]
+    label: str = Field(min_length=1)
+    model: str = Field(min_length=1)
+    horizon: str = Field(min_length=1)
+    kind: Literal["forecast", "backtest"] = "forecast"
+    probability: UnitValue | None = None
+    county_percentile: UnitValue | None = None
+    tier: Literal["lower", "moderate", "higher"] | None = None
+    accuracy: str = Field(min_length=1)
+    basis: str = Field(min_length=1)
+    factors: list[PredictionFactor] = Field(default_factory=list)
+    by_type: dict[str, dict[str, float]] = Field(default_factory=dict)
+    outcome: str | None = None  # Backtests only: what actually happened.
+
+
 class AreaInput(Record):
     id: str
     name: str
@@ -199,6 +226,7 @@ class AreaInput(Record):
     boundary_vintage: str | None = None
     context: list[ContextIndicator] = Field(default_factory=list)
     reference_typology: ReferenceTypology | None = None
+    predictions: list[Prediction] = Field(default_factory=list)
 
     @field_validator("boundary_source_url")
     @classmethod

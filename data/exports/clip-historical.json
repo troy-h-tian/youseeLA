@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-10-17T20:23:05.837698Z",
+  "generated_at": "2026-10-17T21:33:18.735113Z",
   "assessed_as_of": "2020-12-31",
   "data_kind": "real",
   "methodology": {
@@ -8,10 +8,11 @@
     "validated_prediction": false,
     "score_is_probability": false,
     "configuration": {
-      "version": "experimental-clip-v1",
+      "version": "experimental-clip-v1-partial",
       "visual_method": "clip_pairs",
       "minimum_pairs": 1,
       "maximum_pair_distance_m": 25.0,
+      "allow_partial_evidence": true,
       "minimum_sites": 3,
       "minimum_frontages": 5,
       "maximum_image_age_days": 1095,
@@ -392,6 +393,45 @@
         "source_tract": "06037600911",
         "evidence_id": "udp-2018-06037600911"
       },
+      "predictions": [
+        {
+          "key": "rent_pressure_5yr",
+          "label": "Rents outpacing incomes over five years",
+          "model": "tract-rent-pressure-v1",
+          "horizon": "ACS 2015–2019 → 2020–2024",
+          "kind": "backtest",
+          "probability": 0.2119,
+          "county_percentile": 0.3591,
+          "tier": "lower",
+          "accuracy": "Tested on 2019→2024 outcomes it never saw: AUC 0.75. Of the tracts it ranked in the top 10%, 63% truly had top-quarter rent pressure (vs 25% by chance).",
+          "basis": "LA County Census tracts: ACS income, rent, rent burden, housing, education, employment, race and ethnicity, previous-period rent and income trends, and ZIP Business Patterns amenity counts.",
+          "factors": [
+            {
+              "feature": "amenity_share",
+              "label": "Amenity share of all establishments (ZIP)",
+              "effect": 0.0333,
+              "value": 0.0197,
+              "county_median": 0.055
+            },
+            {
+              "feature": "black_share",
+              "label": "Black (non-Hispanic) share",
+              "effect": 0.0201,
+              "value": 0.3334,
+              "county_median": 0.0345
+            },
+            {
+              "feature": "rent_vs_county",
+              "label": "Median rent relative to county",
+              "effect": 0.0199,
+              "value": 0.9411,
+              "county_median": 0.988
+            }
+          ],
+          "by_type": {},
+          "outcome": "What happened: rent growth minus income growth was +32% by 2020–2024, so this tract did reach the county's top quarter."
+        }
+      ],
       "housing": {
         "mode": "housing",
         "status": "rated",
@@ -456,7 +496,7 @@
           "mapillary-1608297156034468",
           "mapillary-3357423691026871"
         ],
-        "configuration_version": "experimental-clip-v1",
+        "configuration_version": "experimental-clip-v1-partial",
         "coverage": {
           "images": 2,
           "sites": 1,
@@ -464,17 +504,20 @@
           "redevelopment_frontages": 0,
           "earliest_capture": "2019-12-18",
           "latest_capture": "2020-02-10"
-        }
+        },
+        "basis": "Census data and CLIP difference across 1 dated photo pair(s)."
       },
       "commercial": {
         "mode": "commercial",
-        "status": "insufficient_evidence",
-        "score": null,
-        "score_range": null,
-        "tier": null,
-        "reasons": [
-          "Need 1 distinct dated commercial CLIP image pair(s)"
-        ],
+        "status": "rated",
+        "score": 23.875661,
+        "score_range": {
+          "lower": 23.875661,
+          "upper": 86.375661,
+          "explanation": "Sensitivity to rent/income estimates within reported margins of error; not a confidence interval. Rent burden, imagery, and weights are held fixed."
+        },
+        "tier": "lower",
+        "reasons": [],
         "warnings": [
           "Affordability-change direction is uncertain; use the sensitivity range, not the point estimate alone",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
@@ -482,11 +525,40 @@
           "Experimental CLIP + Census index; untrained fusion weights, not a validated prediction or probability.",
           "Visual difference can reflect viewpoint, lighting, vegetation or vehicles; it does not establish redevelopment or its direction.",
           "0 sampled image pair(s); not a representative survey. No human change labels were used.",
-          "Zero-visual ablation holds numerical weights fixed; the separate numerical-only baseline renormalizes them."
+          "Zero-visual ablation holds numerical weights fixed; the separate numerical-only baseline renormalizes them.",
+          "Rough score: Need 1 distinct dated commercial CLIP image pair(s)."
         ],
-        "contributions": [],
-        "evidence_ids": [],
-        "configuration_version": "experimental-clip-v1",
+        "contributions": [
+          {
+            "feature": "rent_burden",
+            "label": "Existing housing affordability exposure",
+            "value": 0.63668430335097,
+            "weight": 0.375,
+            "points": 23.875661375661377,
+            "evidence_ids": [
+              "acs-2019-06037600911",
+              "acs-2014-06037600911"
+            ],
+            "explanation": "Share of rent-paying households spending at least 30% of income on rent; not evidence of gentrification alone."
+          },
+          {
+            "feature": "affordability_change",
+            "label": "Descriptive affordability-change proxy",
+            "value": 0.0,
+            "weight": 0.625,
+            "points": 0.0,
+            "evidence_ids": [
+              "acs-2019-06037600911",
+              "acs-2014-06037600911"
+            ],
+            "explanation": "Rent change relative to household-income change in compatible pooled Census estimates."
+          }
+        ],
+        "evidence_ids": [
+          "acs-2014-06037600911",
+          "acs-2019-06037600911"
+        ],
+        "configuration_version": "experimental-clip-v1-partial",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -494,7 +566,8 @@
           "redevelopment_frontages": 0,
           "earliest_capture": null,
           "latest_capture": null
-        }
+        },
+        "basis": "Rough score from Census data only: rent burden and rent-vs-income change, ACS 2010–2014 vs 2015–2019. No dated commercial photo pair is available, so the CLIP image term is left out and the remaining weights are rescaled."
       }
     },
     {
@@ -1084,26 +1157,96 @@
         "source_tract": "06037601401",
         "evidence_id": "udp-2018-06037601401"
       },
+      "predictions": [
+        {
+          "key": "rent_pressure_5yr",
+          "label": "Rents outpacing incomes over five years",
+          "model": "tract-rent-pressure-v1",
+          "horizon": "ACS 2015–2019 → 2020–2024",
+          "kind": "backtest",
+          "probability": 0.3206,
+          "county_percentile": 0.6457,
+          "tier": "moderate",
+          "accuracy": "Tested on 2019→2024 outcomes it never saw: AUC 0.75. Of the tracts it ranked in the top 10%, 63% truly had top-quarter rent pressure (vs 25% by chance).",
+          "basis": "LA County Census tracts: ACS income, rent, rent burden, housing, education, employment, race and ethnicity, previous-period rent and income trends, and ZIP Business Patterns amenity counts.",
+          "factors": [
+            {
+              "feature": "rent_vs_county",
+              "label": "Median rent relative to county",
+              "effect": 0.0817,
+              "value": 0.8336,
+              "county_median": 0.988
+            },
+            {
+              "feature": "pressure_prior",
+              "label": "Rent growth minus income growth, previous period",
+              "effect": 0.0497,
+              "value": -0.1174,
+              "county_median": -0.0433
+            },
+            {
+              "feature": "median_year_built",
+              "label": "Median year housing was built",
+              "effect": 0.0284,
+              "value": 1974.0,
+              "county_median": 1960.0
+            }
+          ],
+          "by_type": {},
+          "outcome": "What happened: rent growth minus income growth was +10% by 2020–2024, so this tract did not reach the county's top quarter."
+        }
+      ],
       "housing": {
         "mode": "housing",
-        "status": "insufficient_evidence",
-        "score": null,
-        "score_range": null,
-        "tier": null,
-        "reasons": [
-          "Need 1 distinct dated housing CLIP image pair(s)"
-        ],
+        "status": "rated",
+        "score": 34.889103,
+        "score_range": {
+          "lower": 34.889103,
+          "upper": 64.300903,
+          "explanation": "Sensitivity to rent/income estimates within reported margins of error; not a confidence interval. Rent burden, imagery, and weights are held fixed."
+        },
+        "tier": "moderate",
+        "reasons": [],
         "warnings": [
           "Affordability-change direction is uncertain; use the sensitivity range, not the point estimate alone",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
           "Experimental CLIP + Census index; untrained fusion weights, not a validated prediction or probability.",
           "Visual difference can reflect viewpoint, lighting, vegetation or vehicles; it does not establish redevelopment or its direction.",
           "0 sampled image pair(s); not a representative survey. No human change labels were used.",
-          "Zero-visual ablation holds numerical weights fixed; the separate numerical-only baseline renormalizes them."
+          "Zero-visual ablation holds numerical weights fixed; the separate numerical-only baseline renormalizes them.",
+          "Rough score: Need 1 distinct dated housing CLIP image pair(s)."
         ],
-        "contributions": [],
-        "evidence_ids": [],
-        "configuration_version": "experimental-clip-v1",
+        "contributions": [
+          {
+            "feature": "rent_burden",
+            "label": "Existing housing affordability exposure",
+            "value": 0.49426229508196723,
+            "weight": 0.705882,
+            "points": 34.88910318225651,
+            "evidence_ids": [
+              "acs-2019-06037601401",
+              "acs-2014-06037601401"
+            ],
+            "explanation": "Share of rent-paying households spending at least 30% of income on rent; not evidence of gentrification alone."
+          },
+          {
+            "feature": "affordability_change",
+            "label": "Descriptive affordability-change proxy",
+            "value": 0.0,
+            "weight": 0.294118,
+            "points": 0.0,
+            "evidence_ids": [
+              "acs-2019-06037601401",
+              "acs-2014-06037601401"
+            ],
+            "explanation": "Rent change relative to household-income change in compatible pooled Census estimates."
+          }
+        ],
+        "evidence_ids": [
+          "acs-2014-06037601401",
+          "acs-2019-06037601401"
+        ],
+        "configuration_version": "experimental-clip-v1-partial",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -1111,7 +1254,8 @@
           "redevelopment_frontages": 0,
           "earliest_capture": null,
           "latest_capture": null
-        }
+        },
+        "basis": "Rough score from Census data only: rent burden and rent-vs-income change, ACS 2010–2014 vs 2015–2019. No dated housing photo pair is available, so the CLIP image term is left out and the remaining weights are rescaled."
       },
       "commercial": {
         "mode": "commercial",
@@ -1176,7 +1320,7 @@
           "mapillary-3672049312922199",
           "mapillary-795759134379829"
         ],
-        "configuration_version": "experimental-clip-v1",
+        "configuration_version": "experimental-clip-v1-partial",
         "coverage": {
           "images": 2,
           "sites": 1,
@@ -1184,7 +1328,8 @@
           "redevelopment_frontages": 0,
           "earliest_capture": "2019-05-20",
           "latest_capture": "2020-01-09"
-        }
+        },
+        "basis": "Census data and CLIP difference across 1 dated photo pair(s)."
       }
     }
   ],

@@ -22,7 +22,7 @@ def web_assessment(assessment: Assessment, area: Area, config: AssessmentConfig,
     context = {ref for ref in context if evidence[ref].mode in {assessment.mode, 'both'}}
     refs = sorted(set(assessment.evidence_ids + area.indicators.evidence_ids) | context)
     return {
-        'status': assessment.status, 'score': assessment.score, 'tier': assessment.tier,
+        'status': assessment.status, 'score': assessment.score, 'tier': assessment.tier, 'basis': assessment.basis,
         'score_range': assessment.score_range.model_dump() if assessment.score_range else None,
         'unrated_reason': '; '.join(assessment.reasons) or None,
         'warnings': assessment.warnings, 'evidence_ids': refs,
@@ -66,6 +66,7 @@ def to_web_bundle(bundle: Bundle) -> dict[str, Any]:
         areas.append(dict(id=area.id, label=area.name, boundary=area.geometry,
                           boundary_note=f"Full tract, including portions outside Inglewood where applicable. Boundary: {area.boundary_vintage or 'unspecified'}. Assessed as of {bundle.assessed_as_of.isoformat()}.",
                           indicators=indicators,
+                          predictions=[p.model_dump(mode='json') for p in area.predictions],
                           reference_typology=dict(code=typology.code, label=typology.label, source_period=typology.source_period,
                                                   evidence_ids=[typology.evidence_id]) if typology else None,
                           housing=web_assessment(area.housing, area, config, evidence),

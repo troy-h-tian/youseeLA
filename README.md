@@ -28,10 +28,11 @@ python -m pytest -q
 - [Scalability evaluation](docs/scalability.md)
 - [Historical evidence and coverage findings](docs/evidence-status.md)
 - [Assessor, business-pattern and UDP benchmark context](docs/context-sources.md)
+- [Predictive models: metrics, baselines, fairness, scalability](docs/prediction-model.md)
 - [Demo script](docs/demo-script.md)
 - [Public JSON Schema](contracts/bundle.schema.json)
 
-Configuration lives in `config/assessment.json`. Images affect scores through a corroborated physical-change feature combined with numerical affordability pressure. Missing or ambiguous evidence produces an unrated result. Housing context does not establish an individual business's financial condition.
+Configuration lives in `config/assessment.json`. Images affect scores through a corroborated physical-change feature combined with numerical affordability pressure. Areas without enough reviewed images get a rough Census-only score that says so; areas without usable Census inputs stay unrated. Trained five-year predictions are shown alongside, never mixed into, that score. Housing context does not establish an individual business's financial condition.
 
 Credentials belong in an ignored `.env` file copied from `.env.example`. Live image analysis also requires an explicitly selected model, source permissions, and a positive budget reservation. Raw images, API responses, and credentials stay outside version control. The integrated React explorer lives in `web/`.
 

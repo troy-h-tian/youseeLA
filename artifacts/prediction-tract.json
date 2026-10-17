@@ -1,0 +1,538 @@
+{
+  "generated_at": "2026-10-17T21:23:55.607687+00:00",
+  "model": "tract-rent-pressure-v1",
+  "question": "Will a tract be in LA County's top quarter for rent growth minus household-income growth over the next five-year ACS period?",
+  "design": {
+    "train": "Features from ACS 2010\u20132014 (trend from 2006\u20132010) \u2192 outcome ACS 2015\u20132019",
+    "test": "Features from ACS 2015\u20132019 (trend from 2011\u20132015) \u2192 outcome ACS 2020\u20132024, never seen in training or model choice",
+    "forecast": "Features from ACS 2020\u20132024 (trend from 2016\u20132020); refit on both labeled periods",
+    "outcome_cutoffs": {
+      "train": 0.1291,
+      "test": 0.1675
+    },
+    "test_crosswalk": "2010\u21922020 tracts kept only when each covers at least 95% of the other's land",
+    "features": [
+      {
+        "key": "log_population",
+        "label": "Population (log)",
+        "group": "census"
+      },
+      {
+        "key": "income_vs_county",
+        "label": "Median household income relative to county",
+        "group": "census"
+      },
+      {
+        "key": "rent_vs_county",
+        "label": "Median rent relative to county",
+        "group": "census"
+      },
+      {
+        "key": "home_value_vs_county",
+        "label": "Median home value relative to county",
+        "group": "census"
+      },
+      {
+        "key": "rent_income_pct",
+        "label": "Median rent as % of income",
+        "group": "census"
+      },
+      {
+        "key": "rent_burden",
+        "label": "Renters paying 30%+ of income on rent",
+        "group": "census"
+      },
+      {
+        "key": "renter_share",
+        "label": "Renter share of households",
+        "group": "census"
+      },
+      {
+        "key": "bachelor_share",
+        "label": "Adults with a bachelor's degree or higher",
+        "group": "census"
+      },
+      {
+        "key": "poverty_rate",
+        "label": "Poverty rate",
+        "group": "census"
+      },
+      {
+        "key": "vacancy_rate",
+        "label": "Housing vacancy rate",
+        "group": "census"
+      },
+      {
+        "key": "unemployment_rate",
+        "label": "Unemployment rate",
+        "group": "census"
+      },
+      {
+        "key": "median_year_built",
+        "label": "Median year housing was built",
+        "group": "census"
+      },
+      {
+        "key": "hispanic_share",
+        "label": "Hispanic or Latino share",
+        "group": "race"
+      },
+      {
+        "key": "black_share",
+        "label": "Black (non-Hispanic) share",
+        "group": "race"
+      },
+      {
+        "key": "white_share",
+        "label": "White (non-Hispanic) share",
+        "group": "race"
+      },
+      {
+        "key": "asian_share",
+        "label": "Asian (non-Hispanic) share",
+        "group": "race"
+      },
+      {
+        "key": "rent_growth_prior",
+        "label": "Rent growth over the previous period",
+        "group": "trend"
+      },
+      {
+        "key": "income_growth_prior",
+        "label": "Income growth over the previous period",
+        "group": "trend"
+      },
+      {
+        "key": "pressure_prior",
+        "label": "Rent growth minus income growth, previous period",
+        "group": "trend"
+      },
+      {
+        "key": "amenity_density",
+        "label": "Cafes, restaurants, bars and groceries per km\u00b2 (ZIP)",
+        "group": "business"
+      },
+      {
+        "key": "establishment_density",
+        "label": "All business establishments per km\u00b2 (ZIP)",
+        "group": "business"
+      },
+      {
+        "key": "amenity_share",
+        "label": "Amenity share of all establishments (ZIP)",
+        "group": "business"
+      },
+      {
+        "key": "amenity_growth",
+        "label": "Two-year growth in amenity businesses (ZIP)",
+        "group": "business"
+      },
+      {
+        "key": "establishment_growth",
+        "label": "Two-year growth in all establishments (ZIP)",
+        "group": "business"
+      }
+    ]
+  },
+  "sizes": {
+    "train_tracts": 2275,
+    "test_tracts": 1906,
+    "forecast_tracts": 2466
+  },
+  "model_selection": {
+    "cv_auc_on_train": {
+      "logistic_regression": 0.7561,
+      "gradient_boosting": 0.7719
+    },
+    "cv_choice": "gradient_boosting",
+    "chosen": "logistic_regression",
+    "note": "Deployed model differs from the cross-validation pick and was chosen after seeing test results, so its test metrics are slightly optimistic."
+  },
+  "test": {
+    "models": {
+      "logistic_regression": {
+        "n": 1906,
+        "positives": 477,
+        "base_rate": 0.2503,
+        "auc": 0.7489,
+        "average_precision": 0.5139,
+        "precision_top10": 0.6283,
+        "lift_top10": 2.51,
+        "auc_95": [
+          0.724,
+          0.774
+        ],
+        "precision_top10_95": [
+          0.555,
+          0.702
+        ],
+        "brier": 0.1605,
+        "brier_base_rate": 0.1876,
+        "calibration": [
+          {
+            "predicted": 0.0778,
+            "observed": 0.0471,
+            "n": 191
+          },
+          {
+            "predicted": 0.1362,
+            "observed": 0.0942,
+            "n": 191
+          },
+          {
+            "predicted": 0.1767,
+            "observed": 0.1361,
+            "n": 191
+          },
+          {
+            "predicted": 0.2104,
+            "observed": 0.1257,
+            "n": 191
+          },
+          {
+            "predicted": 0.2429,
+            "observed": 0.1728,
+            "n": 191
+          },
+          {
+            "predicted": 0.2781,
+            "observed": 0.2356,
+            "n": 191
+          },
+          {
+            "predicted": 0.3244,
+            "observed": 0.2895,
+            "n": 190
+          },
+          {
+            "predicted": 0.3876,
+            "observed": 0.3158,
+            "n": 190
+          },
+          {
+            "predicted": 0.4744,
+            "observed": 0.4632,
+            "n": 190
+          },
+          {
+            "predicted": 0.6701,
+            "observed": 0.6263,
+            "n": 190
+          }
+        ]
+      },
+      "gradient_boosting": {
+        "n": 1906,
+        "positives": 477,
+        "base_rate": 0.2503,
+        "auc": 0.7019,
+        "average_precision": 0.4298,
+        "precision_top10": 0.5183,
+        "lift_top10": 2.071,
+        "auc_95": [
+          0.68,
+          0.731
+        ],
+        "precision_top10_95": [
+          0.45,
+          0.597
+        ],
+        "brier": 0.1768,
+        "brier_base_rate": 0.1876,
+        "calibration": [
+          {
+            "predicted": 0.069,
+            "observed": 0.0576,
+            "n": 191
+          },
+          {
+            "predicted": 0.1168,
+            "observed": 0.0995,
+            "n": 191
+          },
+          {
+            "predicted": 0.1593,
+            "observed": 0.1571,
+            "n": 191
+          },
+          {
+            "predicted": 0.2017,
+            "observed": 0.1885,
+            "n": 191
+          },
+          {
+            "predicted": 0.2492,
+            "observed": 0.199,
+            "n": 191
+          },
+          {
+            "predicted": 0.3058,
+            "observed": 0.2618,
+            "n": 191
+          },
+          {
+            "predicted": 0.3659,
+            "observed": 0.2895,
+            "n": 190
+          },
+          {
+            "predicted": 0.4392,
+            "observed": 0.3421,
+            "n": 190
+          },
+          {
+            "predicted": 0.5355,
+            "observed": 0.3895,
+            "n": 190
+          },
+          {
+            "predicted": 0.6966,
+            "observed": 0.5211,
+            "n": 190
+          }
+        ]
+      }
+    },
+    "baselines": {
+      "rent_burden_today": {
+        "n": 1906,
+        "positives": 477,
+        "base_rate": 0.2503,
+        "auc": 0.385,
+        "average_precision": 0.2013,
+        "precision_top10": 0.1518,
+        "lift_top10": 0.607,
+        "auc_95": [
+          0.355,
+          0.414
+        ],
+        "precision_top10_95": [
+          0.105,
+          0.199
+        ],
+        "auc_best_direction": 0.615
+      },
+      "previous_period_trend": {
+        "n": 1906,
+        "positives": 477,
+        "base_rate": 0.2503,
+        "auc": 0.3375,
+        "average_precision": 0.1818,
+        "precision_top10": 0.0838,
+        "lift_top10": 0.335,
+        "auc_95": [
+          0.309,
+          0.364
+        ],
+        "precision_top10_95": [
+          0.047,
+          0.126
+        ],
+        "auc_best_direction": 0.6625
+      },
+      "current_app_formula": {
+        "n": 1906,
+        "positives": 477,
+        "base_rate": 0.2503,
+        "auc": 0.3325,
+        "average_precision": 0.1812,
+        "precision_top10": 0.0942,
+        "lift_top10": 0.377,
+        "auc_95": [
+          0.306,
+          0.36
+        ],
+        "precision_top10_95": [
+          0.058,
+          0.141
+        ],
+        "auc_best_direction": 0.6675
+      },
+      "udp_typology": {
+        "n": 1861,
+        "positives": 467,
+        "base_rate": 0.2509,
+        "auc": 0.4554,
+        "average_precision": 0.2346,
+        "precision_top10": 0.2312,
+        "lift_top10": 0.921,
+        "auc_95": [
+          0.427,
+          0.487
+        ],
+        "precision_top10_95": [
+          0.161,
+          0.274
+        ],
+        "note": "UDP 2018 categories ordered by gentrification/displacement risk; evaluated on tracts with a single UDP label.",
+        "auc_best_direction": 0.5446
+      }
+    },
+    "ablations": {
+      "without_race": {
+        "features": 20,
+        "auc": 0.7477,
+        "precision_top10": 0.644,
+        "auc_95": [
+          0.722,
+          0.774
+        ]
+      },
+      "without_business": {
+        "features": 19,
+        "auc": 0.7473,
+        "precision_top10": 0.6335,
+        "auc_95": [
+          0.721,
+          0.773
+        ]
+      },
+      "without_trend": {
+        "features": 21,
+        "auc": 0.7319,
+        "precision_top10": 0.5969,
+        "auc_95": [
+          0.707,
+          0.758
+        ]
+      },
+      "census_only": {
+        "features": 12,
+        "auc": 0.7258,
+        "precision_top10": 0.6073,
+        "auc_95": [
+          0.702,
+          0.751
+        ]
+      }
+    },
+    "fairness_by_majority_group": {
+      "Asian": {
+        "tracts": 170,
+        "observed_rate": 0.276,
+        "mean_predicted": 0.339,
+        "auc": 0.7654
+      },
+      "Black": {
+        "tracts": 57,
+        "observed_rate": 0.211,
+        "mean_predicted": 0.349,
+        "auc": 0.6852
+      },
+      "Hispanic or Latino": {
+        "tracts": 1107,
+        "observed_rate": 0.241,
+        "mean_predicted": 0.27,
+        "auc": 0.7338
+      },
+      "White": {
+        "tracts": 572,
+        "observed_rate": 0.264,
+        "mean_predicted": 0.333,
+        "auc": 0.78
+      }
+    },
+    "permutation_importance": [
+      {
+        "feature": "income_vs_county",
+        "label": "Median household income relative to county",
+        "auc_drop": 0.1897
+      },
+      {
+        "feature": "pressure_prior",
+        "label": "Rent growth minus income growth, previous period",
+        "auc_drop": 0.137
+      },
+      {
+        "feature": "rent_vs_county",
+        "label": "Median rent relative to county",
+        "auc_drop": 0.1208
+      },
+      {
+        "feature": "income_growth_prior",
+        "label": "Income growth over the previous period",
+        "auc_drop": 0.0136
+      },
+      {
+        "feature": "rent_growth_prior",
+        "label": "Rent growth over the previous period",
+        "auc_drop": 0.0127
+      },
+      {
+        "feature": "renter_share",
+        "label": "Renter share of households",
+        "auc_drop": 0.0112
+      },
+      {
+        "feature": "home_value_vs_county",
+        "label": "Median home value relative to county",
+        "auc_drop": 0.0088
+      },
+      {
+        "feature": "amenity_density",
+        "label": "Cafes, restaurants, bars and groceries per km\u00b2 (ZIP)",
+        "auc_drop": 0.0088
+      },
+      {
+        "feature": "rent_income_pct",
+        "label": "Median rent as % of income",
+        "auc_drop": 0.0069
+      },
+      {
+        "feature": "amenity_share",
+        "label": "Amenity share of all establishments (ZIP)",
+        "auc_drop": 0.0061
+      },
+      {
+        "feature": "median_year_built",
+        "label": "Median year housing was built",
+        "auc_drop": 0.0051
+      },
+      {
+        "feature": "bachelor_share",
+        "label": "Adults with a bachelor's degree or higher",
+        "auc_drop": 0.0048
+      }
+    ]
+  },
+  "scalability": {
+    "feature_build_seconds": 1.88,
+    "fit_seconds": {
+      "logistic_regression": 0.007,
+      "gradient_boosting": 0.143
+    },
+    "explanations": {
+      "tracts": 30,
+      "seconds": 0.008
+    },
+    "prediction": [
+      {
+        "rows": 1000,
+        "median_seconds": 0.0004,
+        "rows_per_second": 2391869
+      },
+      {
+        "rows": 10000,
+        "median_seconds": 0.0012,
+        "rows_per_second": 8048018
+      },
+      {
+        "rows": 100000,
+        "median_seconds": 0.011,
+        "rows_per_second": 9089842
+      },
+      {
+        "rows": 1000000,
+        "median_seconds": 0.1051,
+        "rows_per_second": 9511561
+      }
+    ],
+    "note": "Synthetic copies of real forecast rows; single process, local CPU, three runs per size."
+  },
+  "limitations": [
+    "ACS tract estimates are noisy; some outcome labels reflect sampling error rather than real change.",
+    "Rent pressure is a proxy for displacement risk, not observed displacement.",
+    "Race and ethnicity are included as features at the user's direction; see the ablation and fairness results.",
+    "The 2020\u20132024 test period includes COVID-era rent and income shocks."
+  ]
+}

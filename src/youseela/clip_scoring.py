@@ -50,6 +50,13 @@ def assess_clip(area_id: str, mode: Mode, indicators: NumericalIndicators, evide
                 f'{len(accepted)} sampled image pair(s); not a representative survey. No human change labels were used.',
                 'Zero-visual ablation holds numerical weights fixed; the separate numerical-only baseline renormalizes them.']
     common = dict(mode=mode, coverage=coverage, warnings=warnings, configuration_version=config.version)
+    census_ok = bool(indicators.evidence_ids) and all(ref in lookup and lookup[ref].kind == 'census' and lookup[ref].reviewed
+                                                      for ref in indicators.evidence_ids)
+    if reasons and config.allow_partial_evidence and census_ok:
+        from youseela.scoring import census_only
+        partial = census_only(mode, indicators, config, common, reasons, f'No dated {mode} photo pair is available, so the CLIP image term')
+        if partial:
+            return partial
     if reasons:
         return Assessment(status='insufficient_evidence', reasons=reasons, **common)
     weights = getattr(config, mode)
@@ -68,5 +75,6 @@ def assess_clip(area_id: str, mode: Mode, indicators: NumericalIndicators, evide
         score_range = ScoreRange(lower=round(100*(weights.burden*burden+weights.pressure*bounds.lower+weights.visual_interaction*visual),6),
                                  upper=round(100*(weights.burden*burden+weights.pressure*bounds.upper+weights.visual_interaction*visual),6))
     return Assessment(status='rated', score=score, score_range=score_range,
+                      basis=f'Census data and CLIP difference across {len(accepted)} dated photo pair(s).',
                       tier='lower' if score < 33 else 'moderate' if score < 67 else 'higher',
                       contributions=contributions, evidence_ids=sorted(set(refs+indicators.evidence_ids)), **common)

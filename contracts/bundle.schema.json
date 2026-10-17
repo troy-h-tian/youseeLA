@@ -61,6 +61,13 @@
           ],
           "default": null
         },
+        "predictions": {
+          "items": {
+            "$ref": "#/$defs/Prediction"
+          },
+          "title": "Predictions",
+          "type": "array"
+        },
         "housing": {
           "$ref": "#/$defs/Assessment"
         },
@@ -175,6 +182,18 @@
         },
         "coverage": {
           "$ref": "#/$defs/Coverage"
+        },
+        "basis": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Basis"
         }
       },
       "required": [
@@ -354,6 +373,70 @@
         "image_sha256"
       ],
       "title": "ClipPairFeature",
+      "type": "object"
+    },
+    "ContextIndicator": {
+      "additionalProperties": false,
+      "description": "Descriptive neighborhood-change context. Never an input to the score.",
+      "properties": {
+        "key": {
+          "minLength": 1,
+          "title": "Key",
+          "type": "string"
+        },
+        "label": {
+          "minLength": 1,
+          "title": "Label",
+          "type": "string"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Value"
+        },
+        "unit": {
+          "enum": [
+            "share",
+            "count"
+          ],
+          "title": "Unit",
+          "type": "string"
+        },
+        "period": {
+          "minLength": 1,
+          "title": "Period",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "note": {
+          "default": "",
+          "title": "Note",
+          "type": "string"
+        }
+      },
+      "required": [
+        "key",
+        "label",
+        "unit",
+        "period",
+        "evidence_ids"
+      ],
+      "title": "ContextIndicator",
       "type": "object"
     },
     "Contribution": {
@@ -719,6 +802,187 @@
         }
       },
       "title": "NumericalIndicators",
+      "type": "object"
+    },
+    "Prediction": {
+      "additionalProperties": false,
+      "description": "A trained model's output for an area. Separate from the hand-weighted assessment.",
+      "properties": {
+        "key": {
+          "enum": [
+            "rent_pressure_5yr",
+            "business_closure_5yr"
+          ],
+          "title": "Key",
+          "type": "string"
+        },
+        "label": {
+          "minLength": 1,
+          "title": "Label",
+          "type": "string"
+        },
+        "model": {
+          "minLength": 1,
+          "title": "Model",
+          "type": "string"
+        },
+        "horizon": {
+          "minLength": 1,
+          "title": "Horizon",
+          "type": "string"
+        },
+        "kind": {
+          "default": "forecast",
+          "enum": [
+            "forecast",
+            "backtest"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "probability": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Probability"
+        },
+        "county_percentile": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "County Percentile"
+        },
+        "tier": {
+          "anyOf": [
+            {
+              "enum": [
+                "lower",
+                "moderate",
+                "higher"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Tier"
+        },
+        "accuracy": {
+          "minLength": 1,
+          "title": "Accuracy",
+          "type": "string"
+        },
+        "basis": {
+          "minLength": 1,
+          "title": "Basis",
+          "type": "string"
+        },
+        "factors": {
+          "items": {
+            "$ref": "#/$defs/PredictionFactor"
+          },
+          "title": "Factors",
+          "type": "array"
+        },
+        "by_type": {
+          "additionalProperties": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "type": "object"
+          },
+          "title": "By Type",
+          "type": "object"
+        },
+        "outcome": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Outcome"
+        }
+      },
+      "required": [
+        "key",
+        "label",
+        "model",
+        "horizon",
+        "accuracy",
+        "basis"
+      ],
+      "title": "Prediction",
+      "type": "object"
+    },
+    "PredictionFactor": {
+      "additionalProperties": false,
+      "description": "One reason behind a prediction: how much the probability falls if this feature were the county median.",
+      "properties": {
+        "feature": {
+          "title": "Feature",
+          "type": "string"
+        },
+        "label": {
+          "title": "Label",
+          "type": "string"
+        },
+        "effect": {
+          "title": "Effect",
+          "type": "number"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Value"
+        },
+        "county_median": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "County Median"
+        }
+      },
+      "required": [
+        "feature",
+        "label",
+        "effect"
+      ],
+      "title": "PredictionFactor",
       "type": "object"
     },
     "PressureRange": {
