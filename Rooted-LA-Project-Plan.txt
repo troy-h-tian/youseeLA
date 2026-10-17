@@ -14,7 +14,7 @@ CONFIRMED DECISIONS
 contribute more or less to each type of prediction. housing- or neighbourhood-level predictions
 will be targeted to nonprofits and grassroots orgs in the eventual UI, while businesses
 will be targeted to customers and feature a rating system in a different UI mode.
-- Inglewood is the preferred pilot area.
+- Inglewood is the preferred pilot area for now.
 - Imagery must affect the combined support-priority assessment, not merely
   appear beside it.
 - Target agreed: which areas may warrant support, not future business closure.
