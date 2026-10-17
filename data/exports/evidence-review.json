@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-10-17T19:09:44.648857+00:00",
-  "status": "requires_human_review",
+  "status": "screened_candidates_require_observation_verification",
   "claim": "Dated image observations and housing context; no validated current or historical risk rating.",
   "historical_context_bundle": "historical-context.json",
   "historical_pressure": {
@@ -241,5 +241,55 @@
     "Current business listings do not establish that those businesses operated in 2019.",
     "All vision findings require human review; freeway and interior images cannot supply local storefront coverage.",
     "Historical numbers and photos do not describe current conditions."
-  ]
+  ],
+  "human_review": {
+    "reviewed_at": "2026-10-17T19:14:22.269Z",
+    "decisions": [
+      {
+        "image_id": "mapillary-385806601283567",
+        "decision": "candidate"
+      },
+      {
+        "image_id": "mapillary-2471340813367986",
+        "decision": "duplicate"
+      },
+      {
+        "image_id": "mapillary-2156917414881506",
+        "decision": "duplicate"
+      },
+      {
+        "image_id": "mapillary-1474662787768585",
+        "decision": "duplicate"
+      },
+      {
+        "image_id": "mapillary-835492836143880",
+        "decision": "candidate"
+      },
+      {
+        "image_id": "mapillary-468377774385947",
+        "decision": "candidate"
+      },
+      {
+        "image_id": "mapillary-285537773241284",
+        "decision": "duplicate"
+      },
+      {
+        "image_id": "mapillary-130365825800137",
+        "decision": "candidate"
+      }
+    ],
+    "scope": "Image selection and duplicate screening only; candidate does not certify individual observations or scoring eligibility.",
+    "candidate_image_ids": [
+      "mapillary-385806601283567",
+      "mapillary-835492836143880",
+      "mapillary-468377774385947",
+      "mapillary-130365825800137"
+    ],
+    "excluded_image_ids": [
+      "mapillary-2471340813367986",
+      "mapillary-2156917414881506",
+      "mapillary-1474662787768585",
+      "mapillary-285537773241284"
+    ]
+  }
 }

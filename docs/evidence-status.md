@@ -6,7 +6,7 @@ The current evidence supports a dated exploratory demonstration, not a defensibl
 
 - `data/exports/demo.json`: 30 real areas, 60 Census source records, five verified current business locations, and local resources. Current housing and commercial assessments remain unrated.
 - `data/exports/historical-context.json`: one downtown tract, 2014 and 2019 ACS context, with a Census 2010 boundary obtained from the official TIGERweb point query. It is a retrospective presentation of pooled historical conditions, not a forecast or backtest. Tract equivalence across ACS vintages still needs verification.
-- `data/exports/evidence-review.json`: eight unreviewed image drafts: three downtown photographs from December 2019 and five recent candidates. This is a review packet, **not** a scored Bundle. Do not ingest it as approved evidence.
+- `data/exports/evidence-review.json`: eight image drafts with imported human selection decisions: four candidates and four duplicates. Individual observations remain unverified. This is a review packet, **not** a scored Bundle. Do not ingest it as approved evidence.
 - `artifacts/image-coverage.json`: 37 initial city-intersecting queries and 28 smaller retries. They returned 118 unique recent image candidates inside the city across four tracts. Failures and 100-image limits mean this is not an exhaustive inventory.
 
 The local `.Codex/evidence-review.html` displays images and draft observations and can download reviewer decisions. It remains ignored, as do the source images and raw API responses. Its browser interactions have not been verified: browser automation rejected the local file URL. Decisions never automatically approve scoring evidence.
@@ -17,11 +17,11 @@ The downtown historical tract has an estimated 51.8% of households with computab
 
 Recent samples inspected include freeway scenes, an obstructed intersection, a stadium interior, and a wall. Recent capture dates alone do not establish usable storefront or housing coverage. Three separated camera positions can still depict the same frontage; humans must resolve duplicates and target-building locations.
 
-Historical photos are more relevant to downtown street frontage, but remain dated and unreviewed. The current business directory does not establish which businesses operated at those locations in 2019. Do not combine historical photo conditions with current listings as evidence of present business distress.
+Historical photos are more relevant to downtown street frontage. Human screening retained two downtown photos and marked the third duplicate; individual frontage observations remain unverified. The current business directory does not establish which businesses operated at those locations in 2019. Do not combine historical photo conditions with current listings as evidence of present business distress.
 
 ## Next useful step
 
-Review the historical image observations and identify unique assessable frontages. Use a dated evidence walkthrough for the hackathon while explaining why uncertainty prevents a combined score. A genuine current ranking requires better imagery and interpretable numerical change evidence; switching dates alone does not solve either requirement. Synthetic rated fixtures remain available strictly for demonstrating interface behavior and model sensitivity.
+Human screening is saved in `data/curated/image-review-decisions.json`; `artifacts/image-review-summary.json` records remaining limitations. Four duplicate images are excluded from the candidate set. The four retained candidates include two historical downtown photos, one obstructed intersection, and a stadium interior. The stadium selection is preserved, but its interior view is excluded from street-frontage scoring. Verify individual historical image observations and identify unique assessable frontages; two images still fall below the three-site minimum. Use a dated evidence walkthrough for the hackathon while explaining why uncertainty prevents a combined score. A genuine current ranking requires better imagery and interpretable numerical change evidence; switching dates alone does not solve either requirement. Synthetic rated fixtures remain available strictly for demonstrating interface behavior and model sensitivity.
 
 ## Rights and cost
 

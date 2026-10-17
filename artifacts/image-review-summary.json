@@ -1,0 +1,44 @@
+{
+  "reviewed_at": "2026-10-17T19:14:22.269Z",
+  "counts": {
+    "candidate": 4,
+    "duplicate": 4
+  },
+  "candidates": [
+    {
+      "image_id": "mapillary-385806601283567",
+      "area_id": "06037601302",
+      "source_date": "2024-07-30",
+      "scoring_approved": false,
+      "note": "Retained candidate. Intersection view is partly obstructed; individual assessable storefronts still need identification."
+    },
+    {
+      "image_id": "mapillary-835492836143880",
+      "area_id": "06037601900",
+      "source_date": "2024-08-28",
+      "scoring_approved": false,
+      "note": "Retained reviewer selection. Stadium interior does not satisfy the intended street-frontage sample, so exclude from area scoring."
+    },
+    {
+      "image_id": "mapillary-468377774385947",
+      "area_id": "06037601001",
+      "source_date": "2019-12-19",
+      "scoring_approved": false,
+      "note": "Retained historical downtown candidate. Check individual storefronts and any overlap with the other retained image."
+    },
+    {
+      "image_id": "mapillary-130365825800137",
+      "area_id": "06037601001",
+      "source_date": "2019-12-19",
+      "scoring_approved": false,
+      "note": "Retained historical downtown candidate. Check individual storefronts and any overlap with the other retained image."
+    }
+  ],
+  "excluded_image_ids": [
+    "mapillary-2471340813367986",
+    "mapillary-2156917414881506",
+    "mapillary-1474662787768585",
+    "mapillary-285537773241284"
+  ],
+  "result": "Two historical downtown candidate images remain, below the three-site coverage minimum. Recent candidates do not establish sufficient usable street-frontage coverage. No image observation was promoted to reviewed scoring evidence."
+}
