@@ -34,6 +34,22 @@ See `artifacts/context-benchmark.json` for group medians.
 - **Downtown outlier.** Tract 06037601001 is the clear exception. Reassessed parcels rose from 16% to 37%, and built-or-renovated parcels from 0% to 22%, because taxable parcels grew from 543 to 753 with about 165 built in 2021–2022. This is real new construction, but per-parcel counting magnifies multi-unit projects. It is also the tract with the retained 2019 downtown photos, which makes it a good candidate for before/after image comparison.
 - **ZIP amenity counts.** Most ZIPs rose modestly from 2019 to 2023. In 90302, amenity establishments went from 6 to 17 (cafes, restaurants and groceries). Counts below about 10 are too small to read as a trend.
 
+## Countywide validation
+
+Inglewood has no UDP-gentrifying tracts, so `python -m youseela.context_validation` tests the assessor indicators elsewhere in LA County. It compares 50 randomly sampled UDP-gentrifying tracts (34 EOG, 16 AdvG) with 50 low-income non-gentrifying tracts (LISD), using base-year windows 2009–2013 and 2014–2018 and seed 20261017. All 100 tracts were analyzed and no queries failed. Full results are in `artifacts/context-validation.json`.
+
+| Indicator | AUC | 95% bootstrap | Median, gentrifying vs comparison |
+| --- | --- | --- | --- |
+| Reassessed share, 2014–2018 | 0.54 | 0.43–0.65 | 19.2% vs 17.9% |
+| Change in reassessed share | 0.59 | 0.47–0.70 | −0.3 vs −1.2 points |
+| Built or renovated share | 0.54 | 0.43–0.66 | 0.4% vs 0.2% |
+| Change in built or renovated share | 0.54 | 0.43–0.65 | 0 vs 0 |
+| Recent sale value per sq ft growth* | 0.55 | 0.44–0.67 | +44% vs +42% |
+
+\*UDP's definition partly includes price growth, so this was expected to separate the groups by construction.
+
+**Conclusion:** every interval includes 0.5, so these tract-level assessor indicators do not detect UDP gentrification. Even the price signal failed, and it should have separated the groups by construction. That points to tract-level turnover and value aggregates being dominated by countywide market cycles, such as the post-2009 recovery that raised values everywhere. They should stay unscored context. The downtown Inglewood construction spike remains a valid local observation, but it is not evidence that the indicator ranks tracts well.
+
 ## Known confounds
 
 - **Reassessment rates** move with interest rates and the post-2022 sales slowdown, as well as with neighborhood change. A new condo building adds many newly assessed parcels at once, as in tract 06037601001.

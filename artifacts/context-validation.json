@@ -1,0 +1,1814 @@
+{
+  "generated_at": "2026-10-17T20:11:55.037876+00:00",
+  "protocol": "udp-county-assessor-v1",
+  "question": "Do assessor indicators rank UDP-gentrifying tracts above low-income non-gentrifying tracts?",
+  "groups": {
+    "gentrifying": [
+      "AdvG",
+      "EOG"
+    ],
+    "comparison": [
+      "LISD"
+    ]
+  },
+  "reference": "UDP Los Angeles typology, ACS 2014\u20132018, commit a2479c79e630cdaed9add49bb3c05db8a5e59d18",
+  "windows": {
+    "early": "Base years 2009\u20132013",
+    "late": "Base years 2014\u20132018"
+  },
+  "seed": 20261017,
+  "sampled": {
+    "gentrifying": 50,
+    "comparison": 50
+  },
+  "missing_geometry": [],
+  "failed_queries": {},
+  "tracts_analyzed": 100,
+  "results": {
+    "reassessed_share": {
+      "auc": 0.539,
+      "auc_95_bootstrap": [
+        0.432,
+        0.653
+      ],
+      "gentrifying": {
+        "n": 50,
+        "median": 0.1919
+      },
+      "comparison": {
+        "n": 50,
+        "median": 0.179
+      }
+    },
+    "reassessed_share_change": {
+      "auc": 0.59,
+      "auc_95_bootstrap": [
+        0.471,
+        0.701
+      ],
+      "gentrifying": {
+        "n": 50,
+        "median": -0.0031
+      },
+      "comparison": {
+        "n": 50,
+        "median": -0.0115
+      }
+    },
+    "built_or_renovated_share": {
+      "auc": 0.541,
+      "auc_95_bootstrap": [
+        0.429,
+        0.656
+      ],
+      "gentrifying": {
+        "n": 50,
+        "median": 0.004
+      },
+      "comparison": {
+        "n": 50,
+        "median": 0.0024
+      }
+    },
+    "built_or_renovated_share_change": {
+      "auc": 0.538,
+      "auc_95_bootstrap": [
+        0.427,
+        0.651
+      ],
+      "gentrifying": {
+        "n": 50,
+        "median": 0.0
+      },
+      "comparison": {
+        "n": 50,
+        "median": 0.0
+      }
+    },
+    "recent_sale_value_growth": {
+      "auc": 0.549,
+      "auc_95_bootstrap": [
+        0.436,
+        0.665
+      ],
+      "gentrifying": {
+        "n": 50,
+        "median": 0.4434
+      },
+      "comparison": {
+        "n": 49,
+        "median": 0.4204
+      },
+      "circularity": "UDP's gentrification definition includes home-value and rent increases, so price growth is expected to separate the groups partly by construction. Treat this as a sanity check, not independent validation."
+    }
+  },
+  "interpretation": "AUC 0.5 means no separation; 1.0 means every gentrifying tract ranks above every comparison tract.",
+  "limitations": [
+    "UDP is a Census-based classification, not observed displacement.",
+    "Comparison tracts are low-income tracts UDP did not classify as gentrifying; results do not cover other typologies.",
+    "Inglewood tracts are excluded; countywide separation does not guarantee the same behavior there.",
+    "The 2009\u20132013 window includes foreclosure-driven sales, which affects change measures."
+  ],
+  "tracts": [
+    {
+      "geoid": "06037104201",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 846,
+      "recent_sales": [
+        157,
+        120
+      ],
+      "indicators": {
+        "reassessed_share": 0.16430260047281323,
+        "reassessed_share_change": -0.040076961570982395,
+        "built_or_renovated_share": 0.031914893617021274,
+        "built_or_renovated_share_change": 0.031914893617021274,
+        "recent_sale_value_growth": 0.36058473888399034
+      }
+    },
+    {
+      "geoid": "06037104320",
+      "group": "gentrifying",
+      "udp": "EOG",
+      "taxable_parcels": 939,
+      "recent_sales": [
+        182,
+        139
+      ],
+      "indicators": {
+        "reassessed_share": 0.15654952076677317,
+        "reassessed_share_change": -0.05386493194310993,
+        "built_or_renovated_share": 0.006389776357827476,
+        "built_or_renovated_share_change": 0.001076280077274872,
+        "recent_sale_value_growth": 0.5064408763553845
+      }
+    },
+    {
+      "geoid": "06037104822",
+      "group": "gentrifying",
+      "udp": "AdvG",
+      "taxable_parcels": 276,
+      "recent_sales": [
+        52,
+        47
+      ],
+      "indicators": {
+        "reassessed_share": 0.18478260869565216,
+        "reassessed_share_change": -0.024776214833759608,
+        "built_or_renovated_share": 0.0,
+        "built_or_renovated_share_change": 0.0,
+        "recent_sale_value_growth": 0.3998454779052802
+      }
+    },
+    {
+      "geoid": "06037121801",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 479,
+      "recent_sales": [
+        115,
+        82
+      ],
+      "indicators": {
+        "reassessed_share": 0.1732776617954071,
+        "reassessed_share_change": -0.06680584551148225,
+        "built_or_renovated_share": 0.0020876826722338203,
+        "built_or_renovated_share_change": -0.0020876826722338203,
+        "recent_sale_value_growth": 0.44847253789555885
+      }
+    },
+    {
+      "geoid": "06037123203",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 394,
+      "recent_sales": [
+        80,
+        56
+      ],
+      "indicators": {
+        "reassessed_share": 0.1700507614213198,
+        "reassessed_share_change": -0.061869438079927064,
+        "built_or_renovated_share": 0.015228426395939087,
+        "built_or_renovated_share_change": 0.010240895223869262,
+        "recent_sale_value_growth": 0.5706129029233958
+      }
+    },
+    {
+      "geoid": "06037124201",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 834,
+      "recent_sales": [
+        143,
+        163
+      ],
+      "indicators": {
+        "reassessed_share": 0.2014388489208633,
+        "reassessed_share_change": 0.010262378332628025,
+        "built_or_renovated_share": 0.03237410071942446,
+        "built_or_renovated_share_change": 0.03237410071942446,
+        "recent_sale_value_growth": 0.4383042631624032
+      }
+    },
+    {
+      "geoid": "06037125320",
+      "group": "gentrifying",
+      "udp": "EOG",
+      "taxable_parcels": 502,
+      "recent_sales": [
+        155,
+        122
+      ],
+      "indicators": {
+        "reassessed_share": 0.3247011952191235,
+        "reassessed_share_change": -0.03123100817070701,
+        "built_or_renovated_share": 0.00796812749003984,
+        "built_or_renovated_share_change": -0.09937650527832173,
+        "recent_sale_value_growth": 0.345914780945318
+      }
+    },
+    {
+      "geoid": "06037127712",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 388,
+      "recent_sales": [
+        95,
+        97
+      ],
+      "indicators": {
+        "reassessed_share": 0.2603092783505155,
+        "reassessed_share_change": -0.011942030550008087,
+        "built_or_renovated_share": 0.02577319587628866,
+        "built_or_renovated_share_change": 0.02577319587628866,
+        "recent_sale_value_growth": 0.36918365743170745
+      }
+    },
+    {
+      "geoid": "06037127805",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 462,
+      "recent_sales": [
+        95,
+        72
+      ],
+      "indicators": {
+        "reassessed_share": 0.19913419913419914,
+        "reassessed_share_change": -0.040426240426240434,
+        "built_or_renovated_share": 0.004329004329004329,
+        "built_or_renovated_share_change": 0.002131202131202131,
+        "recent_sale_value_growth": 0.5225309707705652
+      }
+    },
+    {
+      "geoid": "06037131701",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 1022,
+      "recent_sales": [
+        244,
+        202
+      ],
+      "indicators": {
+        "reassessed_share": 0.2025440313111546,
+        "reassessed_share_change": -0.03890269400653848,
+        "built_or_renovated_share": 0.0,
+        "built_or_renovated_share_change": 0.0,
+        "recent_sale_value_growth": 0.48012032115580366
+      }
+    },
+    {
+      "geoid": "06037134304",
+      "group": "gentrifying",
+      "udp": "AdvG",
+      "taxable_parcels": 786,
+      "recent_sales": [
+        145,
+        138
+      ],
+      "indicators": {
+        "reassessed_share": 0.17938931297709923,
+        "reassessed_share_change": -0.005089058524173046,
+        "built_or_renovated_share": 0.0,
+        "built_or_renovated_share_change": 0.0,
+        "recent_sale_value_growth": 0.371587657568181
+      }
+    },
+    {
+      "geoid": "06037134520",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 726,
+      "recent_sales": [
+        123,
+        94
+      ],
+      "indicators": {
+        "reassessed_share": 0.1790633608815427,
+        "reassessed_share_change": -0.04209048527230344,
+        "built_or_renovated_share": 0.0013774104683195593,
+        "built_or_renovated_share_change": -0.0013698422789331882,
+        "recent_sale_value_growth": 0.6061337173940736
+      }
+    },
+    {
+      "geoid": "06037139302",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 960,
+      "recent_sales": [
+        268,
+        333
+      ],
+      "indicators": {
+        "reassessed_share": 0.34791666666666665,
+        "reassessed_share_change": 0.06770833333333331,
+        "built_or_renovated_share": 0.0,
+        "built_or_renovated_share_change": 0.0,
+        "recent_sale_value_growth": 0.4834094179956402
+      }
+    },
+    {
+      "geoid": "06037183104",
+      "group": "gentrifying",
+      "udp": "AdvG",
+      "taxable_parcels": 661,
+      "recent_sales": [
+        75,
+        90
+      ],
+      "indicators": {
+        "reassessed_share": 0.14069591527987896,
+        "reassessed_share_change": 0.0043322789162426045,
+        "built_or_renovated_share": 0.0015128593040847202,
+        "built_or_renovated_share_change": 0.0015128593040847202,
+        "recent_sale_value_growth": 0.44989262993976253
+      }
+    },
+    {
+      "geoid": "06037183620",
+      "group": "gentrifying",
+      "udp": "AdvG",
+      "taxable_parcels": 602,
+      "recent_sales": [
+        101,
+        120
+      ],
+      "indicators": {
+        "reassessed_share": 0.20930232558139536,
+        "reassessed_share_change": 0.028397802968330027,
+        "built_or_renovated_share": 0.008305647840531562,
+        "built_or_renovated_share_change": 0.008305647840531562,
+        "recent_sale_value_growth": 0.5570672187463119
+      }
+    },
+    {
+      "geoid": "06037183810",
+      "group": "gentrifying",
+      "udp": "EOG",
+      "taxable_parcels": 442,
+      "recent_sales": [
+        62,
+        69
+      ],
+      "indicators": {
+        "reassessed_share": 0.23529411764705882,
+        "reassessed_share_change": 0.06312430632630411,
+        "built_or_renovated_share": 0.0,
+        "built_or_renovated_share_change": 0.0,
+        "recent_sale_value_growth": 0.5906291212817711
+      }
+    },
+    {
+      "geoid": "06037188100",
+      "group": "gentrifying",
+      "udp": "AdvG",
+      "taxable_parcels": 836,
+      "recent_sales": [
+        116,
+        111
+      ],
+      "indicators": {
+        "reassessed_share": 0.16148325358851676,
+        "reassessed_share_change": -0.005183413078149901,
+        "built_or_renovated_share": 0.009569377990430622,
+        "built_or_renovated_share_change": -0.019207600426835565,
+        "recent_sale_value_growth": 0.3424163774275475
+      }
+    },
+    {
+      "geoid": "06037190801",
+      "group": "gentrifying",
+      "udp": "EOG",
+      "taxable_parcels": 213,
+      "recent_sales": [
+        38,
+        34
+      ],
+      "indicators": {
+        "reassessed_share": 0.2112676056338028,
+        "reassessed_share_change": 0.04021497405485544,
+        "built_or_renovated_share": 0.009389671361502348,
+        "built_or_renovated_share_change": 0.005003706449221646,
+        "recent_sale_value_growth": 0.5692107526424034
+      }
+    },
+    {
+      "geoid": "06037190802",
+      "group": "gentrifying",
+      "udp": "EOG",
+      "taxable_parcels": 382,
+      "recent_sales": [
+        57,
+        67
+      ],
+      "indicators": {
+        "reassessed_share": 0.2801047120418848,
+        "reassessed_share_change": 0.07363705035034251,
+        "built_or_renovated_share": 0.04450261780104712,
+        "built_or_renovated_share_change": -0.002761063790992682,
+        "recent_sale_value_growth": 0.25015079927541195
+      }
+    },
+    {
+      "geoid": "06037190902",
+      "group": "gentrifying",
+      "udp": "EOG",
+      "taxable_parcels": 354,
+      "recent_sales": [
+        41,
+        71
+      ],
+      "indicators": {
+        "reassessed_share": 0.2994350282485876,
+        "reassessed_share_change": 0.12834358282085898,
+        "built_or_renovated_share": 0.03389830508474576,
+        "built_or_renovated_share_change": 0.03094845257737113,
+        "recent_sale_value_growth": 0.9406309912218551
+      }
+    },
+    {
+      "geoid": "06037195710",
+      "group": "gentrifying",
+      "udp": "EOG",
+      "taxable_parcels": 394,
+      "recent_sales": [
+        67,
+        71
+      ],
+      "indicators": {
+        "reassessed_share": 0.2182741116751269,
+        "reassessed_share_change": 0.016228075869500286,
+        "built_or_renovated_share": 0.02284263959390863,
+        "built_or_renovated_share_change": 0.02028509483687538,
+        "recent_sale_value_growth": 0.6402971598415748
+      }
+    },
+    {
+      "geoid": "06037206200",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 773,
+      "recent_sales": [
+        206,
+        151
+      ],
+      "indicators": {
+        "reassessed_share": 0.2522639068564036,
+        "reassessed_share_change": -0.09881340619809575,
+        "built_or_renovated_share": 0.0038809831824062097,
+        "built_or_renovated_share_change": 7.870181358491692e-05,
+        "recent_sale_value_growth": 0.7545773953083974
+      }
+    },
+    {
+      "geoid": "06037207101",
+      "group": "gentrifying",
+      "udp": "EOG",
+      "taxable_parcels": 139,
+      "recent_sales": [
+        10,
+        20
+      ],
+      "indicators": {
+        "reassessed_share": 0.22302158273381295,
+        "reassessed_share_change": 0.12713117177490885,
+        "built_or_renovated_share": 0.0,
+        "built_or_renovated_share_change": -0.0136986301369863,
+        "recent_sale_value_growth": 0.4621509573559029
+      }
+    },
+    {
+      "geoid": "06037207302",
+      "group": "gentrifying",
+      "udp": "EOG",
+      "taxable_parcels": 563,
+      "recent_sales": [
+        309,
+        129
+      ],
+      "indicators": {
+        "reassessed_share": 0.26287744227353466,
+        "reassessed_share_change": -0.32060234683015604,
+        "built_or_renovated_share": 0.0053285968028419185,
+        "built_or_renovated_share_change": 0.0053285968028419185,
+        "recent_sale_value_growth": 0.7654077477914268
+      }
+    },
+    {
+      "geoid": "06037207710",
+      "group": "gentrifying",
+      "udp": "AdvG",
+      "taxable_parcels": 1876,
+      "recent_sales": [
+        762,
+        1127
+      ],
+      "indicators": {
+        "reassessed_share": 0.6375266524520256,
+        "reassessed_share_change": 0.0339230488484219,
+        "built_or_renovated_share": 0.3251599147121535,
+        "built_or_renovated_share_change": 0.15398874354098233,
+        "recent_sale_value_growth": 0.6012685485881798
+      }
+    },
+    {
+      "geoid": "06037208501",
+      "group": "gentrifying",
+      "udp": "AdvG",
+      "taxable_parcels": 313,
+      "recent_sales": [
+        28,
+        61
+      ],
+      "indicators": {
+        "reassessed_share": 0.24920127795527156,
+        "reassessed_share_change": 0.08982627795527157,
+        "built_or_renovated_share": 0.0,
+        "built_or_renovated_share_change": 0.0,
+        "recent_sale_value_growth": 0.9248852297528778
+      }
+    },
+    {
+      "geoid": "06037208902",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 64,
+      "recent_sales": [
+        5,
+        6
+      ],
+      "indicators": {
+        "reassessed_share": 0.296875,
+        "reassessed_share_change": 0.078125,
+        "built_or_renovated_share": 0.0,
+        "built_or_renovated_share_change": 0.0,
+        "recent_sale_value_growth": null
+      }
+    },
+    {
+      "geoid": "06037211310",
+      "group": "gentrifying",
+      "udp": "EOG",
+      "taxable_parcels": 187,
+      "recent_sales": [
+        46,
+        85
+      ],
+      "indicators": {
+        "reassessed_share": 0.46524064171123,
+        "reassessed_share_change": 0.160604880121826,
+        "built_or_renovated_share": 0.20320855614973263,
+        "built_or_renovated_share_change": 0.20320855614973263,
+        "recent_sale_value_growth": 0.44402563656432414
+      }
+    },
+    {
+      "geoid": "06037211910",
+      "group": "gentrifying",
+      "udp": "EOG",
+      "taxable_parcels": 232,
+      "recent_sales": [
+        48,
+        45
+      ],
+      "indicators": {
+        "reassessed_share": 0.2025862068965517,
+        "reassessed_share_change": -0.011089006778661953,
+        "built_or_renovated_share": 0.0,
+        "built_or_renovated_share_change": 0.0,
+        "recent_sale_value_growth": 0.46719652685770874
+      }
+    },
+    {
+      "geoid": "06037212303",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 82,
+      "recent_sales": [
+        22,
+        23
+      ],
+      "indicators": {
+        "reassessed_share": 0.36585365853658536,
+        "reassessed_share_change": -0.034146341463414664,
+        "built_or_renovated_share": 0.036585365853658534,
+        "built_or_renovated_share_change": 0.036585365853658534,
+        "recent_sale_value_growth": 0.5193418356643283
+      }
+    },
+    {
+      "geoid": "06037212305",
+      "group": "gentrifying",
+      "udp": "EOG",
+      "taxable_parcels": 145,
+      "recent_sales": [
+        71,
+        33
+      ],
+      "indicators": {
+        "reassessed_share": 0.2827586206896552,
+        "reassessed_share_change": -0.21039206424185164,
+        "built_or_renovated_share": 0.0,
+        "built_or_renovated_share_change": -0.00684931506849315,
+        "recent_sale_value_growth": 0.3602441147301692
+      }
+    },
+    {
+      "geoid": "06037218300",
+      "group": "gentrifying",
+      "udp": "EOG",
+      "taxable_parcels": 1048,
+      "recent_sales": [
+        157,
+        190
+      ],
+      "indicators": {
+        "reassessed_share": 0.21087786259541985,
+        "reassessed_share_change": 0.040849044151615804,
+        "built_or_renovated_share": 0.01431297709923664,
+        "built_or_renovated_share_change": 0.013352362305768821,
+        "recent_sale_value_growth": 0.5651672310141648
+      }
+    },
+    {
+      "geoid": "06037218800",
+      "group": "gentrifying",
+      "udp": "EOG",
+      "taxable_parcels": 345,
+      "recent_sales": [
+        65,
+        57
+      ],
+      "indicators": {
+        "reassessed_share": 0.2,
+        "reassessed_share_change": 0.0,
+        "built_or_renovated_share": 0.0,
+        "built_or_renovated_share_change": 0.0,
+        "recent_sale_value_growth": 0.6057274219986005
+      }
+    },
+    {
+      "geoid": "06037219700",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 1006,
+      "recent_sales": [
+        162,
+        137
+      ],
+      "indicators": {
+        "reassessed_share": 0.18091451292246521,
+        "reassessed_share_change": 0.004502223527024174,
+        "built_or_renovated_share": 0.0009940357852882703,
+        "built_or_renovated_share_change": -0.005943526157229074,
+        "recent_sale_value_growth": 0.585349061760769
+      }
+    },
+    {
+      "geoid": "06037219800",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 519,
+      "recent_sales": [
+        79,
+        81
+      ],
+      "indicators": {
+        "reassessed_share": 0.1926782273603083,
+        "reassessed_share_change": 0.021804440952541304,
+        "built_or_renovated_share": 0.0019267822736030828,
+        "built_or_renovated_share_change": -0.0019567128720279848,
+        "recent_sale_value_growth": 0.3916919914270314
+      }
+    },
+    {
+      "geoid": "06037219901",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 690,
+      "recent_sales": [
+        126,
+        109
+      ],
+      "indicators": {
+        "reassessed_share": 0.18405797101449275,
+        "reassessed_share_change": -0.010186633302054021,
+        "built_or_renovated_share": 0.002898550724637681,
+        "built_or_renovated_share_change": -0.0028568449588155563,
+        "recent_sale_value_growth": 0.50956963682827
+      }
+    },
+    {
+      "geoid": "06037221601",
+      "group": "gentrifying",
+      "udp": "EOG",
+      "taxable_parcels": 386,
+      "recent_sales": [
+        65,
+        62
+      ],
+      "indicators": {
+        "reassessed_share": 0.17616580310880828,
+        "reassessed_share_change": -0.007772020725388601,
+        "built_or_renovated_share": 0.0025906735751295338,
+        "built_or_renovated_share_change": -0.0025906735751295338,
+        "recent_sale_value_growth": 0.42548055912665744
+      }
+    },
+    {
+      "geoid": "06037221820",
+      "group": "gentrifying",
+      "udp": "EOG",
+      "taxable_parcels": 180,
+      "recent_sales": [
+        16,
+        33
+      ],
+      "indicators": {
+        "reassessed_share": 0.20555555555555555,
+        "reassessed_share_change": 0.09566544566544566,
+        "built_or_renovated_share": 0.011111111111111112,
+        "built_or_renovated_share_change": 0.011111111111111112,
+        "recent_sale_value_growth": 0.5089738312538112
+      }
+    },
+    {
+      "geoid": "06037222002",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 916,
+      "recent_sales": [
+        168,
+        146
+      ],
+      "indicators": {
+        "reassessed_share": 0.1779475982532751,
+        "reassessed_share_change": -0.019220157738010307,
+        "built_or_renovated_share": 0.0032751091703056767,
+        "built_or_renovated_share_change": -0.002171513923376241,
+        "recent_sale_value_growth": 0.4309935018786481
+      }
+    },
+    {
+      "geoid": "06037226002",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 2500,
+      "recent_sales": [
+        214,
+        72
+      ],
+      "indicators": {
+        "reassessed_share": 0.2532,
+        "reassessed_share_change": -0.09245701559020048,
+        "built_or_renovated_share": 0.056,
+        "built_or_renovated_share_change": 0.013683741648106908,
+        "recent_sale_value_growth": 0.48220639317264674
+      }
+    },
+    {
+      "geoid": "06037228410",
+      "group": "gentrifying",
+      "udp": "EOG",
+      "taxable_parcels": 365,
+      "recent_sales": [
+        70,
+        45
+      ],
+      "indicators": {
+        "reassessed_share": 0.136986301369863,
+        "reassessed_share_change": -0.07123287671232878,
+        "built_or_renovated_share": 0.010958904109589041,
+        "built_or_renovated_share_change": 0.010958904109589041,
+        "recent_sale_value_growth": 0.48590249398045554
+      }
+    },
+    {
+      "geoid": "06037228720",
+      "group": "gentrifying",
+      "udp": "EOG",
+      "taxable_parcels": 545,
+      "recent_sales": [
+        138,
+        94
+      ],
+      "indicators": {
+        "reassessed_share": 0.1871559633027523,
+        "reassessed_share_change": -0.08674109552077713,
+        "built_or_renovated_share": 0.01651376146788991,
+        "built_or_renovated_share_change": 0.001807879114948733,
+        "recent_sale_value_growth": 0.45961904460789627
+      }
+    },
+    {
+      "geoid": "06037229410",
+      "group": "gentrifying",
+      "udp": "EOG",
+      "taxable_parcels": 442,
+      "recent_sales": [
+        105,
+        82
+      ],
+      "indicators": {
+        "reassessed_share": 0.2149321266968326,
+        "reassessed_share_change": -0.046329134564428665,
+        "built_or_renovated_share": 0.020361990950226245,
+        "built_or_renovated_share_change": 0.006848477436712731,
+        "recent_sale_value_growth": 0.41076812599759566
+      }
+    },
+    {
+      "geoid": "06037231100",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 523,
+      "recent_sales": [
+        44,
+        48
+      ],
+      "indicators": {
+        "reassessed_share": 0.24091778202676864,
+        "reassessed_share_change": 0.055803278209974744,
+        "built_or_renovated_share": 0.009560229445506692,
+        "built_or_renovated_share_change": 0.007651832498941807,
+        "recent_sale_value_growth": 0.2436125172938784
+      }
+    },
+    {
+      "geoid": "06037231400",
+      "group": "gentrifying",
+      "udp": "EOG",
+      "taxable_parcels": 847,
+      "recent_sales": [
+        176,
+        127
+      ],
+      "indicators": {
+        "reassessed_share": 0.15584415584415584,
+        "reassessed_share_change": -0.06467471208037245,
+        "built_or_renovated_share": 0.0035419126328217238,
+        "built_or_renovated_share_change": 0.0035419126328217238,
+        "recent_sale_value_growth": 0.4551010320855223
+      }
+    },
+    {
+      "geoid": "06037231500",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 1146,
+      "recent_sales": [
+        207,
+        186
+      ],
+      "indicators": {
+        "reassessed_share": 0.1736474694589878,
+        "reassessed_share_change": -0.017452006980802792,
+        "built_or_renovated_share": 0.0008726003490401396,
+        "built_or_renovated_share_change": -0.0017452006980802795,
+        "recent_sale_value_growth": 0.5148261857080481
+      }
+    },
+    {
+      "geoid": "06037235202",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 938,
+      "recent_sales": [
+        161,
+        121
+      ],
+      "indicators": {
+        "reassessed_share": 0.15884861407249468,
+        "reassessed_share_change": -0.024414097791912115,
+        "built_or_renovated_share": 0.0010660980810234541,
+        "built_or_renovated_share_change": -0.0021118680206714613,
+        "recent_sale_value_growth": 0.3784530868931627
+      }
+    },
+    {
+      "geoid": "06037241300",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 418,
+      "recent_sales": [
+        89,
+        52
+      ],
+      "indicators": {
+        "reassessed_share": 0.13157894736842105,
+        "reassessed_share_change": -0.08560482351463386,
+        "built_or_renovated_share": 0.0023923444976076554,
+        "built_or_renovated_share_change": 0.0023923444976076554,
+        "recent_sale_value_growth": 0.3173639987058713
+      }
+    },
+    {
+      "geoid": "06037269602",
+      "group": "gentrifying",
+      "udp": "AdvG",
+      "taxable_parcels": 317,
+      "recent_sales": [
+        47,
+        47
+      ],
+      "indicators": {
+        "reassessed_share": 0.15457413249211358,
+        "reassessed_share_change": -0.014215676425083867,
+        "built_or_renovated_share": 0.015772870662460567,
+        "built_or_renovated_share_change": 0.006218730535072032,
+        "recent_sale_value_growth": 0.511651066272496
+      }
+    },
+    {
+      "geoid": "06037269903",
+      "group": "gentrifying",
+      "udp": "AdvG",
+      "taxable_parcels": 272,
+      "recent_sales": [
+        33,
+        32
+      ],
+      "indicators": {
+        "reassessed_share": 0.15441176470588236,
+        "reassessed_share_change": 0.01722764918241665,
+        "built_or_renovated_share": 0.0,
+        "built_or_renovated_share_change": 0.0,
+        "recent_sale_value_growth": 0.6198447049711718
+      }
+    },
+    {
+      "geoid": "06037269905",
+      "group": "gentrifying",
+      "udp": "AdvG",
+      "taxable_parcels": 183,
+      "recent_sales": [
+        10,
+        20
+      ],
+      "indicators": {
+        "reassessed_share": 0.19672131147540983,
+        "reassessed_share_change": 0.09724487168483392,
+        "built_or_renovated_share": 0.00546448087431694,
+        "built_or_renovated_share_change": 0.00022887878007610187,
+        "recent_sale_value_growth": 0.7804288266106392
+      }
+    },
+    {
+      "geoid": "06037270100",
+      "group": "gentrifying",
+      "udp": "AdvG",
+      "taxable_parcels": 624,
+      "recent_sales": [
+        69,
+        85
+      ],
+      "indicators": {
+        "reassessed_share": 0.16826923076923078,
+        "reassessed_share_change": 0.014914598181371364,
+        "built_or_renovated_share": 0.00641025641025641,
+        "built_or_renovated_share_change": 0.00641025641025641,
+        "recent_sale_value_growth": 0.3829047683816203
+      }
+    },
+    {
+      "geoid": "06037291110",
+      "group": "gentrifying",
+      "udp": "EOG",
+      "taxable_parcels": 475,
+      "recent_sales": [
+        61,
+        69
+      ],
+      "indicators": {
+        "reassessed_share": 0.16,
+        "reassessed_share_change": 0.014469854469854465,
+        "built_or_renovated_share": 0.008421052631578947,
+        "built_or_renovated_share_change": 0.006342050552576868,
+        "recent_sale_value_growth": 0.38216396658493207
+      }
+    },
+    {
+      "geoid": "06037302301",
+      "group": "gentrifying",
+      "udp": "AdvG",
+      "taxable_parcels": 731,
+      "recent_sales": [
+        179,
+        124
+      ],
+      "indicators": {
+        "reassessed_share": 0.19699042407660738,
+        "reassessed_share_change": -0.07103678680774633,
+        "built_or_renovated_share": 0.0,
+        "built_or_renovated_share_change": -0.0013605442176870747,
+        "recent_sale_value_growth": 0.09628745072022912
+      }
+    },
+    {
+      "geoid": "06037402002",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 1138,
+      "recent_sales": [
+        195,
+        215
+      ],
+      "indicators": {
+        "reassessed_share": 0.19947275922671354,
+        "reassessed_share_change": 0.01646050003231775,
+        "built_or_renovated_share": 0.0008787346221441124,
+        "built_or_renovated_share_change": 0.0008787346221441124,
+        "recent_sale_value_growth": 0.3978291831363439
+      }
+    },
+    {
+      "geoid": "06037402301",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 1038,
+      "recent_sales": [
+        211,
+        199
+      ],
+      "indicators": {
+        "reassessed_share": 0.19845857418111754,
+        "reassessed_share_change": -0.01176321945436945,
+        "built_or_renovated_share": 0.0019267822736030828,
+        "built_or_renovated_share_change": 0.0009624621193118581,
+        "recent_sale_value_growth": 0.4664864594992878
+      }
+    },
+    {
+      "geoid": "06037402501",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 701,
+      "recent_sales": [
+        142,
+        106
+      ],
+      "indicators": {
+        "reassessed_share": 0.21683309557774608,
+        "reassessed_share_change": -0.026371482390780382,
+        "built_or_renovated_share": 0.0014265335235378032,
+        "built_or_renovated_share_change": -4.081640982940733e-06,
+        "recent_sale_value_growth": 0.5377234125798612
+      }
+    },
+    {
+      "geoid": "06037404504",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 673,
+      "recent_sales": [
+        137,
+        119
+      ],
+      "indicators": {
+        "reassessed_share": 0.2526002971768202,
+        "reassessed_share_change": 0.019542445937150765,
+        "built_or_renovated_share": 0.03714710252600297,
+        "built_or_renovated_share_change": 0.0354942099640195,
+        "recent_sale_value_growth": 0.46308893696707915
+      }
+    },
+    {
+      "geoid": "06037405102",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 1076,
+      "recent_sales": [
+        198,
+        141
+      ],
+      "indicators": {
+        "reassessed_share": 0.1449814126394052,
+        "reassessed_share_change": -0.05146386331943484,
+        "built_or_renovated_share": 0.008364312267657992,
+        "built_or_renovated_share_change": 0.0074288585726158965,
+        "recent_sale_value_growth": 0.5003329011910039
+      }
+    },
+    {
+      "geoid": "06037406200",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 987,
+      "recent_sales": [
+        162,
+        148
+      ],
+      "indicators": {
+        "reassessed_share": 0.1773049645390071,
+        "reassessed_share_change": -0.0035893444040823452,
+        "built_or_renovated_share": 0.0010131712259371835,
+        "built_or_renovated_share_change": -3.0889366644426715e-06,
+        "recent_sale_value_growth": 0.3174858928175461
+      }
+    },
+    {
+      "geoid": "06037407601",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 577,
+      "recent_sales": [
+        95,
+        78
+      ],
+      "indicators": {
+        "reassessed_share": 0.16291161178509533,
+        "reassessed_share_change": -0.015289080256427168,
+        "built_or_renovated_share": 0.0034662045060658577,
+        "built_or_renovated_share_change": 0.0034662045060658577,
+        "recent_sale_value_growth": 0.42039536184343673
+      }
+    },
+    {
+      "geoid": "06037433101",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 587,
+      "recent_sales": [
+        56,
+        59
+      ],
+      "indicators": {
+        "reassessed_share": 0.13458262350936967,
+        "reassessed_share_change": -0.006310847281008336,
+        "built_or_renovated_share": 0.0034071550255536627,
+        "built_or_renovated_share_change": 0.0016889419671344188,
+        "recent_sale_value_growth": 0.3150197093493815
+      }
+    },
+    {
+      "geoid": "06037433200",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 1173,
+      "recent_sales": [
+        149,
+        113
+      ],
+      "indicators": {
+        "reassessed_share": 0.13725490196078433,
+        "reassessed_share_change": -0.0071801022873040354,
+        "built_or_renovated_share": 0.0017050298380221654,
+        "built_or_renovated_share_change": -0.001693440850168149,
+        "recent_sale_value_growth": 0.42244495130556736
+      }
+    },
+    {
+      "geoid": "06037433401",
+      "group": "gentrifying",
+      "udp": "EOG",
+      "taxable_parcels": 473,
+      "recent_sales": [
+        62,
+        44
+      ],
+      "indicators": {
+        "reassessed_share": 0.1014799154334038,
+        "reassessed_share_change": -0.03382663847780128,
+        "built_or_renovated_share": 0.0,
+        "built_or_renovated_share_change": -0.004228329809725159,
+        "recent_sale_value_growth": 0.3371997187236727
+      }
+    },
+    {
+      "geoid": "06037481202",
+      "group": "gentrifying",
+      "udp": "AdvG",
+      "taxable_parcels": 1417,
+      "recent_sales": [
+        196,
+        165
+      ],
+      "indicators": {
+        "reassessed_share": 0.1333803810868031,
+        "reassessed_share_change": -0.016231474947071278,
+        "built_or_renovated_share": 0.0056457304163726185,
+        "built_or_renovated_share_change": -0.0014114326040931546,
+        "recent_sale_value_growth": 0.28635029530192774
+      }
+    },
+    {
+      "geoid": "06037482201",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 918,
+      "recent_sales": [
+        104,
+        178
+      ],
+      "indicators": {
+        "reassessed_share": 0.21568627450980393,
+        "reassessed_share_change": 0.07329854176062539,
+        "built_or_renovated_share": 0.010893246187363835,
+        "built_or_renovated_share_change": 0.0032262144239465296,
+        "recent_sale_value_growth": 0.28105658822816526
+      }
+    },
+    {
+      "geoid": "06037482202",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 1135,
+      "recent_sales": [
+        178,
+        192
+      ],
+      "indicators": {
+        "reassessed_share": 0.17709251101321585,
+        "reassessed_share_change": 0.015601827783402189,
+        "built_or_renovated_share": 0.012334801762114538,
+        "built_or_renovated_share_change": 0.0061236216378909355,
+        "recent_sale_value_growth": 0.2531243120583009
+      }
+    },
+    {
+      "geoid": "06037501804",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 366,
+      "recent_sales": [
+        46,
+        48
+      ],
+      "indicators": {
+        "reassessed_share": 0.16120218579234974,
+        "reassessed_share_change": -0.0022855526272687887,
+        "built_or_renovated_share": 0.0,
+        "built_or_renovated_share_change": -0.005449591280653951,
+        "recent_sale_value_growth": 0.28627231282960347
+      }
+    },
+    {
+      "geoid": "06037502302",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 403,
+      "recent_sales": [
+        47,
+        53
+      ],
+      "indicators": {
+        "reassessed_share": 0.17369727047146402,
+        "reassessed_share_change": 0.036540163239543816,
+        "built_or_renovated_share": 0.0,
+        "built_or_renovated_share_change": -0.0024937655860349127,
+        "recent_sale_value_growth": 0.299560462957251
+      }
+    },
+    {
+      "geoid": "06037531000",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 855,
+      "recent_sales": [
+        125,
+        109
+      ],
+      "indicators": {
+        "reassessed_share": 0.15204678362573099,
+        "reassessed_share_change": -0.0068317210471662,
+        "built_or_renovated_share": 0.0023391812865497076,
+        "built_or_renovated_share_change": -0.0023337159097119742,
+        "recent_sale_value_growth": 0.5470458095761961
+      }
+    },
+    {
+      "geoid": "06037531101",
+      "group": "gentrifying",
+      "udp": "EOG",
+      "taxable_parcels": 667,
+      "recent_sales": [
+        63,
+        87
+      ],
+      "indicators": {
+        "reassessed_share": 0.17091454272863568,
+        "reassessed_share_change": 0.05229592411001706,
+        "built_or_renovated_share": 0.008995502248875561,
+        "built_or_renovated_share_change": 0.004490997744371057,
+        "recent_sale_value_growth": 0.45345257224785757
+      }
+    },
+    {
+      "geoid": "06037531901",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 1103,
+      "recent_sales": [
+        151,
+        164
+      ],
+      "indicators": {
+        "reassessed_share": 0.16047144152311876,
+        "reassessed_share_change": 0.013599274705349051,
+        "built_or_renovated_share": 0.0,
+        "built_or_renovated_share_change": 0.0,
+        "recent_sale_value_growth": 0.33964784503474543
+      }
+    },
+    {
+      "geoid": "06037532001",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 687,
+      "recent_sales": [
+        78,
+        79
+      ],
+      "indicators": {
+        "reassessed_share": 0.16011644832605532,
+        "reassessed_share_change": 0.015188912094171253,
+        "built_or_renovated_share": 0.004366812227074236,
+        "built_or_renovated_share_change": 0.0014682615024365544,
+        "recent_sale_value_growth": 0.3879102461048533
+      }
+    },
+    {
+      "geoid": "06037532101",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 922,
+      "recent_sales": [
+        126,
+        149
+      ],
+      "indicators": {
+        "reassessed_share": 0.22234273318872017,
+        "reassessed_share_change": 0.044276695452871107,
+        "built_or_renovated_share": 0.04880694143167028,
+        "built_or_renovated_share_change": 0.04055222445053821,
+        "recent_sale_value_growth": 0.333685244703207
+      }
+    },
+    {
+      "geoid": "06037532304",
+      "group": "gentrifying",
+      "udp": "EOG",
+      "taxable_parcels": 1013,
+      "recent_sales": [
+        73,
+        73
+      ],
+      "indicators": {
+        "reassessed_share": 0.17472852912142153,
+        "reassessed_share_change": -0.0035583234682199094,
+        "built_or_renovated_share": 0.01579466929911155,
+        "built_or_renovated_share_change": 0.01081458961783665,
+        "recent_sale_value_growth": 0.3997184910229896
+      }
+    },
+    {
+      "geoid": "06037532603",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 385,
+      "recent_sales": [
+        49,
+        38
+      ],
+      "indicators": {
+        "reassessed_share": 0.17402597402597403,
+        "reassessed_share_change": 0.00011293054771316369,
+        "built_or_renovated_share": 0.0025974025974025974,
+        "built_or_renovated_share_change": -0.002517686916663899,
+        "recent_sale_value_growth": 0.5070775724684314
+      }
+    },
+    {
+      "geoid": "06037533502",
+      "group": "gentrifying",
+      "udp": "EOG",
+      "taxable_parcels": 243,
+      "recent_sales": [
+        33,
+        27
+      ],
+      "indicators": {
+        "reassessed_share": 0.11934156378600823,
+        "reassessed_share_change": -0.021154303982586817,
+        "built_or_renovated_share": 0.00411522633744856,
+        "built_or_renovated_share_change": -1.700506751011778e-05,
+        "recent_sale_value_growth": 0.2528994864126242
+      }
+    },
+    {
+      "geoid": "06037533601",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 479,
+      "recent_sales": [
+        64,
+        43
+      ],
+      "indicators": {
+        "reassessed_share": 0.12317327766179541,
+        "reassessed_share_change": -0.02922755741127349,
+        "built_or_renovated_share": 0.0,
+        "built_or_renovated_share_change": 0.0,
+        "recent_sale_value_growth": 0.40739949091175165
+      }
+    },
+    {
+      "geoid": "06037533901",
+      "group": "gentrifying",
+      "udp": "EOG",
+      "taxable_parcels": 569,
+      "recent_sales": [
+        70,
+        56
+      ],
+      "indicators": {
+        "reassessed_share": 0.10369068541300527,
+        "reassessed_share_change": -0.0210896309314587,
+        "built_or_renovated_share": 0.0,
+        "built_or_renovated_share_change": -0.01054481546572935,
+        "recent_sale_value_growth": 0.3619182340626231
+      }
+    },
+    {
+      "geoid": "06037533902",
+      "group": "gentrifying",
+      "udp": "EOG",
+      "taxable_parcels": 501,
+      "recent_sales": [
+        58,
+        58
+      ],
+      "indicators": {
+        "reassessed_share": 0.13972055888223553,
+        "reassessed_share_change": 0.017964071856287428,
+        "built_or_renovated_share": 0.003992015968063872,
+        "built_or_renovated_share_change": 0.0,
+        "recent_sale_value_growth": 0.3829475177020383
+      }
+    },
+    {
+      "geoid": "06037535102",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 748,
+      "recent_sales": [
+        140,
+        134
+      ],
+      "indicators": {
+        "reassessed_share": 0.20989304812834225,
+        "reassessed_share_change": 0.004833128021817623,
+        "built_or_renovated_share": 0.0106951871657754,
+        "built_or_renovated_share_change": 0.005368955474696838,
+        "recent_sale_value_growth": 0.40435903562826114
+      }
+    },
+    {
+      "geoid": "06037535300",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 1148,
+      "recent_sales": [
+        204,
+        177
+      ],
+      "indicators": {
+        "reassessed_share": 0.20470383275261325,
+        "reassessed_share_change": 0.012162635874902933,
+        "built_or_renovated_share": 0.009581881533101045,
+        "built_or_renovated_share_change": 0.0026434600239943666,
+        "recent_sale_value_growth": 0.4885751435240004
+      }
+    },
+    {
+      "geoid": "06037535702",
+      "group": "gentrifying",
+      "udp": "EOG",
+      "taxable_parcels": 827,
+      "recent_sales": [
+        123,
+        90
+      ],
+      "indicators": {
+        "reassessed_share": 0.13422007255139057,
+        "reassessed_share_change": -0.03244659411527609,
+        "built_or_renovated_share": 0.0036275695284159614,
+        "built_or_renovated_share_change": -0.0024110778145792077,
+        "recent_sale_value_growth": 0.32423509634260983
+      }
+    },
+    {
+      "geoid": "06037535803",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 510,
+      "recent_sales": [
+        84,
+        55
+      ],
+      "indicators": {
+        "reassessed_share": 0.12156862745098039,
+        "reassessed_share_change": -0.057213297892831014,
+        "built_or_renovated_share": 0.00196078431372549,
+        "built_or_renovated_share_change": -3.852228514195349e-06,
+        "recent_sale_value_growth": 0.3127706869081416
+      }
+    },
+    {
+      "geoid": "06037535901",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 1078,
+      "recent_sales": [
+        185,
+        159
+      ],
+      "indicators": {
+        "reassessed_share": 0.15306122448979592,
+        "reassessed_share_change": -0.021012849584278154,
+        "built_or_renovated_share": 0.0,
+        "built_or_renovated_share_change": -0.000925925925925926,
+        "recent_sale_value_growth": 0.3876928891452255
+      }
+    },
+    {
+      "geoid": "06037536102",
+      "group": "gentrifying",
+      "udp": "EOG",
+      "taxable_parcels": 970,
+      "recent_sales": [
+        144,
+        156
+      ],
+      "indicators": {
+        "reassessed_share": 0.17422680412371133,
+        "reassessed_share_change": 0.015790590131941784,
+        "built_or_renovated_share": 0.0010309278350515464,
+        "built_or_renovated_share_change": 2.1212506894064103e-06,
+        "recent_sale_value_growth": 0.34968310791985124
+      }
+    },
+    {
+      "geoid": "06037552100",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 1381,
+      "recent_sales": [
+        237,
+        238
+      ],
+      "indicators": {
+        "reassessed_share": 0.1788559015206372,
+        "reassessed_share_change": 0.002300185167525781,
+        "built_or_renovated_share": 0.000724112961622013,
+        "built_or_renovated_share_change": 0.000724112961622013,
+        "recent_sale_value_growth": 0.32559262306016373
+      }
+    },
+    {
+      "geoid": "06037553502",
+      "group": "gentrifying",
+      "udp": "AdvG",
+      "taxable_parcels": 737,
+      "recent_sales": [
+        167,
+        136
+      ],
+      "indicators": {
+        "reassessed_share": 0.2157394843962008,
+        "reassessed_share_change": -0.03254583796319563,
+        "built_or_renovated_share": 0.004070556309362279,
+        "built_or_renovated_share_change": 0.004070556309362279,
+        "recent_sale_value_growth": 0.5837084823675931
+      }
+    },
+    {
+      "geoid": "06037553602",
+      "group": "gentrifying",
+      "udp": "AdvG",
+      "taxable_parcels": 596,
+      "recent_sales": [
+        126,
+        103
+      ],
+      "indicators": {
+        "reassessed_share": 0.18624161073825504,
+        "reassessed_share_change": -0.03355704697986575,
+        "built_or_renovated_share": 0.003355704697986577,
+        "built_or_renovated_share_change": 0.0,
+        "recent_sale_value_growth": 0.39828235851737553
+      }
+    },
+    {
+      "geoid": "06037554404",
+      "group": "gentrifying",
+      "udp": "EOG",
+      "taxable_parcels": 618,
+      "recent_sales": [
+        99,
+        93
+      ],
+      "indicators": {
+        "reassessed_share": 0.20064724919093851,
+        "reassessed_share_change": -0.00257855726067438,
+        "built_or_renovated_share": 0.0016181229773462784,
+        "built_or_renovated_share_change": 5.219751539826782e-06,
+        "recent_sale_value_growth": 0.34306415758248926
+      }
+    },
+    {
+      "geoid": "06037571704",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 808,
+      "recent_sales": [
+        194,
+        143
+      ],
+      "indicators": {
+        "reassessed_share": 0.18316831683168316,
+        "reassessed_share_change": -0.057914093992425086,
+        "built_or_renovated_share": 0.0037128712871287127,
+        "built_or_renovated_share_change": 2.2834386759709117e-05,
+        "recent_sale_value_growth": 0.5168909375863288
+      }
+    },
+    {
+      "geoid": "06037573202",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 907,
+      "recent_sales": [
+        267,
+        158
+      ],
+      "indicators": {
+        "reassessed_share": 0.19514884233737598,
+        "reassessed_share_change": -0.11025358324145532,
+        "built_or_renovated_share": 0.0033076074972436605,
+        "built_or_renovated_share_change": -0.05292171995589857,
+        "recent_sale_value_growth": 0.29557439252426576
+      }
+    },
+    {
+      "geoid": "06037575101",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 699,
+      "recent_sales": [
+        205,
+        166
+      ],
+      "indicators": {
+        "reassessed_share": 0.24892703862660945,
+        "reassessed_share_change": -0.051502145922746795,
+        "built_or_renovated_share": 0.0,
+        "built_or_renovated_share_change": -0.001430615164520744,
+        "recent_sale_value_growth": 0.6758528641768552
+      }
+    },
+    {
+      "geoid": "06037575300",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 431,
+      "recent_sales": [
+        64,
+        56
+      ],
+      "indicators": {
+        "reassessed_share": 0.1531322505800464,
+        "reassessed_share_change": -0.011219601271805463,
+        "built_or_renovated_share": 0.0,
+        "built_or_renovated_share_change": -0.0023148148148148147,
+        "recent_sale_value_growth": 0.331455127950752
+      }
+    },
+    {
+      "geoid": "06037576200",
+      "group": "gentrifying",
+      "udp": "EOG",
+      "taxable_parcels": 1097,
+      "recent_sales": [
+        289,
+        240
+      ],
+      "indicators": {
+        "reassessed_share": 0.2853236098450319,
+        "reassessed_share_change": -0.0442110530229643,
+        "built_or_renovated_share": 0.0036463081130355514,
+        "built_or_renovated_share_change": 0.0036463081130355514,
+        "recent_sale_value_growth": 0.4428279608603074
+      }
+    },
+    {
+      "geoid": "06037576503",
+      "group": "gentrifying",
+      "udp": "EOG",
+      "taxable_parcels": 586,
+      "recent_sales": [
+        116,
+        124
+      ],
+      "indicators": {
+        "reassessed_share": 0.2167235494880546,
+        "reassessed_share_change": 0.011945392491467588,
+        "built_or_renovated_share": 0.0,
+        "built_or_renovated_share_change": 0.0,
+        "recent_sale_value_growth": 0.4902661919334116
+      }
+    },
+    {
+      "geoid": "06037576904",
+      "group": "gentrifying",
+      "udp": "EOG",
+      "taxable_parcels": 493,
+      "recent_sales": [
+        83,
+        92
+      ],
+      "indicators": {
+        "reassessed_share": 0.20081135902636918,
+        "reassessed_share_change": 0.028397565922920892,
+        "built_or_renovated_share": 0.0,
+        "built_or_renovated_share_change": 0.0,
+        "recent_sale_value_growth": 0.2686372751251773
+      }
+    },
+    {
+      "geoid": "06037600400",
+      "group": "comparison",
+      "udp": "LISD",
+      "taxable_parcels": 1093,
+      "recent_sales": [
+        160,
+        136
+      ],
+      "indicators": {
+        "reassessed_share": 0.12991765782250686,
+        "reassessed_share_change": -0.020265492360643317,
+        "built_or_renovated_share": 0.0,
+        "built_or_renovated_share_change": 0.0,
+        "recent_sale_value_growth": 0.37869076048297107
+      }
+    },
+    {
+      "geoid": "06037602106",
+      "group": "gentrifying",
+      "udp": "EOG",
+      "taxable_parcels": 715,
+      "recent_sales": [
+        95,
+        92
+      ],
+      "indicators": {
+        "reassessed_share": 0.13986013986013987,
+        "reassessed_share_change": -0.0037939745052715523,
+        "built_or_renovated_share": 0.0,
+        "built_or_renovated_share_change": 0.0,
+        "recent_sale_value_growth": 0.2737063269826617
+      }
+    },
+    {
+      "geoid": "06037603101",
+      "group": "gentrifying",
+      "udp": "AdvG",
+      "taxable_parcels": 953,
+      "recent_sales": [
+        141,
+        152
+      ],
+      "indicators": {
+        "reassessed_share": 0.18153200419727178,
+        "reassessed_share_change": 0.01888772298006297,
+        "built_or_renovated_share": 0.0031479538300104933,
+        "built_or_renovated_share_change": 0.002098635886673662,
+        "recent_sale_value_growth": 0.4182424539990374
+      }
+    }
+  ]
+}
