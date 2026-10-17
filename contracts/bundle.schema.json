@@ -43,6 +43,24 @@
           "default": null,
           "title": "Boundary Vintage"
         },
+        "context": {
+          "items": {
+            "$ref": "#/$defs/ContextIndicator"
+          },
+          "title": "Context",
+          "type": "array"
+        },
+        "reference_typology": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ReferenceTypology"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
         "housing": {
           "$ref": "#/$defs/Assessment"
         },
@@ -261,6 +279,70 @@
       "title": "Business",
       "type": "object"
     },
+    "ContextIndicator": {
+      "additionalProperties": false,
+      "description": "Descriptive neighborhood-change context. Never an input to the score.",
+      "properties": {
+        "key": {
+          "minLength": 1,
+          "title": "Key",
+          "type": "string"
+        },
+        "label": {
+          "minLength": 1,
+          "title": "Label",
+          "type": "string"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Value"
+        },
+        "unit": {
+          "enum": [
+            "share",
+            "count"
+          ],
+          "title": "Unit",
+          "type": "string"
+        },
+        "period": {
+          "minLength": 1,
+          "title": "Period",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "note": {
+          "default": "",
+          "title": "Note",
+          "type": "string"
+        }
+      },
+      "required": [
+        "key",
+        "label",
+        "unit",
+        "period",
+        "evidence_ids"
+      ],
+      "title": "ContextIndicator",
+      "type": "object"
+    },
     "Contribution": {
       "additionalProperties": false,
       "properties": {
@@ -384,7 +466,10 @@
           "enum": [
             "census",
             "image",
-            "project"
+            "project",
+            "assessor",
+            "business_patterns",
+            "typology"
           ],
           "title": "Kind",
           "type": "string"
@@ -644,6 +729,47 @@
         "upper"
       ],
       "title": "PressureRange",
+      "type": "object"
+    },
+    "ReferenceTypology": {
+      "additionalProperties": false,
+      "description": "An external classification used as a benchmark, not as ground truth or a score input.",
+      "properties": {
+        "code": {
+          "minLength": 1,
+          "title": "Code",
+          "type": "string"
+        },
+        "label": {
+          "minLength": 1,
+          "title": "Label",
+          "type": "string"
+        },
+        "source_period": {
+          "minLength": 1,
+          "title": "Source Period",
+          "type": "string"
+        },
+        "source_tract": {
+          "maxLength": 11,
+          "minLength": 11,
+          "title": "Source Tract",
+          "type": "string"
+        },
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "label",
+        "source_period",
+        "source_tract",
+        "evidence_id"
+      ],
+      "title": "ReferenceTypology",
       "type": "object"
     },
     "Resource": {

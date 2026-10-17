@@ -14,6 +14,7 @@ source .venv/bin/activate
 pip install -e '.[dev]'
 python -m youseela.cli fixture
 python -m youseela.cli validate data/fixtures/bundle.json
+python -m youseela.cli context   # optional; no credentials needed, a few minutes
 python -m youseela.cli build
 python -m pytest -q
 ```
@@ -26,6 +27,7 @@ python -m pytest -q
 - [Frontend handoff and missing-data behavior](docs/frontend-handoff.md)
 - [Scalability evaluation](docs/scalability.md)
 - [Historical evidence and coverage findings](docs/evidence-status.md)
+- [Assessor, business-pattern and UDP benchmark context](docs/context-sources.md)
 - [Public JSON Schema](contracts/bundle.schema.json)
 
 Configuration lives in `config/assessment.json`. Images affect scores through a corroborated physical-change feature combined with numerical affordability pressure. Missing or ambiguous evidence produces an unrated result. Housing context does not establish an individual business's financial condition.

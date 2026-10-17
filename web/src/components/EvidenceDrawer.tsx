@@ -7,6 +7,9 @@ const TYPE_LABEL: Record<EvidenceType, string> = {
   census: 'Census data',
   project_record: 'Project record',
   business_listing: 'Business listing',
+  assessor_roll: 'Assessor roll',
+  business_patterns: 'ZIP business patterns',
+  reference_typology: 'Displacement typology',
 };
 
 const STATUS_LABEL: Record<ObservationStatus, string> = {

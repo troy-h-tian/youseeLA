@@ -34,7 +34,7 @@ class FrontageObservation(Record):
 class Evidence(Record):
     id: str = Field(min_length=1)
     area_id: str = Field(min_length=1)
-    kind: Literal["census", "image", "project"]
+    kind: Literal["census", "image", "project", "assessor", "business_patterns", "typology"]
     mode: Literal["housing", "commercial", "both"]
     source_url: str
     source_date: date
@@ -142,6 +142,32 @@ class Assessment(Record):
         return self
 
 
+class ContextIndicator(Record):
+    """Descriptive neighborhood-change context. Never an input to the score."""
+    key: str = Field(min_length=1)
+    label: str = Field(min_length=1)
+    value: float | None = Field(default=None, ge=0, allow_inf_nan=False)
+    unit: Literal["share", "count"]
+    period: str = Field(min_length=1)
+    evidence_ids: list[str] = Field(min_length=1)
+    note: str = ""
+
+    @model_validator(mode="after")
+    def share_is_fraction(self) -> "ContextIndicator":
+        if self.unit == "share" and self.value is not None and self.value > 1:
+            raise ValueError("Share indicators must be between 0 and 1")
+        return self
+
+
+class ReferenceTypology(Record):
+    """An external classification used as a benchmark, not as ground truth or a score input."""
+    code: str = Field(min_length=1)
+    label: str = Field(min_length=1)
+    source_period: str = Field(min_length=1)
+    source_tract: str = Field(min_length=11, max_length=11)
+    evidence_id: str = Field(min_length=1)
+
+
 class AreaInput(Record):
     id: str
     name: str
@@ -149,6 +175,8 @@ class AreaInput(Record):
     indicators: NumericalIndicators
     boundary_source_url: str | None = None
     boundary_vintage: str | None = None
+    context: list[ContextIndicator] = Field(default_factory=list)
+    reference_typology: ReferenceTypology | None = None
 
     @field_validator("boundary_source_url")
     @classmethod
@@ -229,6 +257,10 @@ class Bundle(Record):
                 raise ValueError("Record points to an unknown area")
         for area in self.areas:
             refs = set(area.indicators.evidence_ids)
+            for item in area.context:
+                refs.update(item.evidence_ids)
+            if area.reference_typology:
+                refs.add(area.reference_typology.evidence_id)
             for mode in [area.housing, area.commercial]:
                 refs.update(mode.evidence_ids)
                 for contribution in mode.contributions:

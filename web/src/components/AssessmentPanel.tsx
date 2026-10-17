@@ -133,7 +133,13 @@ export function AssessmentPanel({ area, kind, methodology, onOpenEvidence }: Pro
       </dl>
 
       <details className="indicators">
-        <summary>Census indicators ({area.indicators.length})</summary>
+        <summary>Indicators ({area.indicators.length})</summary>
+        {area.reference_typology && (
+          <p className="muted">
+            Urban Displacement Project reference: <strong>{area.reference_typology.label}</strong> (
+            {area.reference_typology.source_period}). Shown for comparison; it does not affect the score.
+          </p>
+        )}
         <dl className="facts">
           {area.indicators.map((i) => (
             <div key={i.key}>

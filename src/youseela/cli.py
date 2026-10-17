@@ -44,6 +44,17 @@ def parser() -> argparse.ArgumentParser:
     build.add_argument("--config", type=Path, default=Path("config/assessment.json"))
     build.add_argument("--output", type=Path, default=Path("data/exports/demo.json"))
     build.add_argument("--as-of", type=date.fromisoformat, default=date.today())
+    build.add_argument("--context", type=Path, default=Path("data/curated/context.json"),
+                       help="Unscored neighborhood-change context to attach when the file exists")
+    context = sub.add_parser("context", help="Derive assessor, business-pattern and UDP benchmark context per tract")
+    context.add_argument("--geography", type=Path, default=Path("data/curated/areas.geojson"))
+    context.add_argument("--raw", type=Path, default=Path("data/raw/context"))
+    context.add_argument("--prior-roll", type=int, default=2020)
+    context.add_argument("--latest-roll", type=int, default=2025)
+    context.add_argument("--prior-zbp", type=int, default=2019)
+    context.add_argument("--latest-zbp", type=int, default=2023)
+    context.add_argument("--output", type=Path, default=Path("data/curated/context.json"))
+    context.add_argument("--benchmark", type=Path, default=Path("artifacts/context-benchmark.json"))
     census = sub.add_parser("census", help="Fetch ACS county records; requires CENSUS_API_KEY")
     census.add_argument("--year", type=int, required=True)
     census.add_argument("--output", type=Path, required=True)
@@ -92,6 +103,10 @@ def run(args: argparse.Namespace) -> None:
         print(f"Exported {bundle.data_kind} explorer data -> {args.output}")
     elif args.command == "build":
         dataset = Dataset.model_validate_json(args.input.read_text())
+        if args.context.exists():
+            from youseela.context import ContextFile, attach
+            dataset = attach(dataset, ContextFile.model_validate_json(args.context.read_text()))
+            print(f"Attached unscored context from {args.context}")
         bundle = build_bundle(dataset, load_config(args.config), args.as_of)
         write_bundle(bundle, args.output)
         rated = sum(a.housing.status == "rated" for a in bundle.areas) + sum(a.commercial.status == "rated" for a in bundle.areas)
@@ -120,6 +135,15 @@ def run(args: argparse.Namespace) -> None:
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(dataset.model_dump_json(indent=2)+"\n")
         print(f"Prepared {len(dataset.areas)} real areas; imagery still needs curation -> {args.output}")
+    elif args.command == "context":
+        from youseela.context import benchmark, collect
+        result = collect(json.loads(args.geography.read_text()), args.raw, args.prior_roll, args.latest_roll,
+                         args.prior_zbp, args.latest_zbp)
+        args.output.parent.mkdir(parents=True, exist_ok=True)
+        args.output.write_text(result.model_dump_json(indent=2)+"\n")
+        write_json({"generated_at": result.generated_at.isoformat(), **benchmark(result.areas)}, args.benchmark)
+        labeled = sum(1 for item in result.areas.values() if item.reference_typology)
+        print(f"Wrote context for {len(result.areas)} tracts ({labeled} with UDP reference) -> {args.output}; benchmark -> {args.benchmark}")
     elif args.command == "env-status":
         keys = ["CENSUS_API_KEY", "MAPILLARY_ACCESS_TOKEN", "VISION_PROVIDER", "VISION_MODEL", "VISION_API_KEY"]
         print(json.dumps({key:bool(os.environ.get(key)) for key in keys}, indent=2))

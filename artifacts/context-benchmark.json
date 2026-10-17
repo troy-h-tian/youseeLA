@@ -1,0 +1,127 @@
+{
+  "generated_at": "2026-10-17T19:56:25.466740+00:00",
+  "reference": "Urban Displacement Project Los Angeles typology (ACS 2014\u20132018)",
+  "tracts_with_reference": 29,
+  "tracts_without_reference": [
+    "06037604200"
+  ],
+  "groups": {
+    "ARE": {
+      "label": "At risk of becoming exclusive",
+      "tracts": 5,
+      "medians": {
+        "amenity_establishments_latest": 0.0,
+        "amenity_establishments_prior": 3.0,
+        "built_or_renovated_share_latest": 0.0,
+        "built_or_renovated_share_prior": 0.0,
+        "reassessed_share_change": 0.0202,
+        "reassessed_share_latest": 0.1309,
+        "reassessed_share_prior": 0.1086
+      },
+      "counts": {
+        "amenity_establishments_latest": 5,
+        "amenity_establishments_prior": 5,
+        "built_or_renovated_share_latest": 5,
+        "built_or_renovated_share_prior": 5,
+        "reassessed_share_change": 5,
+        "reassessed_share_latest": 5,
+        "reassessed_share_prior": 5
+      }
+    },
+    "LISD": {
+      "label": "Low-income / susceptible to displacement",
+      "tracts": 14,
+      "medians": {
+        "amenity_establishments_latest": 31.0,
+        "amenity_establishments_prior": 27.5,
+        "built_or_renovated_share_latest": 0.0022,
+        "built_or_renovated_share_prior": 0.0034,
+        "reassessed_share_change": -0.0079,
+        "reassessed_share_latest": 0.1374,
+        "reassessed_share_prior": 0.1389
+      },
+      "counts": {
+        "amenity_establishments_latest": 14,
+        "amenity_establishments_prior": 14,
+        "built_or_renovated_share_latest": 14,
+        "built_or_renovated_share_prior": 14,
+        "reassessed_share_change": 14,
+        "reassessed_share_latest": 14,
+        "reassessed_share_prior": 14
+      }
+    },
+    "OD": {
+      "label": "Ongoing displacement",
+      "tracts": 4,
+      "medians": {
+        "amenity_establishments_latest": 26.5,
+        "amenity_establishments_prior": 23.5,
+        "built_or_renovated_share_latest": 0.0035,
+        "built_or_renovated_share_prior": 0.0028,
+        "reassessed_share_change": 0.0029,
+        "reassessed_share_latest": 0.1325,
+        "reassessed_share_prior": 0.1297
+      },
+      "counts": {
+        "amenity_establishments_latest": 4,
+        "amenity_establishments_prior": 4,
+        "built_or_renovated_share_latest": 4,
+        "built_or_renovated_share_prior": 4,
+        "reassessed_share_change": 4,
+        "reassessed_share_latest": 4,
+        "reassessed_share_prior": 4
+      }
+    },
+    "SAE": {
+      "label": "Stable/advanced exclusive",
+      "tracts": 1,
+      "medians": {
+        "amenity_establishments_latest": 0.0,
+        "amenity_establishments_prior": 0.0,
+        "built_or_renovated_share_latest": 0.0037,
+        "built_or_renovated_share_prior": 0.0012,
+        "reassessed_share_change": 0.0016,
+        "reassessed_share_latest": 0.1349,
+        "reassessed_share_prior": 0.1334
+      },
+      "counts": {
+        "amenity_establishments_latest": 1,
+        "amenity_establishments_prior": 1,
+        "built_or_renovated_share_latest": 1,
+        "built_or_renovated_share_prior": 1,
+        "reassessed_share_change": 1,
+        "reassessed_share_latest": 1,
+        "reassessed_share_prior": 1
+      }
+    },
+    "SMMI": {
+      "label": "Stable moderate/mixed income",
+      "tracts": 5,
+      "medians": {
+        "amenity_establishments_latest": 17.0,
+        "amenity_establishments_prior": 6.0,
+        "built_or_renovated_share_latest": 0.0017,
+        "built_or_renovated_share_prior": 0.0021,
+        "reassessed_share_change": -0.0018,
+        "reassessed_share_latest": 0.1292,
+        "reassessed_share_prior": 0.1291
+      },
+      "counts": {
+        "amenity_establishments_latest": 5,
+        "amenity_establishments_prior": 5,
+        "built_or_renovated_share_latest": 5,
+        "built_or_renovated_share_prior": 5,
+        "reassessed_share_change": 5,
+        "reassessed_share_latest": 5,
+        "reassessed_share_prior": 5
+      }
+    }
+  },
+  "limitations": [
+    "UDP is itself a model built from Census data, not observed displacement; it is a reference point, not ground truth.",
+    "The UDP period (2014\u20132018) predates SoFi Stadium's opening and the assessor/business windows compared here.",
+    "Few tracts per group; medians are descriptive and no statistical test or accuracy figure is implied.",
+    "Business counts are ZIP-level and repeated across tracts in the same ZIP.",
+    "No Inglewood tract is classified as gentrifying by UDP, so these data cannot validate gentrification detection directly."
+  ]
+}

@@ -2,16 +2,25 @@
 
 from typing import Any
 
-from youseela.contracts import Area, Assessment, Bundle
+from youseela.contracts import Area, Assessment, Bundle, Evidence
 from youseela.scoring import AssessmentConfig
 
 
-def web_assessment(assessment: Assessment, area: Area, config: AssessmentConfig) -> dict[str, Any]:
+EVIDENCE_TYPE = {'project': 'project_record', 'assessor': 'assessor_roll',
+                 'business_patterns': 'business_patterns', 'typology': 'reference_typology'}
+
+
+def web_assessment(assessment: Assessment, area: Area, config: AssessmentConfig,
+                   evidence: dict[str, Evidence]) -> dict[str, Any]:
     coverage = assessment.coverage
     dates = ([coverage.earliest_capture.isoformat(), coverage.latest_capture.isoformat()]
              if coverage.earliest_capture and coverage.latest_capture else None)
-    # Unrated areas still expose the available Census context in their drawer.
-    refs = sorted(set(assessment.evidence_ids + area.indicators.evidence_ids))
+    # Unrated areas still expose the available Census and change context in their drawer.
+    context = {ref for item in area.context for ref in item.evidence_ids}
+    if area.reference_typology:
+        context.add(area.reference_typology.evidence_id)
+    context = {ref for ref in context if evidence[ref].mode in {assessment.mode, 'both'}}
+    refs = sorted(set(assessment.evidence_ids + area.indicators.evidence_ids) | context)
     return {
         'status': assessment.status, 'score': assessment.score, 'tier': assessment.tier,
         'score_range': assessment.score_range.model_dump() if assessment.score_range else None,
@@ -33,6 +42,7 @@ def to_web_bundle(bundle: Bundle) -> dict[str, Any]:
     """Adapt names and display fields without changing any assessment result."""
     bundle = Bundle.model_validate_json(bundle.model_dump_json())
     config = AssessmentConfig.model_validate(bundle.methodology['configuration'])
+    evidence = {e.id: e for e in bundle.evidence}
     areas = []
     for area in bundle.areas:
         indicators = []
@@ -47,11 +57,19 @@ def to_web_bundle(bundle: Bundle) -> dict[str, Any]:
                                    margin_of_error=None, numerator=None, denominator=None,
                                    evidence_ids=area.indicators.evidence_ids,
                                    unavailable_reason='; '.join(area.indicators.warnings) if value is None else None))
+        # Change context is listed with the indicators but never enters a score.
+        indicators.extend(dict(key=c.key, label=c.label, value=c.value, unit=c.unit, source_period=c.period,
+                               margin_of_error=None, numerator=None, denominator=None, evidence_ids=c.evidence_ids,
+                               unavailable_reason=(c.note or 'Unavailable') if c.value is None else None)
+                          for c in area.context)
+        typology = area.reference_typology
         areas.append(dict(id=area.id, label=area.name, boundary=area.geometry,
                           boundary_note=f"Full tract, including portions outside Inglewood where applicable. Boundary: {area.boundary_vintage or 'unspecified'}. Assessed as of {bundle.assessed_as_of.isoformat()}.",
                           indicators=indicators,
-                          housing=web_assessment(area.housing, area, config),
-                          commercial=web_assessment(area.commercial, area, config)))
+                          reference_typology=dict(code=typology.code, label=typology.label, source_period=typology.source_period,
+                                                  evidence_ids=[typology.evidence_id]) if typology else None,
+                          housing=web_assessment(area.housing, area, config, evidence),
+                          commercial=web_assessment(area.commercial, area, config, evidence)))
     formulas = {}
     for mode in ['housing', 'commercial']:
         w = getattr(config, mode)
@@ -71,8 +89,8 @@ def to_web_bundle(bundle: Bundle) -> dict[str, Any]:
         resources=[dict(id=r.id, name=r.name, kind='housing', description=r.description,
                         url=r.source_url, service_area=r.jurisdiction, area_ids=None,
                         source_url=r.source_url, verified_at=r.verified_at.isoformat()) for r in bundle.resources],
-        evidence=[dict(id=e.id, evidence_type='project_record' if e.kind == 'project' else e.kind,
-                       area_id=e.area_id, title=f'{e.kind.title()} evidence · {e.area_id} · {e.source_date.isoformat()}',
+        evidence=[dict(id=e.id, evidence_type=EVIDENCE_TYPE.get(e.kind, e.kind),
+                       area_id=e.area_id, title=f'{e.kind.replace("_", " ").title()} evidence · {e.area_id} · {e.source_date.isoformat()}',
                        source_url=e.source_url, attribution=e.attribution, license=e.license,
                        captured_at=e.source_date.isoformat(),
                        location=dict(lat=e.latitude, lon=e.longitude) if e.latitude is not None else None,

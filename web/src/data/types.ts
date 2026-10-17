@@ -62,8 +62,17 @@ export interface Area {
   /** Note about the boundary, e.g. that the tract extends beyond city limits. */
   boundary_note: string | null;
   indicators: Indicator[];
+  /** External benchmark classification (Urban Displacement Project); never a score input. */
+  reference_typology?: ReferenceTypology | null;
   housing: Assessment;
   commercial: Assessment;
+}
+
+export interface ReferenceTypology {
+  code: string;
+  label: string;
+  source_period: string;
+  evidence_ids: string[];
 }
 
 export interface Indicator {
@@ -169,7 +178,14 @@ export interface Resource {
   verified_at: string;
 }
 
-export type EvidenceType = 'image' | 'census' | 'project_record' | 'business_listing';
+export type EvidenceType =
+  | 'image'
+  | 'census'
+  | 'project_record'
+  | 'business_listing'
+  | 'assessor_roll'
+  | 'business_patterns'
+  | 'reference_typology';
 export type FrontageClass = 'residential' | 'commercial';
 export type ObservationStatus = 'present' | 'absent' | 'unclear';
 
