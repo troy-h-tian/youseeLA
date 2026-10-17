@@ -60,6 +60,11 @@ def parser() -> argparse.ArgumentParser:
     census.add_argument("--output", type=Path, required=True)
     geo = sub.add_parser("geography", help="Discover official full tracts intersecting Inglewood")
     geo.add_argument("--output", type=Path, default=Path("data/curated/areas.geojson"))
+    boundaries = sub.add_parser("boundary-check", help="Measure tract boundary differences between two ACS vintages")
+    boundaries.add_argument("--geoids", nargs="+", required=True)
+    boundaries.add_argument("--earlier", type=int, required=True)
+    boundaries.add_argument("--later", type=int, required=True)
+    boundaries.add_argument("--output", type=Path, required=True)
     prepare = sub.add_parser("prepare", help="Join raw ACS rows to geographic inventory")
     prepare.add_argument("--geography", type=Path, default=Path("data/curated/areas.geojson"))
     prepare.add_argument("--latest", type=Path, required=True)
@@ -119,6 +124,12 @@ def run(args: argparse.Namespace) -> None:
         collection = discover_inglewood()
         write_json(collection, args.output)
         print(f"Fetched {len(collection['features'])} full tracts intersecting Inglewood -> {args.output}")
+    elif args.command == "boundary-check":
+        from youseela.sources.geography import compare_vintages
+        result = compare_vintages(args.geoids, args.earlier, args.later)
+        write_json(result, args.output)
+        for geoid, item in result["tracts"].items():
+            print(f"{geoid}: comparable={item['comparable']} exact={item.get('exact_equal')} max_shift_m={item.get('max_shift_m')}")
     elif args.command == "prepare":
         dataset = prepare_dataset(json.loads(args.geography.read_text()), read_rows(args.latest), read_rows(args.prior),
                                   args.latest_year, args.prior_year, args.area_ids, args.geography_verified)

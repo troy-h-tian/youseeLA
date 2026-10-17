@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-10-17T20:21:21.542270Z",
+  "generated_at": "2026-10-17T20:23:05.837698Z",
   "assessed_as_of": "2020-12-31",
   "data_kind": "real",
   "methodology": {
@@ -329,8 +329,11 @@
       "indicators": {
         "rent_burden_share": 0.63668430335097,
         "renter_share": 0.5044483985765125,
-        "affordability_pressure": null,
-        "affordability_pressure_range": null,
+        "affordability_pressure": 0.0,
+        "affordability_pressure_range": {
+          "lower": 0.0,
+          "upper": 1.0
+        },
         "evidence_ids": [
           "acs-2019-06037600911",
           "acs-2014-06037600911"
@@ -342,7 +345,7 @@
         "warnings": [
           "Affordability-change direction is uncertain; use the sensitivity range, not the point estimate alone",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
-          "2014 and 2019 boundary equality check failed; change score withheld."
+          "2014 and 2019 boundaries differ by at most 0.11 m (0.0005% of area); accepted as comparable under the 5 m / 0.1% rule in artifacts/boundary-tolerance-check.json."
         ]
       },
       "boundary_source_url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_ACS2019/MapServer/8",
@@ -391,24 +394,68 @@
       },
       "housing": {
         "mode": "housing",
-        "status": "insufficient_evidence",
-        "score": null,
-        "score_range": null,
-        "tier": null,
-        "reasons": [
-          "Compatible Census affordability-change estimates are unavailable"
-        ],
+        "status": "rated",
+        "score": 38.595931,
+        "score_range": {
+          "lower": 38.595931,
+          "upper": 63.595931,
+          "explanation": "Sensitivity to rent/income estimates within reported margins of error; not a confidence interval. Rent burden, imagery, and weights are held fixed."
+        },
+        "tier": "moderate",
+        "reasons": [],
         "warnings": [
           "Affordability-change direction is uncertain; use the sensitivity range, not the point estimate alone",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
-          "2014 and 2019 boundary equality check failed; change score withheld.",
+          "2014 and 2019 boundaries differ by at most 0.11 m (0.0005% of area); accepted as comparable under the 5 m / 0.1% rule in artifacts/boundary-tolerance-check.json.",
           "Experimental CLIP + Census index; untrained fusion weights, not a validated prediction or probability.",
           "Visual difference can reflect viewpoint, lighting, vegetation or vehicles; it does not establish redevelopment or its direction.",
           "1 sampled image pair(s); not a representative survey. No human change labels were used.",
           "Zero-visual ablation holds numerical weights fixed; the separate numerical-only baseline renormalizes them."
         ],
-        "contributions": [],
-        "evidence_ids": [],
+        "contributions": [
+          {
+            "feature": "rent_burden",
+            "label": "Housing affordability exposure",
+            "value": 0.63668430335097,
+            "weight": 0.6,
+            "points": 38.2010582010582,
+            "evidence_ids": [
+              "acs-2019-06037600911",
+              "acs-2014-06037600911"
+            ],
+            "explanation": "Share of renter households with computable ratios spending at least 30% of income on rent."
+          },
+          {
+            "feature": "affordability_change",
+            "label": "Affordability-change proxy",
+            "value": 0.0,
+            "weight": 0.25,
+            "points": 0.0,
+            "evidence_ids": [
+              "acs-2019-06037600911",
+              "acs-2014-06037600911"
+            ],
+            "explanation": "Rent growth relative to income growth across compatible ACS periods."
+          },
+          {
+            "feature": "clip_visual_difference",
+            "label": "CLIP visual difference",
+            "value": 0.02632486893813557,
+            "weight": 0.15,
+            "points": 0.39487303407203356,
+            "evidence_ids": [
+              "mapillary-1608297156034468",
+              "mapillary-3357423691026871"
+            ],
+            "explanation": "Mean (1 − cosine similarity)/2 across distinct dated image pairs. An appearance difference, not proof of gentrification."
+          }
+        ],
+        "evidence_ids": [
+          "acs-2014-06037600911",
+          "acs-2019-06037600911",
+          "mapillary-1608297156034468",
+          "mapillary-3357423691026871"
+        ],
         "configuration_version": "experimental-clip-v1",
         "coverage": {
           "images": 2,
@@ -426,13 +473,12 @@
         "score_range": null,
         "tier": null,
         "reasons": [
-          "Compatible Census affordability-change estimates are unavailable",
           "Need 1 distinct dated commercial CLIP image pair(s)"
         ],
         "warnings": [
           "Affordability-change direction is uncertain; use the sensitivity range, not the point estimate alone",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
-          "2014 and 2019 boundary equality check failed; change score withheld.",
+          "2014 and 2019 boundaries differ by at most 0.11 m (0.0005% of area); accepted as comparable under the 5 m / 0.1% rule in artifacts/boundary-tolerance-check.json.",
           "Experimental CLIP + Census index; untrained fusion weights, not a validated prediction or probability.",
           "Visual difference can reflect viewpoint, lighting, vegetation or vehicles; it does not establish redevelopment or its direction.",
           "0 sampled image pair(s); not a representative survey. No human change labels were used.",

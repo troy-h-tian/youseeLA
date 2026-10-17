@@ -1,0 +1,21 @@
+{
+  "sources": [
+    "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_ACS2014/MapServer/8",
+    "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_ACS2019/MapServer/8"
+  ],
+  "rule": "Comparable when the maximum boundary shift is at most 5 m and the area difference is at most 0.1%.",
+  "tracts": {
+    "06037600911": {
+      "exact_equal": false,
+      "area_difference_share": 5e-06,
+      "max_shift_m": 0.108051,
+      "comparable": true
+    },
+    "06037601401": {
+      "exact_equal": true,
+      "area_difference_share": 0.0,
+      "max_shift_m": 0.0,
+      "comparable": true
+    }
+  }
+}

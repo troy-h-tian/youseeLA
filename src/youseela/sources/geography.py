@@ -1,9 +1,12 @@
 """Use official full tract boundaries; never guess tracts from place names."""
 
+import math
 from typing import Any
 
 import httpx
+import shapely
 from shapely.geometry import shape
+from shapely.geometry.base import BaseGeometry
 
 BASE = "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb"
 
@@ -24,6 +27,52 @@ def query_layer(service: str, layer: int, where: str, client: httpx.Client,
     if "error" in data or "features" not in data or data.get("exceededTransferLimit"):
         raise ValueError("Geography query failed or was truncated; narrow the requested area")
     return data
+
+
+def local_metres(geometry: BaseGeometry, latitude: float) -> BaseGeometry:
+    """Equirectangular projection around one latitude; accurate to well under 1% across a tract."""
+    scale_x = 111_320 * math.cos(math.radians(latitude))
+    return shapely.transform(geometry, lambda coords: coords * [scale_x, 110_540])
+
+
+def boundary_shift(earlier: dict[str, Any], later: dict[str, Any]) -> dict[str, Any]:
+    """Measure how far two vintages of one tract boundary differ, instead of requiring exact equality."""
+    a, b = shape(earlier), shape(later)
+    latitude = a.centroid.y
+    a_m, b_m = local_metres(a, latitude), local_metres(b, latitude)
+    return {"exact_equal": a.equals(b),
+            "area_difference_share": a_m.symmetric_difference(b_m).area / a_m.area,
+            "max_shift_m": a_m.hausdorff_distance(b_m)}
+
+
+def comparable_boundaries(shift: dict[str, Any], max_shift_m: float = 5, max_area_share: float = .001) -> bool:
+    """Digitizing updates move vertices by centimetres; a real boundary change moves whole blocks."""
+    return shift["max_shift_m"] <= max_shift_m and shift["area_difference_share"] <= max_area_share
+
+
+def compare_vintages(geoids: list[str], earlier_year: int, later_year: int,
+                     client: httpx.Client | None = None) -> dict[str, Any]:
+    owned = client is None
+    client = client or httpx.Client(timeout=60)
+    try:
+        where = "GEOID IN (" + ",".join(f"'{g}'" for g in geoids) + ")"
+        shapes = {year: {str(f["properties"]["GEOID"]): f["geometry"]
+                         for f in query_layer(f"tigerWMS_ACS{year}", 8, where, client)["features"]}
+                  for year in (earlier_year, later_year)}
+    finally:
+        if owned:
+            client.close()
+    tracts = {}
+    for geoid in geoids:
+        if geoid not in shapes[earlier_year] or geoid not in shapes[later_year]:
+            tracts[geoid] = {"comparable": False, "reason": "Tract missing from one vintage"}
+            continue
+        shift = boundary_shift(shapes[earlier_year][geoid], shapes[later_year][geoid])
+        tracts[geoid] = {**{k: round(v, 6) if isinstance(v, float) else v for k, v in shift.items()},
+                         "comparable": comparable_boundaries(shift)}
+    return {"sources": [f"{BASE}/tigerWMS_ACS{year}/MapServer/8" for year in (earlier_year, later_year)],
+            "rule": "Comparable when the maximum boundary shift is at most 5 m and the area difference is at most 0.1%.",
+            "tracts": tracts}
 
 
 def discover_inglewood(client: httpx.Client | None = None) -> dict[str, Any]:

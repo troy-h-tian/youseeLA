@@ -294,8 +294,11 @@
       "indicators": {
         "rent_burden_share": 0.63668430335097,
         "renter_share": 0.5044483985765125,
-        "affordability_pressure": null,
-        "affordability_pressure_range": null,
+        "affordability_pressure": 0.0,
+        "affordability_pressure_range": {
+          "lower": 0.0,
+          "upper": 1.0
+        },
         "evidence_ids": [
           "acs-2019-06037600911",
           "acs-2014-06037600911"
@@ -307,7 +310,7 @@
         "warnings": [
           "Affordability-change direction is uncertain; use the sensitivity range, not the point estimate alone",
           "ACS windows may overlap; bounds are sensitivity bounds, not a hypothesis test.",
-          "2014 and 2019 boundary equality check failed; change score withheld."
+          "2014 and 2019 boundaries differ by at most 0.11 m (0.0005% of area); accepted as comparable under the 5 m / 0.1% rule in artifacts/boundary-tolerance-check.json."
         ]
       },
       "boundary_source_url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_ACS2019/MapServer/8",

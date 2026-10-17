@@ -28,7 +28,8 @@ Image acquisition, image inference, model startup, frontend delivery and product
 - Real commercial tract 06037601401: combined score 16.062558; setting visual difference to zero gives 14.827869 with numerical inputs/weights fixed. Actual image contribution: 1.234689 points. The evaluation rebuilds the bundle with zero visual features and checks that difference.
 - A different numerical-only baseline, renormalizing numerical weights to sum to one, is 18.534836. This is not the same comparison as zeroing visual input.
 - Visual-weight sensitivity, preserving the relative numerical weights: 0% → 18.53; 10% → 17.30; 20% → 16.06; 30% → 14.83. More image weight does not always increase the score.
-- Only one of two sampled tracts supports a combined assessment. The residential tract failed exact historical boundary equality and remains unrated. This is a conservative comparability gate, not proof of a substantive boundary change.
+- Both sampled tracts now support a combined assessment. The residential tract 06037600911 originally failed an exact boundary-equality check, but its 2014 and 2019 boundaries differ by at most 0.11 m (0.0005% of area). A 5 m / 0.1% tolerance accepts it (`artifacts/boundary-tolerance-check.json`).
+- Real housing tract 06037600911: combined score 38.595931; setting visual difference to zero gives 38.201058. Actual image contribution: 0.394873 points, because its pair barely differs (CLIP visual difference 0.026). Rent burden drives this score; the image input is real but small.
 - The commercial score sensitivity range is 16.06–66.06 when affordability pressure varies within the configured ACS bounds. It is not a confidence interval; visual reliability and weight uncertainty are not included.
 
 ## Accuracy: what can and cannot be claimed
