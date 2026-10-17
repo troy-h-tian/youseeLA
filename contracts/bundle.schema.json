@@ -94,6 +94,17 @@
           "default": null,
           "title": "Score"
         },
+        "score_range": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ScoreRange"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
         "tier": {
           "anyOf": [
             {
@@ -576,6 +587,17 @@
           "default": null,
           "title": "Affordability Pressure"
         },
+        "affordability_pressure_range": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PressureRange"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
         "evidence_ids": {
           "items": {
             "type": "string"
@@ -599,6 +621,29 @@
         }
       },
       "title": "NumericalIndicators",
+      "type": "object"
+    },
+    "PressureRange": {
+      "additionalProperties": false,
+      "properties": {
+        "lower": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Lower",
+          "type": "number"
+        },
+        "upper": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Upper",
+          "type": "number"
+        }
+      },
+      "required": [
+        "lower",
+        "upper"
+      ],
+      "title": "PressureRange",
       "type": "object"
     },
     "Resource": {
@@ -653,6 +698,34 @@
         "verified_at"
       ],
       "title": "Resource",
+      "type": "object"
+    },
+    "ScoreRange": {
+      "additionalProperties": false,
+      "properties": {
+        "lower": {
+          "maximum": 100,
+          "minimum": 0,
+          "title": "Lower",
+          "type": "number"
+        },
+        "upper": {
+          "maximum": 100,
+          "minimum": 0,
+          "title": "Upper",
+          "type": "number"
+        },
+        "explanation": {
+          "default": "Sensitivity to rent/income estimates within reported margins of error; not a confidence interval. Rent burden, imagery, and weights are held fixed.",
+          "title": "Explanation",
+          "type": "string"
+        }
+      },
+      "required": [
+        "lower",
+        "upper"
+      ],
+      "title": "ScoreRange",
       "type": "object"
     }
   },

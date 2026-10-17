@@ -1,0 +1,349 @@
+[
+  {
+    "id": "mapillary-522091952146345",
+    "area_id": "06037601001",
+    "kind": "image",
+    "mode": "commercial",
+    "source_url": "https://www.mapillary.com/app/?pKey=522091952146345",
+    "source_date": "2019-12-19",
+    "attribution": "Mapillary contributor cfwarren3",
+    "license": "CC-BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/",
+    "reviewed": false,
+    "data_kind": "real",
+    "site_id": "mapillary-site-522091952146345",
+    "applies_to_site_ids": [],
+    "latitude": 33.96181,
+    "longitude": -118.353305,
+    "observations": [
+      {
+        "frontage_id": "mapillary-site-522091952146345-candidate-0",
+        "redevelopment": "present",
+        "corroboration_ids": [],
+        "description": "corner store: Storefront with large glass windows and doors, banners on top announcing grand opening and new business; visible interior work or setup activity indicated"
+      },
+      {
+        "frontage_id": "mapillary-site-522091952146345-candidate-1",
+        "redevelopment": "absent",
+        "corroboration_ids": [],
+        "description": "next door store: Storefront with white walls and blue shutters, appears closed but no visible active work"
+      }
+    ],
+    "note": "Unreviewed vision extraction. Visible work is not confirmed redevelopment. Verify findings, align frontage IDs, and add independent corroboration before export."
+  },
+  {
+    "id": "mapillary-326650642189452",
+    "area_id": "06037601001",
+    "kind": "image",
+    "mode": "commercial",
+    "source_url": "https://www.mapillary.com/app/?pKey=326650642189452",
+    "source_date": "2019-12-19",
+    "attribution": "Mapillary contributor cfwarren3",
+    "license": "CC-BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/",
+    "reviewed": false,
+    "data_kind": "real",
+    "site_id": "mapillary-site-326650642189452",
+    "applies_to_site_ids": [],
+    "latitude": 33.961731,
+    "longitude": -118.352005,
+    "observations": [
+      {
+        "frontage_id": "mapillary-site-326650642189452-candidate-0",
+        "redevelopment": "absent",
+        "corroboration_ids": [],
+        "description": "left: Commercial storefronts along left street side, no visible physical work"
+      },
+      {
+        "frontage_id": "mapillary-site-326650642189452-candidate-1",
+        "redevelopment": "absent",
+        "corroboration_ids": [],
+        "description": "right: Commercial storefronts along right street side with signage, no visible physical work"
+      }
+    ],
+    "note": "Unreviewed vision extraction. Visible work is not confirmed redevelopment. Verify findings, align frontage IDs, and add independent corroboration before export."
+  },
+  {
+    "id": "mapillary-168473668425767",
+    "area_id": "06037601001",
+    "kind": "image",
+    "mode": "commercial",
+    "source_url": "https://www.mapillary.com/app/?pKey=168473668425767",
+    "source_date": "2019-12-19",
+    "attribution": "Mapillary contributor cfwarren3",
+    "license": "CC-BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/",
+    "reviewed": false,
+    "data_kind": "real",
+    "site_id": "mapillary-site-168473668425767",
+    "applies_to_site_ids": [],
+    "latitude": 33.961743,
+    "longitude": -118.35087,
+    "observations": [
+      {
+        "frontage_id": "mapillary-site-168473668425767-candidate-0",
+        "redevelopment": "absent",
+        "corroboration_ids": [],
+        "description": "right Bank of America: Bank of America branch building with no visible physical work on the storefront front."
+      }
+    ],
+    "note": "Unreviewed vision extraction. Visible work is not confirmed redevelopment. Verify findings, align frontage IDs, and add independent corroboration before export."
+  },
+  {
+    "id": "mapillary-2777213739257074",
+    "area_id": "06037601002",
+    "kind": "image",
+    "mode": "commercial",
+    "source_url": "https://www.mapillary.com/app/?pKey=2777213739257074",
+    "source_date": "2019-12-19",
+    "attribution": "Mapillary contributor cfwarren3",
+    "license": "CC-BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/",
+    "reviewed": false,
+    "data_kind": "real",
+    "site_id": "mapillary-site-2777213739257074",
+    "applies_to_site_ids": [],
+    "latitude": 33.960797,
+    "longitude": -118.347519,
+    "observations": [
+      {
+        "frontage_id": "mapillary-site-2777213739257074-candidate-0",
+        "redevelopment": "absent",
+        "corroboration_ids": [],
+        "description": "right_1: Commercial storefronts with signs for GT Transmissions and related automotive services. No visible physical work."
+      }
+    ],
+    "note": "Unreviewed vision extraction. Visible work is not confirmed redevelopment. Verify findings, align frontage IDs, and add independent corroboration before export."
+  },
+  {
+    "id": "mapillary-1159494414473614",
+    "area_id": "06037601002",
+    "kind": "image",
+    "mode": "commercial",
+    "source_url": "https://www.mapillary.com/app/?pKey=1159494414473614",
+    "source_date": "2019-12-19",
+    "attribution": "Mapillary contributor cfwarren3",
+    "license": "CC-BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/",
+    "reviewed": false,
+    "data_kind": "real",
+    "site_id": "mapillary-site-1159494414473614",
+    "applies_to_site_ids": [],
+    "latitude": 33.960121,
+    "longitude": -118.34671,
+    "observations": [
+      {
+        "frontage_id": "mapillary-site-1159494414473614-candidate-0",
+        "redevelopment": "absent",
+        "corroboration_ids": [],
+        "description": "right distant cleaners: Commercial cleaners storefront with visible signage but no physical work evident."
+      }
+    ],
+    "note": "Unreviewed vision extraction. Visible work is not confirmed redevelopment. Verify findings, align frontage IDs, and add independent corroboration before export."
+  },
+  {
+    "id": "mapillary-2846529308945110",
+    "area_id": "06037601002",
+    "kind": "image",
+    "mode": "commercial",
+    "source_url": "https://www.mapillary.com/app/?pKey=2846529308945110",
+    "source_date": "2019-12-19",
+    "attribution": "Mapillary contributor cfwarren3",
+    "license": "CC-BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/",
+    "reviewed": false,
+    "data_kind": "real",
+    "site_id": "mapillary-site-2846529308945110",
+    "applies_to_site_ids": [],
+    "latitude": 33.959642,
+    "longitude": -118.345576,
+    "observations": [
+      {
+        "frontage_id": "mapillary-site-2846529308945110-candidate-0",
+        "redevelopment": "absent",
+        "corroboration_ids": [],
+        "description": "corner building: Commercial building with Clean King and Free Dry signage, no visible physical work on storefront."
+      }
+    ],
+    "note": "Unreviewed vision extraction. Visible work is not confirmed redevelopment. Verify findings, align frontage IDs, and add independent corroboration before export."
+  },
+  {
+    "id": "mapillary-463844121572306",
+    "area_id": "06037601301",
+    "kind": "image",
+    "mode": "housing",
+    "source_url": "https://www.mapillary.com/app/?pKey=463844121572306",
+    "source_date": "2019-12-21",
+    "attribution": "Mapillary contributor cfwarren3",
+    "license": "CC-BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/",
+    "reviewed": false,
+    "data_kind": "real",
+    "site_id": "mapillary-site-463844121572306",
+    "applies_to_site_ids": [],
+    "latitude": 33.978749,
+    "longitude": -118.370088,
+    "observations": [],
+    "note": "Unreviewed vision extraction. Visible work is not confirmed redevelopment. Verify findings, align frontage IDs, and add independent corroboration before export."
+  },
+  {
+    "id": "mapillary-4172083536238686",
+    "area_id": "06037601301",
+    "kind": "image",
+    "mode": "housing",
+    "source_url": "https://www.mapillary.com/app/?pKey=4172083536238686",
+    "source_date": "2019-12-21",
+    "attribution": "Mapillary contributor cfwarren3",
+    "license": "CC-BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/",
+    "reviewed": false,
+    "data_kind": "real",
+    "site_id": "mapillary-site-4172083536238686",
+    "applies_to_site_ids": [],
+    "latitude": 33.978963,
+    "longitude": -118.368989,
+    "observations": [
+      {
+        "frontage_id": "mapillary-site-4172083536238686-candidate-0",
+        "redevelopment": "absent",
+        "corroboration_ids": [],
+        "description": "left side near camera: Single-story residential house with no visible physical work"
+      },
+      {
+        "frontage_id": "mapillary-site-4172083536238686-candidate-1",
+        "redevelopment": "absent",
+        "corroboration_ids": [],
+        "description": "right side near camera: Two-story residential house with no visible physical work"
+      },
+      {
+        "frontage_id": "mapillary-site-4172083536238686-candidate-2",
+        "redevelopment": "absent",
+        "corroboration_ids": [],
+        "description": "middle distance left: Single-story residential houses with no visible physical work"
+      },
+      {
+        "frontage_id": "mapillary-site-4172083536238686-candidate-3",
+        "redevelopment": "absent",
+        "corroboration_ids": [],
+        "description": "middle distance right: Single-story residential houses with no visible physical work"
+      }
+    ],
+    "note": "Unreviewed vision extraction. Visible work is not confirmed redevelopment. Verify findings, align frontage IDs, and add independent corroboration before export."
+  },
+  {
+    "id": "mapillary-471221500655380",
+    "area_id": "06037601301",
+    "kind": "image",
+    "mode": "housing",
+    "source_url": "https://www.mapillary.com/app/?pKey=471221500655380",
+    "source_date": "2019-12-21",
+    "attribution": "Mapillary contributor cfwarren3",
+    "license": "CC-BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/",
+    "reviewed": false,
+    "data_kind": "real",
+    "site_id": "mapillary-site-471221500655380",
+    "applies_to_site_ids": [],
+    "latitude": 33.978011,
+    "longitude": -118.367312,
+    "observations": [
+      {
+        "frontage_id": "mapillary-site-471221500655380-candidate-0",
+        "redevelopment": "absent",
+        "corroboration_ids": [],
+        "description": "left side row: Row of single-story houses with no visible physical work"
+      },
+      {
+        "frontage_id": "mapillary-site-471221500655380-candidate-1",
+        "redevelopment": "absent",
+        "corroboration_ids": [],
+        "description": "right side row: Row of single-story houses obscured partially by trees and cars with no visible physical work"
+      }
+    ],
+    "note": "Unreviewed vision extraction. Visible work is not confirmed redevelopment. Verify findings, align frontage IDs, and add independent corroboration before export."
+  },
+  {
+    "id": "mapillary-933518327482101",
+    "area_id": "06037601303",
+    "kind": "image",
+    "mode": "housing",
+    "source_url": "https://www.mapillary.com/app/?pKey=933518327482101",
+    "source_date": "2019-12-18",
+    "attribution": "Mapillary contributor cfwarren3",
+    "license": "CC-BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/",
+    "reviewed": false,
+    "data_kind": "real",
+    "site_id": "mapillary-site-933518327482101",
+    "applies_to_site_ids": [],
+    "latitude": 33.97517,
+    "longitude": -118.364981,
+    "observations": [
+      {
+        "frontage_id": "mapillary-site-933518327482101-candidate-0",
+        "redevelopment": "absent",
+        "corroboration_ids": [],
+        "description": "left side apartment block: Two- to three-story apartment block; no visible construction or physical work"
+      },
+      {
+        "frontage_id": "mapillary-site-933518327482101-candidate-1",
+        "redevelopment": "absent",
+        "corroboration_ids": [],
+        "description": "right side apartment block: Two- to three-story apartment block; no visible construction or physical work"
+      }
+    ],
+    "note": "Unreviewed vision extraction. Visible work is not confirmed redevelopment. Verify findings, align frontage IDs, and add independent corroboration before export."
+  },
+  {
+    "id": "mapillary-178784790793573",
+    "area_id": "06037601303",
+    "kind": "image",
+    "mode": "housing",
+    "source_url": "https://www.mapillary.com/app/?pKey=178784790793573",
+    "source_date": "2019-05-20",
+    "attribution": "Mapillary contributor victuallers",
+    "license": "CC-BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/",
+    "reviewed": false,
+    "data_kind": "real",
+    "site_id": "mapillary-site-178784790793573",
+    "applies_to_site_ids": [],
+    "latitude": 33.973038032998,
+    "longitude": -118.35940975543,
+    "observations": [
+      {
+        "frontage_id": "mapillary-site-178784790793573-candidate-0",
+        "redevelopment": "absent",
+        "corroboration_ids": [],
+        "description": "right low-rise housing: Two-story residential building with windows and doors visible, no physical work evident."
+      },
+      {
+        "frontage_id": "mapillary-site-178784790793573-candidate-1",
+        "redevelopment": "absent",
+        "corroboration_ids": [],
+        "description": "left small housing: Single-story residential building partially visible behind parked cars, no visible physical work."
+      }
+    ],
+    "note": "Unreviewed vision extraction. Visible work is not confirmed redevelopment. Verify findings, align frontage IDs, and add independent corroboration before export."
+  },
+  {
+    "id": "mapillary-851286029066731",
+    "area_id": "06037601303",
+    "kind": "image",
+    "mode": "housing",
+    "source_url": "https://www.mapillary.com/app/?pKey=851286029066731",
+    "source_date": "2019-05-20",
+    "attribution": "Mapillary contributor victuallers",
+    "license": "CC-BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/",
+    "reviewed": false,
+    "data_kind": "real",
+    "site_id": "mapillary-site-851286029066731",
+    "applies_to_site_ids": [],
+    "latitude": 33.971922240854,
+    "longitude": -118.35932,
+    "observations": [
+      {
+        "frontage_id": "mapillary-site-851286029066731-candidate-0",
+        "redevelopment": "absent",
+        "corroboration_ids": [],
+        "description": "left curb near car: Two-story stucco residential building with tiled roof and landscaped front yard, no visible physical work."
+      },
+      {
+        "frontage_id": "mapillary-site-851286029066731-candidate-1",
+        "redevelopment": "absent",
+        "corroboration_ids": [],
+        "description": "right curb near tree: Residential building partially visible behind trees and shrubs, no visible physical work."
+      }
+    ],
+    "note": "Unreviewed vision extraction. Visible work is not confirmed redevelopment. Verify findings, align frontage IDs, and add independent corroboration before export."
+  }
+]

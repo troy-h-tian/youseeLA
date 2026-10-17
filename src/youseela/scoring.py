@@ -7,7 +7,7 @@ from pathlib import Path
 
 from pydantic import Field, model_validator
 
-from youseela.contracts import Assessment, Contribution, Coverage, Evidence, Mode, NumericalIndicators, Record, UnitValue
+from youseela.contracts import Assessment, Contribution, Coverage, Evidence, Mode, NumericalIndicators, Record, ScoreRange, UnitValue
 
 
 class Weights(Record):
@@ -23,7 +23,7 @@ class Weights(Record):
 
 
 class AssessmentConfig(Record):
-    version: str = "experimental-v1"
+    version: str = "experimental-v2-sensitivity"
     minimum_sites: int = Field(default=3, ge=1)
     minimum_frontages: int = Field(default=5, ge=1)
     maximum_image_age_days: int = Field(default=1095, ge=1)
@@ -129,5 +129,13 @@ def assess(area_id: str, mode: Mode, indicators: NumericalIndicators,
                                   points=100*weight*value, evidence_ids=refs, explanation=explanation)
                      for key, label, value, weight, refs, explanation in features]
     score = round(sum(c.points for c in contributions), 6)
+    score_range = None
+    if indicators.affordability_pressure_range:
+        bounds = indicators.affordability_pressure_range
+        def sensitivity(p: float) -> float:
+            return round(100 * (weights.burden * burden + (weights.pressure + weights.visual_interaction * visual) * p), 6)
+        score_range = ScoreRange(lower=sensitivity(bounds.lower), upper=sensitivity(bounds.upper))
+        warnings.append("Provisional point estimate. Sensitivity ranges omit uncertainty in rent burden, image sampling, and chosen weights; they are not confidence intervals.")
     return Assessment(status="rated", score=score, tier="lower" if score < 33 else "moderate" if score < 67 else "higher",
+                      score_range=score_range,
                       contributions=contributions, evidence_ids=sorted(used_ids), **common)

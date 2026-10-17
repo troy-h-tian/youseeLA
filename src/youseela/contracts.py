@@ -60,13 +60,38 @@ class Evidence(Record):
         return self
 
 
+class PressureRange(Record):
+    lower: UnitValue
+    upper: UnitValue
+
+    @model_validator(mode="after")
+    def ordered(self) -> "PressureRange":
+        if self.lower > self.upper:
+            raise ValueError("Range lower bound must not exceed upper bound")
+        return self
+
+
+class ScoreRange(Record):
+    lower: float = Field(ge=0, le=100)
+    upper: float = Field(ge=0, le=100)
+    explanation: str = "Sensitivity to rent/income estimates within reported margins of error; not a confidence interval. Rent burden, imagery, and weights are held fixed."
+
+
 class NumericalIndicators(Record):
     rent_burden_share: UnitValue | None = None
     renter_share: UnitValue | None = None
     affordability_pressure: UnitValue | None = None
+    affordability_pressure_range: PressureRange | None = None
     evidence_ids: list[str] = Field(default_factory=list)
     periods: list[str] = Field(default_factory=list)
     warnings: list[str] = Field(default_factory=list)
+
+    @model_validator(mode="after")
+    def pressure_inside_range(self) -> "NumericalIndicators":
+        bounds = self.affordability_pressure_range
+        if bounds and (self.affordability_pressure is None or not bounds.lower <= self.affordability_pressure <= bounds.upper):
+            raise ValueError("Pressure point estimate must be within its sensitivity range")
+        return self
 
 
 class Contribution(Record):
@@ -92,6 +117,7 @@ class Assessment(Record):
     mode: Mode
     status: Literal["rated", "insufficient_evidence"]
     score: float | None = Field(default=None, ge=0, le=100)
+    score_range: ScoreRange | None = None
     tier: Literal["lower", "moderate", "higher"] | None = None
     reasons: list[str] = Field(default_factory=list)
     warnings: list[str] = Field(default_factory=list)
@@ -102,6 +128,8 @@ class Assessment(Record):
 
     @model_validator(mode="after")
     def coherent_status(self) -> "Assessment":
+        if self.score_range and (self.score is None or not self.score_range.lower <= self.score <= self.score_range.upper):
+            raise ValueError("Score must lie within its sensitivity range")
         if self.status == "insufficient_evidence":
             if self.score is not None or self.tier is not None or self.contributions:
                 raise ValueError("Insufficient evidence must have null score/tier and no contributions")

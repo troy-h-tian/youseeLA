@@ -39,7 +39,8 @@ class Pressure:
     reason: str
 
 
-def affordability_pressure(old: Mapping[str, object], new: Mapping[str, object], cap: float = 0.20) -> Pressure:
+def affordability_pressure(old: Mapping[str, object], new: Mapping[str, object], cap: float = 0.20,
+                           allow_uncertain: bool = False) -> Pressure:
     if not math.isfinite(cap) or cap <= 0:
         raise ValueError("Scaling cap must be positive")
     keys = ["B25064_001E", "B25064_001M", "B19013_001E", "B19013_001M"]
@@ -53,6 +54,7 @@ def affordability_pressure(old: Mapping[str, object], new: Mapping[str, object],
     lower = (rn-rnm)/(ro+rom) - (inn+inm)/(io-iom)
     upper = (rn+rnm)/(ro-rom) - (inn-inm)/(io+iom)
     if lower <= 0 < upper:
-        return Pressure(None, gap, lower, upper, "Affordability-change direction is ambiguous under reported margins")
+        return Pressure(min(1.0, max(0.0, gap) / cap) if allow_uncertain else None, gap, lower, upper,
+                        "Affordability-change direction is uncertain; use the sensitivity range, not the point estimate alone")
     return Pressure(min(1.0, max(0.0, gap) / cap), gap, lower, upper,
                     "Descriptive overlapping-window proxy; bounds are sensitivity bounds, not a joint confidence interval")

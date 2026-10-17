@@ -1,0 +1,145 @@
+{
+  "sample_size": 12,
+  "human_label_agreement": 0.9166666666666666,
+  "confusion_matrix_rows_reference": {
+    "present": {
+      "present": 0,
+      "absent": 0,
+      "unclear": 0,
+      "unusable": 0
+    },
+    "absent": {
+      "present": 1,
+      "absent": 10,
+      "unclear": 0,
+      "unusable": 0
+    },
+    "unclear": {
+      "present": 0,
+      "absent": 0,
+      "unclear": 0,
+      "unusable": 0
+    },
+    "unusable": {
+      "present": 0,
+      "absent": 0,
+      "unclear": 0,
+      "unusable": 1
+    }
+  },
+  "per_class": {
+    "present": {
+      "reference_count": 0,
+      "predicted_count": 1,
+      "precision": 0.0,
+      "recall": null,
+      "f1": 0.0
+    },
+    "absent": {
+      "reference_count": 11,
+      "predicted_count": 10,
+      "precision": 1.0,
+      "recall": 0.9090909090909091,
+      "f1": 0.9523809523809523
+    },
+    "unclear": {
+      "reference_count": 0,
+      "predicted_count": 0,
+      "precision": null,
+      "recall": null,
+      "f1": null
+    },
+    "unusable": {
+      "reference_count": 1,
+      "predicted_count": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    }
+  },
+  "clear_reference_count": 11,
+  "decisive_coverage_on_clear_references": 1.0,
+  "selective_accuracy_on_clear_references": 0.9090909090909091,
+  "gentrification_prediction_accuracy": null,
+  "always_absent_baseline_agreement": 0.9166666666666666,
+  "construction_positive_reference_count": 0,
+  "limitations": [
+    "Single-reviewer pilot labels, not independently adjudicated ground truth.",
+    "Small spatially clustered historical sample; not representative of all neighborhoods.",
+    "Undefined metrics remain null when a class or prediction denominator is absent.",
+    "Visible physical work is not displacement, financial distress, or corroborated redevelopment.",
+    "Selective accuracy excludes abstentions; read it together with coverage.",
+    "This evaluates image observations, not area score accuracy."
+  ],
+  "generated_at": "2026-10-17T19:35:31.229079+00:00",
+  "protocol": "blind-image-labels-v1",
+  "labels_sha256": "41c3f374e933aeea69e9de829e73d5b0b70bb76265c952d372598a4bda8e89ac",
+  "predictions_sha256": "01549905be0b636d6b399988781437af864b8396ded85cf577dd1d642351b27a",
+  "current_prompt_sha256": "a31c8983a906d51537fec19441982d655df524b0af7efc926abc6757e6293c41",
+  "mode_prompt_sha256": {
+    "housing": "ed7dba3f0868ead63175e87e1bb55b6d58123ebc7f2cfa4980f86f3a44b68f2f",
+    "commercial": "81ce3c016a37357258d68686e28b430cd52999ed97964a7ddc76150857aecc2f"
+  },
+  "cases": [
+    {
+      "image_id": "mapillary-1159494414473614",
+      "reference": "absent",
+      "prediction": "absent"
+    },
+    {
+      "image_id": "mapillary-168473668425767",
+      "reference": "absent",
+      "prediction": "absent"
+    },
+    {
+      "image_id": "mapillary-178784790793573",
+      "reference": "absent",
+      "prediction": "absent"
+    },
+    {
+      "image_id": "mapillary-2777213739257074",
+      "reference": "absent",
+      "prediction": "absent"
+    },
+    {
+      "image_id": "mapillary-2846529308945110",
+      "reference": "absent",
+      "prediction": "absent"
+    },
+    {
+      "image_id": "mapillary-326650642189452",
+      "reference": "absent",
+      "prediction": "absent"
+    },
+    {
+      "image_id": "mapillary-4172083536238686",
+      "reference": "absent",
+      "prediction": "absent"
+    },
+    {
+      "image_id": "mapillary-463844121572306",
+      "reference": "unusable",
+      "prediction": "unusable"
+    },
+    {
+      "image_id": "mapillary-471221500655380",
+      "reference": "absent",
+      "prediction": "absent"
+    },
+    {
+      "image_id": "mapillary-522091952146345",
+      "reference": "absent",
+      "prediction": "present"
+    },
+    {
+      "image_id": "mapillary-851286029066731",
+      "reference": "absent",
+      "prediction": "absent"
+    },
+    {
+      "image_id": "mapillary-933518327482101",
+      "reference": "absent",
+      "prediction": "absent"
+    }
+  ]
+}

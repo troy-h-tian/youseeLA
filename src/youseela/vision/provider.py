@@ -16,7 +16,7 @@ import httpx
 from pydantic import Field
 
 from youseela.contracts import Evidence, FrontageObservation, Record
-from youseela.vision.prompts import PROMPT
+from youseela.vision.prompts import prompt_for_mode
 
 
 class VisionSettings(Record):
@@ -87,10 +87,12 @@ def extract_image(job: ImageJob, settings: VisionSettings, state: Path,
     if mime is None:
         raise ValueError("Only PNG and JPEG image files are accepted")
     width, height = struct.unpack(">II", data[16:24]) if mime == "image/png" and len(data) >= 24 else (None, None)
-    signature = json.dumps({"model":settings.model,"prompt":PROMPT,"evidence":job.evidence.model_dump(mode="json")},sort_keys=True).encode()+data
+    prompt = prompt_for_mode(job.evidence.mode)
+    signature = json.dumps({"model":settings.model,"prompt":prompt,"evidence":job.evidence.model_dump(mode="json")},sort_keys=True).encode()+data
     cache_key = hashlib.sha256(signature).hexdigest()
     cache = state/"cache"/f"{cache_key}.json"
     event = {"request_id":str(uuid.uuid4()),"provider":settings.provider,"model":settings.model,
+             "prompt_sha256":hashlib.sha256(prompt.encode()).hexdigest(),
              "image_id":job.evidence.id,"image_count":1,"image_bytes":len(data),
              "image_width":width,"image_height":height,"reserved_cost_usd":0.0,
              "billed_cost_usd":None,"usage":None,"retry_attempt":0}
@@ -106,7 +108,7 @@ def extract_image(job: ImageJob, settings: VisionSettings, state: Path,
     client = client or httpx.Client(timeout=60)
     try:
         payload = {"model":settings.model,"store":False,"max_output_tokens":1500,
-                   "input":[{"role":"user","content":[{"type":"input_text","text":PROMPT},
+                   "input":[{"role":"user","content":[{"type":"input_text","text":prompt},
                               {"type":"input_image","image_url":f"data:{mime};base64,"+base64.b64encode(data).decode(),"detail":"low"}]}],
                    "text":{"format":{"type":"json_schema","name":"visible_frontages","strict":True,"schema":Findings.model_json_schema()}}}
         response = client.post("https://api.openai.com/v1/responses", headers={"Authorization":f"Bearer {settings.api_key}"},json=payload)

@@ -48,7 +48,7 @@ export function AreaMap({ areas, kind, selectedId, compareId, onSelect }: Props)
         </defs>
         {shapes.items.map((shape) => {
           const assessment = byId.get(shape.id)?.[kind];
-          const tier = assessment?.status === 'rated' ? assessment.tier : null;
+          const tier = assessment?.status === 'rated' && !assessment.score_range ? assessment.tier : null;
           const classes = ['map-area', `map-area--${tier ?? 'unrated'}`];
           if (shape.id === selectedId) classes.push('is-selected');
           if (shape.id === compareId) classes.push('is-compared');
@@ -61,7 +61,7 @@ export function AreaMap({ areas, kind, selectedId, compareId, onSelect }: Props)
         {shapes.items.length <= MAX_LABELS &&
           shapes.items.map((shape) => {
             const assessment = byId.get(shape.id)?.[kind];
-            const text = assessment?.status === 'rated' && assessment.tier ? TIER_LABEL[assessment.tier] : 'Unrated';
+            const text = assessment?.score_range ? 'Provisional' : assessment?.status === 'rated' && assessment.tier ? TIER_LABEL[assessment.tier] : 'Unrated';
             return (
               <text key={shape.id} x={shape.at[0]} y={shape.at[1]} className="map-label" textAnchor="middle">
                 {text}
@@ -73,7 +73,7 @@ export function AreaMap({ areas, kind, selectedId, compareId, onSelect }: Props)
         <span><i className="swatch swatch--lower" /> Lower</span>
         <span><i className="swatch swatch--moderate" /> Moderate</span>
         <span><i className="swatch swatch--higher" /> Higher</span>
-        <span><i className="swatch swatch--unrated" /> Unrated</span>
+        <span><i className="swatch swatch--unrated" /> Unrated / provisional</span>
         <span className="muted">Census tract boundaries. Tracts may extend beyond Inglewood city limits.</span>
       </figcaption>
     </figure>

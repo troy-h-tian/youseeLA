@@ -20,7 +20,11 @@ def prepare_dataset(geography: dict[str, Any], latest: dict[str, dict[str, Any]]
         raise ValueError("Requested tract is not in the verified geographic inventory")
     for geoid in chosen:
         now, before = latest.get(geoid, {}), prior.get(geoid, {})
-        pressure = affordability_pressure(before, now)
+        pressure = affordability_pressure(before, now, allow_uncertain=True)
+        bounds = None
+        if geography_verified and pressure.value is not None and pressure.lower_bound is not None and pressure.upper_bound is not None:
+            bounds = {"lower": min(1.0, max(0.0, pressure.lower_bound) / .20),
+                      "upper": min(1.0, max(0.0, pressure.upper_bound) / .20)}
         refs: list[str] = []
         for year, row in [(latest_year, now), (prior_year, before)]:
             if row:
@@ -39,6 +43,7 @@ def prepare_dataset(geography: dict[str, Any], latest: dict[str, dict[str, Any]]
                                boundary_source_url=geography.get("source"), boundary_vintage=geography.get("boundary_vintage"),
                                indicators=NumericalIndicators(rent_burden_share=rent_burden_share(now), renter_share=renter_share(now),
                                                               affordability_pressure=pressure.value if geography_verified else None,
+                                                              affordability_pressure_range=bounds,
                                                               periods=[f"{prior_year-4}–{prior_year}", f"{latest_year-4}–{latest_year}"],
                                                               evidence_ids=refs, warnings=warnings)))
     return Dataset(data_kind="real", areas=areas, evidence=evidence)

@@ -14,6 +14,7 @@ def web_assessment(assessment: Assessment, area: Area, config: AssessmentConfig)
     refs = sorted(set(assessment.evidence_ids + area.indicators.evidence_ids))
     return {
         'status': assessment.status, 'score': assessment.score, 'tier': assessment.tier,
+        'score_range': assessment.score_range.model_dump() if assessment.score_range else None,
         'unrated_reason': '; '.join(assessment.reasons) or None,
         'warnings': assessment.warnings, 'evidence_ids': refs,
         'config_version': assessment.configuration_version,

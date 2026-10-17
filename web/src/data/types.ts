@@ -88,6 +88,7 @@ export interface Assessment {
   status: AssessmentStatus;
   /** 0–100 when rated; null when insufficient_evidence. */
   score: number | null;
+  score_range?: { lower: number; upper: number; explanation: string } | null;
   /** Null when insufficient_evidence. */
   tier: Tier | null;
   /** Specific reason the area is unrated; null when rated. */

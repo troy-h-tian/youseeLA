@@ -141,6 +141,13 @@ function validateAssessment(value: unknown, where: string): string[] {
   if (!isObject(value)) return [`${where} assessment is missing.`];
   const a = value as unknown as Assessment;
   const problems: string[] = [];
+  if (a.score_range != null) {
+    const r = a.score_range;
+    if (!isObject(r) || !Number.isFinite(r.lower) || !Number.isFinite(r.upper)
+        || r.lower < 0 || r.upper > 100 || r.lower > r.upper
+        || a.score === null || a.score < r.lower || a.score > r.upper
+        || typeof r.explanation !== 'string') problems.push(`${where} has an invalid sensitivity range.`);
+  }
   if (a.status === 'rated') {
     if (typeof a.score !== 'number' || !Number.isFinite(a.score) || a.score < 0 || a.score > 100) {
       problems.push(`${where} is rated but score ${JSON.stringify(a.score)} is not within 0–100.`);

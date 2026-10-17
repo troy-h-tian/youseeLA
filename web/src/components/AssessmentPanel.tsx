@@ -42,7 +42,13 @@ export function AssessmentPanel({ area, kind, methodology, onOpenEvidence }: Pro
         <strong>Experimental area context.</strong> {text.context}
       </p>
 
-      {rated ? (
+      {rated && a.score_range ? (
+        <div className="context-label">
+          <p>Provisional point estimate <strong>{formatScore(a.score!)} / 100</strong>.</p>
+          <p>Sensitivity range <strong>{formatScore(a.score_range.lower)}–{formatScore(a.score_range.upper)}</strong>.</p>
+          <p>{a.score_range.explanation}</p>
+        </div>
+      ) : rated ? (
         <p className="score-line">
           Exploratory score <strong>{formatScore(a.score as number)}</strong> out of 100 —{' '}
           <strong>{TIER_LABEL[a.tier!]}</strong> tier under this rubric (below {methodology.tier_bands.lower_below} lower,

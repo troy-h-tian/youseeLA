@@ -5,7 +5,7 @@ The current evidence supports a dated exploratory demonstration, not a defensibl
 ## Available artifacts
 
 - `data/exports/demo.json`: 30 real areas, 60 Census source records, five verified current business locations, and local resources. Current housing and commercial assessments remain unrated.
-- `data/exports/historical-context.json`: one downtown tract, 2014 and 2019 ACS context, with a Census 2010 boundary obtained from the official TIGERweb point query. It is a retrospective presentation of pooled historical conditions, not a forecast or backtest. Tract equivalence across ACS vintages still needs verification.
+- `data/exports/historical-context.json`: four pilot tracts with 2014 and 2019 ACS context and official ACS-vintage polygons. It is a retrospective presentation of pooled historical conditions, not a forecast or backtest. All four polygons match across these two vintages; see `artifacts/historical-geography-check.json`.
 - `data/exports/evidence-review.json`: eight image drafts with imported human selection decisions: four candidates and four duplicates. Individual observations remain unverified. This is a review packet, **not** a scored Bundle. Do not ingest it as approved evidence.
 - `artifacts/image-coverage.json`: 37 initial city-intersecting queries and 28 smaller retries. They returned 118 unique recent image candidates inside the city across four tracts. Failures and 100-image limits mean this is not an exhaustive inventory.
 
@@ -13,7 +13,7 @@ The local `.Codex/evidence-review.html` displays images and draft observations a
 
 ## What the data says
 
-The downtown historical tract has an estimated 51.8% of households with computable rent-to-income ratios spending at least 30% of income on rent in the 2015–2019 ACS. This is housing affordability exposure; it is not a probability of displacement. The change in rent relative to income has a sensitivity interval spanning zero, so the combined rating is withheld.
+The downtown historical tract has an estimated 51.8% of households with computable rent-to-income ratios spending at least 30% of income on rent in the 2015–2019 ACS. This is housing affordability exposure; it is not a probability of displacement. The change in rent relative to income has a sensitivity interval spanning zero. Version experimental-v2-sensitivity supports provisional ranges, but the combined rating remains withheld until imagery gates pass.
 
 Recent samples inspected include freeway scenes, an obstructed intersection, a stadium interior, and a wall. Recent capture dates alone do not establish usable storefront or housing coverage. Three separated camera positions can still depict the same frontage; humans must resolve duplicates and target-building locations.
 
@@ -28,3 +28,7 @@ Human screening is saved in `data/curated/image-review-decisions.json`; `artifac
 Each image record carries its contributor and Mapillary source link. Original imagery remains under CC-BY-SA 4.0. Image-derived observations in the review packet are also provided under CC-BY-SA 4.0; this data notice takes precedence over the repository software license for those observations. Preserve attribution and describe modifications when distributing derived material. See the [Mapillary imagery license](https://help.mapillary.com/hc/en-us/articles/115001770409-CC-BY-SA-license-for-open-data).
 
 Nine successful vision requests used an estimated $0.00596 in tokens under [published GPT-4.1 mini pricing](https://developers.openai.com/api/docs/models/gpt-4.1-mini); actual invoice charges were not queried. Eight identical jobs subsequently hit the local cache without additional API requests. The $5 authorization remains in effect; reservations totaled $0.45 and are deliberately more conservative than estimated token charges.
+
+## Latest evaluation
+
+The subsequent 12-photo blind-label pilot matches 11 labels, equal to an always-absent baseline. It contains no construction-positive reference examples. See `docs/model-evaluation.md` and `artifacts/image-evaluation.json`; this is not area prediction accuracy. Total successful API calls are now 21, estimated token charges $0.01430, with $1.05 conservatively reserved.

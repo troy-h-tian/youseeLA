@@ -1,0 +1,30 @@
+{
+  "periods": [
+    2014,
+    2019
+  ],
+  "checks": [
+    {
+      "geoid": "06037601001",
+      "identical_geometries": true
+    },
+    {
+      "geoid": "06037601002",
+      "identical_geometries": true
+    },
+    {
+      "geoid": "06037601301",
+      "identical_geometries": true
+    },
+    {
+      "geoid": "06037601303",
+      "identical_geometries": true
+    }
+  ],
+  "sources": [
+    "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_ACS2014/MapServer/8",
+    "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_ACS2019/MapServer/8"
+  ],
+  "method": "Shapely topological equality on full WGS84 tract polygons fetched for each ACS vintage. Both source tables contain all four GEOIDs.",
+  "scope": "Only these four historical tracts; does not verify current 2021/2024 comparability."
+}

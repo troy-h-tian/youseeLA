@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-17T19:05:04.271145+00:00",
+  "generated_at": "2026-10-17T19:33:04.636593+00:00",
   "data_kind": "real",
   "methodology": {
-    "config_version": "experimental-v1",
+    "config_version": "experimental-v2-sensitivity",
     "summary": "Experimental area support-priority proxy, not a validated prediction. B is rent burden, P is affordability pressure, and V is corroborated visual change. Missing evidence remains unrated.",
     "limitations": [
       "Selected imagery is not a representative survey.",
@@ -331,6 +331,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed housing image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -344,7 +345,7 @@
           "acs-2021-06037600501",
           "acs-2024-06037600501"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -358,6 +359,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed commercial image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -372,7 +374,7 @@
           "acs-2021-06037600501",
           "acs-2024-06037600501"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -637,6 +639,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed housing image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -650,7 +653,7 @@
           "acs-2021-06037600601",
           "acs-2024-06037600601"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -664,6 +667,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed commercial image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -678,7 +682,7 @@
           "acs-2021-06037600601",
           "acs-2024-06037600601"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -951,6 +955,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed housing image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -964,7 +969,7 @@
           "acs-2021-06037600602",
           "acs-2024-06037600602"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -978,6 +983,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed commercial image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -992,7 +998,7 @@
           "acs-2021-06037600602",
           "acs-2024-06037600602"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -1545,6 +1551,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed housing image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -1558,7 +1565,7 @@
           "acs-2021-06037600702",
           "acs-2024-06037600702"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -1572,6 +1579,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed commercial image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -1586,7 +1594,7 @@
           "acs-2021-06037600702",
           "acs-2024-06037600702"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -1875,6 +1883,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed housing image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -1888,7 +1897,7 @@
           "acs-2021-06037600703",
           "acs-2024-06037600703"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -1902,6 +1911,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed commercial image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -1916,7 +1926,7 @@
           "acs-2021-06037600703",
           "acs-2024-06037600703"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -2277,6 +2287,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed housing image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -2290,7 +2301,7 @@
           "acs-2021-06037600704",
           "acs-2024-06037600704"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -2304,6 +2315,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed commercial image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -2318,7 +2330,7 @@
           "acs-2021-06037600704",
           "acs-2024-06037600704"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -2711,6 +2723,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed housing image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -2724,7 +2737,7 @@
           "acs-2021-06037600801",
           "acs-2024-06037600801"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -2738,6 +2751,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed commercial image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -2752,7 +2766,7 @@
           "acs-2021-06037600801",
           "acs-2024-06037600801"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -3313,6 +3327,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed housing image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -3326,7 +3341,7 @@
           "acs-2021-06037600802",
           "acs-2024-06037600802"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -3340,6 +3355,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed commercial image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -3354,7 +3370,7 @@
           "acs-2021-06037600802",
           "acs-2024-06037600802"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -3767,6 +3783,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed housing image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -3780,7 +3797,7 @@
           "acs-2021-06037600902",
           "acs-2024-06037600902"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -3794,6 +3811,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed commercial image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -3808,7 +3826,7 @@
           "acs-2021-06037600902",
           "acs-2024-06037600902"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -4161,6 +4179,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed housing image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -4174,7 +4193,7 @@
           "acs-2021-06037600911",
           "acs-2024-06037600911"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -4188,6 +4207,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed commercial image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -4202,7 +4222,7 @@
           "acs-2021-06037600911",
           "acs-2024-06037600911"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -4627,6 +4647,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed housing image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -4640,7 +4661,7 @@
           "acs-2021-06037600912",
           "acs-2024-06037600912"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -4654,6 +4675,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed commercial image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -4668,7 +4690,7 @@
           "acs-2021-06037600912",
           "acs-2024-06037600912"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -5093,6 +5115,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed housing image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -5106,7 +5129,7 @@
           "acs-2021-06037601001",
           "acs-2024-06037601001"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -5120,6 +5143,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed commercial image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -5134,7 +5158,7 @@
           "acs-2021-06037601001",
           "acs-2024-06037601001"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -5471,6 +5495,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed housing image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -5484,7 +5509,7 @@
           "acs-2021-06037601002",
           "acs-2024-06037601002"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -5498,6 +5523,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed commercial image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -5512,7 +5538,7 @@
           "acs-2021-06037601002",
           "acs-2024-06037601002"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -5805,6 +5831,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed housing image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -5818,7 +5845,7 @@
           "acs-2021-06037601100",
           "acs-2024-06037601100"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -5832,6 +5859,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed commercial image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -5846,7 +5874,7 @@
           "acs-2021-06037601100",
           "acs-2024-06037601100"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -6247,6 +6275,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed housing image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -6260,7 +6289,7 @@
           "acs-2021-06037601202",
           "acs-2024-06037601202"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -6274,6 +6303,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed commercial image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -6288,7 +6318,7 @@
           "acs-2021-06037601202",
           "acs-2024-06037601202"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -6633,6 +6663,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed housing image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -6646,7 +6677,7 @@
           "acs-2021-06037601211",
           "acs-2024-06037601211"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -6660,6 +6691,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed commercial image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -6674,7 +6706,7 @@
           "acs-2021-06037601211",
           "acs-2024-06037601211"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -7059,6 +7091,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed housing image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -7072,7 +7105,7 @@
           "acs-2021-06037601212",
           "acs-2024-06037601212"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -7086,6 +7119,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed commercial image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -7100,7 +7134,7 @@
           "acs-2021-06037601212",
           "acs-2024-06037601212"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -7437,6 +7471,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed housing image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -7450,7 +7485,7 @@
           "acs-2021-06037601301",
           "acs-2024-06037601301"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -7464,6 +7499,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed commercial image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -7478,7 +7514,7 @@
           "acs-2021-06037601301",
           "acs-2024-06037601301"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -8111,6 +8147,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed housing image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -8124,7 +8161,7 @@
           "acs-2021-06037601302",
           "acs-2024-06037601302"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -8138,6 +8175,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed commercial image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -8152,7 +8190,7 @@
           "acs-2021-06037601302",
           "acs-2024-06037601302"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -8441,6 +8479,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed housing image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -8454,7 +8493,7 @@
           "acs-2021-06037601303",
           "acs-2024-06037601303"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -8468,6 +8507,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed commercial image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -8482,7 +8522,7 @@
           "acs-2021-06037601303",
           "acs-2024-06037601303"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -9067,6 +9107,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed housing image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -9080,7 +9121,7 @@
           "acs-2021-06037601401",
           "acs-2024-06037601401"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -9094,6 +9135,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed commercial image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -9108,7 +9150,7 @@
           "acs-2021-06037601401",
           "acs-2024-06037601401"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -9609,6 +9651,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed housing image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -9622,7 +9665,7 @@
           "acs-2021-06037601402",
           "acs-2024-06037601402"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -9636,6 +9679,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed commercial image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -9650,7 +9694,7 @@
           "acs-2021-06037601402",
           "acs-2024-06037601402"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -10067,6 +10111,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed housing image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -10080,7 +10125,7 @@
           "acs-2021-06037601501",
           "acs-2024-06037601501"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -10094,6 +10139,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed commercial image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -10108,7 +10154,7 @@
           "acs-2021-06037601501",
           "acs-2024-06037601501"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -10541,6 +10587,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed housing image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -10554,7 +10601,7 @@
           "acs-2021-06037601700",
           "acs-2024-06037601700"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -10568,6 +10615,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed commercial image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -10582,7 +10630,7 @@
           "acs-2021-06037601700",
           "acs-2024-06037601700"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -10855,6 +10903,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed housing image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -10868,7 +10917,7 @@
           "acs-2021-06037601801",
           "acs-2024-06037601801"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -10882,6 +10931,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed commercial image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -10896,7 +10946,7 @@
           "acs-2021-06037601801",
           "acs-2024-06037601801"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -11173,6 +11223,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed housing image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -11186,7 +11237,7 @@
           "acs-2021-06037601802",
           "acs-2024-06037601802"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -11200,6 +11251,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed commercial image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -11214,7 +11266,7 @@
           "acs-2021-06037601802",
           "acs-2024-06037601802"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -11495,6 +11547,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed housing image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -11508,7 +11561,7 @@
           "acs-2021-06037601900",
           "acs-2024-06037601900"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -11522,6 +11575,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed commercial image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -11536,7 +11590,7 @@
           "acs-2021-06037601900",
           "acs-2024-06037601900"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -11873,6 +11927,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed housing image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -11886,7 +11941,7 @@
           "acs-2021-06037602003",
           "acs-2024-06037602003"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -11900,6 +11955,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed commercial image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -11914,7 +11970,7 @@
           "acs-2021-06037602003",
           "acs-2024-06037602003"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -12559,6 +12615,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed housing image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -12572,7 +12629,7 @@
           "acs-2021-06037604200",
           "acs-2024-06037604200"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -12586,6 +12643,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed commercial image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -12600,7 +12658,7 @@
           "acs-2021-06037604200",
           "acs-2024-06037604200"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -13249,6 +13307,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed housing image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -13262,7 +13321,7 @@
           "acs-2021-06037703002",
           "acs-2024-06037703002"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,
@@ -13276,6 +13335,7 @@
         "status": "insufficient_evidence",
         "score": null,
         "tier": null,
+        "score_range": null,
         "unrated_reason": "Compatible, interpretable affordability-change evidence is missing; Need 3 distinct reviewed commercial image sites; Need 5 uniquely identifiable, assessable frontages",
         "warnings": [
           "Affordability-change direction is ambiguous under reported margins",
@@ -13290,7 +13350,7 @@
           "acs-2021-06037703002",
           "acs-2024-06037703002"
         ],
-        "config_version": "experimental-v1",
+        "config_version": "experimental-v2-sensitivity",
         "contributions": [],
         "coverage": {
           "distinct_locations": 0,

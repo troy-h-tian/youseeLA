@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-10-17T19:05:04.271145Z",
+  "generated_at": "2026-10-17T19:33:04.636593Z",
   "assessed_as_of": "2026-10-17",
   "data_kind": "real",
   "methodology": {
@@ -8,7 +8,7 @@
     "validated_prediction": false,
     "score_is_probability": false,
     "configuration": {
-      "version": "experimental-v1",
+      "version": "experimental-v2-sensitivity",
       "minimum_sites": 3,
       "minimum_frontages": 5,
       "maximum_image_age_days": 1095,
@@ -295,6 +295,7 @@
         "rent_burden_share": 0.8539682539682539,
         "renter_share": 0.3554083885209713,
         "affordability_pressure": null,
+        "affordability_pressure_range": null,
         "evidence_ids": [
           "acs-2024-06037600501",
           "acs-2021-06037600501"
@@ -315,6 +316,7 @@
         "mode": "housing",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -331,7 +333,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -345,6 +347,7 @@
         "mode": "commercial",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -362,7 +365,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -579,6 +582,7 @@
         "rent_burden_share": 0.6958174904942965,
         "renter_share": 0.3561643835616438,
         "affordability_pressure": null,
+        "affordability_pressure_range": null,
         "evidence_ids": [
           "acs-2024-06037600601",
           "acs-2021-06037600601"
@@ -599,6 +603,7 @@
         "mode": "housing",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -615,7 +620,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -629,6 +634,7 @@
         "mode": "commercial",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -646,7 +652,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -871,6 +877,7 @@
         "rent_burden_share": 0.6358118361153262,
         "renter_share": 0.926490984743412,
         "affordability_pressure": null,
+        "affordability_pressure_range": null,
         "evidence_ids": [
           "acs-2024-06037600602",
           "acs-2021-06037600602"
@@ -891,6 +898,7 @@
         "mode": "housing",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -907,7 +915,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -921,6 +929,7 @@
         "mode": "commercial",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -938,7 +947,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -1443,6 +1452,7 @@
         "rent_burden_share": 0.7928118393234672,
         "renter_share": 0.31731909845788847,
         "affordability_pressure": null,
+        "affordability_pressure_range": null,
         "evidence_ids": [
           "acs-2024-06037600702",
           "acs-2021-06037600702"
@@ -1463,6 +1473,7 @@
         "mode": "housing",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -1479,7 +1490,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -1493,6 +1504,7 @@
         "mode": "commercial",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -1510,7 +1522,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -1751,6 +1763,7 @@
         "rent_burden_share": 0.7960526315789473,
         "renter_share": 0.18181818181818182,
         "affordability_pressure": null,
+        "affordability_pressure_range": null,
         "evidence_ids": [
           "acs-2024-06037600703",
           "acs-2021-06037600703"
@@ -1771,6 +1784,7 @@
         "mode": "housing",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -1787,7 +1801,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -1801,6 +1815,7 @@
         "mode": "commercial",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -1818,7 +1833,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -2131,6 +2146,7 @@
         "rent_burden_share": 0.6591865357643759,
         "renter_share": 0.6094017094017095,
         "affordability_pressure": null,
+        "affordability_pressure_range": null,
         "evidence_ids": [
           "acs-2024-06037600704",
           "acs-2021-06037600704"
@@ -2151,6 +2167,7 @@
         "mode": "housing",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -2167,7 +2184,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -2181,6 +2198,7 @@
         "mode": "commercial",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -2198,7 +2216,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -2543,6 +2561,7 @@
         "rent_burden_share": 0.5112359550561798,
         "renter_share": 0.2800944138473643,
         "affordability_pressure": null,
+        "affordability_pressure_range": null,
         "evidence_ids": [
           "acs-2024-06037600801",
           "acs-2021-06037600801"
@@ -2563,6 +2582,7 @@
         "mode": "housing",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -2579,7 +2599,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -2593,6 +2613,7 @@
         "mode": "commercial",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -2610,7 +2631,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -3123,6 +3144,7 @@
         "rent_burden_share": 0.6413043478260869,
         "renter_share": 0.5504273504273505,
         "affordability_pressure": null,
+        "affordability_pressure_range": null,
         "evidence_ids": [
           "acs-2024-06037600802",
           "acs-2021-06037600802"
@@ -3143,6 +3165,7 @@
         "mode": "housing",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -3159,7 +3182,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -3173,6 +3196,7 @@
         "mode": "commercial",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -3190,7 +3214,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -3555,6 +3579,7 @@
         "rent_burden_share": 0.6344383057090239,
         "renter_share": 0.8278595696489242,
         "affordability_pressure": null,
+        "affordability_pressure_range": null,
         "evidence_ids": [
           "acs-2024-06037600902",
           "acs-2021-06037600902"
@@ -3575,6 +3600,7 @@
         "mode": "housing",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -3591,7 +3617,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -3605,6 +3631,7 @@
         "mode": "commercial",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -3622,7 +3649,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -3927,6 +3954,7 @@
         "rent_burden_share": 0.6098310291858678,
         "renter_share": 0.6424682395644283,
         "affordability_pressure": null,
+        "affordability_pressure_range": null,
         "evidence_ids": [
           "acs-2024-06037600911",
           "acs-2021-06037600911"
@@ -3947,6 +3975,7 @@
         "mode": "housing",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -3963,7 +3992,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -3977,6 +4006,7 @@
         "mode": "commercial",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -3994,7 +4024,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -4371,6 +4401,7 @@
         "rent_burden_share": 0.5077639751552795,
         "renter_share": 0.44370419720186544,
         "affordability_pressure": null,
+        "affordability_pressure_range": null,
         "evidence_ids": [
           "acs-2024-06037600912",
           "acs-2021-06037600912"
@@ -4391,6 +4422,7 @@
         "mode": "housing",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -4407,7 +4439,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -4421,6 +4453,7 @@
         "mode": "commercial",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -4438,7 +4471,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -4815,6 +4848,7 @@
         "rent_burden_share": 0.5872442839951865,
         "renter_share": 0.7061973986228003,
         "affordability_pressure": null,
+        "affordability_pressure_range": null,
         "evidence_ids": [
           "acs-2024-06037601001",
           "acs-2021-06037601001"
@@ -4835,6 +4869,7 @@
         "mode": "housing",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -4851,7 +4886,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -4865,6 +4900,7 @@
         "mode": "commercial",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -4882,7 +4918,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -5171,6 +5207,7 @@
         "rent_burden_share": 0.6046511627906976,
         "renter_share": 0.7908872901678657,
         "affordability_pressure": null,
+        "affordability_pressure_range": null,
         "evidence_ids": [
           "acs-2024-06037601002",
           "acs-2021-06037601002"
@@ -5191,6 +5228,7 @@
         "mode": "housing",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -5207,7 +5245,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -5221,6 +5259,7 @@
         "mode": "commercial",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -5238,7 +5277,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -5483,6 +5522,7 @@
         "rent_burden_share": 0.7599758162031439,
         "renter_share": 0.8411764705882353,
         "affordability_pressure": null,
+        "affordability_pressure_range": null,
         "evidence_ids": [
           "acs-2024-06037601100",
           "acs-2021-06037601100"
@@ -5503,6 +5543,7 @@
         "mode": "housing",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -5519,7 +5560,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -5533,6 +5574,7 @@
         "mode": "commercial",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -5550,7 +5592,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -5903,6 +5945,7 @@
         "rent_burden_share": 0.7825,
         "renter_share": 0.43447037701974867,
         "affordability_pressure": null,
+        "affordability_pressure_range": null,
         "evidence_ids": [
           "acs-2024-06037601202",
           "acs-2021-06037601202"
@@ -5923,6 +5966,7 @@
         "mode": "housing",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -5939,7 +5983,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -5953,6 +5997,7 @@
         "mode": "commercial",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -5970,7 +6015,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -6267,6 +6312,7 @@
         "rent_burden_share": 0.6267696267696268,
         "renter_share": 0.7201458523245214,
         "affordability_pressure": null,
+        "affordability_pressure_range": null,
         "evidence_ids": [
           "acs-2024-06037601211",
           "acs-2021-06037601211"
@@ -6287,6 +6333,7 @@
         "mode": "housing",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -6303,7 +6350,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -6317,6 +6364,7 @@
         "mode": "commercial",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -6334,7 +6382,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -6671,6 +6719,7 @@
         "rent_burden_share": 0.5994605529332434,
         "renter_share": 0.824773413897281,
         "affordability_pressure": null,
+        "affordability_pressure_range": null,
         "evidence_ids": [
           "acs-2024-06037601212",
           "acs-2021-06037601212"
@@ -6691,6 +6740,7 @@
         "mode": "housing",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -6707,7 +6757,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -6721,6 +6771,7 @@
         "mode": "commercial",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -6738,7 +6789,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -7027,6 +7078,7 @@
         "rent_burden_share": 0.5150501672240803,
         "renter_share": 0.40283140283140284,
         "affordability_pressure": null,
+        "affordability_pressure_range": null,
         "evidence_ids": [
           "acs-2024-06037601301",
           "acs-2021-06037601301"
@@ -7047,6 +7099,7 @@
         "mode": "housing",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -7063,7 +7116,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -7077,6 +7130,7 @@
         "mode": "commercial",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -7094,7 +7148,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -7679,6 +7733,7 @@
         "rent_burden_share": 0.5873925501432665,
         "renter_share": 0.7882966828177413,
         "affordability_pressure": null,
+        "affordability_pressure_range": null,
         "evidence_ids": [
           "acs-2024-06037601302",
           "acs-2021-06037601302"
@@ -7699,6 +7754,7 @@
         "mode": "housing",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -7715,7 +7771,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -7729,6 +7785,7 @@
         "mode": "commercial",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -7746,7 +7803,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -7987,6 +8044,7 @@
         "rent_burden_share": 0.7310789049919485,
         "renter_share": 0.9001790510295434,
         "affordability_pressure": null,
+        "affordability_pressure_range": null,
         "evidence_ids": [
           "acs-2024-06037601303",
           "acs-2021-06037601303"
@@ -8007,6 +8065,7 @@
         "mode": "housing",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -8023,7 +8082,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -8037,6 +8096,7 @@
         "mode": "commercial",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -8054,7 +8114,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -8591,6 +8651,7 @@
         "rent_burden_share": 0.5503931379556827,
         "renter_share": 0.7488176563321072,
         "affordability_pressure": null,
+        "affordability_pressure_range": null,
         "evidence_ids": [
           "acs-2024-06037601401",
           "acs-2021-06037601401"
@@ -8611,6 +8672,7 @@
         "mode": "housing",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -8627,7 +8689,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -8641,6 +8703,7 @@
         "mode": "commercial",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -8658,7 +8721,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -9111,6 +9174,7 @@
         "rent_burden_share": 0.6292682926829268,
         "renter_share": 0.5037650602409639,
         "affordability_pressure": null,
+        "affordability_pressure_range": null,
         "evidence_ids": [
           "acs-2024-06037601402",
           "acs-2021-06037601402"
@@ -9131,6 +9195,7 @@
         "mode": "housing",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -9147,7 +9212,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -9161,6 +9226,7 @@
         "mode": "commercial",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -9178,7 +9244,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -9547,6 +9613,7 @@
         "rent_burden_share": 0.6362515413070283,
         "renter_share": 0.8664529914529915,
         "affordability_pressure": null,
+        "affordability_pressure_range": null,
         "evidence_ids": [
           "acs-2024-06037601501",
           "acs-2021-06037601501"
@@ -9567,6 +9634,7 @@
         "mode": "housing",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -9583,7 +9651,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -9597,6 +9665,7 @@
         "mode": "commercial",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -9614,7 +9683,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -9999,6 +10068,7 @@
         "rent_burden_share": 0.6251276813074566,
         "renter_share": 0.8183925811437404,
         "affordability_pressure": null,
+        "affordability_pressure_range": null,
         "evidence_ids": [
           "acs-2024-06037601700",
           "acs-2021-06037601700"
@@ -10019,6 +10089,7 @@
         "mode": "housing",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -10035,7 +10106,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -10049,6 +10120,7 @@
         "mode": "commercial",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -10066,7 +10138,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -10291,6 +10363,7 @@
         "rent_burden_share": 0.5628140703517588,
         "renter_share": 0.7023529411764706,
         "affordability_pressure": null,
+        "affordability_pressure_range": null,
         "evidence_ids": [
           "acs-2024-06037601801",
           "acs-2021-06037601801"
@@ -10311,6 +10384,7 @@
         "mode": "housing",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -10327,7 +10401,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -10341,6 +10415,7 @@
         "mode": "commercial",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -10358,7 +10433,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -10587,6 +10662,7 @@
         "rent_burden_share": 0.4134078212290503,
         "renter_share": 0.699885452462772,
         "affordability_pressure": null,
+        "affordability_pressure_range": null,
         "evidence_ids": [
           "acs-2024-06037601802",
           "acs-2021-06037601802"
@@ -10607,6 +10683,7 @@
         "mode": "housing",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -10623,7 +10700,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -10637,6 +10714,7 @@
         "mode": "commercial",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -10654,7 +10732,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -10887,6 +10965,7 @@
         "rent_burden_share": 0.6498353457738749,
         "renter_share": 0.7018867924528301,
         "affordability_pressure": null,
+        "affordability_pressure_range": null,
         "evidence_ids": [
           "acs-2024-06037601900",
           "acs-2021-06037601900"
@@ -10907,6 +10986,7 @@
         "mode": "housing",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -10923,7 +11003,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -10937,6 +11017,7 @@
         "mode": "commercial",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -10954,7 +11035,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -11243,6 +11324,7 @@
         "rent_burden_share": 0.6430678466076696,
         "renter_share": 0.5602893890675241,
         "affordability_pressure": null,
+        "affordability_pressure_range": null,
         "evidence_ids": [
           "acs-2024-06037602003",
           "acs-2021-06037602003"
@@ -11263,6 +11345,7 @@
         "mode": "housing",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -11279,7 +11362,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -11293,6 +11376,7 @@
         "mode": "commercial",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -11310,7 +11394,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -11907,6 +11991,7 @@
         "rent_burden_share": 0.6364812419146184,
         "renter_share": 0.44527649769585254,
         "affordability_pressure": null,
+        "affordability_pressure_range": null,
         "evidence_ids": [
           "acs-2024-06037604200",
           "acs-2021-06037604200"
@@ -11927,6 +12012,7 @@
         "mode": "housing",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -11943,7 +12029,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -11957,6 +12043,7 @@
         "mode": "commercial",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -11974,7 +12061,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -12575,6 +12662,7 @@
         "rent_burden_share": 0.5065458207452165,
         "renter_share": 0.35724282715185446,
         "affordability_pressure": null,
+        "affordability_pressure_range": null,
         "evidence_ids": [
           "acs-2024-06037703002",
           "acs-2021-06037703002"
@@ -12595,6 +12683,7 @@
         "mode": "housing",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -12611,7 +12700,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -12625,6 +12714,7 @@
         "mode": "commercial",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Compatible, interpretable affordability-change evidence is missing",
@@ -12642,7 +12732,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,

@@ -1,0 +1,67 @@
+{
+  "reviewed_at": "2026-10-17T19:34:04.772Z",
+  "protocol": "blind-image-labels-v1",
+  "definitions": "Visible physical construction/renovation on the requested frontage class; unusable includes absent relevant fronts, severe obstruction or duplicate coverage.",
+  "decisions": [
+    {
+      "image_id": "mapillary-522091952146345",
+      "label": "absent",
+      "note": "Grand openeing"
+    },
+    {
+      "image_id": "mapillary-326650642189452",
+      "label": "absent",
+      "note": ""
+    },
+    {
+      "image_id": "mapillary-168473668425767",
+      "label": "absent",
+      "note": ""
+    },
+    {
+      "image_id": "mapillary-2777213739257074",
+      "label": "absent",
+      "note": ""
+    },
+    {
+      "image_id": "mapillary-1159494414473614",
+      "label": "absent",
+      "note": ""
+    },
+    {
+      "image_id": "mapillary-2846529308945110",
+      "label": "absent",
+      "note": ""
+    },
+    {
+      "image_id": "mapillary-463844121572306",
+      "label": "unusable",
+      "note": ""
+    },
+    {
+      "image_id": "mapillary-4172083536238686",
+      "label": "absent",
+      "note": ""
+    },
+    {
+      "image_id": "mapillary-471221500655380",
+      "label": "absent",
+      "note": ""
+    },
+    {
+      "image_id": "mapillary-933518327482101",
+      "label": "absent",
+      "note": ""
+    },
+    {
+      "image_id": "mapillary-178784790793573",
+      "label": "absent",
+      "note": ""
+    },
+    {
+      "image_id": "mapillary-851286029066731",
+      "label": "absent",
+      "note": ""
+    }
+  ]
+}

@@ -8,6 +8,9 @@ export const TIER_LABEL: Record<Tier, string> = {
 
 /** Short text used wherever a rating appears, so color is never the only signal. */
 export function ratingText(assessment: Assessment): string {
+  if (assessment.status === 'rated' && assessment.score !== null && assessment.score_range) {
+    return `Provisional · ${formatScore(assessment.score)}/100 · range ${formatScore(assessment.score_range.lower)}–${formatScore(assessment.score_range.upper)}`;
+  }
   if (assessment.status !== 'rated' || assessment.score === null || assessment.tier === null) {
     return 'Unrated';
   }

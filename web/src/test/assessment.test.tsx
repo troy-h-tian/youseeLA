@@ -224,3 +224,26 @@ describe('loading states', () => {
     expect(await screen.findByText(/contains no areas yet/)).toBeInTheDocument();
   });
 });
+
+describe('uncertainty-aware assessment display', () => {
+  it('uses alphabetical ordering instead of a risk ranking when ranges overlap', () => {
+    const bundle = fixture();
+    const a = bundle.areas[0]!;
+    const b = bundle.areas[1]!;
+    a.commercial.score_range = { lower: 20, upper: 85, explanation: 'Input sensitivity only' };
+    b.commercial.score_range = { lower: 10, upper: 75, explanation: 'Input sensitivity only' };
+    a.label = 'Z area'; b.label = 'A area';
+    const result = rankAreas([a, b], 'commercial');
+    expect(result.orderingSupported).toBe(false);
+    expect(result.rated.map(x => x.label)).toEqual(['A area', 'Z area']);
+  });
+  it('displays a provisional range and rejects reversed ranges', () => {
+    const bundle = fixture();
+    bundle.areas[0]!.commercial.score_range = { lower: 20, upper: 85, explanation: 'Input sensitivity only; not a confidence interval.' };
+    renderExplorer(bundle);
+    expect(screen.getByText(/Input sensitivity only; not a confidence interval/)).toBeVisible();
+    expect(screen.getByText(/^Sensitivity range /)).toBeVisible();
+    bundle.areas[0]!.commercial.score_range.lower = 90;
+    expect(validateBundle(bundle).some(p => p.includes('sensitivity range'))).toBe(true);
+  });
+});

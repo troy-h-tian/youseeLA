@@ -119,3 +119,13 @@ def test_invalid_history_reference_cannot_hide_ambiguous_current_image() -> None
         observation.corroboration_ids = [unclear.id]
     items.append(unrelated)
     assert assess("a", "housing", indicators(), items, load_config(), date(2026, 10, 17)).score is None
+
+
+def test_uncertainty_range_preserves_point_and_image_contribution() -> None:
+    inputs = NumericalIndicators.model_validate({**indicators().model_dump(), 'affordability_pressure_range': {'lower':0.0, 'upper':1.0}})
+    result = assess('a', 'housing', inputs, evidence(), load_config(), date(2026,10,17))
+    assert result.score == 50
+    assert result.score_range.lower == 30
+    assert result.score_range.upper == 70
+    missing = assess('a', 'housing', inputs, [], load_config(), date(2026,10,17))
+    assert missing.score is None and missing.score_range is None

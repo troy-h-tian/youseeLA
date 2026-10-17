@@ -10,7 +10,7 @@ interface Props {
 }
 
 export function AreaList({ areas, kind, selectedId, onSelect }: Props) {
-  const { rated, unrated } = rankAreas(areas, kind);
+  const { rated, unrated, orderingSupported } = rankAreas(areas, kind);
   const item = (area: Area, showReason: boolean) => (
     <li key={area.id}>
       <button
@@ -31,11 +31,13 @@ export function AreaList({ areas, kind, selectedId, onSelect }: Props) {
 
   return (
     <nav className="area-list" aria-label={`Areas by ${kind} assessment`}>
-      <h2 className="section-title">Rated areas ({rated.length})</h2>
+      <h2 className="section-title">{orderingSupported ? 'Rated areas' : 'Assessed areas — not ranked'} ({rated.length})</h2>
+      {!orderingSupported && <p className="muted">Sensitivity ranges overlap. Areas are listed alphabetically, not by support priority.</p>}
       {rated.length === 0 ? (
         <p className="muted">No area has enough evidence for a {kind} rating.</p>
       ) : (
-        <ol className="area-list__items">{rated.map((a) => item(a, false))}</ol>
+        orderingSupported ? <ol className="area-list__items">{rated.map((a) => item(a, false))}</ol>
+          : <ul className="area-list__items">{rated.map((a) => item(a, false))}</ul>
       )}
       {unrated.length > 0 && (
         <>

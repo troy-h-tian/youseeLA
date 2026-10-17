@@ -68,3 +68,13 @@ def test_refusal_is_recorded_and_not_exported_as_observations(tmp_path: Path) ->
     with pytest.raises(ValueError, match="structured"):
         extract_image(job(tmp_path), settings(), tmp_path/"state", client=client)
     assert '"status": "error"' in (tmp_path/"state"/"telemetry.jsonl").read_text()
+
+
+def test_prompt_targets_assigned_frontage_class(tmp_path: Path) -> None:
+    def transport(request: httpx.Request) -> httpx.Response:
+        prompt = json.loads(request.content)['input'][0]['content'][0]['text']
+        assert 'Requested frontage class: housing' in prompt
+        assert 'empty frontages list' in prompt
+        return response(request)
+    extract_image(job(tmp_path), settings(), tmp_path/'state',
+                  client=httpx.Client(transport=httpx.MockTransport(transport)))

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-10-17T19:00:31.359524Z",
+  "generated_at": "2026-10-17T19:33:04.877182Z",
   "assessed_as_of": "2026-10-17",
   "data_kind": "fixture",
   "methodology": {
@@ -8,7 +8,7 @@
     "validated_prediction": false,
     "score_is_probability": false,
     "configuration": {
-      "version": "experimental-v1",
+      "version": "experimental-v2-sensitivity",
       "minimum_sites": 3,
       "minimum_frontages": 5,
       "maximum_image_age_days": 1095,
@@ -67,6 +67,7 @@
         "rent_burden_share": 0.4,
         "renter_share": 0.6,
         "affordability_pressure": 0.5,
+        "affordability_pressure_range": null,
         "evidence_ids": [
           "fixture-0000-acs"
         ],
@@ -81,6 +82,7 @@
         "mode": "housing",
         "status": "rated",
         "score": 40.25,
+        "score_range": null,
         "tier": "moderate",
         "reasons": [],
         "warnings": [
@@ -134,7 +136,7 @@
           "fixture-0000-housing-2",
           "fixture-0000-project"
         ],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 3,
           "sites": 3,
@@ -148,6 +150,7 @@
         "mode": "commercial",
         "status": "rated",
         "score": 42.0,
+        "score_range": null,
         "tier": "moderate",
         "reasons": [],
         "warnings": [
@@ -202,7 +205,7 @@
           "fixture-0000-commercial-2",
           "fixture-0000-project"
         ],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 3,
           "sites": 3,
@@ -247,6 +250,7 @@
         "rent_burden_share": 0.5,
         "renter_share": 0.6,
         "affordability_pressure": 0.5,
+        "affordability_pressure_range": null,
         "evidence_ids": [
           "fixture-0001-acs"
         ],
@@ -261,6 +265,7 @@
         "mode": "housing",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Need 3 distinct reviewed housing image sites",
@@ -273,7 +278,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -287,6 +292,7 @@
         "mode": "commercial",
         "status": "rated",
         "score": 45.0,
+        "score_range": null,
         "tier": "moderate",
         "reasons": [],
         "warnings": [
@@ -341,7 +347,7 @@
           "fixture-0001-commercial-2",
           "fixture-0001-project"
         ],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 3,
           "sites": 3,
@@ -386,6 +392,7 @@
         "rent_burden_share": 0.6000000000000001,
         "renter_share": 0.6,
         "affordability_pressure": 0.5,
+        "affordability_pressure_range": null,
         "evidence_ids": [
           "fixture-0002-acs"
         ],
@@ -400,6 +407,7 @@
         "mode": "housing",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Need 3 distinct reviewed housing image sites",
@@ -412,7 +420,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,
@@ -426,6 +434,7 @@
         "mode": "commercial",
         "status": "insufficient_evidence",
         "score": null,
+        "score_range": null,
         "tier": null,
         "reasons": [
           "Need 3 distinct reviewed commercial image sites",
@@ -439,7 +448,7 @@
         ],
         "contributions": [],
         "evidence_ids": [],
-        "configuration_version": "experimental-v1",
+        "configuration_version": "experimental-v2-sensitivity",
         "coverage": {
           "images": 0,
           "sites": 0,

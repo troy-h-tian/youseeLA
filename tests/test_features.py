@@ -22,3 +22,11 @@ def test_affordability_pressure_requires_clear_direction() -> None:
     assert result.lower_bound is not None and result.lower_bound > 0
     assert affordability_pressure(old, old).value is None
     assert affordability_pressure({}, new).value is None
+
+
+def test_uncertain_pressure_can_be_preserved_for_sensitivity_display() -> None:
+    old = {'B25064_001E':'1000', 'B25064_001M':'100', 'B19013_001E':'50000', 'B19013_001M':'5000'}
+    result = affordability_pressure(old, old, allow_uncertain=True)
+    assert result.value == 0
+    assert result.lower_bound < 0 < result.upper_bound
+    assert affordability_pressure({}, old, allow_uncertain=True).value is None
